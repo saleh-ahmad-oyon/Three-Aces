@@ -156,4 +156,23 @@ if(isset($_POST['calzoneName'])){
         editSalad($name, $costSmall, $costLarge, $key);
     }
     echo json_encode($resp);
+}elseif(isset($_POST['editSideOrderKey'])){
+    $key = $_POST['editSideOrderKey'];
+    $row = findSideOrderRow($key);
+    $resp = $row;
+    echo json_encode($resp);
+}elseif(isset($_POST['deleteSideOrderKey'])){
+    $key = $_POST['deleteSideOrderKey'];
+    deleteSideOrderRow($key);
+}elseif(isset($_POST['sideOrderName'])){
+    $name = $_POST['sideOrderName'];
+    $costSmall = $_POST['sideOrderCostSmall'];
+    $costLarge = $_POST['sideOrderCostLarge'];
+    if($_POST['sideOrderAction'] == 'add'){
+        insertSideOrder($name, $costSmall, $costLarge);
+    }else{
+        $key = $_POST['sideOrderAction'];
+        editSideOrder($name, $costSmall, $costLarge, $key);
+    }
+    echo json_encode($resp);
 }
