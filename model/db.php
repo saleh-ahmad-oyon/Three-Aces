@@ -18,6 +18,18 @@ function calzone(){
     $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $row;
 }
+function findCalzoneRow($key){
+    $conn = db_conn();
+    $selectQuery = 'SELECT * FROM `calzone` WHERE `id` = ?';
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute(array($key));
+    }catch(PDOException $e){
+        handle_sql_errors($selectQuery, $e->getMessage());
+    }
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $row;
+}
 function grinders(){
     $conn = db_conn();
     $selectQuery = 'SELECT * FROM `grinder`';
@@ -210,4 +222,37 @@ function allInfo($key){
     }
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     return $row ;
+}
+function insertCalzone($name, $cost){
+    $conn = db_conn();
+    $selectQuery = "INSERT INTO `calzone`(`name`, `price`) VALUES (:title, :cost)";
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute(array(':title' => $name, ':cost' => $cost));
+    }catch(PDOException $e){
+        handle_sql_errors($selectQuery, $e->getMessage());
+    }
+    $conn = null;
+}
+function editCalzone($name, $cost, $key){
+    $conn = db_conn();
+    $selectQuery = "UPDATE `calzone` SET `name`=:title,`price`=:cost WHERE `id` = :key";
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute(array(':title' => $name, ':cost' => $cost, ':key' => $key));
+    }catch(PDOException $e){
+        handle_sql_errors($selectQuery, $e->getMessage());
+    }
+    $conn = null;
+}
+function deleteCalzoneRow($key){
+    $conn = db_conn();
+    $selectQuery = "DELETE FROM `calzone` WHERE `id` = ?";
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute(array($key));
+    }catch(PDOException $e){
+        handle_sql_errors($selectQuery, $e->getMessage());
+    }
+    $conn = null;
 }
