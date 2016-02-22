@@ -30,6 +30,18 @@ function findCalzoneRow($key){
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     return $row;
 }
+function findLasagnaRow($key){
+    $conn = db_conn();
+    $selectQuery = 'SELECT * FROM `lasagna` WHERE `lasagna_id` = ?';
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute(array($key));
+    }catch(PDOException $e){
+        handle_sql_errors($selectQuery, $e->getMessage());
+    }
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $row;
+}
 function grinders(){
     $conn = db_conn();
     $selectQuery = 'SELECT * FROM `grinder`';
@@ -234,6 +246,17 @@ function insertCalzone($name, $cost){
     }
     $conn = null;
 }
+function insertLasagna($name, $cost){
+    $conn = db_conn();
+    $selectQuery = "INSERT INTO `lasagna`(`lasagna_name`, `lasagna_price`) VALUES (:title, :cost)";
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute(array(':title' => $name, ':cost' => $cost));
+    }catch(PDOException $e){
+        handle_sql_errors($selectQuery, $e->getMessage());
+    }
+    $conn = null;
+}
 function editCalzone($name, $cost, $key){
     $conn = db_conn();
     $selectQuery = "UPDATE `calzone` SET `name`=:title,`price`=:cost WHERE `id` = :key";
@@ -245,9 +268,31 @@ function editCalzone($name, $cost, $key){
     }
     $conn = null;
 }
+function editLasagna($name, $cost, $key){
+    $conn = db_conn();
+    $selectQuery = "UPDATE `lasagna` SET `lasagna_name`=:title,`lasagna_price`=:cost WHERE `lasagna_id` = :key";
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute(array(':title' => $name, ':cost' => $cost, ':key' => $key));
+    }catch(PDOException $e){
+        handle_sql_errors($selectQuery, $e->getMessage());
+    }
+    $conn = null;
+}
 function deleteCalzoneRow($key){
     $conn = db_conn();
     $selectQuery = "DELETE FROM `calzone` WHERE `id` = ?";
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute(array($key));
+    }catch(PDOException $e){
+        handle_sql_errors($selectQuery, $e->getMessage());
+    }
+    $conn = null;
+}
+function deleteLasagnaRow($key){
+    $conn = db_conn();
+    $selectQuery = "DELETE FROM `lasagna` WHERE `lasagna_id` = ?";
     try{
         $stmt = $conn->prepare($selectQuery);
         $stmt->execute(array($key));
