@@ -63,4 +63,22 @@ if(isset($_POST['calzoneName'])){
         editSpaghetti($name, $cost, $key);
     }
     echo json_encode($resp);
+}elseif(isset($_POST['editWrapKey'])){
+    $key = $_POST['editWrapKey'];
+    $row = findWrapRow($key);
+    $resp = $row;
+    echo json_encode($resp);
+}elseif(isset($_POST['deleteWrapKey'])){
+    $key = $_POST['deleteWrapKey'];
+    deleteWrapRow($key);
+}elseif(isset($_POST['wrapName'])){
+    $name = $_POST['wrapName'];
+    $cost = $_POST['wrapCost'];
+    if($_POST['wrapAction'] == 'add'){
+        insertWrap($name, $cost);
+    }else{
+        $key = $_POST['wrapAction'];
+        editWrap($name, $cost, $key);
+    }
+    echo json_encode($resp);
 }
