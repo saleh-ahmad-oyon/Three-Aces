@@ -137,7 +137,7 @@ if(isset($_SESSION['user'])){
                     </div>
                     <div class="box-content">
                         <table class="table table-striped table-bordered bootstrap-datatable datatable">
-                            <button class="btn btn-success" title="Add Items"><i class="halflings-icon white plus"></i> Add Item</button><br/><br/>
+                            <button class="btn btn-success" title="Add Items" onclick="additem();"><i class="halflings-icon white plus"></i> Add Item</button><br/><br/>
                             <thead>
                             <tr>
                                 <th>No.</th>
@@ -158,8 +158,8 @@ if(isset($_SESSION['user'])){
                                     <td> $ <?php echo $r['spaghetti_price']; ?></td>
                                     <td>
                                         <div class="text-center">
-                                            <button class="btn btn-info" title="Edit"><i class="halflings-icon white edit"></i> Edit</button>
-                                            <button class="btn btn-danger" title="Delete"><i class="halflings-icon white trash"></i> Delete</button>
+                                            <button class="btn btn-info" title="Edit" onclick="editItem(<?php echo $r['spaghetti_id']; ?>);"><i class="halflings-icon white edit"></i> Edit</button>
+                                            <button class="btn btn-danger" title="Delete" onclick="deleteItem(<?php echo $r['spaghetti_id']; ?>);"><i class="halflings-icon white trash"></i> Delete</button>
                                         </div>
                                     </td>
                                 </tr>
@@ -177,6 +177,24 @@ if(isset($_SESSION['user'])){
         <!-- end: Content -->
     </div><!--/#content.span10-->
 </div><!--/fluid-row-->
+
+<div class="modal hide fade" id="addItem">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h1>Lasagna</h1>
+    </div>
+    <div class="modal-body">
+        <h3>Name</h3>
+        <input type="text" id="itemName" value="" required="required" />
+        <input type="hidden" id="type" value="add"/>
+        <h3>Price</h3>
+        <input type="number" min="0" step="0.01" value="" required="required" id="itemPrice" />
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" id="addClose" data-dismiss="modal">Close</button>
+        <button class="btn btn-success" id="addbtn">Save</button>
+    </div>
+</div>
 
 <div class="clearfix"></div>
 
@@ -247,7 +265,82 @@ if(isset($_SESSION['user'])){
     $('.tableRow').each(function (i) {
         $("td:first", this).html(i + 1);
     });
+    function additem(){
+        $('#addItem').modal('show');
+    }
+    function editItem(x){
+        $('#addItem').modal('show', {
+            backdrop: 'static'
+        });
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            url: "<?php echo SERVER ?>/controller/changeController",
+            data: {
+                editSpeghettiKey: x
+            },
+            cache: false,
+            error: function(){
+                alert('An error occured !!');
+            },
+            success: function(response){
+                $('#itemName').val(response.spaghetti_name);
+                $('#itemPrice').val(response.spaghetti_price);
+                $('#type').val(response.spaghetti_id);
+            }
+        });
+    }
 
+    function deleteItem(x){
+        var r = confirm("Are you want to delete the selected item ?");
+        if(r){
+            $.ajax({
+                type: 'POST',
+                url: "<?php echo SERVER ?>/controller/changeController",
+                data: {
+                    deleteSpaghettiKey : x
+                },
+                error: function(){
+                    alert('An Error Occured');
+                },
+                success: function(){
+                    alert('Data has been deleted !!');
+                    window.location.reload();
+                }
+            });
+        }else{
+            alert('Your data is safe !');
+        }
+    }
+
+    $('#addbtn').click(function(){
+        var name = $('#itemName').val();
+        var cost = $('#itemPrice').val();
+        var type = $('#type').val();
+        if(name =='' || cost == ''){
+            alert('Both fields must be filled');
+        }else{
+            $.ajax({
+                type: 'POST',
+                dataType: 'json',
+                url: "<?php echo SERVER ?>/controller/changeController",
+                data: {
+                    spaghettiName: name,
+                    spaghettiCost: cost,
+                    spaghettiAction: type
+                },
+                cache: false,
+                error: function(){
+                    alert('An Error Occured !!');
+                },
+                success: function(response){
+                    alert('Successfully Saved !!');
+                    $('#addClose').click();
+                    window.location.reload();
+                }
+            });
+        }
+    });
 </script>
 <!-- end: JavaScript-->
 

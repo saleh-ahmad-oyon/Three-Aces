@@ -30,6 +30,18 @@ function findCalzoneRow($key){
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     return $row;
 }
+function findSpeghettiRow($key){
+    $conn = db_conn();
+    $selectQuery = 'SELECT * FROM `spaghetti` WHERE `spaghetti_id` = ?';
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute(array($key));
+    }catch(PDOException $e){
+        handle_sql_errors($selectQuery, $e->getMessage());
+    }
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $row;
+}
 function findLasagnaRow($key){
     $conn = db_conn();
     $selectQuery = 'SELECT * FROM `lasagna` WHERE `lasagna_id` = ?';
@@ -257,6 +269,17 @@ function insertLasagna($name, $cost){
     }
     $conn = null;
 }
+function insertSpaghetti($name, $cost){
+    $conn = db_conn();
+    $selectQuery = "INSERT INTO `spaghetti`(`spaghetti_name`, `spaghetti_price`) VALUES (:title, :cost)";
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute(array(':title' => $name, ':cost' => $cost));
+    }catch(PDOException $e){
+        handle_sql_errors($selectQuery, $e->getMessage());
+    }
+    $conn = null;
+}
 function editCalzone($name, $cost, $key){
     $conn = db_conn();
     $selectQuery = "UPDATE `calzone` SET `name`=:title,`price`=:cost WHERE `id` = :key";
@@ -279,6 +302,17 @@ function editLasagna($name, $cost, $key){
     }
     $conn = null;
 }
+function editSpaghetti($name, $cost, $key){
+    $conn = db_conn();
+    $selectQuery = "UPDATE `spaghetti` SET `spaghetti_name`=:title,`spaghetti_price`=:cost WHERE `spaghetti_id` = :key";
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute(array(':title' => $name, ':cost' => $cost, ':key' => $key));
+    }catch(PDOException $e){
+        handle_sql_errors($selectQuery, $e->getMessage());
+    }
+    $conn = null;
+}
 function deleteCalzoneRow($key){
     $conn = db_conn();
     $selectQuery = "DELETE FROM `calzone` WHERE `id` = ?";
@@ -293,6 +327,17 @@ function deleteCalzoneRow($key){
 function deleteLasagnaRow($key){
     $conn = db_conn();
     $selectQuery = "DELETE FROM `lasagna` WHERE `lasagna_id` = ?";
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute(array($key));
+    }catch(PDOException $e){
+        handle_sql_errors($selectQuery, $e->getMessage());
+    }
+    $conn = null;
+}
+function deleteSpaghettiRow($key){
+    $conn = db_conn();
+    $selectQuery = "DELETE FROM `spaghetti` WHERE `spaghetti_id` = ?";
     try{
         $stmt = $conn->prepare($selectQuery);
         $stmt->execute(array($key));

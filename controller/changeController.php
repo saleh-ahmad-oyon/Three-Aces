@@ -45,4 +45,22 @@ if(isset($_POST['calzoneName'])){
         editLasagna($name, $cost, $key);
     }
     echo json_encode($resp);
+}elseif(isset($_POST['editSpeghettiKey'])){
+    $key = $_POST['editSpeghettiKey'];
+    $row = findSpeghettiRow($key);
+    $resp = $row;
+    echo json_encode($resp);
+}elseif(isset($_POST['deleteSpaghettiKey'])){
+    $key = $_POST['deleteSpaghettiKey'];
+    deleteSpaghettiRow($key);
+}elseif(isset($_POST['spaghettiName'])){
+    $name = $_POST['spaghettiName'];
+    $cost = $_POST['spaghettiCost'];
+    if($_POST['spaghettiAction'] == 'add'){
+        insertSpaghetti($name, $cost);
+    }else{
+        $key = $_POST['spaghettiAction'];
+        editSpaghetti($name, $cost, $key);
+    }
+    echo json_encode($resp);
 }
