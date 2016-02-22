@@ -54,6 +54,18 @@ function findWrapRow($key){
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     return $row;
 }
+function findSpDinnerRow($key){
+    $conn = db_conn();
+    $selectQuery = 'SELECT * FROM `special_dinner` WHERE `sp_din_id` = ?';
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute(array($key));
+    }catch(PDOException $e){
+        handle_sql_errors($selectQuery, $e->getMessage());
+    }
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $row;
+}
 function findLasagnaRow($key){
     $conn = db_conn();
     $selectQuery = 'SELECT * FROM `lasagna` WHERE `lasagna_id` = ?';
@@ -303,6 +315,17 @@ function insertWrap($name, $cost){
     }
     $conn = null;
 }
+function insertSpDinner($name, $cost){
+    $conn = db_conn();
+    $selectQuery = "INSERT INTO `special_dinner`(`sp_din_name`, `sp_din_price`) VALUES (:title, :cost)";
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute(array(':title' => $name, ':cost' => $cost));
+    }catch(PDOException $e){
+        handle_sql_errors($selectQuery, $e->getMessage());
+    }
+    $conn = null;
+}
 function editCalzone($name, $cost, $key){
     $conn = db_conn();
     $selectQuery = "UPDATE `calzone` SET `name`=:title,`price`=:cost WHERE `id` = :key";
@@ -347,6 +370,17 @@ function editWrap($name, $cost, $key){
     }
     $conn = null;
 }
+function editSpDinner($name, $cost, $key){
+    $conn = db_conn();
+    $selectQuery = "UPDATE `special_dinner` SET `sp_din_name`=:title,`sp_din_price`=:cost WHERE `sp_din_id` = :key";
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute(array(':title' => $name, ':cost' => $cost, ':key' => $key));
+    }catch(PDOException $e){
+        handle_sql_errors($selectQuery, $e->getMessage());
+    }
+    $conn = null;
+}
 function deleteCalzoneRow($key){
     $conn = db_conn();
     $selectQuery = "DELETE FROM `calzone` WHERE `id` = ?";
@@ -383,6 +417,17 @@ function deleteSpaghettiRow($key){
 function deleteWrapRow($key){
     $conn = db_conn();
     $selectQuery = "DELETE FROM `wraps` WHERE `wraps_id` = ?";
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute(array($key));
+    }catch(PDOException $e){
+        handle_sql_errors($selectQuery, $e->getMessage());
+    }
+    $conn = null;
+}
+function deleteSpDinnerRow($key){
+    $conn = db_conn();
+    $selectQuery = "DELETE FROM `special_dinner` WHERE `sp_din_id` = ?";
     try{
         $stmt = $conn->prepare($selectQuery);
         $stmt->execute(array($key));

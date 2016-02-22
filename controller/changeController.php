@@ -81,4 +81,22 @@ if(isset($_POST['calzoneName'])){
         editWrap($name, $cost, $key);
     }
     echo json_encode($resp);
+}elseif(isset($_POST['editSpDinnerKey'])){
+    $key = $_POST['editSpDinnerKey'];
+    $row = findSpDinnerRow($key);
+    $resp = $row;
+    echo json_encode($resp);
+}elseif(isset($_POST['deleteSpDinnerKey'])){
+    $key = $_POST['deleteSpDinnerKey'];
+    deleteSpDinnerRow($key);
+}elseif(isset($_POST['spDinnerName'])){
+    $name = $_POST['spDinnerName'];
+    $cost = $_POST['spDinnerCost'];
+    if($_POST['spDinnerAction'] == 'add'){
+        insertSpDinner($name, $cost);
+    }else{
+        $key = $_POST['spDinnerAction'];
+        editSpDinner($name, $cost, $key);
+    }
+    echo json_encode($resp);
 }
