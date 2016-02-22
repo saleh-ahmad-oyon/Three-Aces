@@ -118,4 +118,23 @@ if(isset($_POST['calzoneName'])){
         editGrinder($name, $costSmall, $costLarge, $key);
     }
     echo json_encode($resp);
+}elseif(isset($_POST['editPizzaKey'])){
+    $key = $_POST['editPizzaKey'];
+    $row = findPizzaRow($key);
+    $resp = $row;
+    echo json_encode($resp);
+}elseif(isset($_POST['deletePizzaKey'])){
+    $key = $_POST['deletePizzaKey'];
+    deletePizzaRow($key);
+}elseif(isset($_POST['pizzaName'])){
+    $name = $_POST['pizzaName'];
+    $costSmall = $_POST['pizzaCostSmall'];
+    $costLarge = $_POST['pizzaCostLarge'];
+    if($_POST['pizzaAction'] == 'add'){
+        insertPizza($name, $costSmall, $costLarge);
+    }else{
+        $key = $_POST['pizzaAction'];
+        editPizza($name, $costSmall, $costLarge, $key);
+    }
+    echo json_encode($resp);
 }

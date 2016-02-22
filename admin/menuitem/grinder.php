@@ -189,7 +189,7 @@ if(isset($_SESSION['user'])){
 <div class="modal hide fade" id="addItem">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">×</button>
-        <h1>Special Dinner</h1>
+        <h1>Grinder</h1>
     </div>
     <div class="modal-body">
         <h3>Name</h3>
