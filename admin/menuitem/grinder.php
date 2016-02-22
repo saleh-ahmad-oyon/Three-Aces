@@ -156,7 +156,13 @@ if(isset($_SESSION['user'])){
                                 <tr class="tableRow">
                                     <td></td>
                                     <td><?php echo $r['grinder_name']; ?></td>
-                                    <td> $ <?php echo $r['grinder_small_price']; ?></td>
+                                    <td>
+                                        <?php
+                                            if(isset($r['grinder_small_price'])){
+                                                echo ' $ '. $r['grinder_small_price'];
+                                            }
+                                        ?>
+                                    </td>
                                     <td> $ <?php echo $r['grinder_large_price']; ?></td>
                                     <td>
                                         <div class="text-center">
