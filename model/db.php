@@ -78,6 +78,18 @@ function findLasagnaRow($key){
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     return $row;
 }
+function findGrinderRow($key){
+    $conn = db_conn();
+    $selectQuery = 'SELECT * FROM `grinder` WHERE `grinder_id` = ?';
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute(array($key));
+    }catch(PDOException $e){
+        handle_sql_errors($selectQuery, $e->getMessage());
+    }
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $row;
+}
 function grinders(){
     $conn = db_conn();
     $selectQuery = 'SELECT * FROM `grinder`';
@@ -326,6 +338,17 @@ function insertSpDinner($name, $cost){
     }
     $conn = null;
 }
+function insertGrinder($name, $costSmall, $costLarge){
+    $conn = db_conn();
+    $selectQuery = "INSERT INTO `grinder`(`grinder_name`, `grinder_small_price`, `grinder_large_price`) VALUES (:title,:smallcost,:largecost)";
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute(array(':title' => $name, ':smallcost' => $costSmall, ':largecost' => $costLarge));
+    }catch(PDOException $e){
+        handle_sql_errors($selectQuery, $e->getMessage());
+    }
+    $conn = null;
+}
 function editCalzone($name, $cost, $key){
     $conn = db_conn();
     $selectQuery = "UPDATE `calzone` SET `name`=:title,`price`=:cost WHERE `id` = :key";
@@ -381,6 +404,17 @@ function editSpDinner($name, $cost, $key){
     }
     $conn = null;
 }
+function editGrinder($name, $costSmall, $costLarge, $key){
+    $conn = db_conn();
+    $selectQuery = "UPDATE `grinder` SET `grinder_name`= :title,`grinder_small_price`=:smallcost,`grinder_large_price`=:largecost WHERE `grinder_id` = :key";
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute(array(':title' => $name, ':smallcost' => $costSmall, ':largecost' => $costLarge, ':key' => $key));
+    }catch(PDOException $e){
+        handle_sql_errors($selectQuery, $e->getMessage());
+    }
+    $conn = null;
+}
 function deleteCalzoneRow($key){
     $conn = db_conn();
     $selectQuery = "DELETE FROM `calzone` WHERE `id` = ?";
@@ -428,6 +462,17 @@ function deleteWrapRow($key){
 function deleteSpDinnerRow($key){
     $conn = db_conn();
     $selectQuery = "DELETE FROM `special_dinner` WHERE `sp_din_id` = ?";
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute(array($key));
+    }catch(PDOException $e){
+        handle_sql_errors($selectQuery, $e->getMessage());
+    }
+    $conn = null;
+}
+function deleteGrinderRow($key){
+    $conn = db_conn();
+    $selectQuery = "DELETE FROM `grinder` WHERE `grinder_id` = ?";
     try{
         $stmt = $conn->prepare($selectQuery);
         $stmt->execute(array($key));
