@@ -109,6 +109,9 @@ textarea {
 .top-bar, .top-bar ul {
     background-color: #333;
 }
+.top-bar{
+    overflow-x: auto;
+}
 .fixed-top-nav {
     position: fixed;
     top: 0;
