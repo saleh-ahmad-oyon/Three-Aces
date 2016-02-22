@@ -137,4 +137,23 @@ if(isset($_POST['calzoneName'])){
         editPizza($name, $costSmall, $costLarge, $key);
     }
     echo json_encode($resp);
+}elseif(isset($_POST['editSaladKey'])){
+    $key = $_POST['editSaladKey'];
+    $row = findSaladRow($key);
+    $resp = $row;
+    echo json_encode($resp);
+}elseif(isset($_POST['deleteSaladKey'])){
+    $key = $_POST['deleteSaladKey'];
+    deleteSaladRow($key);
+}elseif(isset($_POST['saladName'])){
+    $name = $_POST['saladName'];
+    $costSmall = $_POST['saladCostSmall'];
+    $costLarge = $_POST['saladCostLarge'];
+    if($_POST['saladAction'] == 'add'){
+        insertSalad($name, $costSmall, $costLarge);
+    }else{
+        $key = $_POST['saladAction'];
+        editSalad($name, $costSmall, $costLarge, $key);
+    }
+    echo json_encode($resp);
 }
