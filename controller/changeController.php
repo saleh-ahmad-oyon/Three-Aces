@@ -175,4 +175,23 @@ if(isset($_POST['calzoneName'])){
         editSideOrder($name, $costSmall, $costLarge, $key);
     }
     echo json_encode($resp);
+}elseif(isset($_POST['editSpPizzaKey'])){
+    $key = $_POST['editSpPizzaKey'];
+    $row = findSpPizzaRow($key);
+    $resp = $row;
+    echo json_encode($resp);
+}elseif(isset($_POST['deleteSpPizzaKey'])){
+    $key = $_POST['deleteSpPizzaKey'];
+    deleteSpPizzaRow($key);
+}elseif(isset($_POST['spPizzaName'])){
+    $name = $_POST['spPizzaName'];
+    $costSmall = $_POST['spPizzaCostSmall'];
+    $costLarge = $_POST['spPizzaCostLarge'];
+    if($_POST['spPizzaAction'] == 'add'){
+        insertSpPizza($name, $costSmall, $costLarge);
+    }else{
+        $key = $_POST['spPizzaAction'];
+        editSpPizza($name, $costSmall, $costLarge, $key);
+    }
+    echo json_encode($resp);
 }

@@ -196,7 +196,7 @@ if(isset($_SESSION['user'])){
         <input type="text" id="itemName" value="" required="required" />
         <input type="hidden" id="type" value="add"/>
         <h3>Price (Small)</h3>
-        <input type="number" min="0" step="0.01" value="" required="required" id="itemPriceSmall" />
+        <input type="number" min="0" step="0.01" value="" id="itemPriceSmall" />
         <h3>Price (Large)</h3>
         <input type="number" min="0" step="0.01" value="" required="required" id="itemPriceLarge" />
     </div>
@@ -294,10 +294,10 @@ if(isset($_SESSION['user'])){
                 alert('An error occured !!');
             },
             success: function(response){
-                $('#itemName').val(response.salad_name);
-                $('#itemPriceSmall').val(response.salad_small_price);
-                $('#itemPriceLarge').val(response.salad_large_price);
-                $('#type').val(response.salad_id);
+                $('#itemName').val(response.so_name);
+                $('#itemPriceSmall').val(response.so_small_price);
+                $('#itemPriceLarge').val(response.so_large_price);
+                $('#type').val(response.so_id);
             }
         });
     }
@@ -329,7 +329,7 @@ if(isset($_SESSION['user'])){
         var costSmall = $('#itemPriceSmall').val();
         var costLarge = $('#itemPriceLarge').val();
         var type = $('#type').val();
-        if(name =='' || costSmall == '' || costLarge == ''){
+        if(name =='' || costLarge == ''){
             alert('Both fields must be filled');
         }else{
             $.ajax({
