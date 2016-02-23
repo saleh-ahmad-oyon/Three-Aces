@@ -26,4 +26,8 @@ function getTodayOrdersInfo(){
     $row = todayOrdersInfo();
     return $row;
 }
+function admininfo($id){
+    $row = getAdminInfo($id);
+    return $row;
+}
 ?>

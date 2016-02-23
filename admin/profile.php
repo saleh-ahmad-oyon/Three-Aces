@@ -2,19 +2,16 @@
 /**
  * Created by PhpStorm.
  * User: Oyon
- * Date: 2/19/2016
- * Time: 12:54 PM
+ * Date: 2/24/2016
+ * Time: 12:08 AM
  */
-
 session_start();
 require_once '../controller/define.php';
 $islogin = false;
 if(isset($_SESSION['user'])){
     $islogin = true;
     require_once '../controller/adminController.php';
-    $row = getTodayOrdersInfo();
-}else{
-    header('Location: '.SERVER.'/404');
+    $row = admininfo($_SESSION['user']);
 }
 ?>
 <!DOCTYPE html>
@@ -62,6 +59,8 @@ if(isset($_SESSION['user'])){
 </head>
 
 <body>
+
+<?php if($islogin): ?>
     <!-- start: Header -->
     <div class="navbar">
         <div class="navbar-inner">
@@ -124,109 +123,59 @@ if(isset($_SESSION['user'])){
                         <a href="<?php echo SERVER ?>/admin">Home</a>
                         <i class="icon-angle-right"></i>
                     </li>
-                    <li>
-                        <a href="#">Orders</a>
-                        <i class="icon-angle-right"></i>
-                    </li>
-                    <li><a href="<?php echo SERVER ?>/admin/allOrders">Today's Orders</a></li>
+                    <li><a href="<?php echo SERVER ?>/admin/profile">Profile</a></li>
                 </ul>
-
-                <div class="row-fluid sortable">
-                    <div class="box span12">
-                        <div class="box-header" data-original-title>
-                            <h2><i class="icon-shopping-cart"></i><span class="break"></span>Today's Orders</h2>
-                        </div>
-                        <div class="box-content">
-                            <table class="table table-striped table-bordered bootstrap-datatable datatable">
-                                <thead>
+                <h1 class="text-center">Personal Information</h1>
+                <hr/>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <button class="btn btn-info" onclick="editProfile(<?php echo $row['id']; ?>);"><i class="icon-pencil"></i> Edit Profile</button>
+                        <br/><br/>
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-4">
+                            <table class="table">
                                 <tr>
-                                    <th>No.</th>
-                                    <th>Time and Date</th>
-                                    <th>Contact</th>
-                                    <th>Total Amount</th>
-                                    <th>Action</th>
+                                    <td>Name</td>
+                                    <td>:</td>
+                                    <td><?php echo $row['name']; ?></td>
                                 </tr>
-                                </thead>
-                                <tbody>
-                                <?php foreach($row as $key => $r): ?>
-                                    <tr class="tableRow">
-                                        <td></td>
-                                        <td>
-                                            <?php
-                                            $date = $r['o_datetime'];
-                                            echo date('h:i:s A', strtotime($date));
-                                            ?>
-                                        </td>
-                                        <td><?php echo $r['o_contact']; ?></td>
-                                        <td> $ <?php echo $r['o_total']; ?></td>
-                                        <td>
-                                            <button class="btn btn-info" onclick="showInfo(<?php echo $r['o_id']; ?>);">
-                                                <i class="icon-info-sign"></i> Details
-                                            </button>
-                                        </td>
-                                    </tr>
-                                <?php endforeach; ?>
-                                </tbody>
+                                <tr>
+                                    <td>Username</td>
+                                    <td>:</td>
+                                    <td><?php echo $row['username']; ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Email</td>
+                                    <td>:</td>
+                                    <td><?php echo $row['email']; ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Country</td>
+                                    <td>:</td>
+                                    <td><?php echo $row['country']; ?></td>
+                                </tr>
+                                <tr>
+                                    <td>New Password</td>
+                                    <td>:</td>
+                                    <td><input type="password" class="form-control" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Confirm Password</td>
+                                    <td>:</td>
+                                    <td><input type="password" class="form-control" /></td>
+                                </tr>
                             </table>
+                            <div class="pull-right">
+                                <button class="btn btn-success"><i class="icon-upload-alt"></i> Update Password</button>
+                            </div>
                         </div>
-                    </div><!--/span-->
-
-                </div><!--/row-->
-
-
+                        <div class="col-sm-4"></div>
+                    </div>
+                </div>
             </div><!--/.fluid-container-->
-
             <!-- end: Content -->
         </div><!--/#content.span10-->
     </div><!--/fluid-row-->
-    <div class="modal hide fade" id="myModal">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">×</button>
-            <h3>Settings</h3>
-        </div>
-        <div class="modal-body">
-            <table class="table">
-                <tr>
-                    <td><b>Date</b></td>
-                    <td id="order-date"></td>
-                </tr>
-                <tr>
-                    <td><b>Time</b></td>
-                    <td id="order-time"></td>
-                </tr>
-                <tr>
-                    <td><b>Contact No.</b></td>
-                    <td id="cont"></td>
-                </tr>
-            </table>
-            <br/>
-            <h4>Order Description</h4>
-            <table class="table table-bordered">
-                <thead>
-                <tr>
-                    <th style="text-align: center">Item</th>
-                    <th style="text-align: center;">Size</th>
-                    <th style="text-align: center;">Price</th>
-                </tr>
-                </thead>
-                <tbody id="menuitems">
-
-                </tbody>
-                <tfoot>
-                <tr>
-                    <td style="text-align: center"><strong>Total</strong></td>
-                    <td colspan="2">
-                        <div class="pull-right" id="total">
-                        </div>
-                    </td>
-                </tr>
-                </tfoot>
-            </table>
-        </div>
-        <div class="modal-footer">
-            <a href="#" class="btn btn-primary" data-dismiss="modal">Close</a>
-        </div>
-    </div>
 
     <div class="clearfix"></div>
 
@@ -236,6 +185,52 @@ if(isset($_SESSION['user'])){
         </p>
 
     </footer>
+<?php else: ?>
+    <style type="text/css">
+        body { background: url(img/bg-login.jpg) !important; }
+    </style>
+    <div class="container-fluid-full">
+        <div class="row-fluid">
+
+            <div class="row-fluid">
+                <div class="login-box">
+                    <h2>Login to Admin Panel</h2>
+                    <form class="form-horizontal" action="<?php echo SERVER ?>/controller/admin-login-success" method="post">
+                        <fieldset>
+
+                            <div class="input-prepend" title="Username">
+                                <span class="add-on"><i class="halflings-icon user"></i></span>
+                                <input class="input-large span10"required="required" name="username" id="username" type="text" placeholder="Username"/>
+                            </div>
+                            <div class="clearfix"></div>
+
+                            <div class="input-prepend" title="Password">
+                                <span class="add-on"><i class="halflings-icon lock"></i></span>
+                                <input class="input-large span10" required="required" name="password" id="password" type="password" placeholder="Password"/>
+                            </div>
+                            <div class="clearfix"></div>
+
+                            <div class="button-login">
+                                <button type="submit" name="loginSubmit" class="btn btn-primary">Login</button>
+                            </div>
+                            <div class="clearfix"></div>
+                        </fieldset>
+                    </form>
+                    <label style="color:#881f0e;text-align: center">
+                        <?php if(isset($_GET['err']) && $_GET['err'] ==1){
+                            echo "Both fields are required !!";
+                        }elseif(isset($_GET['err']) && $_GET['err'] ==2){
+                            echo "Username and Password didn't match !!";
+                        } ?>
+                    </label>
+                </div><!--/span-->
+            </div><!--/row-->
+
+
+        </div><!--/.fluid-container-->
+
+    </div><!--/fluid-row-->
+<?php endif; ?>
 
 <!-- start: JavaScript-->
 
@@ -294,45 +289,30 @@ if(isset($_SESSION['user'])){
 
 <script src="js/custom.js"></script>
 <script>
-    function showInfo(x){
-        $('#myModal').modal('show');
-        $.ajax({
-            type: 'POST',
-            url: "../controller/adminController",
-            dataType: 'json',
-            data: {
-                orderKey : x
-            },
-            cache : false,
-            error: function() {
-                alert('Failed ! An error occured !!');
-            },
-            success : function(response) {
-                var dtTime = response.o_datetime.split(" ");
-                $('#order-date').html(dtTime[0]);
-                $('#order-time').html(dtTime[1]);
-                $('#cont').html(response.o_contact);
-                $('#total').html('<b> $ ' + response.o_total + '</b>');
-                var out ='';
-                var items = response.o_description.split(';');
-                for(var i=0; i<items.length; ++i){
-                    var arr = items[i].split('|');
-                    out += '<tr>' +
-                        '<td>' + arr[0] + '</td>' +
-                        '<td>' + arr[1] + '</td>' +
-                        '<td>' + '<div class="pull-right">' + arr[2] + '</div>' + '</td>' +
-                        '</tr>';
-                }
-                $('#menuitems').html(out);
-            }
+    function dataload(){
+        $.post('../controller/adminController.php',{day : 'today'},function(data){
+            $('#today').html(data);
+        });
+        $.post('../controller/adminController.php',{day : 'all'},function(data){
+            $('#all').html(data);
         });
     }
-    $('.tableRow').each(function (i) {
-        $("td:first", this).html(i + 1);
+    $(document).ready(function(){
+        dataload();
     });
-
+    function loadlink(){
+        $('.orders').load(function () {
+            $(this).unwrap();
+        });
+    }
+    loadlink(); // This will run on page load
+    setInterval(function(){
+        loadlink() // this will run after every 5 seconds
+        dataload();
+    }, 1000);
 </script>
 <!-- end: JavaScript-->
 
 </body>
 </html>
+

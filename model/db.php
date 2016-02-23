@@ -18,6 +18,18 @@ function calzone(){
     $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $row;
 }
+function getAdminInfo($user){
+    $conn = db_conn();
+    $selectQuery = 'SELECT * FROM `admin` WHERE `username` = ?';
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute(array($user));
+    }catch(PDOException $e){
+        handle_sql_errors($selectQuery, $e->getMessage());
+    }
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $row;
+}
 function findCalzoneRow($key){
     $conn = db_conn();
     $selectQuery = 'SELECT * FROM `calzone` WHERE `id` = ?';
