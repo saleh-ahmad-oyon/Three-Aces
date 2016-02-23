@@ -154,20 +154,22 @@ if(isset($_SESSION['user'])){
                                     <td>:</td>
                                     <td><?php echo $row['country']; ?></td>
                                 </tr>
+                                <form id="passReset">
                                 <tr>
                                     <td>New Password</td>
                                     <td>:</td>
-                                    <td><input type="password" class="form-control" /></td>
+                                    <td><input type="password" required class="form-control" id="newPass" pattern="(?=^.{4,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'The password must contain one or more uppercase characters, one or more lowercase characters, one or more numeric values, one or more special characters, and length must be greater than or equal to 4' : ''); if(this.checkValidity()) form.cpass.pattern = this.value;" /></td>
                                 </tr>
                                 <tr>
                                     <td>Confirm Password</td>
                                     <td>:</td>
-                                    <td><input type="password" class="form-control" /></td>
+                                    <td><input type="password" required class="form-control" id="confirmNewPass" pattern="(?=^.{4,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Please enter the same Password as above' : '');"/></td>
                                 </tr>
                             </table>
                             <div class="pull-right">
-                                <button class="btn btn-success"><i class="icon-upload-alt"></i> Update Password</button>
+                                <button class="btn btn-success" type="submit"><i class="icon-upload-alt"></i> Update Password</button>
                             </div>
+                            </form>
                         </div>
                         <div class="col-sm-4"></div>
                     </div>
@@ -177,6 +179,16 @@ if(isset($_SESSION['user'])){
         </div><!--/#content.span10-->
     </div><!--/fluid-row-->
 
+    <div class="modal hide fade" id="addItem">
+        <div class="modal-body">
+            <h3>Enter Old Password: </h3>
+            <input type="password" id="oldpass">
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" id="Close" data-dismiss="modal">Close</button>
+            <button class="btn btn-success" id="update">Update</button>
+        </div>
+    </div>
     <div class="clearfix"></div>
 
     <footer>
@@ -197,7 +209,6 @@ if(isset($_SESSION['user'])){
                     <h2>Login to Admin Panel</h2>
                     <form class="form-horizontal" action="<?php echo SERVER ?>/controller/admin-login-success" method="post">
                         <fieldset>
-
                             <div class="input-prepend" title="Username">
                                 <span class="add-on"><i class="halflings-icon user"></i></span>
                                 <input class="input-large span10"required="required" name="username" id="username" type="text" placeholder="Username"/>
@@ -289,27 +300,11 @@ if(isset($_SESSION['user'])){
 
 <script src="js/custom.js"></script>
 <script>
-    function dataload(){
-        $.post('../controller/adminController.php',{day : 'today'},function(data){
-            $('#today').html(data);
-        });
-        $.post('../controller/adminController.php',{day : 'all'},function(data){
-            $('#all').html(data);
-        });
-    }
-    $(document).ready(function(){
-        dataload();
+    $('form#passReset').submit(function(e) {
+        e.preventDefault();
+        $('#oldpass').val('');
+        $('#addItem').modal('show');
     });
-    function loadlink(){
-        $('.orders').load(function () {
-            $(this).unwrap();
-        });
-    }
-    loadlink(); // This will run on page load
-    setInterval(function(){
-        loadlink() // this will run after every 5 seconds
-        dataload();
-    }, 1000);
 </script>
 <!-- end: JavaScript-->
 
