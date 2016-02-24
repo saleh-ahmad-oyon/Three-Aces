@@ -189,6 +189,25 @@ if(isset($_SESSION['user'])){
             <button class="btn btn-success" id="update">Update</button>
         </div>
     </div>
+
+    <div class="modal hide fade" id="editInfo">
+        <form id="infoForm" method="post">
+        <div class="modal-body">
+            <h3>Name: </h3>
+            <input type="text" value="<?php echo $row['name']; ?>" required id="name">
+            <h3>Username: </h3>
+            <input type="text" value="<?php echo $row['username']; ?>" required id="username">
+            <h3>Email: </h3>
+            <input type="email" value="<?php echo $row['email']; ?>" required id="email" pattern="[([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)]i">
+            <h3>Country: </h3>
+            <input type="text" value="<?php echo $row['country']; ?>" id="country">
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" id="editClose" data-dismiss="modal">Close</button>
+            <button class="btn btn-success" type="submit" id="infoUpdate">Update</button>
+        </form>
+        </div>
+    </div>
     <div class="clearfix"></div>
 
     <footer>
@@ -300,10 +319,45 @@ if(isset($_SESSION['user'])){
 
 <script src="js/custom.js"></script>
 <script>
+    function editProfile(x){
+        $('#editInfo').modal('show');
+    }
     $('form#passReset').submit(function(e) {
         e.preventDefault();
         $('#oldpass').val('');
         $('#addItem').modal('show');
+
+        $('#update').click(function(){
+            var oldpas = $('#oldpass').val();
+            var newpas = $('#newPass').val();
+            var confirmnewpass = $('#confirmNewPass').val();
+            if(oldpas == '' || newpas == '' || confirmnewpass == ''){
+                alert('You must field all the password field');
+            }else{
+                $.ajax({
+                    type: 'POST',
+                    dataType: 'html',
+                    url: '<?php echo SERVER ?>/controller/adminController',
+                    data: {
+                        oldpa : oldpas,
+                        newpa : newpas,
+                        confirmpa : confirmnewpass,
+                        key: <?php echo $row['id']; ?>
+                    },
+                    cache: false,
+                    error: function(){
+                        alert('An error occured !!');
+                    },
+                    success: function(data){
+                        alert(data);
+                        $('#newPass').val('');
+                        $('#confirmNewPass').val('');
+                        $('#Close').click();
+
+                    }
+                });
+            }
+        });
     });
 </script>
 <!-- end: JavaScript-->

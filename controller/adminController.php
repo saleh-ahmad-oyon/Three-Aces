@@ -17,6 +17,21 @@ if(isset($_POST['day']) && $_POST['day'] == 'today'){
     $key = $_POST['orderKey'];
     $row = allInfo($key);
     echo json_encode($row);
+}elseif(isset($_POST['oldpa'])){
+    $old = $_POST['oldpa'];
+    $new = $_POST['newpa'];
+    $confirm = $_POST['confirmpa'];
+    $key = $_POST['key'];
+    if(checkOldPass($old)){
+        if($new == $confirm){
+            updatePass($key, $new);
+            echo 'Password Successfully Updated';
+        }else{
+            echo "New password and Confirm Password didn't match !!";
+        }
+    }else{
+        echo "Old Password didn't match";
+    }
 }
 function getAllOrdersInfo(){
     $row = allOrdersInfo();

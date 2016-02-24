@@ -261,6 +261,18 @@ function checkPass($user, $pass){
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     return ($row['num'] == 1) ? true : false ;
 }
+function checkOldPass($old){
+    $conn = db_conn();
+    $selectQuery = 'SELECT COUNT(1) AS `num` FROM `admin` WHERE `password` = ?';
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute(array($old));
+    }catch(PDOException $e){
+        handle_sql_errors($selectQuery, $e->getMessage());
+    }
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    return ($row['num'] == 1) ? true : false ;
+}
 function getUserName($user){
     $conn = db_conn();
     $selectQuery = 'SELECT `name` FROM `admin` WHERE `username` = ?';
@@ -558,6 +570,17 @@ function editSpPizza($name, $costSmall, $costLarge, $key){
     try{
         $stmt = $conn->prepare($selectQuery);
         $stmt->execute(array(':title' => $name, ':smallcost' => $costSmall, ':largecost' => $costLarge, ':key' => $key));
+    }catch(PDOException $e){
+        handle_sql_errors($selectQuery, $e->getMessage());
+    }
+    $conn = null;
+}
+function updatePass($key, $new){
+    $conn = db_conn();
+    $selectQuery = "UPDATE `admin` SET `password`= :pass WHERE `id` = :key";
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute(array(':pass' => $new, ':key' => $key));
     }catch(PDOException $e){
         handle_sql_errors($selectQuery, $e->getMessage());
     }
