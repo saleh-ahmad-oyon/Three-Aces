@@ -11,7 +11,10 @@ $islogin = false;
 if(isset($_SESSION['user'])){
     $islogin = true;
     require_once '../controller/adminController.php';
-    $row = admininfo($_SESSION['user']);
+    $key = $_SESSION['id'];
+    $row = admininfo($key);
+}else{
+    header('Location: '.SERVER.'/404');
 }
 ?>
 <!DOCTYPE html>
@@ -137,22 +140,22 @@ if(isset($_SESSION['user'])){
                                 <tr>
                                     <td>Name</td>
                                     <td>:</td>
-                                    <td><?php echo $row['name']; ?></td>
+                                    <td id="nm"><?php echo $row['name']; ?></td>
                                 </tr>
                                 <tr>
                                     <td>Username</td>
                                     <td>:</td>
-                                    <td><?php echo $row['username']; ?></td>
+                                    <td id="us"><?php echo $row['username']; ?></td>
                                 </tr>
                                 <tr>
                                     <td>Email</td>
                                     <td>:</td>
-                                    <td><?php echo $row['email']; ?></td>
+                                    <td id="em"><?php echo $row['email']; ?></td>
                                 </tr>
                                 <tr>
                                     <td>Country</td>
                                     <td>:</td>
-                                    <td><?php echo $row['country']; ?></td>
+                                    <td id="cn"><?php echo $row['country']; ?></td>
                                 </tr>
                                 <form id="passReset">
                                 <tr>
@@ -194,17 +197,18 @@ if(isset($_SESSION['user'])){
         <form id="infoForm" method="post">
         <div class="modal-body">
             <h3>Name: </h3>
-            <input type="text" value="<?php echo $row['name']; ?>" required id="name">
+            <input type="text" name="editName" value="<?php echo $row['name']; ?>" required id="name">
             <h3>Username: </h3>
-            <input type="text" value="<?php echo $row['username']; ?>" required id="username">
+            <input type="text" name="editUsername" value="<?php echo $row['username']; ?>" required id="username">
             <h3>Email: </h3>
-            <input type="email" value="<?php echo $row['email']; ?>" required id="email" pattern="[([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)]i">
+            <input type="email" name="editEmail" value="<?php echo $row['email']; ?>" required id="email" pattern="[([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)]i">
             <h3>Country: </h3>
-            <input type="text" value="<?php echo $row['country']; ?>" id="country">
+            <input type="text" name="editCountry" value="<?php echo $row['country']; ?>" id="country">
+            <input type="hidden" name="editKey" id="key" value="<?php echo $row['id']; ?>" />
         </div>
         <div class="modal-footer">
             <button class="btn btn-primary" id="editClose" data-dismiss="modal">Close</button>
-            <button class="btn btn-success" type="submit" id="infoUpdate">Update</button>
+            <button class="btn btn-success" type="submit">Update</button>
         </form>
         </div>
     </div>
@@ -322,6 +326,38 @@ if(isset($_SESSION['user'])){
     function editProfile(x){
         $('#editInfo').modal('show');
     }
+    $('form#infoForm').submit(function(e){
+        e.preventDefault();
+        var name = $('#name').val();
+        var username = $('#username').val();
+        var email = $('#email').val();
+        var key = $('#key').val();
+        if(name =='' || username == '' || email == '' || key == ''){
+            alert('You have to fill all the fields');
+        }else{
+            $.ajax({
+                type: 'POST',
+                dataType: 'html',
+                url: '<?php echo SERVER ?>/controller/adminController',
+                data: new FormData(this),
+                contentType: false,
+                cache : false,
+                processData: false,
+                error: function(){
+                    alert('Failed! An error occured !!');
+                },
+                success: function(data){
+                    if(data == 't'){
+                        alert('Successfully Updated !!');
+                        window.location.reload();
+                    }else{
+                        alert(data);
+                    }
+                }
+            });
+        }
+
+    });
     $('form#passReset').submit(function(e) {
         e.preventDefault();
         $('#oldpass').val('');

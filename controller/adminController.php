@@ -32,6 +32,42 @@ if(isset($_POST['day']) && $_POST['day'] == 'today'){
     }else{
         echo "Old Password didn't match";
     }
+}elseif(isset($_POST['editKey'])) {
+    $key = $_POST['editKey'];
+    $name = $_POST['editName'];
+    $username = $_POST['editUsername'];
+    $email = $_POST['editEmail'];
+    $country = $_POST['editCountry'];
+
+    $row = getUserNameEmail($key);
+
+    if ($row['username'] != $username){
+        if (checkUser($username)) {
+            if ($row['email'] != $email) {
+                if (checkEmail($email)) {
+                    updateProfile($name, $username, $email, $country, $key);
+                    echo 't';
+                } else {
+                    echo 'Email Must be Unique';
+                }
+            }else{
+                updateProfile($name, $username, $email, $country, $key);
+                echo 't';
+            }
+        } else {
+            echo 'Username Must be Unique';
+        }
+    }elseif($row['email'] != $email){
+        if (checkEmail($email)) {
+            updateProfile($name, $username, $email, $country, $key);
+            echo 't';
+        } else {
+            echo 'Email Must be Unique';
+        }
+    }else{
+        updateProfile($name, $username, $email, $country, $key);
+        echo 't';
+    }
 }
 function getAllOrdersInfo(){
     $row = allOrdersInfo();

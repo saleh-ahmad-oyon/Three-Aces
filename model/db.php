@@ -20,7 +20,7 @@ function calzone(){
 }
 function getAdminInfo($user){
     $conn = db_conn();
-    $selectQuery = 'SELECT * FROM `admin` WHERE `username` = ?';
+    $selectQuery = 'SELECT * FROM `admin` WHERE `id` = ?';
     try{
         $stmt = $conn->prepare($selectQuery);
         $stmt->execute(array($user));
@@ -273,6 +273,30 @@ function checkOldPass($old){
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     return ($row['num'] == 1) ? true : false ;
 }
+function checkUser($username){
+    $conn = db_conn();
+    $selectQuery = 'SELECT COUNT(1) as `num` FROM `admin` WHERE `username` = ?';
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute(array($username));
+    }catch(PDOException $e){
+        handle_sql_errors($selectQuery, $e->getMessage());
+    }
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    return ($row['num'] == 1 ) ? false : true ;
+}
+function checkEmail($email){
+    $conn = db_conn();
+    $selectQuery = 'SELECT COUNT(1) as `num` FROM `admin` WHERE `email` = ?';
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute(array($email));
+    }catch(PDOException $e){
+        handle_sql_errors($selectQuery, $e->getMessage());
+    }
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    return ($row['num'] == 0) ? true : false ;
+}
 function getUserName($user){
     $conn = db_conn();
     $selectQuery = 'SELECT `name` FROM `admin` WHERE `username` = ?';
@@ -284,6 +308,31 @@ function getUserName($user){
     }
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     $name = $row['name'];
+    return $name;
+}
+function getUserNameEmail($key){
+    $conn = db_conn();
+    $selectQuery = 'SELECT `username`, `email` FROM `admin` WHERE `id` = ?';
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute(array($key));
+    }catch(PDOException $e){
+        handle_sql_errors($selectQuery, $e->getMessage());
+    }
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $row;
+}
+function getUserId($user){
+    $conn = db_conn();
+    $selectQuery = 'SELECT `id` FROM `admin` WHERE `username` = ?';
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute(array($user));
+    }catch(PDOException $e){
+        handle_sql_errors($selectQuery, $e->getMessage());
+    }
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    $name = $row['id'];
     return $name;
 }
 function addOrder($orders, $total, $PhoneNumber){
@@ -471,6 +520,17 @@ function editCalzone($name, $cost, $key){
     try{
         $stmt = $conn->prepare($selectQuery);
         $stmt->execute(array(':title' => $name, ':cost' => $cost, ':key' => $key));
+    }catch(PDOException $e){
+        handle_sql_errors($selectQuery, $e->getMessage());
+    }
+    $conn = null;
+}
+function updateProfile($name, $username, $email, $country, $key){
+    $conn = db_conn();
+    $selectQuery = "UPDATE `admin` SET `username`=:user, `name`=:name,`email`=:email,`country`=:country WHERE `id` = :id";
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute(array(':user' => $username, ':name' => $name, ':email' => $email, 'country' => $country, ':id' => $key));
     }catch(PDOException $e){
         handle_sql_errors($selectQuery, $e->getMessage());
     }

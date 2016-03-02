@@ -19,6 +19,7 @@ if(isset($_POST['loginSubmit'])){
         if(checkPass($user, $pass)){
             $_SESSION['user'] = $user;
             $_SESSION['name'] = getUserName($user);
+            $_SESSION['id'] = getUserId($user);
             header('Location: '.SERVER.'/admin');
         }else{
             header('Location: '.SERVER.'/admin?err=2');
