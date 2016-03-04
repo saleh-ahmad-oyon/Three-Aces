@@ -81,4 +81,8 @@ function admininfo($id){
     $row = getAdminInfo($id);
     return $row;
 }
+function getCountries(){
+    $row = getCountryName();
+    return $row;
+}
 ?>

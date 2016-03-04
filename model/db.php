@@ -381,6 +381,17 @@ function allOrdersInfo(){
     $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $row ;
 }
+function getCountryName(){
+    $conn = db_conn();
+    $selectQuery = 'SELECT `c_name` FROM `country`';
+    try{
+        $stmt = $conn->query($selectQuery);
+    }catch(PDOException $e){
+        handle_sql_errors($selectQuery, $e->getMessage());
+    }
+    $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $row ;
+}
 function todayOrdersInfo(){
     $conn = db_conn();
     $selectQuery = 'SELECT `o_id`, `o_datetime`, `o_total`, `o_contact` FROM `orders` WHERE DATE(`o_datetime`) = DATE(NOW()) ORDER BY `o_datetime` DESC ';
