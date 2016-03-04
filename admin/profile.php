@@ -207,47 +207,6 @@ if(isset($_SESSION['user'])){
                             ?>
                         ><?php echo $c['c_name']; ?></option>
                 <?php endforeach; ?>
-                <option value="Spain">Spain</option>
-                <option value="Sri Lanka">Sri Lanka</option>
-                <option value="Sudan">Sudan</option>
-                <option value="Suriname">Suriname</option>
-                <option value="Svalbard and Jan Mayen">Svalbard and Jan Mayen</option>
-                <option value="Swaziland">Swaziland</option>
-                <option value="Sweden">Sweden</option>
-                <option value="Switzerland">Switzerland</option>
-                <option value="Syrian Arab Republic">Syrian Arab Republic</option>
-                <option value="Taiwan, Republic of China">Taiwan, Republic of China</option>
-                <option value="Tajikistan">Tajikistan</option>
-                <option value="Tanzania, United Republic of">Tanzania, United Republic of</option>
-                <option value="Thailand">Thailand</option>
-                <option value="Timor-leste">Timor-leste</option>
-                <option value="Togo">Togo</option>
-                <option value="Tokelau">Tokelau</option>
-                <option value="Tonga">Tonga</option>
-                <option value="Trinidad and Tobago">Trinidad and Tobago</option>
-                <option value="Tunisia">Tunisia</option>
-                <option value="Turkey">Turkey</option>
-                <option value="Turkmenistan">Turkmenistan</option>
-                <option value="Turks and Caicos Islands">Turks and Caicos Islands</option>
-                <option value="Tuvalu">Tuvalu</option>
-                <option value="Uganda">Uganda</option>
-                <option value="Ukraine">Ukraine</option>
-                <option value="United Arab Emirates">United Arab Emirates</option>
-                <option value="United Kingdom">United Kingdom</option>
-                <option value="United States">United States</option>
-                <option value="United States Minor Outlying Islands">United States Minor Outlying Islands</option>
-                <option value="Uruguay">Uruguay</option>
-                <option value="Uzbekistan">Uzbekistan</option>
-                <option value="Vanuatu">Vanuatu</option>
-                <option value="Venezuela">Venezuela</option>
-                <option value="Viet Nam">Viet Nam</option>
-                <option value="Virgin Islands, British">Virgin Islands, British</option>
-                <option value="Virgin Islands, U.S.">Virgin Islands, U.S.</option>
-                <option value="Wallis and Futuna">Wallis and Futuna</option>
-                <option value="Western Sahara">Western Sahara</option>
-                <option value="Yemen">Yemen</option>
-                <option value="Zambia">Zambia</option>
-                <option value="Zimbabwe">Zimbabwe</option>
             </select>
             <h3>Name: </h3>
             <input type="text" value="<?php echo $row['name']; ?>" required id="name">

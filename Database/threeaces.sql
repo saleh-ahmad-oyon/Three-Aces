@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 23, 2016 at 09:03 PM
+-- Generation Time: Mar 04, 2016 at 10:59 AM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -42,7 +42,8 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `username`, `password`, `name`, `email`, `country`) VALUES
-(1, 'admin', 'admin', 'Saleh Ahmad', 'salehoyon@hotmail.com', 'Bangladesh');
+(1, 'admin', 'wW2@', 'Saleh Ahmad', 'salehoyon@hotmail.com', 'Bangladesh'),
+(2, 'admin2', '1234', 'Shakib Hasan', 'nissongo_10@live.com', 'bd');
 
 -- --------------------------------------------------------
 
@@ -73,6 +74,264 @@ INSERT INTO `calzone` (`id`, `name`, `price`) VALUES
 (10, 'Steak', '7.35'),
 (11, 'Italian', '7.35'),
 (12, 'Grecian', '7.35');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `country`
+--
+
+CREATE TABLE `country` (
+  `c_id` bigint(20) NOT NULL,
+  `c_name` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `country`
+--
+
+INSERT INTO `country` (`c_id`, `c_name`) VALUES
+(1, 'Afghanistan'),
+(2, 'Albania'),
+(3, 'Algeria'),
+(4, 'American Samoa'),
+(5, 'Andorra'),
+(6, 'Angola'),
+(7, 'Anguilla'),
+(8, 'Antarctica'),
+(9, 'Antigua and Barbuda'),
+(10, 'Argentina'),
+(11, 'Armenia'),
+(12, 'Aruba'),
+(13, 'Australia'),
+(14, 'Austria'),
+(15, 'Azerbaijan'),
+(16, 'Bahamas'),
+(17, 'Bahrain'),
+(18, 'Bangladesh'),
+(19, 'Barbados'),
+(20, 'Belarus'),
+(21, 'Belgium'),
+(22, 'Belize'),
+(23, 'Benin'),
+(24, 'Bermuda'),
+(25, 'Bhutan'),
+(26, 'Bolivia'),
+(27, 'Bosnia and Herzegovina'),
+(28, 'Botswana'),
+(29, 'Bouvet Island'),
+(30, 'Brazil'),
+(31, 'British Indian Ocean Territory'),
+(32, 'Brunei Darussalam'),
+(33, 'Bulgaria'),
+(34, 'Burkina Faso'),
+(35, 'Burundi'),
+(36, 'Cambodia'),
+(37, 'Cameroon'),
+(38, 'Canada'),
+(39, 'Cape Verde'),
+(40, 'Cayman Islands'),
+(41, 'Central African Republic'),
+(42, 'Chad'),
+(43, 'Chile'),
+(44, 'China'),
+(45, 'Christmas Island'),
+(46, 'Cocos (Keeling) Islands'),
+(47, 'Colombia'),
+(48, 'Comoros'),
+(49, 'Congo'),
+(50, 'Congo, The Democratic Republic of The'),
+(51, 'Cook Islands'),
+(52, 'Costa Rica'),
+(53, 'Cote D''ivoire'),
+(54, 'Croatia'),
+(55, 'Cuba'),
+(56, 'Cyprus'),
+(57, 'Czech Republic'),
+(58, 'Denmark'),
+(59, 'Djibouti'),
+(60, 'Dominica'),
+(61, 'Dominican Republic'),
+(62, 'Ecuador'),
+(63, 'Egypt'),
+(64, 'El Salvador'),
+(65, 'Equatorial Guinea'),
+(66, 'Eritrea'),
+(67, 'Estonia'),
+(68, 'Ethiopia'),
+(69, 'Falkland Islands (Malvinas)'),
+(70, 'Faroe Islands'),
+(71, 'Fiji'),
+(72, 'Finland'),
+(73, 'France'),
+(74, 'French Guiana'),
+(75, 'French Polynesia'),
+(76, 'French Southern Territories'),
+(77, 'Gabon'),
+(78, 'Gambia'),
+(79, 'Georgia'),
+(80, 'Germany'),
+(81, 'Ghana'),
+(82, 'Gibraltar'),
+(83, 'Greece'),
+(84, 'Greenland'),
+(85, 'Grenada'),
+(86, 'Guadeloupe'),
+(87, 'Guam'),
+(88, 'Guatemala'),
+(89, 'Guinea'),
+(90, 'Guinea-bissau'),
+(91, 'Guyana'),
+(92, 'Haiti'),
+(93, 'Heard Island and Mcdonald Islands'),
+(94, 'Holy See (Vatican City State)'),
+(95, 'Honduras'),
+(96, 'Hong Kong'),
+(97, 'Hungary'),
+(98, 'Iceland'),
+(99, 'India'),
+(100, 'Indonesia'),
+(101, 'Iran, Islamic Republic of'),
+(102, 'Iraq'),
+(103, 'Ireland'),
+(104, 'Israel'),
+(105, 'Italy'),
+(106, 'Jamaica'),
+(107, 'Japan'),
+(108, 'Jordan'),
+(109, 'Kazakhstan'),
+(110, 'Kenya'),
+(111, 'Kiribati'),
+(112, 'Korea, Democratic People''s Republic of'),
+(113, 'Korea, Republic of'),
+(114, 'Kuwait'),
+(115, 'Kyrgyzstan'),
+(116, 'Lao People''s Democratic Republic'),
+(117, 'Latvia'),
+(118, 'Lebanon'),
+(119, 'Lesotho'),
+(120, 'Liberia'),
+(121, 'Libyan Arab Jamahiriya'),
+(122, 'Liechtenstein'),
+(123, 'Lithuania'),
+(124, 'Luxembourg'),
+(125, 'Macao'),
+(126, 'Macedonia, The Former Yugoslav Republic of'),
+(127, 'Madagascar'),
+(128, 'Malawi'),
+(129, 'Malaysia'),
+(130, 'Maldives'),
+(131, 'Mali'),
+(132, 'Malta'),
+(133, 'Marshall Islands'),
+(134, 'Martinique'),
+(135, 'Mauritania'),
+(136, 'Mauritius'),
+(137, 'Mayotte'),
+(138, 'Mexico'),
+(139, 'Micronesia, Federated States of'),
+(140, 'Moldova, Republic of'),
+(141, 'Monaco'),
+(142, 'Mongolia'),
+(143, 'Montenegro'),
+(144, 'Montserrat'),
+(145, 'Morocco'),
+(146, 'Mozambique'),
+(147, 'Myanmar'),
+(148, 'Namibia'),
+(149, 'Nauru'),
+(150, 'Nepal'),
+(151, 'Netherlands'),
+(152, 'Netherlands Antilles'),
+(153, 'New Caledonia'),
+(154, 'New Zealand'),
+(155, 'Nicaragua'),
+(156, 'Niger'),
+(157, 'Nigeria'),
+(158, 'Niue'),
+(159, 'Norfolk Island'),
+(160, 'Northern Mariana Islands'),
+(161, 'Norway'),
+(162, 'Oman'),
+(163, 'Pakistan'),
+(164, 'Palau'),
+(165, 'Palestinian Territory, Occupied'),
+(166, 'Panama'),
+(167, 'Papua New Guinea'),
+(168, 'Paraguay'),
+(169, 'Peru'),
+(170, 'Philippines'),
+(171, 'Pitcairn'),
+(172, 'Poland'),
+(173, 'Portugal'),
+(174, 'Puerto Rico'),
+(175, 'Qatar'),
+(176, 'Reunion'),
+(177, 'Romania'),
+(178, 'Russian Federation'),
+(179, 'Rwanda'),
+(180, 'Saint Helena'),
+(181, 'Saint Kitts and Nevis'),
+(182, 'Saint Lucia'),
+(183, 'Saint Pierre and Miquelon'),
+(184, 'Saint Vincent and The Grenadines'),
+(185, 'Samoa'),
+(186, 'San Marino'),
+(187, 'Sao Tome and Principe'),
+(188, 'Saudi Arabia'),
+(189, 'Senegal'),
+(190, 'Serbia'),
+(191, 'Seychelles'),
+(192, 'Sierra Leone'),
+(193, 'Singapore'),
+(194, 'Slovakia'),
+(195, 'Slovenia'),
+(196, 'Solomon Islands'),
+(197, 'Somalia'),
+(198, 'South Africa'),
+(199, 'South Georgia and The South Sandwich Islands'),
+(200, 'South Sudan'),
+(201, 'Spain'),
+(202, 'Sri Lanka'),
+(203, 'Sudan'),
+(204, 'Suriname'),
+(205, 'Svalbard and Jan Mayen'),
+(206, 'Swaziland'),
+(207, 'Sweden'),
+(208, 'Switzerland'),
+(209, 'Syrian Arab Republic'),
+(210, 'Taiwan, Republic of China'),
+(211, 'Tajikistan'),
+(212, 'Tanzania, United Republic of'),
+(213, 'Thailand'),
+(214, 'Timor-leste'),
+(215, 'Togo'),
+(216, 'Tokelau'),
+(217, 'Tonga'),
+(218, 'Trinidad and Tobago'),
+(219, 'Tunisia'),
+(220, 'Turkey'),
+(221, 'Turkmenistan'),
+(222, 'Turks and Caicos Islands'),
+(223, 'Tuvalu'),
+(224, 'Uganda'),
+(225, 'Ukraine'),
+(226, 'United Arab Emirates'),
+(227, 'United Kingdom'),
+(228, 'United States'),
+(229, 'United States Minor Outlying Islands'),
+(230, 'Uruguay'),
+(231, 'Uzbekistan'),
+(232, 'Vanuatu'),
+(233, 'Venezuela'),
+(234, 'Viet Nam'),
+(235, 'Virgin Islands, British'),
+(236, 'Virgin Islands, U.S.'),
+(237, 'Wallis and Futuna'),
+(238, 'Western Sahara'),
+(239, 'Yemen'),
+(240, 'Zambia'),
+(241, 'Zimbabwe');
 
 -- --------------------------------------------------------
 
@@ -405,6 +664,12 @@ ALTER TABLE `calzone`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `country`
+--
+ALTER TABLE `country`
+  ADD PRIMARY KEY (`c_id`);
+
+--
 -- Indexes for table `grinder`
 --
 ALTER TABLE `grinder`
@@ -472,12 +737,17 @@ ALTER TABLE `wraps`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `calzone`
 --
 ALTER TABLE `calzone`
   MODIFY `id` bigint(22) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+--
+-- AUTO_INCREMENT for table `country`
+--
+ALTER TABLE `country`
+  MODIFY `c_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=242;
 --
 -- AUTO_INCREMENT for table `grinder`
 --
