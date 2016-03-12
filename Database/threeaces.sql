@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 04, 2016 at 10:59 AM
+-- Generation Time: Mar 08, 2016 at 09:14 PM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -29,12 +29,12 @@ USE `threeaces`;
 --
 
 CREATE TABLE `admin` (
-  `id` int(11) NOT NULL,
-  `username` text NOT NULL,
-  `password` text NOT NULL,
-  `name` text NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `country` text NOT NULL
+  `id` int(11) NOT NULL COMMENT 'admin id',
+  `username` text NOT NULL COMMENT 'admin username',
+  `password` text NOT NULL COMMENT 'admin password',
+  `name` text NOT NULL COMMENT 'Admin Name',
+  `email` varchar(100) NOT NULL COMMENT 'Admin Email',
+  `country` text NOT NULL COMMENT 'Admin Country'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -52,9 +52,9 @@ INSERT INTO `admin` (`id`, `username`, `password`, `name`, `email`, `country`) V
 --
 
 CREATE TABLE `calzone` (
-  `id` bigint(22) NOT NULL,
-  `name` text NOT NULL,
-  `price` decimal(10,2) NOT NULL
+  `id` bigint(22) NOT NULL COMMENT 'Calzone ID',
+  `name` text NOT NULL COMMENT 'Calzone Name',
+  `price` decimal(10,2) NOT NULL COMMENT 'Calzone Price'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -82,8 +82,8 @@ INSERT INTO `calzone` (`id`, `name`, `price`) VALUES
 --
 
 CREATE TABLE `country` (
-  `c_id` bigint(20) NOT NULL,
-  `c_name` text NOT NULL
+  `c_id` bigint(20) NOT NULL COMMENT 'Country ID',
+  `c_name` text NOT NULL COMMENT 'Country Name'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -340,10 +340,10 @@ INSERT INTO `country` (`c_id`, `c_name`) VALUES
 --
 
 CREATE TABLE `grinder` (
-  `grinder_id` bigint(20) NOT NULL,
-  `grinder_name` text NOT NULL,
-  `grinder_small_price` decimal(10,2) DEFAULT NULL,
-  `grinder_large_price` decimal(10,2) NOT NULL
+  `grinder_id` bigint(20) NOT NULL COMMENT 'Grinder ID',
+  `grinder_name` text NOT NULL COMMENT 'Grinder Name',
+  `grinder_small_price` decimal(10,2) DEFAULT NULL COMMENT 'Small Grinder Price',
+  `grinder_large_price` decimal(10,2) NOT NULL COMMENT 'large Grinder Price'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -392,9 +392,9 @@ INSERT INTO `grinder` (`grinder_id`, `grinder_name`, `grinder_small_price`, `gri
 --
 
 CREATE TABLE `lasagna` (
-  `lasagna_id` bigint(20) NOT NULL,
-  `lasagna_name` text NOT NULL,
-  `lasagna_price` decimal(10,2) NOT NULL
+  `lasagna_id` bigint(20) NOT NULL COMMENT 'Lasagna ID',
+  `lasagna_name` text NOT NULL COMMENT 'Lasagna Name',
+  `lasagna_price` decimal(10,2) NOT NULL COMMENT 'Lasagna Price'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -417,11 +417,11 @@ INSERT INTO `lasagna` (`lasagna_id`, `lasagna_name`, `lasagna_price`) VALUES
 --
 
 CREATE TABLE `orders` (
-  `o_id` bigint(20) NOT NULL,
-  `o_description` text NOT NULL,
-  `o_datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `o_total` decimal(10,2) NOT NULL,
-  `o_contact` varchar(30) DEFAULT NULL
+  `o_id` bigint(20) NOT NULL COMMENT 'Order ID',
+  `o_description` text NOT NULL COMMENT 'Order Description',
+  `o_datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Order Date-Time',
+  `o_total` decimal(10,2) NOT NULL COMMENT 'Order Total Cost',
+  `o_contact` varchar(30) DEFAULT NULL COMMENT 'Customer''s Contact No.'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -453,10 +453,10 @@ INSERT INTO `orders` (`o_id`, `o_description`, `o_datetime`, `o_total`, `o_conta
 --
 
 CREATE TABLE `pizza` (
-  `pizza_id` bigint(20) NOT NULL,
-  `pizza_name` text NOT NULL,
-  `pizza_small_price` decimal(10,2) NOT NULL,
-  `pizza_large_price` decimal(10,2) NOT NULL
+  `pizza_id` bigint(20) NOT NULL COMMENT 'Pizza ID',
+  `pizza_name` text NOT NULL COMMENT 'Pizza Name',
+  `pizza_small_price` decimal(10,2) NOT NULL COMMENT 'Small Pizza Price',
+  `pizza_large_price` decimal(10,2) NOT NULL COMMENT 'Large Pizza Price'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -492,10 +492,10 @@ INSERT INTO `pizza` (`pizza_id`, `pizza_name`, `pizza_small_price`, `pizza_large
 --
 
 CREATE TABLE `salad` (
-  `salad_id` bigint(20) NOT NULL,
-  `salad_name` text NOT NULL,
-  `salad_small_price` decimal(10,2) NOT NULL,
-  `salad_large_price` decimal(10,2) NOT NULL
+  `salad_id` bigint(20) NOT NULL COMMENT 'Salad ID',
+  `salad_name` text NOT NULL COMMENT 'Salad Name',
+  `salad_small_price` decimal(10,2) NOT NULL COMMENT 'Small Salad Price',
+  `salad_large_price` decimal(10,2) NOT NULL COMMENT 'Large Salad Price'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -518,10 +518,10 @@ INSERT INTO `salad` (`salad_id`, `salad_name`, `salad_small_price`, `salad_large
 --
 
 CREATE TABLE `side_orders` (
-  `so_id` bigint(20) NOT NULL,
-  `so_name` text NOT NULL,
-  `so_small_price` decimal(10,2) DEFAULT NULL,
-  `so_large_price` decimal(10,2) NOT NULL
+  `so_id` bigint(20) NOT NULL COMMENT 'Side Order ID',
+  `so_name` text NOT NULL COMMENT 'Side Order Name',
+  `so_small_price` decimal(10,2) DEFAULT NULL COMMENT 'Small Side Order Price',
+  `so_large_price` decimal(10,2) NOT NULL COMMENT 'Large Side Order Price'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -551,9 +551,9 @@ INSERT INTO `side_orders` (`so_id`, `so_name`, `so_small_price`, `so_large_price
 --
 
 CREATE TABLE `spaghetti` (
-  `spaghetti_id` bigint(20) NOT NULL,
-  `spaghetti_name` text NOT NULL,
-  `spaghetti_price` decimal(10,2) NOT NULL
+  `spaghetti_id` bigint(20) NOT NULL COMMENT 'Spaghetti ID',
+  `spaghetti_name` text NOT NULL COMMENT 'Spaghetti Name',
+  `spaghetti_price` decimal(10,2) NOT NULL COMMENT 'Spaghetti Price'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -577,9 +577,9 @@ INSERT INTO `spaghetti` (`spaghetti_id`, `spaghetti_name`, `spaghetti_price`) VA
 --
 
 CREATE TABLE `special_dinner` (
-  `sp_din_id` bigint(20) NOT NULL,
-  `sp_din_name` text NOT NULL,
-  `sp_din_price` decimal(10,2) NOT NULL
+  `sp_din_id` bigint(20) NOT NULL COMMENT 'Special Dinner ID',
+  `sp_din_name` text NOT NULL COMMENT 'Special Dinner Name',
+  `sp_din_price` decimal(10,2) NOT NULL COMMENT 'Special Dinner Price'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -605,10 +605,10 @@ INSERT INTO `special_dinner` (`sp_din_id`, `sp_din_name`, `sp_din_price`) VALUES
 --
 
 CREATE TABLE `special_pizza` (
-  `sp_pizza_id` bigint(20) NOT NULL,
-  `sp_pizza_name` text NOT NULL,
-  `sp_pizza_small_price` decimal(10,2) NOT NULL,
-  `sp_pizza_large_price` decimal(10,2) NOT NULL
+  `sp_pizza_id` bigint(20) NOT NULL COMMENT 'Special Pizza ID',
+  `sp_pizza_name` text NOT NULL COMMENT 'Special Pizza Name',
+  `sp_pizza_small_price` decimal(10,2) NOT NULL COMMENT 'Small Special Pizza Price',
+  `sp_pizza_large_price` decimal(10,2) NOT NULL COMMENT 'large Special Pizza Price'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -630,9 +630,9 @@ INSERT INTO `special_pizza` (`sp_pizza_id`, `sp_pizza_name`, `sp_pizza_small_pri
 --
 
 CREATE TABLE `wraps` (
-  `wraps_id` bigint(20) NOT NULL,
-  `wraps_name` text NOT NULL,
-  `wraps_price` decimal(10,2) NOT NULL
+  `wraps_id` bigint(20) NOT NULL COMMENT 'Wraps ID',
+  `wraps_name` text NOT NULL COMMENT 'Wraps Name',
+  `wraps_price` decimal(10,2) NOT NULL COMMENT 'Wraps Price'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -737,67 +737,67 @@ ALTER TABLE `wraps`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'admin id', AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `calzone`
 --
 ALTER TABLE `calzone`
-  MODIFY `id` bigint(22) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` bigint(22) NOT NULL AUTO_INCREMENT COMMENT 'Calzone ID', AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT for table `country`
 --
 ALTER TABLE `country`
-  MODIFY `c_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=242;
+  MODIFY `c_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'Country ID', AUTO_INCREMENT=242;
 --
 -- AUTO_INCREMENT for table `grinder`
 --
 ALTER TABLE `grinder`
-  MODIFY `grinder_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `grinder_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'Grinder ID', AUTO_INCREMENT=35;
 --
 -- AUTO_INCREMENT for table `lasagna`
 --
 ALTER TABLE `lasagna`
-  MODIFY `lasagna_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `lasagna_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'Lasagna ID', AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `o_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `o_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'Order ID', AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `pizza`
 --
 ALTER TABLE `pizza`
-  MODIFY `pizza_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `pizza_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'Pizza ID', AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT for table `salad`
 --
 ALTER TABLE `salad`
-  MODIFY `salad_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `salad_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'Salad ID', AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `side_orders`
 --
 ALTER TABLE `side_orders`
-  MODIFY `so_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `so_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'Side Order ID', AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `spaghetti`
 --
 ALTER TABLE `spaghetti`
-  MODIFY `spaghetti_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `spaghetti_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'Spaghetti ID', AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `special_dinner`
 --
 ALTER TABLE `special_dinner`
-  MODIFY `sp_din_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `sp_din_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'Special Dinner ID', AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `special_pizza`
 --
 ALTER TABLE `special_pizza`
-  MODIFY `sp_pizza_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `sp_pizza_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'Special Pizza ID', AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `wraps`
 --
 ALTER TABLE `wraps`
-  MODIFY `wraps_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `wraps_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'Wraps ID', AUTO_INCREMENT=8;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
