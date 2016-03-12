@@ -6,31 +6,32 @@
  * Time: 11:40 PM
  */
 
-require_once 'controller/functions.php';
-require_once 'controller/dataCollector.php';
-$row = getLasagna();
+    require_once 'controller/functions.php';
+    require_once 'controller/dataCollector.php';
+    $row = getLasagna();
 ?>
 <!doctype html>
 <html class="no-js" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Lasagna</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Lasagna</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="icon" href="img/aces_logo.png">
-    <!--[if IE]>
-    <link rel="shortcut icon" href="img/aces_logo.png">
-    <![endif]-->
-    <!-- Place favicon.ico in the root directory -->
+        <link rel="icon" href="img/aces_logo.png">
 
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/foundation.min.css">
-    <link rel="stylesheet" href="css/foundation-icons/foundation-icons.css"/>
-    <link rel="stylesheet" href="css/main.css">
-    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-</head>
+        <!--[if IE]>
+        <link rel="shortcut icon" href="img/aces_logo.png">
+        <![endif]-->
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/foundation.min.css">
+        <link rel="stylesheet" href="css/foundation-icons/foundation-icons.css"/>
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    </head>
 <body>
 <div class="cover-image"></div>
 <!--[if lt IE 8]>
@@ -62,6 +63,8 @@ $row = getLasagna();
                 </tr>
                 </thead>
                 <tbody>
+
+                <!--Lasagna List-->
                 <?php foreach($row as $r): ?>
                     <tr data-id ="<?php echo $r['lasagna_id'] ?>" data-type="Lasagna">
                         <td><?php echo $r['lasagna_name']; ?></td>
@@ -83,6 +86,8 @@ $row = getLasagna();
 </section>
         </main>
     </div>
+
+<!--Footer-->
 <footer>
     <?php include_once 'includes/footer.php';?>
 </footer>
