@@ -51,6 +51,7 @@
             <?php include_once 'includes/footer.php';?>
         </footer>
 
+        <!-- JS Files -->
         <script src="js/vendor/jquery-2.2.0.min.js"></script>
         <script src="js/plugins.js"></script>
         <script src="js/foundation.min.js"></script>
