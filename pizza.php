@@ -10,6 +10,8 @@ require_once 'controller/functions.php';
 require_once 'controller/dataCollector.php';
 $row = getPizza();
 ?>
+
+
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
