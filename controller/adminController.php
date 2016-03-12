@@ -42,48 +42,51 @@
 
         $row = getUserNameEmail($key);
 
-    if ($row['username'] != $username){
-        if (checkUser($username)) {
-            if ($row['email'] != $email) {
-                if (checkEmail($email)) {
+        if ($row['username'] != $username){
+            if (checkUser($username)) {
+                if ($row['email'] != $email) {
+                    if (checkEmail($email)) {
+                        updateProfile($name, $username, $email, $country, $key);
+                        echo 't';
+                    } else {
+                        echo 'Email Must be Unique';
+                    }
+                } else {
                     updateProfile($name, $username, $email, $country, $key);
                     echo 't';
-                } else {
-                    echo 'Email Must be Unique';
                 }
-            }else{
+            } else {
+                echo 'Username Must be Unique';
+            }
+        } elseif ($row['email'] != $email) {
+            if (checkEmail($email)) {
                 updateProfile($name, $username, $email, $country, $key);
                 echo 't';
+            } else {
+                echo 'Email Must be Unique';
             }
         } else {
-            echo 'Username Must be Unique';
-        }
-    }elseif($row['email'] != $email){
-        if (checkEmail($email)) {
             updateProfile($name, $username, $email, $country, $key);
             echo 't';
-        } else {
-            echo 'Email Must be Unique';
         }
-    }else{
-        updateProfile($name, $username, $email, $country, $key);
-        echo 't';
     }
-}
-function getAllOrdersInfo(){
-    $row = allOrdersInfo();
-    return $row;
-}
-function getTodayOrdersInfo(){
-    $row = todayOrdersInfo();
-    return $row;
-}
-function admininfo($id){
-    $row = getAdminInfo($id);
-    return $row;
-}
-function getCountries(){
-    $row = getCountryName();
-    return $row;
-}
-?>
+    function getAllOrdersInfo()
+    {
+        $row = allOrdersInfo();
+        return $row;
+    }
+    function getTodayOrdersInfo()
+    {
+        $row = todayOrdersInfo();
+        return $row;
+    }
+    function admininfo($id)
+    {
+        $row = getAdminInfo($id);
+        return $row;
+    }
+    function getCountries()
+    {
+        $row = getCountryName();
+        return $row;
+    }
