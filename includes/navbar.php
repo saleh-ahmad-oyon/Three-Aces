@@ -36,7 +36,7 @@ require_once 'controller/define.php';
             <div class="top-bar-right">
                 <ul class="menu">
                     <div>
-                        <a href="checkout.php" class="button primary hollow">
+                        <a href="checkout" class="button primary hollow">
                             <i class="fi-shopping-cart"></i>
                             <strong><?php echo count($_SESSION['cart']); ?></strong>
                         </a>

@@ -83,7 +83,7 @@ require_once 'controller/functions.php';
             <div class="panel primary callout">
                 <p class="text-center">Total : $ <?= get_cart_total() ?></p>
             </div>
-            <label>Please Enter your Contact Number : </label>
+            <b>Please Enter your Contact Number : </b>
             <input type="tel" id="phn" value="" />
             <p class="text-center">
                 <button id="checkout" type="button" class="button success">
