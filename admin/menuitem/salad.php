@@ -8,11 +8,11 @@
 session_start();
 require_once '../../controller/define.php';
 $islogin = false;
-if(isset($_SESSION['user'])){
+if (isset($_SESSION['user'])) {
     $islogin = true;
     require_once '../../controller/itemController.php';
     $row = getSalad();
-}else{
+} else {
     header('Location: '.SERVER.'/404');
 }
 ?>
@@ -86,14 +86,14 @@ if(isset($_SESSION['user'])){
             <ul class="breadcrumb">
                 <li>
                     <i class="icon-home"></i>
-                    <a href="<?php echo SERVER ?>/admin">Home</a>
+                    <a href="<?= SERVER ?>/admin">Home</a>
                     <i class="icon-angle-right"></i>
                 </li>
                 <li>
                     <a href="#">Food Menu</a>
                     <i class="icon-angle-right"></i>
                 </li>
-                <li><a href="<?php echo SERVER ?>/admin/menuitem/salad">Salad</a></li>
+                <li><a href="<?= SERVER ?>/admin/menuitem/salad">Salad</a></li>
             </ul>
 
             <div class="row-fluid sortable">
@@ -121,13 +121,13 @@ if(isset($_SESSION['user'])){
                             <?php foreach($row as $key => $r): ?>
                                 <tr class="tableRow">
                                     <td></td>
-                                    <td><?php echo $r['salad_name']; ?></td>
-                                    <td> $ <?php echo $r['salad_small_price']; ?></td>
-                                    <td> $ <?php echo $r['salad_large_price']; ?></td>
+                                    <td><?= $r['salad_name']; ?></td>
+                                    <td> $ <?= $r['salad_small_price']; ?></td>
+                                    <td> $ <?= $r['salad_large_price']; ?></td>
                                     <td>
                                         <div class="text-center">
-                                            <button class="btn btn-info" title="Edit" onclick="editItem(<?php echo $r['salad_id']; ?>);"><i class="halflings-icon white edit"></i> Edit</button>
-                                            <button class="btn btn-danger" title="Delete" onclick="deleteItem(<?php echo $r['salad_id']; ?>);"><i class="halflings-icon white trash"></i> Delete</button>
+                                            <button class="btn btn-info" title="Edit" onclick="editItem(<?= $r['salad_id']; ?>);"><i class="halflings-icon white edit"></i> Edit</button>
+                                            <button class="btn btn-danger" title="Delete" onclick="deleteItem(<?= $r['salad_id']; ?>);"><i class="halflings-icon white trash"></i> Delete</button>
                                         </div>
                                     </td>
                                 </tr>
