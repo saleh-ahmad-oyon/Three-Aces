@@ -13,7 +13,6 @@ $(document).ready(function(){
         }
         $.post('controller/functions.php',postdata,function(data){
             if(data){
-                //alert('Item added to cart successfully');
                 window.location.reload();
             } else alert('There was an error');
         })
@@ -30,7 +29,6 @@ $(document).ready(function(){
         }
         $.post('controller/functions.php',postdata,function(data){
             if(data){
-                alert('Item added to cart successfully');
                 window.location.reload();
             } else alert('There was an error');
         })
@@ -46,7 +44,6 @@ $(document).ready(function(){
         }
         $.post('controller/functions.php',postdata,function(data){
             if(data){
-                alert('Item added to cart successfully');
                 window.location.reload();
             } else alert('There was an error');
         })
