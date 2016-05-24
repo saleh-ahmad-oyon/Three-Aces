@@ -6,13 +6,16 @@
  * Time: 5:58 PM
  */
 session_start();
+
 require_once '../../controller/define.php';
+
 $islogin = false;
-if(isset($_SESSION['user'])){
+
+if (isset($_SESSION['user'])) {
     $islogin = true;
     require_once '../../controller/itemController.php';
     $row = getGrinders();
-}else{
+} else {
     header('Location: '.SERVER.'/404');
 }
 ?>
@@ -54,10 +57,7 @@ if(isset($_SESSION['user'])){
     <!-- start: Favicon -->
     <link rel="icon" href="../../img/aces_logo.png" />
     <!-- end: Favicon -->
-
-
-
-
+    
 </head>
 
 <body>
@@ -234,7 +234,7 @@ if(isset($_SESSION['user'])){
 <script src="../js/retina.js"></script>
 
 <script src="../js/custom.js"></script>
-<script src="<?php echo SERVER ?>/admin/js/grinder-script.php"></script>
+<script src="<?= SERVER ?>/admin/js/grinder-script.php"></script>
 <!-- end: JavaScript-->
 
 </body>
