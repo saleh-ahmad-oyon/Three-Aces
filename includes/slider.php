@@ -1,10 +1,3 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Oyon
- * Date: 2/14/2016
- * Time: 1:39 PM
- */ ?>
 <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit data-use-m-u-i="false" data-options="animInFromLeft:fade-in; animInFromRight:fade-in; animOutToLeft:fade-out; animOutToRight:fade-out;">
     <ul class="orbit-container">
         <button class="orbit-previous" aria-label="previous"><span class="show-for-sr">Previous Slide</span>&#9664;</button>
