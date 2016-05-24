@@ -1,4 +1,4 @@
-<?php require_once 'controller/functions.php';?>
+<?php require_once 'controller/functions.php'; ?>
 <!doctype html>
 <html class="no-js" lang="en">
     <head>
@@ -21,30 +21,27 @@
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
-    <div class="cover-image"></div>
+        <div class="cover-image"></div>
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <!-- Add your site or application content here -->
-    <div id="wrap">
-        <main>
-        <header>
-            <?php include_once 'includes/upperHeader.php';?>
-            <nav>
-                <!-- navigation Bar -->
-                <?php require_once 'includes/navbar.php'; ?>
-            </nav>
-        </header>
-        <br/>
-        <section>
-            <div class="small-12 columns">
-                <div class="small-5 small-centered columns">
-                    <?php include_once 'includes/slider.php';?>
-                </div>
-            </div>
-
-        </section>
+        <div id="wrap">
+            <main>
+                <header>
+                    <?php include_once 'includes/upperHeader.php';?>
+                    <nav>
+                        <?php require_once 'includes/navbar.php'; ?>
+                    </nav>
+                </header>
+                <br/>
+                <section>
+                    <div class="small-12 columns">
+                        <div class="small-5 small-centered columns">
+                            <?php include_once 'includes/slider.php';?>
+                        </div>
+                    </div>
+                </section>
             </main>
         </div>
         <footer>
@@ -56,8 +53,8 @@
         <script src="js/plugins.js"></script>
         <script src="js/foundation.min.js"></script>
         <script src="js/foundation.util.mediaQuery.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/main.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/main.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
