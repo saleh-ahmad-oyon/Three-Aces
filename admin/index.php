@@ -63,7 +63,7 @@ require_once '../controller/adminController.php';
 		<div class="row-fluid">
 
             <!-- start: Main Menu -->
-			<?php include_once 'menu.php'; ?>
+			<?php include_once 'includes/menu.php'; ?>
             <!-- end: Main Menu -->
 
 			<noscript>
