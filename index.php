@@ -12,6 +12,7 @@
         <!--[if IE]>
         <link rel="shortcut icon" href="img/aces_logo.png">
         <![endif]-->
+        <!-- Place favicon.ico in the root directory -->
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/foundation.min.css">
