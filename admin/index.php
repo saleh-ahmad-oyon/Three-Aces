@@ -80,7 +80,7 @@ require_once '../controller/adminController.php';
 			<ul class="breadcrumb">
 				<li>
 					<i class="icon-home"></i>
-					<a href="<?php echo SERVER ?>/admin">Home</a>
+					<a href="<?= SERVER ?>/admin">Home</a>
 					<i class="icon-angle-right"></i>
 				</li>
 				<li><a href="#">Dashboard</a></li>

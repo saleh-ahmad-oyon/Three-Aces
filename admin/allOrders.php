@@ -88,14 +88,14 @@ if(isset($_SESSION['user'])){
                 <ul class="breadcrumb">
                     <li>
                         <i class="icon-home"></i>
-                        <a href="<?php echo SERVER ?>/admin">Home</a>
+                        <a href="<?= SERVER ?>/admin">Home</a>
                         <i class="icon-angle-right"></i>
                     </li>
                     <li>
                         <a href="#">Orders</a>
                         <i class="icon-angle-right"></i>
                     </li>
-                    <li><a href="<?php echo SERVER ?>/admin/allOrders">All Orders</a></li>
+                    <li><a href="<?= SERVER ?>/admin/allOrders">All Orders</a></li>
                 </ul>
 
                 <div class="row-fluid sortable">
@@ -124,8 +124,8 @@ if(isset($_SESSION['user'])){
                                         echo date('h:i:s A, d/m/Y', strtotime($date));
                                         ?>
                                     </td>
-                                    <td><?php echo $r['o_contact']; ?></td>
-                                    <td> $ <?php echo $r['o_total']; ?></td>
+                                    <td><?= $r['o_contact']; ?></td>
+                                    <td> $ <?= $r['o_total']; ?></td>
                                     <td>
                                         <button class="btn btn-info" onclick="showInfo(<?php echo $r['o_id']; ?>);">
                                             <i class="icon-info-sign"></i> Details

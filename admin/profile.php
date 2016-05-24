@@ -8,12 +8,13 @@
 session_start();
 require_once '../controller/define.php';
 $islogin = false;
-if(isset($_SESSION['user'])){
+
+if (isset($_SESSION['user'])) {
     $islogin = true;
     require_once '../controller/adminController.php';
     $key = $_SESSION['id'];
     $row = admininfo($key);
-}else{
+} else {
     header('Location: '.SERVER.'/404');
 }
 ?>
@@ -84,10 +85,10 @@ if(isset($_SESSION['user'])){
                 <ul class="breadcrumb">
                     <li>
                         <i class="icon-home"></i>
-                        <a href="<?php echo SERVER ?>/admin">Home</a>
+                        <a href="<?= SERVER ?>/admin">Home</a>
                         <i class="icon-angle-right"></i>
                     </li>
-                    <li><a href="<?php echo SERVER ?>/admin/profile">Profile</a></li>
+                    <li><a href="<?= SERVER ?>/admin/profile">Profile</a></li>
                 </ul>
                 <h1 class="text-center">Personal Information</h1>
                 <hr/>
@@ -101,22 +102,22 @@ if(isset($_SESSION['user'])){
                                 <tr>
                                     <td>Name</td>
                                     <td>:</td>
-                                    <td id="nm"><?php echo $row['name']; ?></td>
+                                    <td id="nm"><?= $row['name']; ?></td>
                                 </tr>
                                 <tr>
                                     <td>Username</td>
                                     <td>:</td>
-                                    <td id="us"><?php echo $row['username']; ?></td>
+                                    <td id="us"><?= $row['username']; ?></td>
                                 </tr>
                                 <tr>
                                     <td>Email</td>
                                     <td>:</td>
-                                    <td id="em"><?php echo $row['email']; ?></td>
+                                    <td id="em"><?= $row['email']; ?></td>
                                 </tr>
                                 <tr>
                                     <td>Country</td>
                                     <td>:</td>
-                                    <td id="cn"><?php echo $row['country']; ?></td>
+                                    <td id="cn"><?= $row['country']; ?></td>
                                 </tr>
                                 <form id="passReset">
                                 <tr>
@@ -165,22 +166,22 @@ if(isset($_SESSION['user'])){
                 <option value=""></option>
                 <?php $country = getCountries();
                     foreach($country as $key => $c):?>
-                        <option value="<?php echo $c['c_name']; ?>"
+                        <option value="<?= $c['c_name']; ?>"
                             <?php
                             if($c['c_name'] == $row['country']){
                                 echo 'selected';
                             }
                             ?>
-                        ><?php echo $c['c_name']; ?></option>
+                        ><?= $c['c_name']; ?></option>
                 <?php endforeach; ?>
             </select>
             <h3>Name: </h3>
-            <input type="text" value="<?php echo $row['name']; ?>" required id="name">
+            <input type="text" value="<?= $row['name']; ?>" required id="name">
             <h3>Username: </h3>
-            <input type="text" value="<?php echo $row['username']; ?>" required id="username">
+            <input type="text" value="<?= $row['username']; ?>" required id="username">
             <h3>Email: </h3>
-            <input type="email" value="<?php echo $row['email']; ?>" required id="email" pattern="[([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)]i">
-            <input type="hidden" id="key" value="<?php echo $row['id']; ?>" />
+            <input type="email" value="<?= $row['email']; ?>" required id="email" pattern="[([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)]i">
+            <input type="hidden" id="key" value="<?= $row['id']; ?>" />
         </div>
         <div class="modal-footer">
             <button class="btn btn-primary" id="editClose" data-dismiss="modal">Close</button>
@@ -202,7 +203,7 @@ if(isset($_SESSION['user'])){
             <div class="row-fluid">
                 <div class="login-box">
                     <h2>Login to Admin Panel</h2>
-                    <form class="form-horizontal" action="<?php echo SERVER ?>/controller/admin-login-success" method="post">
+                    <form class="form-horizontal" action="<?= SERVER ?>/controller/admin-login-success" method="post">
                         <fieldset>
                             <div class="input-prepend" title="Username">
                                 <span class="add-on"><i class="halflings-icon user"></i></span>
