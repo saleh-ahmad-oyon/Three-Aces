@@ -8,43 +8,43 @@
         <!--<button class="orbit-previous" aria-label="previous"><span class="show-for-sr">Previous Slide</span>&#9664;</button>
         <button class="orbit-next" aria-label="next"><span class="show-for-sr">Next Slide</span>&#9654;</button>-->
         <li class="orbit-slide is-active">
-            <img src="img/calzone.jpg" alt="Calzone" width="100%">
+            <img src="<?= SERVER ?>/img/Calzone.jpg" alt="Calzone" width="100%">
             <figcaption class="orbit-caption">Calzone</figcaption>
         </li>
         <li class="orbit-slide">
-            <img src="img/grinders.jpg" alt="Grinders" width="100%">
+            <img src="<?= SERVER ?>/img/Grinder.jpg" alt="Grinders" width="100%">
             <figcaption class="orbit-caption">Grinders</figcaption>
         </li>
         <li class="orbit-slide">
-            <img src="img/lasa.jpg" alt="Lasa" width="100%">
-            <figcaption class="orbit-caption">Lasa</figcaption>
+            <img src="<?= SERVER ?>/img/lasagna.jpg" alt="Lasa" width="100%">
+            <figcaption class="orbit-caption">Lasagna</figcaption>
         </li>
         <li class="orbit-slide">
-            <img src="img/Pizza.jpg" alt="Pizza" width="100%">
+            <img src="<?= SERVER ?>/img/pizza.jpg" alt="Pizza" width="100%">
             <figcaption class="orbit-caption">Pizza</figcaption>
         </li>
         <li class="orbit-slide">
-            <img src="img/salad2.jpg" alt="Salad" width="100%">
+            <img src="<?= SERVER ?>/img/salads.jpg" alt="Salad" width="100%">
             <figcaption class="orbit-caption">Salad</figcaption>
         </li>
         <li class="orbit-slide">
-            <img src="img/Side%20Order.jpg" alt="Side Order" width="100%">
+            <img src="<?= SERVER ?>/img/side_order.JPG" alt="Side Order" width="100%">
             <figcaption class="orbit-caption">Side Order</figcaption>
         </li>
         <li class="orbit-slide">
-            <img src="img/spaghetti1.jpg" alt="Spaghetti" width="100%">
+            <img src="<?= SERVER ?>/img/Spaghetti.jpg" alt="Spaghetti" width="100%">
             <figcaption class="orbit-caption">Spaghetti</figcaption>
         </li>
         <li class="orbit-slide">
-            <img src="img/Special%20Dinner%202.jpg" alt="Special Dinner" width="100%">
+            <img src="<?= SERVER ?>/img/special_dinner.jpg" alt="Special Dinner" width="100%">
             <figcaption class="orbit-caption">Special Dinner</figcaption>
         </li>
         <li class="orbit-slide">
-            <img src="img/Special%20Pizza.jpg" alt="Special Pizza" width="100%">
-            <figcaption class="orbit-caption">Special Pizza</figcaption>
+            <img src="<?= SERVER ?>/img/Specialty_Pizza.jpg" alt="Special Pizza" width="100%">
+            <figcaption class="orbit-caption">Specialty Pizza</figcaption>
         </li>
         <li class="orbit-slide">
-            <img src="img/wraps1.jpg" alt="Wraps" width="100%">
+            <img src="<?= SERVER ?>/img/Wraps.jpg" alt="Wraps" width="100%">
             <figcaption class="orbit-caption">Wraps</figcaption>
         </li>
     </ul>
