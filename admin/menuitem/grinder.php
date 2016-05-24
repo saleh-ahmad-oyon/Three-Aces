@@ -86,14 +86,14 @@ if(isset($_SESSION['user'])){
             <ul class="breadcrumb">
                 <li>
                     <i class="icon-home"></i>
-                    <a href="<?php echo SERVER ?>/admin">Home</a>
+                    <a href="<?= SERVER ?>/admin">Home</a>
                     <i class="icon-angle-right"></i>
                 </li>
                 <li>
                     <a href="#">Food Menu</a>
                     <i class="icon-angle-right"></i>
                 </li>
-                <li><a href="<?php echo SERVER ?>/admin/menuitem/grinder">Grinder</a></li>
+                <li><a href="<?= SERVER ?>/admin/menuitem/grinder">Grinder</a></li>
             </ul>
 
             <div class="row-fluid sortable">
@@ -121,7 +121,7 @@ if(isset($_SESSION['user'])){
                             <?php foreach($row as $key => $r): ?>
                                 <tr class="tableRow">
                                     <td></td>
-                                    <td><?php echo $r['grinder_name']; ?></td>
+                                    <td><?= $r['grinder_name']; ?></td>
                                     <td>
                                         <?php
                                             if(isset($r['grinder_small_price'])){
@@ -129,11 +129,11 @@ if(isset($_SESSION['user'])){
                                             }
                                         ?>
                                     </td>
-                                    <td> $ <?php echo $r['grinder_large_price']; ?></td>
+                                    <td> $ <?= $r['grinder_large_price']; ?></td>
                                     <td>
                                         <div class="text-center">
-                                            <button class="btn btn-info" title="Edit" onclick="editItem(<?php echo $r['grinder_id']; ?>);"><i class="halflings-icon white edit"></i> Edit</button>
-                                            <button class="btn btn-danger" title="Delete" onclick="deleteItem(<?php echo $r['grinder_id']; ?>);"><i class="halflings-icon white trash"></i> Delete</button>
+                                            <button class="btn btn-info" title="Edit" onclick="editItem(<?= $r['grinder_id']; ?>);"><i class="halflings-icon white edit"></i> Edit</button>
+                                            <button class="btn btn-danger" title="Delete" onclick="deleteItem(<?= $r['grinder_id']; ?>);"><i class="halflings-icon white trash"></i> Delete</button>
                                         </div>
                                     </td>
                                 </tr>
