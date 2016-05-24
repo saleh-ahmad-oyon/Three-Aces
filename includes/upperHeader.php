@@ -4,10 +4,13 @@
  * User: Oyon
  * Date: 2/15/2016
  * Time: 2:45 PM
- */?>
+ */
+require_once 'controller/define.php';
+?>
 <div class="row">
     <div class="small-4 medium-5 columns">
-        <h2>Three Aces</h2>
+        <img src="<?php echo SERVER; ?>/img/aces_logo.png" width="40px" style="padding-bottom: 20px;" alt="Three Aces Logo">
+        <span class="title">Three Aces</span>
     </div>
     <div class="small-4 medium-5 columns">
         <p>
