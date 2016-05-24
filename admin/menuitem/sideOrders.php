@@ -234,7 +234,7 @@ if(isset($_SESSION['user'])){
 <script src="../js/retina.js"></script>
 
 <script src="../js/custom.js"></script>
-<script src="<?php echo SERVER ?>/admin/js/side-order-script.php"></script>
+<script src="<?= SERVER ?>/admin/js/side-order-script.php"></script>
 <!-- end: JavaScript-->
 
 </body>
