@@ -81,7 +81,7 @@ $('#addbtn').click(function(){
                 error: function(){
             alert('An Error Occured !!');
         },
-                success: function(response){
+        success: function(response){
             alert('Successfully Saved !!');
             $('#addClose').click();
             window.location.reload();
