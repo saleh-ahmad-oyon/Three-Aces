@@ -63,9 +63,9 @@ $row = getSpecialDinner();
                 </thead>
                 <tbody>
                     <?php foreach($row as $r): ?>
-                        <tr data-id ="<?php echo $r['sp_din_id'] ?>" data-type="Special Dinner">
-                            <td><?php echo $r['sp_din_name']; ?></td>
-                            <td> $ <?php echo $r['sp_din_price']; ?></td>
+                        <tr data-id ="<?= $r['sp_din_id'] ?>" data-type="Special Dinner">
+                            <td><?= $r['sp_din_name']; ?></td>
+                            <td> $ <?= $r['sp_din_price']; ?></td>
                             <td>
                                 <button type="button" class="button hollow primary expanded item">
                                     <i class="fi-shopping-cart"></i>

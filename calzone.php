@@ -63,9 +63,9 @@ $row = getCalzones();
                 </thead>
                 <tbody>
                     <?php foreach($row as $r): ?>
-                        <tr data-id ="<?php echo $r['id'] ?>" data-type="Calzone">
-                            <td><?php echo $r['name']; ?></td>
-                            <td> $ <?php echo $r['price']; ?></td>
+                        <tr data-id ="<?= $r['id'] ?>" data-type="Calzone">
+                            <td><?= $r['name']; ?></td>
+                            <td> $ <?= $r['price']; ?></td>
                             <td>
                                 <button type="button" class="button hollow primary expanded item">
                                     <i class="fi-shopping-cart"></i>

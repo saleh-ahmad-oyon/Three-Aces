@@ -64,16 +64,16 @@ $row =getSpecialPizza();
             </thead>
             <tbody>
             <?php foreach($row as $r): ?>
-                <tr data-id ="<?php echo $r['sp_pizza_id'] ?>" data-type="Speciality Pizzas">
-                    <td><?php echo $r['sp_pizza_name']; ?></td>
-                    <td> $ <?php echo $r['sp_pizza_small_price']; ?></td>
+                <tr data-id ="<?= $r['sp_pizza_id'] ?>" data-type="Speciality Pizzas">
+                    <td><?= $r['sp_pizza_name']; ?></td>
+                    <td> $ <?= $r['sp_pizza_small_price']; ?></td>
                     <td>
                         <button type="button" class="button hollow primary expanded item-small">
                             <i class="fi-shopping-cart"></i>
                             <strong>Add to cart</strong>
                         </button>
                     </td>
-                    <td> $ <?php echo $r['sp_pizza_large_price']; ?></td>
+                    <td> $ <?= $r['sp_pizza_large_price']; ?></td>
                     <td>
                         <button type="button" class="button hollow primary expanded item-large">
                             <i class="fi-shopping-cart"></i>

@@ -64,8 +64,8 @@ $row = getSideOrders();
                 </thead>
                 <tbody>
                 <?php foreach($row as $r): ?>
-                    <tr data-id ="<?php echo $r['so_id'] ?>" data-type="Side Orders">
-                        <td><?php echo $r['so_name']; ?></td>
+                    <tr data-id ="<?= $r['so_id'] ?>" data-type="Side Orders">
+                        <td><?= $r['so_name']; ?></td>
                         <td>
                             <?php
                             if(isset($r['so_small_price'])){
@@ -81,7 +81,7 @@ $row = getSideOrders();
                             </button>
                         <?php endif; ?>
                         </td>
-                        <td> $ <?php echo $r['so_large_price']; ?></td>
+                        <td> $ <?= $r['so_large_price']; ?></td>
                         <td>
                             <button type="button" class="button hollow primary expanded item-large">
                                 <i class="fi-shopping-cart"></i>

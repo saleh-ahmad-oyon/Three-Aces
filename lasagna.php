@@ -66,9 +66,9 @@
 
                 <!--Lasagna List-->
                 <?php foreach($row as $r): ?>
-                    <tr data-id ="<?php echo $r['lasagna_id'] ?>" data-type="Lasagna">
-                        <td><?php echo $r['lasagna_name']; ?></td>
-                        <td> $ <?php echo $r['lasagna_price']; ?></td>
+                    <tr data-id ="<?= $r['lasagna_id'] ?>" data-type="Lasagna">
+                        <td><?= $r['lasagna_name']; ?></td>
+                        <td> $ <?= $r['lasagna_price']; ?></td>
                         <td>
                             <button type="button" class="button hollow primary expanded item">
                                 <i class="fi-shopping-cart"></i>

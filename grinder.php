@@ -63,8 +63,8 @@ $row = getGrinders();
                 </thead>
                 <tbody>
                 <?php foreach($row as $r): ?>
-                    <tr data-id ="<?php echo $r['grinder_id'] ?>" data-type="Grinder">
-                        <td><?php echo $r['grinder_name']; ?></td>
+                    <tr data-id ="<?= $r['grinder_id'] ?>" data-type="Grinder">
+                        <td><?= $r['grinder_name']; ?></td>
                         <td><?php
                             if(isset($r['grinder_small_price'])){
                                 echo ' $ '. $r['grinder_small_price'];
@@ -78,7 +78,7 @@ $row = getGrinders();
                             </button>
                         <?php endif; ?>
                         </td>
-                        <td> $ <?php echo $r['grinder_large_price']; ?></td>
+                        <td> $ <?= $r['grinder_large_price']; ?></td>
                         <td>
                             <button type="button" class="button hollow primary expanded item-large">
                                 <i class="fi-shopping-cart"></i>

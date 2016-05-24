@@ -63,9 +63,9 @@ $row = getwraps();
                 </thead>
                 <tbody>
                 <?php foreach($row as $r): ?>
-                    <tr data-id ="<?php echo $r['wraps_id'] ?>" data-type="Wraps">
-                        <td><?php echo $r['wraps_name']; ?></td>
-                        <td> $ <?php echo $r['wraps_price']; ?></td>
+                    <tr data-id ="<?= $r['wraps_id'] ?>" data-type="Wraps">
+                        <td><?= $r['wraps_name']; ?></td>
+                        <td> $ <?= $r['wraps_price']; ?></td>
                         <td>
                             <button type="button" class="button hollow primary expanded item">
                                 <i class="fi-shopping-cart"></i>

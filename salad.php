@@ -64,16 +64,16 @@ $row = getSalad();
             </thead>
             <tbody>
             <?php foreach($row as $r): ?>
-                <tr data-id ="<?php echo $r['salad_id'] ?>" data-type="Salad">
-                    <td><?php echo $r['salad_name']; ?></td>
-                    <td> $ <?php echo $r['salad_small_price']; ?></td>
+                <tr data-id ="<?= $r['salad_id'] ?>" data-type="Salad">
+                    <td><?= $r['salad_name']; ?></td>
+                    <td> $ <?= $r['salad_small_price']; ?></td>
                     <td>
                         <button type="button" class="button hollow primary expanded item-small">
                             <i class="fi-shopping-cart"></i>
                             <strong>Add to cart</strong>
                         </button>
                     </td>
-                    <td> $ <?php echo $r['salad_large_price']; ?></td>
+                    <td> $ <?= $r['salad_large_price']; ?></td>
                     <td>
                         <button type="button" class="button hollow primary expanded item-large">
                             <i class="fi-shopping-cart"></i>
