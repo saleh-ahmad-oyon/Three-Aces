@@ -37,8 +37,8 @@
             <figcaption class="orbit-caption">Special Dinner</figcaption>
         </li>
         <li class="orbit-slide">
-            <img src="<?= SERVER ?>/img/Specialty_Pizza.jpg" alt="Specialty Pizza" width="100%">
-            <figcaption class="orbit-caption">Specialty Pizza</figcaption>
+            <img src="<?= SERVER ?>/img/Speciality_Pizza.jpg" alt="Specialty Pizza" width="100%">
+            <figcaption class="orbit-caption">Speciality Pizza</figcaption>
         </li>
         <li class="orbit-slide">
             <img src="<?= SERVER ?>/img/Wraps.jpg" alt="Wraps" width="100%">
@@ -55,7 +55,7 @@
         <button data-slide="5"><span class="show-for-sr">Side Orders</span></button>
         <button data-slide="6"><span class="show-for-sr">Spaghetti</span></button>
         <button data-slide="7"><span class="show-for-sr">Special Dinner</span></button>
-        <button data-slide="8"><span class="show-for-sr">Specialty Pizza</span></button>
+        <button data-slide="8"><span class="show-for-sr">Speciality Pizza</span></button>
         <button data-slide="9"><span class="show-for-sr">Wraps</span></button>
     </nav>
 </div>

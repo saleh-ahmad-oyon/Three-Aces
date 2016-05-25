@@ -9,9 +9,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" href="img/aces_logo.png">
-        <!--[if IE]>
-        <link rel="shortcut icon" href="img/aces_logo.png">
-        <![endif]-->
         <!-- Place favicon.ico in the root directory -->
 
         <link rel="stylesheet" href="css/normalize.css">
@@ -21,11 +18,10 @@
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
-        <div class="cover-image"></div>
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-
+        <div class="cover-image"></div>
         <div id="wrap">
             <main>
                 <header>
@@ -48,11 +44,11 @@
             <?php include_once 'includes/footer.php';?>
         </footer>
 
-        <!-- JS Files -->
-        <script src="js/vendor/jquery-2.2.4.min.js"></script>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-2.2.4.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
-        <script src="js/app.js"></script>
         <script src="js/main.js"></script>
+        <script src="js/app.js"></script>
         <script src="js/foundation.min.js"></script>
         <script src="js/foundation.util.mediaQuery.js"></script>
 
