@@ -51,7 +51,12 @@ $row =getSpecialPizza();
 <br/>
 <section>
     <div class="row">
-        <div class="panel callout primary"><strong>Speciality Pizzas</strong></div>
+        <div class="panel callout primary" data-closable>
+            <strong>Speciality Pizzas</strong>
+            <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
         <table style="width: 100%">
             <thead>
             <tr>
@@ -96,10 +101,10 @@ $row =getSpecialPizza();
 
 <script src="js/vendor/jquery-2.2.4.min.js"></script>
 <script src="js/plugins.js"></script>
-<script src="js/foundation.min.js"></script>
-<script src="js/foundation.util.mediaQuery.js"></script>
 <script src="js/app.js"></script>
 <script src="js/main.js"></script>
+<script src="js/foundation.min.js"></script>
+<script src="js/foundation.util.mediaQuery.js"></script>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 <script>

@@ -51,10 +51,10 @@
         <!-- JS Files -->
         <script src="js/vendor/jquery-2.2.4.min.js"></script>
         <script src="js/plugins.js"></script>
-        <script src="js/foundation.min.js"></script>
-        <script src="js/foundation.util.mediaQuery.js"></script>
         <script src="js/app.js"></script>
         <script src="js/main.js"></script>
+        <script src="js/foundation.min.js"></script>
+        <script src="js/foundation.util.mediaQuery.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
