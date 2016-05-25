@@ -1,14 +1,8 @@
-<!--<div
-    class="orbit"
-    data-orbit
-    data-use-m-u-i="false"
-    data-timer-delay="2000"
-    data-options="animInFromLeft:fade-in; animInFromRight:fade-in; animOutToLeft:fade-out; animOutToRight:fade-out;">-->
 <div
     class="orbit"
     data-orbit
-    data-use-m-u-i="true"
-    data-options="animInFromLeft:fade-in; animInFromRight:fade-in; animOutToLeft:fade-out; animOutToRight:fade-out;">
+    data-use-m-u-i="false"
+    data-timer-delay="3500">
     <ul class="orbit-container">
         <li class="orbit-slide is-active">
             <img src="<?= SERVER ?>/img/Calzone.jpg" alt="Calzone" width="100%">
