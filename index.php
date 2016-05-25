@@ -37,7 +37,7 @@
                 <br/>
                 <section>
                     <div class="small-12 columns">
-                        <div class="small-5 small-centered columns">
+                        <div class="large-5 small-centered columns">
                             <?php include_once 'includes/slider.php';?>
                         </div>
                     </div>
