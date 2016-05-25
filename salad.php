@@ -94,7 +94,7 @@ $row = getSalad();
     <?php include_once 'includes/footer.php';?>
 </footer>
 
-<script src="js/vendor/jquery-2.2.0.min.js"></script>
+<script src="js/vendor/jquery-2.2.4.min.js"></script>
 <script src="js/plugins.js"></script>
 <script src="js/foundation.min.js"></script>
 <script src="js/foundation.util.mediaQuery.js"></script>
