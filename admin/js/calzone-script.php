@@ -18,45 +18,45 @@ function additem(){
 }
 function editItem(x){
     $('#addItem').modal('show', {
-            backdrop: 'static'
-        });
-        $.ajax({
-            type: 'POST',
-            dataType: 'json',
-            url: "<?php echo SERVER ?>/controller/changeController",
-            data: {
-                editKey: x
-            },
-            cache: false,
-            error: function(){
-                alert('An error occured !!');
-            },
-            success: function(response){
-                $('#itemName').val(response.name);
-                $('#itemPrice').val(response.price);
-                $('#type').val(response.id);
-            }
-        });
-    }
+        backdrop: 'static'
+    });
+    $.ajax({
+        type: 'POST',
+        dataType: 'json',
+        url: "<?php echo SERVER ?>/controller/changeController",
+        data: {
+            editKey: x
+        },
+        cache: false,
+        error: function(){
+            alert('An error occured !!');
+        },
+        success: function(response){
+            $('#itemName').val(response.name);
+            $('#itemPrice').val(response.price);
+            $('#type').val(response.id);
+        }
+    });
+}
 
 function deleteItem(x){
     var r = confirm("Are you want to delete the selected item ?");
     if(r){
         $.ajax({
-                type: 'POST',
-                url: "<?php echo SERVER ?>/controller/changeController",
-                data: {
-            deleteKey : x
-                },
-                error: function(){
-            alert('An Error Occured');
-        },
-                success: function(){
-            alert('Data has been deleted !!');
-            window.location.reload();
-        }
-            });
-        }else{
+            type: 'POST',
+            url: "<?php echo SERVER ?>/controller/changeController",
+            data: {
+                deleteKey : x
+            },
+            error: function(){
+                alert('An Error Occured');
+            },
+            success: function(){
+                alert('Data has been deleted !!');
+                window.location.reload();
+            }
+        });
+    }else{
         alert('Your data is safe !');
     }
 }
