@@ -25,17 +25,17 @@ function editItem(x){
             dataType: 'json',
             url: "<?php echo SERVER ?>/controller/changeController",
             data: {
-        editKey: x
+                editKey: x
             },
             cache: false,
             error: function(){
-        alert('An error occured !!');
-    },
+                alert('An error occured !!');
+            },
             success: function(response){
-        $('#itemName').val(response.name);
-        $('#itemPrice').val(response.price);
-        $('#type').val(response.id);
-    }
+                $('#itemName').val(response.name);
+                $('#itemPrice').val(response.price);
+                $('#type').val(response.id);
+            }
         });
     }
 
@@ -69,23 +69,23 @@ $('#addbtn').click(function(){
         alert('Both fields must be filled');
     }else{
         $.ajax({
-                type: 'POST',
-                dataType: 'json',
-                url: "<?php echo SERVER ?>/controller/changeController",
-                data: {
-            calzoneName: name,
-                    calzoneCost: cost,
-                    calzoneAction: type
-                },
-                cache: false,
-                error: function(){
-            alert('An Error Occured !!');
-        },
-        success: function(response){
-            alert('Successfully Saved !!');
-            $('#addClose').click();
-            window.location.reload();
-        }
-            });
-        }
+            type: 'POST',
+            dataType: 'json',
+            url: "<?php echo SERVER ?>/controller/changeController",
+            data: {
+                calzoneName: name,
+                calzoneCost: cost,
+                calzoneAction: type
+            },
+            cache: false,
+            error: function(){
+                alert('An Error Occured !!');
+            },
+            success: function(response){
+                alert('Successfully Saved !!');
+                $('#addClose').click();
+                window.location.reload();
+            }
+        });
+    }
 });
