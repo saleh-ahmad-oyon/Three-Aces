@@ -6,4 +6,3 @@
  * Time: 4:08 PM
  */
 define('SERVER', 'http://localhost/threeaces');
-?>

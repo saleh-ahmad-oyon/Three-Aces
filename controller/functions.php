@@ -69,5 +69,3 @@ if(isset($_POST['posttype'])){
     }
     echo false;
 }
-
-?>
