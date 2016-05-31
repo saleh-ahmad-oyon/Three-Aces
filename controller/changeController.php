@@ -125,49 +125,49 @@ if (isset($_POST['calzoneName'])) {
     $row = findPizzaRow($key);
     $resp = $row;
     echo json_encode($resp);
-}elseif(isset($_POST['deletePizzaKey'])){
+} elseif (isset($_POST['deletePizzaKey'])) {
     $key = $_POST['deletePizzaKey'];
     deletePizzaRow($key);
-}elseif(isset($_POST['pizzaName'])){
-    $name = $_POST['pizzaName'];
+} elseif (isset($_POST['pizzaName'])) {
+    $name      = $_POST['pizzaName'];
     $costSmall = $_POST['pizzaCostSmall'];
     $costLarge = $_POST['pizzaCostLarge'];
-    if($_POST['pizzaAction'] == 'add'){
+    if ($_POST['pizzaAction'] == 'add') {
         insertPizza($name, $costSmall, $costLarge);
-    }else{
+    } else {
         $key = $_POST['pizzaAction'];
         editPizza($name, $costSmall, $costLarge, $key);
     }
     echo json_encode($resp);
-}elseif(isset($_POST['editSaladKey'])){
+} elseif (isset($_POST['editSaladKey'])) {
     $key = $_POST['editSaladKey'];
     $row = findSaladRow($key);
     $resp = $row;
     echo json_encode($resp);
-}elseif(isset($_POST['deleteSaladKey'])){
+} elseif (isset($_POST['deleteSaladKey'])) {
     $key = $_POST['deleteSaladKey'];
     deleteSaladRow($key);
-}elseif(isset($_POST['saladName'])){
-    $name = $_POST['saladName'];
+} elseif (isset($_POST['saladName'])) {
+    $name      = $_POST['saladName'];
     $costSmall = $_POST['saladCostSmall'];
     $costLarge = $_POST['saladCostLarge'];
-    if($_POST['saladAction'] == 'add'){
+    if ($_POST['saladAction'] == 'add') {
         insertSalad($name, $costSmall, $costLarge);
-    }else{
+    } else {
         $key = $_POST['saladAction'];
         editSalad($name, $costSmall, $costLarge, $key);
     }
     echo json_encode($resp);
-}elseif(isset($_POST['editSideOrderKey'])){
-    $key = $_POST['editSideOrderKey'];
-    $row = findSideOrderRow($key);
+} elseif (isset($_POST['editSideOrderKey'])) {
+    $key  = $_POST['editSideOrderKey'];
+    $row  = findSideOrderRow($key);
     $resp = $row;
     echo json_encode($resp);
-}elseif(isset($_POST['deleteSideOrderKey'])){
+} elseif (isset($_POST['deleteSideOrderKey'])) {
     $key = $_POST['deleteSideOrderKey'];
     deleteSideOrderRow($key);
-}elseif(isset($_POST['sideOrderName'])){
-    $name = $_POST['sideOrderName'];
+} elseif (isset($_POST['sideOrderName'])) {
+    $name      = $_POST['sideOrderName'];
     $costSmall = $_POST['sideOrderCostSmall'];
     $costLarge = $_POST['sideOrderCostLarge'];
     if($_POST['sideOrderAction'] == 'add'){
@@ -177,21 +177,22 @@ if (isset($_POST['calzoneName'])) {
         editSideOrder($name, $costSmall, $costLarge, $key);
     }
     echo json_encode($resp);
-}elseif(isset($_POST['editSpPizzaKey'])){
-    $key = $_POST['editSpPizzaKey'];
-    $row = findSpPizzaRow($key);
+} elseif(isset($_POST['editSpPizzaKey'])) {
+    $key  = $_POST['editSpPizzaKey'];
+    $row  = findSpPizzaRow($key);
     $resp = $row;
     echo json_encode($resp);
-}elseif(isset($_POST['deleteSpPizzaKey'])){
+} elseif (isset($_POST['deleteSpPizzaKey'])) {
     $key = $_POST['deleteSpPizzaKey'];
     deleteSpPizzaRow($key);
-}elseif(isset($_POST['spPizzaName'])){
-    $name = $_POST['spPizzaName'];
+} elseif (isset($_POST['spPizzaName'])) {
+    $name      = $_POST['spPizzaName'];
     $costSmall = $_POST['spPizzaCostSmall'];
     $costLarge = $_POST['spPizzaCostLarge'];
-    if($_POST['spPizzaAction'] == 'add'){
+
+    if ($_POST['spPizzaAction'] == 'add') {
         insertSpPizza($name, $costSmall, $costLarge);
-    }else{
+    } else {
         $key = $_POST['spPizzaAction'];
         editSpPizza($name, $costSmall, $costLarge, $key);
     }
