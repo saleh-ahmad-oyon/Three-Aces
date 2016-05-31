@@ -2,9 +2,9 @@
 session_start();
 require_once '../controller/define.php';
 $islogin = false;
-if(isset($_SESSION['user'])){
+if (isset($_SESSION['user'])) {
 	$islogin = true;
-require_once '../controller/adminController.php';
+    require_once '../controller/adminController.php';
 }
 ?>
 <!DOCTYPE html>
