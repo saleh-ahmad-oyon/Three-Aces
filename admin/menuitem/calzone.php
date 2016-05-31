@@ -103,7 +103,7 @@ if (isset($_SESSION['user'])) {
                     </div>
                     <div class="box-content">
                         <table class="table table-striped table-bordered bootstrap-datatable datatable">
-                            <button class="btn btn-success" title="Add Items" onclick="additem();"><i class="halflings-icon white plus"></i> Add Item</button><br/><br/>
+                            <button class="btn btn-success" title="Add Items" id="addCalzone"><i class="halflings-icon white plus"></i> Add Item</button><br/><br/>
                             <thead>
                             <tr>
                                 <th>No.</th>
@@ -125,10 +125,10 @@ if (isset($_SESSION['user'])) {
                                     <td>
                                         <div class="text-center">
                                             <button class="btn btn-info editCalzone" title="Edit"><i class="halflings-icon white edit"></i> Edit</button>
-                                            <button class="btn btn-danger" title="Delete" onclick="deleteItem(<?= $r['id']; ?>);"><i class="halflings-icon white trash"></i> Delete</button>
+                                            <button class="btn btn-danger dltCalzone" title="Delete"><i class="halflings-icon white trash"></i> Delete</button>
                                         </div>
                                     </td>
-                                    <input type="hidden" value="<?= $r['id']; ?>" />
+                                    <td hidden><?= $r['id']; ?></td>
                                 </tr>
                             <?php endforeach; ?>
                             </tbody>
@@ -224,7 +224,7 @@ if (isset($_SESSION['user'])) {
 <script src="../js/retina.js"></script>
 
 <script src="../js/custom.js"></script>
-<script src="<?= SERVER ?>/admin/js/calzone-script.php"></script>
+<script src="<?= SERVER ?>/admin/js/calzone-script.js"></script>
 <!-- end: JavaScript-->
 
 </body>
