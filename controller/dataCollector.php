@@ -7,44 +7,62 @@
  */
 require_once 'model/db.php';
 
-function getCalzones(){
+function getCalzones()
+{
     $row = calzone();
     return $row;
 }
-function getGrinders(){
+
+function getGrinders()
+{
     $row = grinders();
     return $row;
 }
-function getLasagna(){
+
+function getLasagna()
+{
     $row = lasagna();
     return $row;
 }
-function getPizza(){
+
+function getPizza()
+{
     $row = pizza();
     return $row;
 }
-function getSalad(){
+
+function getSalad()
+{
     $row = salad();
     return $row;
 }
-function getSideOrders(){
+
+function getSideOrders()
+{
     $row = sideOrders();
     return $row;
 }
-function getspaghetti(){
+
+function getspaghetti()
+{
     $row = spaghetti();
     return $row;
 }
-function getwraps(){
+
+function getwraps()
+{
     $row = wraps();
     return $row;
 }
-function getSpecialDinner(){
+
+function getSpecialDinner()
+{
     $row = specialDinner();
     return $row;
 }
-function getSpecialPizza(){
+
+function getSpecialPizza()
+{
     $row = specialPizza();
     return $row;
 }
-?>

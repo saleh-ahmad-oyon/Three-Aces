@@ -9,16 +9,17 @@
 session_start();
 error_reporting(0);
 
-function get_cart_total(){
+function get_cart_total()
+{
     $total = 0.0;
-    foreach($_SESSION['cart'] as $key => $cart){
+    foreach ($_SESSION['cart'] as $key => $cart) {
         $total += (float)substr($cart['price'], strpos($cart['price'], "$")+1);
     }
     return $total;
 }
 
-if(isset($_POST['posttype'])){
-    if($_POST['posttype'] == 'item'){
+if (isset($_POST['posttype'])) {
+    if ($_POST['posttype'] == 'item') {
         $data['id'] = $_POST['id'];
         $data['name'] = $_POST['name'];
         $data['type'] = $_POST['type'];
@@ -51,7 +52,7 @@ if(isset($_POST['posttype'])){
         }
     }
     elseif ($_POST['posttype'] == 'checkout') {
-        if(count($_SESSION['cart']) > 0){
+        if (count($_SESSION['cart']) > 0) {
             $PhoneNumber = $_POST['contact'];
             $orders =array();
             foreach($_SESSION['cart'] as $key => $cart){
