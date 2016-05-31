@@ -1,10 +1,11 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: Oyon
- * Date: 2/14/2016
- * Time: 9:02 PM
+ * @author Saleh Ahmad
+ * @author My Name <oyon@nooblonely.com>
+ * @copyright 2015-2016 Noob Lonely
  */
+
+/** Required Files */
 require_once 'model/db.php';
 
 function getCalzones()
