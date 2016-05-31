@@ -6,14 +6,8 @@
  */
 
 /** Define Protocol */
-if (isset($_SERVER['HTTPS']) &&
-    ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||
-    isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
-    $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
-    define('PROTOCOL', 'https://');
-} else {
-    define('PROTOCOL', 'http://');
-}
+define('PROTOCOL', ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') ||
+    $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://");
 
 /** Define Server Name */
 define('SERVER', PROTOCOL.$_SERVER['SERVER_NAME'].'/threeaces');
