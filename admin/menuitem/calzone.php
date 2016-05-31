@@ -124,10 +124,11 @@ if (isset($_SESSION['user'])) {
                                     <td> $ <?= $r['price']; ?></td>
                                     <td>
                                         <div class="text-center">
-                                            <button class="btn btn-info" title="Edit" onclick="editItem(<?= $r['id']; ?>);" ><i class="halflings-icon white edit"></i> Edit</button>
+                                            <button class="btn btn-info editCalzone" title="Edit"><i class="halflings-icon white edit"></i> Edit</button>
                                             <button class="btn btn-danger" title="Delete" onclick="deleteItem(<?= $r['id']; ?>);"><i class="halflings-icon white trash"></i> Delete</button>
                                         </div>
                                     </td>
+                                    <input type="hidden" value="<?= $r['id']; ?>" />
                                 </tr>
                             <?php endforeach; ?>
                             </tbody>

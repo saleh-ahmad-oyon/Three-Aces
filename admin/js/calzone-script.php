@@ -16,28 +16,22 @@ $('.tableRow').each(function (i) {
 function additem(){
     $('#addItem').modal('show');
 }
-function editItem(x){
-    $('#addItem').modal('show', {
-        backdrop: 'static'
-    });
-    $.ajax({
-        type: 'POST',
-        dataType: 'json',
-        url: "<?php echo SERVER ?>/controller/changeController",
-        data: {
-            editKey: x
-        },
-        cache: false,
-        error: function(){
-            alert('An error occured !!');
-        },
-        success: function(response){
-            $('#itemName').val(response.name);
-            $('#itemPrice').val(response.price);
-            $('#type').val(response.id);
-        }
-    });
-}
+
+$('.editCalzone').click(function(){
+$('#addItem').modal('show', {
+backdrop: 'static'
+});
+
+var edit = {
+name : $('.editCalzone').closest('tr').find('td').eq(1).text(),
+price : $('.editCalzone').closest('tr').find('td').eq(2).text().split(' ')[2],
+type : $('.editCalzone').closest('tr').children()[4].value
+};
+
+$('#itemName').val(edit.name);
+$('#itemPrice').val(edit.price);
+$('#type').val(edit.type);
+});
 
 function deleteItem(x){
     var r = confirm("Are you want to delete the selected item ?");
