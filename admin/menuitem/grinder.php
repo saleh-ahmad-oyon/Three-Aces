@@ -65,149 +65,142 @@ if (isset($_SESSION['user'])) {
         <?php include_once '../includes/header.php';?>
     </header>
 
-<div class="container-fluid-full">
-    <div class="row-fluid">
+    <div class="container-fluid-full">
+        <div class="row-fluid">
 
-        <!-- start: Main Menu -->
-        <?php include_once '../includes/menu.php'; ?>
-        <!-- end: Main Menu -->
+            <!-- start: Main Menu -->
+            <?php include_once '../includes/menu.php'; ?>
+            <!-- end: Main Menu -->
 
-        <noscript>
-            <div class="alert alert-block span10">
-                <h4 class="alert-heading">Warning!</h4>
-                <p>You need to have <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a> enabled to use this site.</p>
-            </div>
-        </noscript>
+            <noscript>
+                <div class="alert alert-block span10">
+                    <h4 class="alert-heading">Warning!</h4>
+                    <p>You need to have <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a> enabled to use this site.</p>
+                </div>
+            </noscript>
 
-        <!-- start: Content -->
-        <div id="content" class="span10">
+            <!-- start: Content -->
+            <div id="content" class="span10">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home"></i>
+                        <a href="<?= SERVER ?>/admin">Home</a>
+                        <i class="icon-angle-right"></i>
+                    </li>
+                    <li>
+                        <a href="#">Food Menu</a>
+                        <i class="icon-angle-right"></i>
+                    </li>
+                    <li><a href="<?= SERVER ?>/admin/menuitem/grinder">Grinder</a></li>
+                </ul>
 
+                <div class="row-fluid sortable">
+                    <div class="box span12">
+                        <div class="box-header" data-original-title>
+                            <h2><i class="icon-food"></i><span class="break"></span>Grinders</h2>
+                        </div>
+                        <div class="box-content">
+                            <table class="table table-striped table-bordered bootstrap-datatable datatable">
+                                <button class="btn btn-success" title="Add Items" id="addGrinder"><i class="halflings-icon white plus"></i> Add Item</button><br/><br/>
+                                <thead>
+                                    <tr>
+                                        <th>No.</th>
+                                        <th>Name</th>
+                                        <th>Price (Small)</th>
+                                        <th>Price (Large)</th>
+                                        <th class="text-center">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach($row as $key => $r): ?>
+                                    <tr class="tableRow">
+                                        <td></td>
+                                        <td><?= $r['grinder_name']; ?></td>
+                                         <td><?php
+                                                if(isset($r['grinder_small_price'])){
+                                                    echo '$ '. $r['grinder_small_price'];
+                                                }
+                                            ?>
+                                        </td>
+                                        <td> $ <?= $r['grinder_large_price']; ?></td>
+                                        <td>
+                                            <div class="text-center">
+                                                <button class="btn btn-info editGrinder" title="Edit"><i class="halflings-icon white edit"></i> Edit</button>
+                                                <button class="btn btn-danger dltGrinder" title="Delete"><i class="halflings-icon white trash"></i> Delete</button>
+                                            </div>
+                                        </td>
+                                        <td hidden><?= $r['grinder_id']; ?></td>
+                                    </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div><!--/span-->
+                </div><!--/row-->
+            </div><!--/.fluid-container-->
+            <!-- end: Content -->
+        </div><!--/#content.span10-->
+    </div><!--/fluid-row-->
 
-            <ul class="breadcrumb">
-                <li>
-                    <i class="icon-home"></i>
-                    <a href="<?= SERVER ?>/admin">Home</a>
-                    <i class="icon-angle-right"></i>
-                </li>
-                <li>
-                    <a href="#">Food Menu</a>
-                    <i class="icon-angle-right"></i>
-                </li>
-                <li><a href="<?= SERVER ?>/admin/menuitem/grinder">Grinder</a></li>
-            </ul>
-
-            <div class="row-fluid sortable">
-                <div class="box span12">
-                    <div class="box-header" data-original-title>
-                        <h2><i class="icon-food"></i><span class="break"></span>Grinders</h2>
-                    </div>
-                    <div class="box-content">
-                        <table class="table table-striped table-bordered bootstrap-datatable datatable">
-                            <button class="btn btn-success" title="Add Items" id="addGrinder"><i class="halflings-icon white plus"></i> Add Item</button><br/><br/>
-                            <thead>
-                                <tr>
-                                    <th>No.</th>
-                                    <th>Name</th>
-                                    <th>Price (Small)</th>
-                                    <th>Price (Large)</th>
-                                    <th class="text-center">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach($row as $key => $r): ?>
-                                <tr class="tableRow">
-                                    <td></td>
-                                    <td><?= $r['grinder_name']; ?></td>
-                                     <td><?php
-                                            if(isset($r['grinder_small_price'])){
-                                                echo '$ '. $r['grinder_small_price'];
-                                            }
-                                        ?>
-                                    </td>
-                                    <td> $ <?= $r['grinder_large_price']; ?></td>
-                                    <td>
-                                        <div class="text-center">
-                                            <button class="btn btn-info editGrinder" title="Edit"><i class="halflings-icon white edit"></i> Edit</button>
-                                            <button class="btn btn-danger dltGrinder" title="Delete"><i class="halflings-icon white trash"></i> Delete</button>
-                                        </div>
-                                    </td>
-                                    <td hidden><?= $r['grinder_id']; ?></td>
-                                </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div><!--/span-->
-
-            </div><!--/row-->
-
-
-        </div><!--/.fluid-container-->
-
-        <!-- end: Content -->
-    </div><!--/#content.span10-->
-</div><!--/fluid-row-->
-
-<div class="modal hide fade" id="addItem">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">×</button>
-        <h1>Grinder</h1>
+    <div class="modal hide fade" id="addItem">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+            <h1>Grinder</h1>
+        </div>
+        <div class="modal-body">
+            <h3>Name</h3>
+            <input type="text" id="itemName" value="" required="required" />
+            <input type="hidden" id="type" value="add"/>
+            <h3>Price (Small)</h3>
+            <input type="number" min="0" step="0.01" value="" required="required" id="itemPriceSmall" />
+            <h3>Price (Large)</h3>
+            <input type="number" min="0" step="0.01" value="" required="required" id="itemPriceLarge" />
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" id="addClose" data-dismiss="modal">Close</button>
+            <button class="btn btn-success" id="addbtn">Save</button>
+        </div>
     </div>
-    <div class="modal-body">
-        <h3>Name</h3>
-        <input type="text" id="itemName" value="" required="required" />
-        <input type="hidden" id="type" value="add"/>
-        <h3>Price (Small)</h3>
-        <input type="number" min="0" step="0.01" value="" required="required" id="itemPriceSmall" />
-        <h3>Price (Large)</h3>
-        <input type="number" min="0" step="0.01" value="" required="required" id="itemPriceLarge" />
-    </div>
-    <div class="modal-footer">
-        <button class="btn btn-primary" id="addClose" data-dismiss="modal">Close</button>
-        <button class="btn btn-success" id="addbtn">Save</button>
-    </div>
-</div>
 
-<div class="clearfix"></div>
+    <div class="clearfix"></div>
 
-<footer>
-   <?php include_once '../includes/footer.php'; ?>
-</footer>
+    <footer>
+       <?php include_once '../includes/footer.php'; ?>
+    </footer>
 
-<!-- start: JavaScript-->
+    <!-- start: JavaScript-->
 
-<script src="../js/jquery-1.9.1.min.js"></script>
-<script src="../js/jquery-migrate-1.0.0.min.js"></script>
-<script src="../js/jquery-ui-1.10.0.custom.min.js"></script>
-<script src="../js/jquery.ui.touch-punch.js"></script>
-<script src="../js/modernizr.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-<script src="../js/jquery.cookie.js"></script>
-<script src='../js/fullcalendar.min.js'></script>
-<script src='../js/jquery.dataTables.min.js'></script>
-<script src="../js/excanvas.js"></script>
-<script src="../js/jquery.flot.js"></script>
-<script src="../js/jquery.flot.pie.js"></script>
-<script src="../js/jquery.flot.stack.js"></script>
-<script src="../js/jquery.flot.resize.min.js"></script>
-<script src="../js/jquery.chosen.min.js"></script>
-<script src="../js/jquery.uniform.min.js"></script>
-<script src="../js/jquery.cleditor.min.js"></script>
-<script src="../js/jquery.noty.js"></script>
-<script src="../js/jquery.elfinder.min.js"></script>
-<script src="../js/jquery.raty.min.js"></script>
-<script src="../js/jquery.iphone.toggle.js"></script>
-<script src="../js/jquery.uploadify-3.1.min.js"></script>
-<script src="../js/jquery.gritter.min.js"></script>
-<script src="../js/jquery.imagesloaded.js"></script>
-<script src="../js/jquery.masonry.min.js"></script>
-<script src="../js/jquery.knob.modified.js"></script>
-<script src="../js/jquery.sparkline.min.js"></script>
-<script src="../js/counter.js"></script>
-<script src="../js/retina.js"></script>
-<script src="../js/custom.js"></script>
-<script src="<?= SERVER ?>/admin/js/grinder-script.js"></script>
-<!-- end: JavaScript-->
-
+    <script src="../js/jquery-1.9.1.min.js"></script>
+    <script src="../js/jquery-migrate-1.0.0.min.js"></script>
+    <script src="../js/jquery-ui-1.10.0.custom.min.js"></script>
+    <script src="../js/jquery.ui.touch-punch.js"></script>
+    <script src="../js/modernizr.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.cookie.js"></script>
+    <script src='../js/fullcalendar.min.js'></script>
+    <script src='../js/jquery.dataTables.min.js'></script>
+    <script src="../js/excanvas.js"></script>
+    <script src="../js/jquery.flot.js"></script>
+    <script src="../js/jquery.flot.pie.js"></script>
+    <script src="../js/jquery.flot.stack.js"></script>
+    <script src="../js/jquery.flot.resize.min.js"></script>
+    <script src="../js/jquery.chosen.min.js"></script>
+    <script src="../js/jquery.uniform.min.js"></script>
+    <script src="../js/jquery.cleditor.min.js"></script>
+    <script src="../js/jquery.noty.js"></script>
+    <script src="../js/jquery.elfinder.min.js"></script>
+    <script src="../js/jquery.raty.min.js"></script>
+    <script src="../js/jquery.iphone.toggle.js"></script>
+    <script src="../js/jquery.uploadify-3.1.min.js"></script>
+    <script src="../js/jquery.gritter.min.js"></script>
+    <script src="../js/jquery.imagesloaded.js"></script>
+    <script src="../js/jquery.masonry.min.js"></script>
+    <script src="../js/jquery.knob.modified.js"></script>
+    <script src="../js/jquery.sparkline.min.js"></script>
+    <script src="../js/counter.js"></script>
+    <script src="../js/retina.js"></script>
+    <script src="../js/custom.js"></script>
+    <script src="<?= SERVER ?>/admin/js/grinder-script.js"></script>
+    <!-- end: JavaScript-->
 </body>
 </html>
