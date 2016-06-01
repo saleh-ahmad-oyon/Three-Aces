@@ -109,11 +109,7 @@ if (isset($_SESSION['user'])) {
                                 <th>No.</th>
                                 <th>Name</th>
                                 <th>Price</th>
-                                <th>
-                                    <div class="text-center">
-                                        Action
-                                    </div>
-                                </th>
+                                <th class="text-center">Action</th>
                             </tr>
                             </thead>
                             <tbody id="tbody">

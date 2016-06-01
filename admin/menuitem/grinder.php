@@ -103,41 +103,37 @@ if (isset($_SESSION['user'])) {
                     </div>
                     <div class="box-content">
                         <table class="table table-striped table-bordered bootstrap-datatable datatable">
-                            <button class="btn btn-success" title="Add Items" onclick="additem();"><i class="halflings-icon white plus"></i> Add Item</button><br/><br/>
+                            <button class="btn btn-success" title="Add Items" id="addGrinder"><i class="halflings-icon white plus"></i> Add Item</button><br/><br/>
                             <thead>
-                            <tr>
-                                <th>No.</th>
-                                <th>Name</th>
-                                <th>Price (Small)</th>
-                                <th>Price (Large)</th>
-                                <th>
-                                    <div class="text-center">
-                                        Action
-                                    </div>
-                                </th>
-                            </tr>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Name</th>
+                                    <th>Price (Small)</th>
+                                    <th>Price (Large)</th>
+                                    <th class="text-center">Action</th>
+                                </tr>
                             </thead>
                             <tbody>
-                            <?php foreach($row as $key => $r): ?>
+                                <?php foreach($row as $key => $r): ?>
                                 <tr class="tableRow">
                                     <td></td>
                                     <td><?= $r['grinder_name']; ?></td>
-                                    <td>
-                                        <?php
+                                     <td><?php
                                             if(isset($r['grinder_small_price'])){
-                                                echo ' $ '. $r['grinder_small_price'];
+                                                echo '$ '. $r['grinder_small_price'];
                                             }
                                         ?>
                                     </td>
                                     <td> $ <?= $r['grinder_large_price']; ?></td>
                                     <td>
                                         <div class="text-center">
-                                            <button class="btn btn-info" title="Edit" onclick="editItem(<?= $r['grinder_id']; ?>);"><i class="halflings-icon white edit"></i> Edit</button>
-                                            <button class="btn btn-danger" title="Delete" onclick="deleteItem(<?= $r['grinder_id']; ?>);"><i class="halflings-icon white trash"></i> Delete</button>
+                                            <button class="btn btn-info editGrinder" title="Edit"><i class="halflings-icon white edit"></i> Edit</button>
+                                            <button class="btn btn-danger dltGrinder" title="Delete"><i class="halflings-icon white trash"></i> Delete</button>
                                         </div>
                                     </td>
+                                    <td hidden><?= $r['grinder_id']; ?></td>
                                 </tr>
-                            <?php endforeach; ?>
+                                <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>
@@ -182,59 +178,35 @@ if (isset($_SESSION['user'])) {
 
 <script src="../js/jquery-1.9.1.min.js"></script>
 <script src="../js/jquery-migrate-1.0.0.min.js"></script>
-
 <script src="../js/jquery-ui-1.10.0.custom.min.js"></script>
-
 <script src="../js/jquery.ui.touch-punch.js"></script>
-
 <script src="../js/modernizr.js"></script>
-
 <script src="../js/bootstrap.min.js"></script>
-
 <script src="../js/jquery.cookie.js"></script>
-
 <script src='../js/fullcalendar.min.js'></script>
-
 <script src='../js/jquery.dataTables.min.js'></script>
-
 <script src="../js/excanvas.js"></script>
 <script src="../js/jquery.flot.js"></script>
 <script src="../js/jquery.flot.pie.js"></script>
 <script src="../js/jquery.flot.stack.js"></script>
 <script src="../js/jquery.flot.resize.min.js"></script>
-
 <script src="../js/jquery.chosen.min.js"></script>
-
 <script src="../js/jquery.uniform.min.js"></script>
-
 <script src="../js/jquery.cleditor.min.js"></script>
-
 <script src="../js/jquery.noty.js"></script>
-
 <script src="../js/jquery.elfinder.min.js"></script>
-
 <script src="../js/jquery.raty.min.js"></script>
-
 <script src="../js/jquery.iphone.toggle.js"></script>
-
 <script src="../js/jquery.uploadify-3.1.min.js"></script>
-
 <script src="../js/jquery.gritter.min.js"></script>
-
 <script src="../js/jquery.imagesloaded.js"></script>
-
 <script src="../js/jquery.masonry.min.js"></script>
-
 <script src="../js/jquery.knob.modified.js"></script>
-
 <script src="../js/jquery.sparkline.min.js"></script>
-
 <script src="../js/counter.js"></script>
-
 <script src="../js/retina.js"></script>
-
 <script src="../js/custom.js"></script>
-<script src="<?= SERVER ?>/admin/js/grinder-script.php"></script>
+<script src="<?= SERVER ?>/admin/js/grinder-script.js"></script>
 <!-- end: JavaScript-->
 
 </body>
