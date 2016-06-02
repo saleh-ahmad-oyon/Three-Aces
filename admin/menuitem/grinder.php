@@ -108,7 +108,12 @@ if (isset($_SESSION['user'])) {
                                         <th>Name</th>
                                         <th>Price (Small)</th>
                                         <th>Price (Large)</th>
-                                        <th class="text-center">Action</th>
+                                        <th>
+                                            <div class="text-center">
+                                                Action
+                                            </div>
+                                        </th>
+                                        <th hidden></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -177,7 +182,6 @@ if (isset($_SESSION['user'])) {
     <script src="../js/modernizr.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/jquery.cookie.js"></script>
-    <script src='../js/fullcalendar.min.js'></script>
     <script src='../js/jquery.dataTables.min.js'></script>
     <script src="../js/excanvas.js"></script>
     <script src="../js/jquery.flot.js"></script>
@@ -187,7 +191,6 @@ if (isset($_SESSION['user'])) {
     <script src="../js/jquery.chosen.min.js"></script>
     <script src="../js/jquery.uniform.min.js"></script>
     <script src="../js/jquery.cleditor.min.js"></script>
-    <script src="../js/jquery.noty.js"></script>
     <script src="../js/jquery.elfinder.min.js"></script>
     <script src="../js/jquery.raty.min.js"></script>
     <script src="../js/jquery.iphone.toggle.js"></script>
