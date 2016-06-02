@@ -103,7 +103,7 @@ if(isset($_SESSION['user'])){
                     </div>
                     <div class="box-content">
                         <table class="table table-striped table-bordered bootstrap-datatable datatable">
-                            <button class="btn btn-success" title="Add Items" onclick="additem();"><i class="halflings-icon white plus"></i> Add Item</button><br/><br/>
+                            <button class="btn btn-success" title="Add Items" id="addSideOrder"><i class="halflings-icon white plus"></i> Add Item</button><br/><br/>
                             <thead>
                             <tr>
                                 <th>No.</th>
@@ -115,6 +115,7 @@ if(isset($_SESSION['user'])){
                                         Action
                                     </div>
                                 </th>
+                                <th hidden></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -122,20 +123,20 @@ if(isset($_SESSION['user'])){
                                 <tr class="tableRow">
                                     <td></td>
                                     <td><?= $r['so_name']; ?></td>
-                                    <td>
-                                        <?php
+                                    <td><?php
                                         if(isset($r['so_small_price'])){
-                                            echo ' $ '. $r['so_small_price'];
+                                            echo '$ '. $r['so_small_price'];
                                         }
                                         ?>
                                     </td>
-                                    <td> $ <?= $r['so_large_price']; ?></td>
+                                    <td>$ <?= $r['so_large_price']; ?></td>
                                     <td>
                                         <div class="text-center">
-                                            <button class="btn btn-info" title="Edit" onclick="editItem(<?= $r['so_id']; ?>);"><i class="halflings-icon white edit"></i> Edit</button>
-                                            <button class="btn btn-danger" title="Delete" onclick="deleteItem(<?= $r['so_id']; ?>);"><i class="halflings-icon white trash"></i> Delete</button>
+                                            <button class="btn btn-info editSideOrders" title="Edit"><i class="halflings-icon white edit"></i> Edit</button>
+                                            <button class="btn btn-danger dltSideOrders" title="Delete"><i class="halflings-icon white trash"></i> Delete</button>
                                         </div>
                                     </td>
+                                    <td hidden><?= $r['so_id']; ?></td>
                                 </tr>
                             <?php endforeach; ?>
                             </tbody>
@@ -234,7 +235,7 @@ if(isset($_SESSION['user'])){
 <script src="../js/retina.js"></script>
 
 <script src="../js/custom.js"></script>
-<script src="<?= SERVER ?>/admin/js/side-order-script.php"></script>
+<script src="<?= SERVER ?>/admin/js/side-order-script.js"></script>
 <!-- end: JavaScript-->
 
 </body>
