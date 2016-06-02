@@ -122,7 +122,7 @@ if (isset($_SESSION['user'])) {
                                                 }
                                             ?>
                                         </td>
-                                        <td> $ <?= $r['grinder_large_price']; ?></td>
+                                        <td>$ <?= $r['grinder_large_price']; ?></td>
                                         <td>
                                             <div class="text-center">
                                                 <button class="btn btn-info editGrinder" title="Edit"><i class="halflings-icon white edit"></i> Edit</button>

@@ -18,7 +18,7 @@ $('.editGrinder').click(function () {
     var $edit = {
         name : $(this).closest('tr').find('td').eq(1).text(),
         pricesmall : $(this).closest('tr').find('td').eq(2).text().split(' ')[1],
-        pricelarge : $(this).closest('tr').find('td').eq(3).text().split(' ')[2],
+        pricelarge : $(this).closest('tr').find('td').eq(3).text().split(' ')[1],
         id : $(this).closest('tr').find('td').eq(5).text()
     };
 
