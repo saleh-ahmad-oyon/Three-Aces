@@ -103,7 +103,7 @@ if (isset($_SESSION['user'])) {
                     </div>
                     <div class="box-content">
                         <table class="table table-striped table-bordered bootstrap-datatable datatable">
-                            <button class="btn btn-success" title="Add Items" onclick="additem();"><i class="halflings-icon white plus"></i> Add Item</button><br/><br/>
+                            <button class="btn btn-success" title="Add Items" id="addSalad"><i class="halflings-icon white plus"></i> Add Item</button><br/><br/>
                             <thead>
                             <tr>
                                 <th>No.</th>
@@ -115,6 +115,7 @@ if (isset($_SESSION['user'])) {
                                         Action
                                     </div>
                                 </th>
+                                <th hidden></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -122,14 +123,15 @@ if (isset($_SESSION['user'])) {
                                 <tr class="tableRow">
                                     <td></td>
                                     <td><?= $r['salad_name']; ?></td>
-                                    <td> $ <?= $r['salad_small_price']; ?></td>
-                                    <td> $ <?= $r['salad_large_price']; ?></td>
+                                    <td>$ <?= $r['salad_small_price']; ?></td>
+                                    <td>$ <?= $r['salad_large_price']; ?></td>
                                     <td>
                                         <div class="text-center">
-                                            <button class="btn btn-info" title="Edit" onclick="editItem(<?= $r['salad_id']; ?>);"><i class="halflings-icon white edit"></i> Edit</button>
-                                            <button class="btn btn-danger" title="Delete" onclick="deleteItem(<?= $r['salad_id']; ?>);"><i class="halflings-icon white trash"></i> Delete</button>
+                                            <button class="btn btn-info editSalad" title="Edit"><i class="halflings-icon white edit"></i> Edit</button>
+                                            <button class="btn btn-danger dltSalad" title="Delete"><i class="halflings-icon white trash"></i> Delete</button>
                                         </div>
                                     </td>
+                                    <td hidden><?= $r['salad_id']; ?></td>
                                 </tr>
                             <?php endforeach; ?>
                             </tbody>
@@ -228,7 +230,7 @@ if (isset($_SESSION['user'])) {
 <script src="../js/retina.js"></script>
 
 <script src="../js/custom.js"></script>
-<script src="<?= SERVER ?>/admin/js/salad-script.php"></script>
+<script src="<?= SERVER ?>/admin/js/salad-script.js"></script>
 <!-- end: JavaScript-->
 
 </body>
