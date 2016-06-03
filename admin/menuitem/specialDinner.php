@@ -103,7 +103,7 @@ if(isset($_SESSION['user'])){
                     </div>
                     <div class="box-content">
                         <table class="table table-striped table-bordered bootstrap-datatable datatable">
-                            <button class="btn btn-success" title="Add Items" onclick="additem();"><i class="halflings-icon white plus"></i> Add Item</button><br/><br/>
+                            <button class="btn btn-success" title="Add Items" id="addSpDinner"><i class="halflings-icon white plus"></i> Add Item</button><br/><br/>
                             <thead>
                             <tr>
                                 <th>No.</th>
@@ -112,6 +112,7 @@ if(isset($_SESSION['user'])){
                                 <th>
                                     <div class="text-center">Action</div>
                                 </th>
+                                <th hidden></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -122,10 +123,11 @@ if(isset($_SESSION['user'])){
                                     <td> $ <?= $r['sp_din_price']; ?></td>
                                     <td>
                                         <div class="text-center">
-                                            <button class="btn btn-info" title="Edit" onclick="editItem(<?= $r['sp_din_id']; ?>);"><i class="halflings-icon white edit"></i> Edit</button>
-                                            <button class="btn btn-danger" title="Delete" onclick="deleteItem(<?= $r['sp_din_id']; ?>);"><i class="halflings-icon white trash"></i> Delete</button>
+                                            <button class="btn btn-info editSpdinner" title="Edit"><i class="halflings-icon white edit"></i> Edit</button>
+                                            <button class="btn btn-danger dltSpdinner" title="Delete"><i class="halflings-icon white trash"></i> Delete</button>
                                         </div>
                                     </td>
+                                    <td hidden><?= $r['sp_din_id']; ?></td>
                                 </tr>
                             <?php endforeach; ?>
                             </tbody>
@@ -222,7 +224,7 @@ if(isset($_SESSION['user'])){
 <script src="../js/retina.js"></script>
 
 <script src="../js/custom.js"></script>
-<script src="<?= SERVER ?>/admin/js/special-dinner-script.php"></script>
+<script src="<?= SERVER ?>/admin/js/special-dinner-script.js"></script>
 <!-- end: JavaScript-->
 
 </body>

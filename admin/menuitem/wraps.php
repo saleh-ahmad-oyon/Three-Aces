@@ -31,14 +31,12 @@ if(isset($_SESSION['user'])){
     <!-- start: Mobile Specific -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- end: Mobile Specific -->
-
-    <!-- start: CSS -->
+    
     <link id="bootstrap-style" href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/bootstrap-responsive.min.css" rel="stylesheet">
     <link id="base-style" href="../css/style.css" rel="stylesheet">
     <link id="base-style-responsive" href="../css/style-responsive.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,cyrillic-ext,latin-ext' rel='stylesheet' type='text/css'>
-    <!-- end: CSS -->
 
 
     <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -51,12 +49,7 @@ if(isset($_SESSION['user'])){
     <link id="ie9style" href="../css/ie9.css" rel="stylesheet">
     <![endif]-->
 
-    <!-- start: Favicon -->
     <link rel="icon" href="../../img/aces_logo.png" />
-    <!-- end: Favicon -->
-
-
-
 
 </head>
 
@@ -105,17 +98,17 @@ if(isset($_SESSION['user'])){
                         <table class="table table-striped table-bordered bootstrap-datatable datatable">
                             <button class="btn btn-success" title="Add Items" id="addWraps"><i class="halflings-icon white plus"></i> Add Item</button><br/><br/>
                             <thead>
-                            <tr>
-                                <th>No.</th>
-                                <th>Name</th>
-                                <th>Price</th>
-                                <th>
-                                    <div class="text-center">
-                                        Action
-                                    </div>
-                                </th>
-                                <th hidden></th>
-                            </tr>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Name</th>
+                                    <th>Price</th>
+                                    <th>
+                                        <div class="text-center">
+                                            Action
+                                        </div>
+                                    </th>
+                                    <th hidden></th>
+                                </tr>
                             </thead>
                             <tbody>
                             <?php foreach($row as $key => $r): ?>
