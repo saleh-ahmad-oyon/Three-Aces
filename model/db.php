@@ -1,21 +1,24 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: Oyon
- * Date: 2/14/2016
- * Time: 7:30 PM
+ * @author Saleh Ahmad <oyon@nooblonely.com>
+ * @copyright 2015-2016 Noob Lonely
  */
+
+/** Required File */
 require_once 'db_connection.php';
 
-function calzone(){
-    $conn = db_conn();
+function calzone()
+{
+    $conn        = db_conn();
     $selectQuery = 'SELECT * FROM `calzone`';
+
     try{
         $stmt = $conn->query($selectQuery);
     }catch(PDOException $e){
         handle_sql_errors($selectQuery, $e->getMessage());
     }
     $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
     return $row;
 }
 function getAdminInfo($user){
