@@ -18,8 +18,9 @@ $('.editCalzone').click(function(){
     var $edit = {
         name : $(this).closest('tr').find('td').eq(1).text(),
         price : $(this).closest('tr').find('td').eq(2).text().split(' ')[2],
-        type : $(this).closest('tr').find('td').eq(4).text()
+        type : $(this).closest('tr').find('td').eq(3).find('span').text()
     };
+    console.log($edit.type);
 
     $('#itemName').val($edit.name);
     $('#itemPrice').val($edit.price);
@@ -29,7 +30,7 @@ $('.editCalzone').click(function(){
 $('.dltCalzone').click(function(){
     var $dlt = {
         confirm : confirm("Are you want to delete the selected item ?"),
-        key : $(this).closest('tr').find('td').eq(4).text()
+        key : $(this).closest('tr').find('td').eq(3).find('span').text()
     };
     if($dlt.confirm){
         $.ajax({
