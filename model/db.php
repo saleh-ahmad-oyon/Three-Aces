@@ -21,9 +21,12 @@ function calzone()
 
     return $row;
 }
-function getAdminInfo($user){
-    $conn = db_conn();
+
+function getAdminInfo($user)
+{
+    $conn        = db_conn();
     $selectQuery = 'SELECT * FROM `admin` WHERE `id` = ?';
+
     try{
         $stmt = $conn->prepare($selectQuery);
         $stmt->execute(array($user));
@@ -31,11 +34,15 @@ function getAdminInfo($user){
         handle_sql_errors($selectQuery, $e->getMessage());
     }
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
     return $row;
 }
-function findCalzoneRow($key){
-    $conn = db_conn();
+
+function findCalzoneRow($key)
+{
+    $conn        = db_conn();
     $selectQuery = 'SELECT * FROM `calzone` WHERE `id` = ?';
+
     try{
         $stmt = $conn->prepare($selectQuery);
         $stmt->execute(array($key));
@@ -43,8 +50,10 @@ function findCalzoneRow($key){
         handle_sql_errors($selectQuery, $e->getMessage());
     }
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
     return $row;
 }
+
 function findSpeghettiRow($key){
     $conn = db_conn();
     $selectQuery = 'SELECT * FROM `spaghetti` WHERE `spaghetti_id` = ?';
@@ -57,9 +66,12 @@ function findSpeghettiRow($key){
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     return $row;
 }
-function findWrapRow($key){
-    $conn = db_conn();
+
+function findWrapRow($key)
+{
+    $conn        = db_conn();
     $selectQuery = 'SELECT * FROM `wraps` WHERE `wraps_id` = ?';
+
     try{
         $stmt = $conn->prepare($selectQuery);
         $stmt->execute(array($key));
@@ -67,11 +79,15 @@ function findWrapRow($key){
         handle_sql_errors($selectQuery, $e->getMessage());
     }
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
     return $row;
 }
-function findSpDinnerRow($key){
-    $conn = db_conn();
+
+function findSpDinnerRow($key)
+{
+    $conn        = db_conn();
     $selectQuery = 'SELECT * FROM `special_dinner` WHERE `sp_din_id` = ?';
+
     try{
         $stmt = $conn->prepare($selectQuery);
         $stmt->execute(array($key));
@@ -79,11 +95,15 @@ function findSpDinnerRow($key){
         handle_sql_errors($selectQuery, $e->getMessage());
     }
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
     return $row;
 }
-function findLasagnaRow($key){
-    $conn = db_conn();
+
+function findLasagnaRow($key)
+{
+    $conn        = db_conn();
     $selectQuery = 'SELECT * FROM `lasagna` WHERE `lasagna_id` = ?';
+
     try{
         $stmt = $conn->prepare($selectQuery);
         $stmt->execute(array($key));
@@ -91,11 +111,15 @@ function findLasagnaRow($key){
         handle_sql_errors($selectQuery, $e->getMessage());
     }
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
     return $row;
 }
-function findGrinderRow($key){
-    $conn = db_conn();
+
+function findGrinderRow($key)
+{
+    $conn        = db_conn();
     $selectQuery = 'SELECT * FROM `grinder` WHERE `grinder_id` = ?';
+
     try{
         $stmt = $conn->prepare($selectQuery);
         $stmt->execute(array($key));
@@ -103,8 +127,10 @@ function findGrinderRow($key){
         handle_sql_errors($selectQuery, $e->getMessage());
     }
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
     return $row;
 }
+
 function findPizzaRow($key){
     $conn = db_conn();
     $selectQuery = 'SELECT * FROM `pizza` WHERE `pizza_id` = ?';
