@@ -20,7 +20,6 @@ $('.editCalzone').click(function(){
         price : $(this).closest('tr').find('td').eq(2).text().split(' ')[2],
         type : $(this).closest('tr').find('td').eq(3).find('span').text()
     };
-    console.log($edit.type);
 
     $('#itemName').val($edit.name);
     $('#itemPrice').val($edit.price);
