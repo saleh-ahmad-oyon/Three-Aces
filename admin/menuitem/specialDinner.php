@@ -182,8 +182,6 @@ if(isset($_SESSION['user'])){
 
 <script src="../js/jquery.cookie.js"></script>
 
-<script src='../js/fullcalendar.min.js'></script>
-
 <script src='../js/jquery.dataTables.min.js'></script>
 
 <script src="../js/excanvas.js"></script>

@@ -115,6 +115,7 @@ if(isset($_SESSION['user'])){
                                         Action
                                     </div>
                                 </th>
+                                <th hidden></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -134,8 +135,8 @@ if(isset($_SESSION['user'])){
                                             <button class="btn btn-info editSideOrders" title="Edit"><i class="halflings-icon white edit"></i> Edit</button>
                                             <button class="btn btn-danger dltSideOrders" title="Delete"><i class="halflings-icon white trash"></i> Delete</button>
                                         </div>
-                                        <span hidden><?= $r['so_id']; ?></span>
                                     </td>
+                                    <td hidden><?= $r['so_id']; ?></td>
                                 </tr>
                             <?php endforeach; ?>
                             </tbody>
@@ -192,8 +193,6 @@ if(isset($_SESSION['user'])){
 <script src="../js/bootstrap.min.js"></script>
 
 <script src="../js/jquery.cookie.js"></script>
-
-<script src='../js/fullcalendar.min.js'></script>
 
 <script src='../js/jquery.dataTables.min.js'></script>
 

@@ -159,7 +159,6 @@ if (isset($_SESSION['user'])) {
     <script src="../js/modernizr.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/jquery.cookie.js"></script>
-    <script src='../js/fullcalendar.min.js'></script>
     <script src='../js/jquery.dataTables.min.js'></script>
     <script src="../js/excanvas.js"></script>
     <script src="../js/jquery.flot.js"></script>
