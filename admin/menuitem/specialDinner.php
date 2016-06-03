@@ -112,7 +112,6 @@ if(isset($_SESSION['user'])){
                                 <th>
                                     <div class="text-center">Action</div>
                                 </th>
-                                <th hidden></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -126,8 +125,8 @@ if(isset($_SESSION['user'])){
                                             <button class="btn btn-info editSpdinner" title="Edit"><i class="halflings-icon white edit"></i> Edit</button>
                                             <button class="btn btn-danger dltSpdinner" title="Delete"><i class="halflings-icon white trash"></i> Delete</button>
                                         </div>
+                                        <span hidden><?= $r['sp_din_id']; ?></span>
                                     </td>
-                                    <td hidden><?= $r['sp_din_id']; ?></td>
                                 </tr>
                             <?php endforeach; ?>
                             </tbody>

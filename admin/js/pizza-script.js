@@ -19,7 +19,7 @@ $('.editPizza').click(function(){
         name : $(this).closest('tr').find('td').eq(1).text(),
         pricesmall : $(this).closest('tr').find('td').eq(2).text().split(' ')[1],
         pricelarge : $(this).closest('tr').find('td').eq(3).text().split(' ')[1],
-        type : $(this).closest('tr').find('td').eq(5).text()
+        type : $(this).closest('tr').find('td').eq(4).find('span').text()
     };
 
     $('#itemName').val($edit.name);
@@ -31,7 +31,7 @@ $('.editPizza').click(function(){
 $('.dltPizza').click(function(){
     var $dlt = {
         confirm : confirm("Are you want to delete the selected item ?"),
-        key : $(this).closest('tr').find('td').eq(5).text()
+        key : $(this).closest('tr').find('td').eq(4).find('span').text()
     };
 
     if($dlt.confirm){
