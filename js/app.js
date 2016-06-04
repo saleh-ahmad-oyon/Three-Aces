@@ -1,5 +1,6 @@
 /**
- * Created by Oyon on 2/14/2016.
+ * @author Saleh Ahmad <oyon@nooblonely.com>
+ * @copyright 2015-2016 Noob Lonely
  */
 $(document).ready(function(){
     $("button.item").click(function(){
@@ -10,7 +11,7 @@ $(document).ready(function(){
             name : $(items[0]).html(),
             price : $(items[1]).html(),
             posttype : 'item'
-        }
+        };
         $.post('controller/functions.php',postdata,function(data){
             if(data){
                 window.location.reload();
@@ -26,7 +27,7 @@ $(document).ready(function(){
             name : $(items[0]).html(),
             price : $(items[1]).html(),
             posttype : 'item-small'
-        }
+        };
         $.post('controller/functions.php',postdata,function(data){
             if(data){
                 window.location.reload();
@@ -41,7 +42,7 @@ $(document).ready(function(){
             name : $(items[0]).html(),
             price : $(items[3]).html(),
             posttype : 'item-large'
-        }
+        };
         $.post('controller/functions.php',postdata,function(data){
             if(data){
                 window.location.reload();
@@ -53,7 +54,7 @@ $(document).ready(function(){
         var postdata = {
             id : items.parent('tr').data('session-id'),
             posttype : 'item-delete'
-        }
+        };
         $.post('controller/functions.php',postdata,function(data){
             if(data){
                 window.location.reload();
