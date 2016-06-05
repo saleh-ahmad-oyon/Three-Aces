@@ -254,7 +254,7 @@ function sideOrders()
 
 function spaghetti()
 {
-    $conn = db_conn();
+    $conn        = db_conn();
     $selectQuery = 'SELECT * FROM `spaghetti`';
     try{
         $stmt = $conn->query($selectQuery);
@@ -267,7 +267,7 @@ function spaghetti()
 
 function wraps()
 {
-    $conn = db_conn();
+    $conn        = db_conn();
     $selectQuery = 'SELECT * FROM `wraps`';
     try{
         $stmt = $conn->query($selectQuery);
@@ -280,7 +280,7 @@ function wraps()
 
 function specialDinner()
 {
-    $conn = db_conn();
+    $conn        = db_conn();
     $selectQuery = 'SELECT * FROM `special_dinner`';
     try{
         $stmt = $conn->query($selectQuery);
@@ -293,7 +293,7 @@ function specialDinner()
 
 function specialPizza()
 {
-    $conn = db_conn();
+    $conn        = db_conn();
     $selectQuery = 'SELECT * FROM `special_pizza`';
     try{
         $stmt = $conn->query($selectQuery);
@@ -306,7 +306,7 @@ function specialPizza()
 
 function checkPass($user, $pass)
 {
-    $conn = db_conn();
+    $conn        = db_conn();
     $selectQuery = 'SELECT COUNT(1) as `num` FROM `admin` WHERE `username` = :user AND `password` = :pass';
     try{
         $stmt = $conn->prepare($selectQuery);
@@ -320,7 +320,7 @@ function checkPass($user, $pass)
 
 function checkOldPass($old)
 {
-    $conn = db_conn();
+    $conn        = db_conn();
     $selectQuery = 'SELECT COUNT(1) AS `num` FROM `admin` WHERE `password` = ?';
     try{
         $stmt = $conn->prepare($selectQuery);
@@ -334,7 +334,7 @@ function checkOldPass($old)
 
 function checkUser($username)
 {
-    $conn = db_conn();
+    $conn        = db_conn();
     $selectQuery = 'SELECT COUNT(1) as `num` FROM `admin` WHERE `username` = ?';
     try{
         $stmt = $conn->prepare($selectQuery);
@@ -348,7 +348,7 @@ function checkUser($username)
 
 function checkEmail($email)
 {
-    $conn = db_conn();
+    $conn        = db_conn();
     $selectQuery = 'SELECT COUNT(1) as `num` FROM `admin` WHERE `email` = ?';
     try{
         $stmt = $conn->prepare($selectQuery);
@@ -362,7 +362,7 @@ function checkEmail($email)
 
 function getUserName($user)
 {
-    $conn = db_conn();
+    $conn        = db_conn();
     $selectQuery = 'SELECT `name` FROM `admin` WHERE `username` = ?';
     try{
         $stmt = $conn->prepare($selectQuery);
@@ -377,7 +377,7 @@ function getUserName($user)
 
 function getUserNameEmail($key)
 {
-    $conn = db_conn();
+    $conn        = db_conn();
     $selectQuery = 'SELECT `username`, `email` FROM `admin` WHERE `id` = ?';
     try{
         $stmt = $conn->prepare($selectQuery);
@@ -391,7 +391,7 @@ function getUserNameEmail($key)
 
 function getUserId($user)
 {
-    $conn = db_conn();
+    $conn        = db_conn();
     $selectQuery = 'SELECT `id` FROM `admin` WHERE `username` = ?';
     try{
         $stmt = $conn->prepare($selectQuery);
@@ -406,7 +406,7 @@ function getUserId($user)
 
 function addOrder($orders, $total, $PhoneNumber)
 {
-    $conn = db_conn();
+    $conn        = db_conn();
     $selectQuery = "INSERT INTO `orders`(`o_description`, `o_total`, `o_contact`) VALUES (:orders, :total, :contact)";
     try{
         $stmt = $conn->prepare($selectQuery);
