@@ -18,22 +18,41 @@ if (isset($_POST['day']) && $_POST['day'] == 'today') {
     $row = allInfo($key);
     echo json_encode($row);
 } elseif (isset($_POST['oldpa'])) {
-    $old = $_POST['oldpa'];
-    $new = $_POST['newpa'];
+    /**
+     * @var string $old         Admin's Old Password
+     * @var string $new         Admin's New Password
+     * @var string $confirm     Admin's Confirm New password
+     * @var int $key            Admin's ID
+     */
+    $old     = $_POST['oldpa'];
+    $new     = $_POST['newpa'];
     $confirm = $_POST['confirmpa'];
-    $key = $_POST['key'];
+    $key     = $_POST['key'];
 
-    if (checkOldPass($old)) {
-        if ($new == $confirm) {
-            updatePass($key, $new);
-            echo 'Password Successfully Updated';
-        } else {
-            echo "New password and Confirm Password didn't match !!";
-        }
-    } else {
-        echo "Old Password didn't match";
+    /** Check the New Password with the Confirm New Password */
+    if ($new != $confirm) {
+        echo "New password and Confirm Password didn't match !!";
+        return;
     }
+
+    /** Check Old Password */
+    if (!checkOldPass($old)) {
+        echo "Old Password didn't match";
+        return;
+    }
+
+    /** Update Password */
+    updatePass($key, $new);
+    echo 'Password Successfully Updated';
 } elseif (isset($_POST['editKey'])) {
+
+    /**
+     * @var int    $key          Admin's ID
+     * @var string $name         Admin's Name
+     * @var string $username     Admin's Username
+     * @var string $email        Admin's Email
+     * @var string $country      Admin's Country
+     */
     $key      = $_POST['editKey'];
     $name     = $_POST['editName'];
     $username = $_POST['editUsername'];
@@ -43,21 +62,28 @@ if (isset($_POST['day']) && $_POST['day'] == 'today') {
     $row = getUserNameEmail($key);
 
     if ($row['username'] != $username){
-        if (checkUser($username)) {
-            if ($row['email'] != $email) {
-                if (checkEmail($email)) {
-                    updateProfile($name, $username, $email, $country, $key);
-                    echo 't';
-                } else {
-                    echo 'Email Must be Unique';
-                }
-            } else {
-                updateProfile($name, $username, $email, $country, $key);
-                echo 't';
-            }
-        } else {
+        /** Check the username is unique or not */
+        if (!checkUser($username)) {
             echo 'Username Must be Unique';
+            return;
         }
+
+        if ($row['email'] == $email) {
+            updateProfile($name, $username, $email, $country, $key);
+            echo 't';
+            return;
+        }
+
+        /** Check the email is already stored in the database or not */
+        if (!checkEmail($email)) {
+            echo 'Email Must be Unique';
+            return;
+        }
+
+        updateProfile($name, $username, $email, $country, $key);
+        echo 't';
+
+
     } elseif ($row['email'] != $email) {
         if (checkEmail($email)) {
             updateProfile($name, $username, $email, $country, $key);
@@ -76,7 +102,7 @@ if (isset($_POST['day']) && $_POST['day'] == 'today') {
  *
  * Fetch all the Orders' information from the Model
  *
- * @return array Returns the information of all Orders
+ * @return array     Returns the information of all Orders
  */
 function getAllOrdersInfo()
 {
@@ -89,7 +115,7 @@ function getAllOrdersInfo()
  *
  * Fetch all the Orders' information of today from the Model
  *
- * @return array Returns the information of Today's all Orders
+ * @return array     Returns the information of Today's all Orders
  */
 function getTodayOrdersInfo()
 {
@@ -104,7 +130,7 @@ function getTodayOrdersInfo()
  *
  * @param $id    Admin ID
  *
- * @return array   Returns all informations of the admin
+ * @return array     Returns all informations of the admin
  */
 function admininfo($id)
 {
@@ -117,7 +143,7 @@ function admininfo($id)
  *
  * Fetch all Countries' Name of the world from Model
  *
- * @return array   Returns all Countries' Name
+ * @return array     Returns all Countries' Name
  */
 function getCountries()
 {
