@@ -175,7 +175,7 @@ function findSideOrderRow($key)
 
 function findSpPizzaRow($key)
 {
-    $conn = db_conn();
+    $conn        = db_conn();
     $selectQuery = 'SELECT * FROM `special_pizza` WHERE `sp_pizza_id` = ?';
     try{
         $stmt = $conn->prepare($selectQuery);
@@ -189,7 +189,7 @@ function findSpPizzaRow($key)
 
 function grinders()
 {
-    $conn = db_conn();
+    $conn        = db_conn();
     $selectQuery = 'SELECT * FROM `grinder`';
     try{
         $stmt = $conn->query($selectQuery);
@@ -202,7 +202,7 @@ function grinders()
 
 function lasagna()
 {
-    $conn = db_conn();
+    $conn        = db_conn();
     $selectQuery = 'SELECT * FROM `lasagna`';
     try{
         $stmt = $conn->query($selectQuery);
@@ -215,7 +215,7 @@ function lasagna()
 
 function pizza()
 {
-    $conn = db_conn();
+    $conn        = db_conn();
     $selectQuery = 'SELECT * FROM `pizza`';
     try{
         $stmt = $conn->query($selectQuery);
@@ -228,7 +228,7 @@ function pizza()
 
 function salad()
 {
-    $conn = db_conn();
+    $conn        = db_conn();
     $selectQuery = 'SELECT * FROM `salad`';
     try{
         $stmt = $conn->query($selectQuery);
@@ -241,7 +241,7 @@ function salad()
 
 function sideOrders()
 {
-    $conn = db_conn();
+    $conn        = db_conn();
     $selectQuery = 'SELECT * FROM `side_orders`';
     try{
         $stmt = $conn->query($selectQuery);
