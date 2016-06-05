@@ -131,7 +131,8 @@ function findGrinderRow($key)
     return $row;
 }
 
-function findPizzaRow($key){
+function findPizzaRow($key)
+{
     $conn = db_conn();
     $selectQuery = 'SELECT * FROM `pizza` WHERE `pizza_id` = ?';
     try{
@@ -143,7 +144,9 @@ function findPizzaRow($key){
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     return $row;
 }
-function findSaladRow($key){
+
+function findSaladRow($key)
+{
     $conn = db_conn();
     $selectQuery = 'SELECT * FROM `salad` WHERE `salad_id` = ?';
     try{
@@ -155,7 +158,9 @@ function findSaladRow($key){
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     return $row;
 }
-function findSideOrderRow($key){
+
+function findSideOrderRow($key)
+{
     $conn = db_conn();
     $selectQuery = 'SELECT * FROM `side_orders` WHERE `so_id` = ?';
     try{
@@ -167,7 +172,9 @@ function findSideOrderRow($key){
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     return $row;
 }
-function findSpPizzaRow($key){
+
+function findSpPizzaRow($key)
+{
     $conn = db_conn();
     $selectQuery = 'SELECT * FROM `special_pizza` WHERE `sp_pizza_id` = ?';
     try{
@@ -179,7 +186,9 @@ function findSpPizzaRow($key){
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     return $row;
 }
-function grinders(){
+
+function grinders()
+{
     $conn = db_conn();
     $selectQuery = 'SELECT * FROM `grinder`';
     try{
@@ -190,7 +199,9 @@ function grinders(){
     $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $row;
 }
-function lasagna(){
+
+function lasagna()
+{
     $conn = db_conn();
     $selectQuery = 'SELECT * FROM `lasagna`';
     try{
@@ -201,7 +212,9 @@ function lasagna(){
     $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $row;
 }
-function pizza(){
+
+function pizza()
+{
     $conn = db_conn();
     $selectQuery = 'SELECT * FROM `pizza`';
     try{
@@ -212,7 +225,9 @@ function pizza(){
     $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $row;
 }
-function salad(){
+
+function salad()
+{
     $conn = db_conn();
     $selectQuery = 'SELECT * FROM `salad`';
     try{
@@ -223,7 +238,9 @@ function salad(){
     $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $row;
 }
-function sideOrders(){
+
+function sideOrders()
+{
     $conn = db_conn();
     $selectQuery = 'SELECT * FROM `side_orders`';
     try{
@@ -234,7 +251,9 @@ function sideOrders(){
     $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $row;
 }
-function spaghetti(){
+
+function spaghetti()
+{
     $conn = db_conn();
     $selectQuery = 'SELECT * FROM `spaghetti`';
     try{
@@ -245,7 +264,9 @@ function spaghetti(){
     $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $row;
 }
-function wraps(){
+
+function wraps()
+{
     $conn = db_conn();
     $selectQuery = 'SELECT * FROM `wraps`';
     try{
@@ -256,7 +277,9 @@ function wraps(){
     $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $row;
 }
-function specialDinner(){
+
+function specialDinner()
+{
     $conn = db_conn();
     $selectQuery = 'SELECT * FROM `special_dinner`';
     try{
@@ -267,7 +290,9 @@ function specialDinner(){
     $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $row;
 }
-function specialPizza(){
+
+function specialPizza()
+{
     $conn = db_conn();
     $selectQuery = 'SELECT * FROM `special_pizza`';
     try{
@@ -278,7 +303,9 @@ function specialPizza(){
     $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $row;
 }
-function checkPass($user, $pass){
+
+function checkPass($user, $pass)
+{
     $conn = db_conn();
     $selectQuery = 'SELECT COUNT(1) as `num` FROM `admin` WHERE `username` = :user AND `password` = :pass';
     try{
@@ -290,7 +317,9 @@ function checkPass($user, $pass){
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     return ($row['num'] == 1) ? true : false ;
 }
-function checkOldPass($old){
+
+function checkOldPass($old)
+{
     $conn = db_conn();
     $selectQuery = 'SELECT COUNT(1) AS `num` FROM `admin` WHERE `password` = ?';
     try{
@@ -302,7 +331,9 @@ function checkOldPass($old){
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     return ($row['num'] == 1) ? true : false ;
 }
-function checkUser($username){
+
+function checkUser($username)
+{
     $conn = db_conn();
     $selectQuery = 'SELECT COUNT(1) as `num` FROM `admin` WHERE `username` = ?';
     try{
@@ -314,7 +345,9 @@ function checkUser($username){
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     return ($row['num'] == 1 ) ? false : true ;
 }
-function checkEmail($email){
+
+function checkEmail($email)
+{
     $conn = db_conn();
     $selectQuery = 'SELECT COUNT(1) as `num` FROM `admin` WHERE `email` = ?';
     try{
@@ -326,7 +359,9 @@ function checkEmail($email){
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     return ($row['num'] == 0) ? true : false ;
 }
-function getUserName($user){
+
+function getUserName($user)
+{
     $conn = db_conn();
     $selectQuery = 'SELECT `name` FROM `admin` WHERE `username` = ?';
     try{
@@ -339,7 +374,9 @@ function getUserName($user){
     $name = $row['name'];
     return $name;
 }
-function getUserNameEmail($key){
+
+function getUserNameEmail($key)
+{
     $conn = db_conn();
     $selectQuery = 'SELECT `username`, `email` FROM `admin` WHERE `id` = ?';
     try{
@@ -351,7 +388,9 @@ function getUserNameEmail($key){
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     return $row;
 }
-function getUserId($user){
+
+function getUserId($user)
+{
     $conn = db_conn();
     $selectQuery = 'SELECT `id` FROM `admin` WHERE `username` = ?';
     try{
@@ -364,7 +403,9 @@ function getUserId($user){
     $name = $row['id'];
     return $name;
 }
-function addOrder($orders, $total, $PhoneNumber){
+
+function addOrder($orders, $total, $PhoneNumber)
+{
     $conn = db_conn();
     $selectQuery = "INSERT INTO `orders`(`o_description`, `o_total`, `o_contact`) VALUES (:orders, :total, :contact)";
     try{
@@ -375,7 +416,9 @@ function addOrder($orders, $total, $PhoneNumber){
     }
     $conn = null;
 }
-function totalOrders(){
+
+function totalOrders()
+{
     $conn = db_conn();
     $selectQuery = 'SELECT COUNT(1) as `num` FROM `orders`';
     try{
@@ -387,7 +430,9 @@ function totalOrders(){
     $total = $row['num'];
     return $total ;
 }
-function todayOrders(){
+
+function todayOrders()
+{
     $conn = db_conn();
     $selectQuery = 'SELECT COUNT(1) as `num` FROM `orders` WHERE DATE(`o_datetime`) = DATE(NOW())';
     try{
@@ -399,7 +444,9 @@ function todayOrders(){
     $total = $row['num'];
     return $total ;
 }
-function allOrdersInfo(){
+
+function allOrdersInfo()
+{
     $conn = db_conn();
     $selectQuery = 'SELECT `o_id`, `o_datetime`, `o_total`, `o_contact` FROM `orders` ORDER BY `o_datetime` DESC ';
     try{
@@ -410,7 +457,9 @@ function allOrdersInfo(){
     $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $row ;
 }
-function getCountryName(){
+
+function getCountryName()
+{
     $conn = db_conn();
     $selectQuery = 'SELECT `c_name` FROM `country`';
     try{
@@ -421,7 +470,9 @@ function getCountryName(){
     $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $row ;
 }
-function todayOrdersInfo(){
+
+function todayOrdersInfo()
+{
     $conn = db_conn();
     $selectQuery = 'SELECT `o_id`, `o_datetime`, `o_total`, `o_contact` FROM `orders` WHERE DATE(`o_datetime`) = DATE(NOW()) ORDER BY `o_datetime` DESC ';
     try{
@@ -432,7 +483,9 @@ function todayOrdersInfo(){
     $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $row ;
 }
-function allInfo($key){
+
+function allInfo($key)
+{
     $conn = db_conn();
     $selectQuery = 'SELECT `o_description`, `o_datetime`, `o_total`, `o_contact` FROM `orders` WHERE `o_id` = ?';
     try{
@@ -444,7 +497,9 @@ function allInfo($key){
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     return $row ;
 }
-function insertCalzone($name, $cost){
+
+function insertCalzone($name, $cost)
+{
     $conn = db_conn();
     $selectQuery = "INSERT INTO `calzone`(`name`, `price`) VALUES (:title, :cost)";
     try{
@@ -455,7 +510,9 @@ function insertCalzone($name, $cost){
     }
     $conn = null;
 }
-function insertLasagna($name, $cost){
+
+function insertLasagna($name, $cost)
+{
     $conn = db_conn();
     $selectQuery = "INSERT INTO `lasagna`(`lasagna_name`, `lasagna_price`) VALUES (:title, :cost)";
     try{
@@ -466,7 +523,9 @@ function insertLasagna($name, $cost){
     }
     $conn = null;
 }
-function insertSpaghetti($name, $cost){
+
+function insertSpaghetti($name, $cost)
+{
     $conn = db_conn();
     $selectQuery = "INSERT INTO `spaghetti`(`spaghetti_name`, `spaghetti_price`) VALUES (:title, :cost)";
     try{
@@ -477,7 +536,9 @@ function insertSpaghetti($name, $cost){
     }
     $conn = null;
 }
-function insertWrap($name, $cost){
+
+function insertWrap($name, $cost)
+{
     $conn = db_conn();
     $selectQuery = "INSERT INTO `wraps`(`wraps_name`, `wraps_price`) VALUES (:title, :cost)";
     try{
@@ -488,7 +549,9 @@ function insertWrap($name, $cost){
     }
     $conn = null;
 }
-function insertSpDinner($name, $cost){
+
+function insertSpDinner($name, $cost)
+{
     $conn = db_conn();
     $selectQuery = "INSERT INTO `special_dinner`(`sp_din_name`, `sp_din_price`) VALUES (:title, :cost)";
     try{
@@ -499,7 +562,9 @@ function insertSpDinner($name, $cost){
     }
     $conn = null;
 }
-function insertGrinder($name, $costSmall, $costLarge){
+
+function insertGrinder($name, $costSmall, $costLarge)
+{
     $conn = db_conn();
     $selectQuery = "INSERT INTO `grinder`(`grinder_name`, `grinder_small_price`, `grinder_large_price`) VALUES (:title,:smallcost,:largecost)";
     try{
@@ -510,7 +575,9 @@ function insertGrinder($name, $costSmall, $costLarge){
     }
     $conn = null;
 }
-function insertPizza($name, $costSmall, $costLarge){
+
+function insertPizza($name, $costSmall, $costLarge)
+{
     $conn = db_conn();
     $selectQuery = "INSERT INTO `pizza`(`pizza_name`, `pizza_small_price`, `pizza_large_price`) VALUES (:title,:smallcost,:largecost)";
     try{
@@ -521,7 +588,9 @@ function insertPizza($name, $costSmall, $costLarge){
     }
     $conn = null;
 }
-function insertSalad($name, $costSmall, $costLarge){
+
+function insertSalad($name, $costSmall, $costLarge)
+{
     $conn = db_conn();
     $selectQuery = "INSERT INTO `salad`(`salad_name`, `salad_small_price`, `salad_large_price`) VALUES (:title,:smallcost,:largecost)";
     try{
@@ -532,7 +601,9 @@ function insertSalad($name, $costSmall, $costLarge){
     }
     $conn = null;
 }
-function insertSideOrder($name, $costSmall, $costLarge){
+
+function insertSideOrder($name, $costSmall, $costLarge)
+{
     $conn = db_conn();
     $selectQuery = "INSERT INTO `side_orders`(`so_name`, `so_small_price`, `so_large_price`) VALUES (:title,:smallcost,:largecost)";
     try{
@@ -543,7 +614,9 @@ function insertSideOrder($name, $costSmall, $costLarge){
     }
     $conn = null;
 }
-function insertSpPizza($name, $costSmall, $costLarge){
+
+function insertSpPizza($name, $costSmall, $costLarge)
+{
     $conn = db_conn();
     $selectQuery = "INSERT INTO `special_pizza`(`sp_pizza_name`, `sp_pizza_small_price`, `sp_pizza_large_price`) VALUES (:title,:smallcost,:largecost)";
     try{
@@ -554,7 +627,9 @@ function insertSpPizza($name, $costSmall, $costLarge){
     }
     $conn = null;
 }
-function editCalzone($name, $cost, $key){
+
+function editCalzone($name, $cost, $key)
+{
     $conn = db_conn();
     $selectQuery = "UPDATE `calzone` SET `name`=:title,`price`=:cost WHERE `id` = :key";
     try{
@@ -565,7 +640,9 @@ function editCalzone($name, $cost, $key){
     }
     $conn = null;
 }
-function updateProfile($name, $username, $email, $country, $key){
+
+function updateProfile($name, $username, $email, $country, $key)
+{
     $conn = db_conn();
     $selectQuery = "UPDATE `admin` SET `username`=:user, `name`=:name,`email`=:email,`country`=:country WHERE `id` = :id";
     try{
@@ -576,7 +653,9 @@ function updateProfile($name, $username, $email, $country, $key){
     }
     $conn = null;
 }
-function editLasagna($name, $cost, $key){
+
+function editLasagna($name, $cost, $key)
+{
     $conn = db_conn();
     $selectQuery = "UPDATE `lasagna` SET `lasagna_name`=:title,`lasagna_price`=:cost WHERE `lasagna_id` = :key";
     try{
@@ -587,7 +666,9 @@ function editLasagna($name, $cost, $key){
     }
     $conn = null;
 }
-function editSpaghetti($name, $cost, $key){
+
+function editSpaghetti($name, $cost, $key)
+{
     $conn = db_conn();
     $selectQuery = "UPDATE `spaghetti` SET `spaghetti_name`=:title,`spaghetti_price`=:cost WHERE `spaghetti_id` = :key";
     try{
@@ -598,7 +679,9 @@ function editSpaghetti($name, $cost, $key){
     }
     $conn = null;
 }
-function editWrap($name, $cost, $key){
+
+function editWrap($name, $cost, $key)
+{
     $conn = db_conn();
     $selectQuery = "UPDATE `wraps` SET `wraps_name`=:title,`wraps_price`=:cost WHERE `wraps_id` = :key";
     try{
@@ -609,7 +692,9 @@ function editWrap($name, $cost, $key){
     }
     $conn = null;
 }
-function editSpDinner($name, $cost, $key){
+
+function editSpDinner($name, $cost, $key)
+{
     $conn = db_conn();
     $selectQuery = "UPDATE `special_dinner` SET `sp_din_name`=:title,`sp_din_price`=:cost WHERE `sp_din_id` = :key";
     try{
@@ -620,7 +705,9 @@ function editSpDinner($name, $cost, $key){
     }
     $conn = null;
 }
-function editGrinder($name, $costSmall, $costLarge, $key){
+
+function editGrinder($name, $costSmall, $costLarge, $key)
+{
     $conn = db_conn();
     $selectQuery = "UPDATE `grinder` SET `grinder_name`= :title,`grinder_small_price`=:smallcost,`grinder_large_price`=:largecost WHERE `grinder_id` = :key";
     try{
@@ -631,7 +718,9 @@ function editGrinder($name, $costSmall, $costLarge, $key){
     }
     $conn = null;
 }
-function editPizza($name, $costSmall, $costLarge, $key){
+
+function editPizza($name, $costSmall, $costLarge, $key)
+{
     $conn = db_conn();
     $selectQuery = "UPDATE `pizza` SET `pizza_name`= :title,`pizza_small_price`=:smallcost,`pizza_large_price`=:largecost WHERE `pizza_id` = :key";
     try{
@@ -642,7 +731,9 @@ function editPizza($name, $costSmall, $costLarge, $key){
     }
     $conn = null;
 }
-function editSalad($name, $costSmall, $costLarge, $key){
+
+function editSalad($name, $costSmall, $costLarge, $key)
+{
     $conn = db_conn();
     $selectQuery = "UPDATE `salad` SET `salad_name`= :title,`salad_small_price`=:smallcost,`salad_large_price`=:largecost WHERE `salad_id` = :key";
     try{
@@ -653,7 +744,9 @@ function editSalad($name, $costSmall, $costLarge, $key){
     }
     $conn = null;
 }
-function editSideOrder($name, $costSmall, $costLarge, $key){
+
+function editSideOrder($name, $costSmall, $costLarge, $key)
+{
     $conn = db_conn();
     $selectQuery = "UPDATE `side_orders` SET `so_name`= :title,`so_small_price`=:smallcost,`so_large_price`=:largecost WHERE `so_id` = :key";
     try{
@@ -664,7 +757,9 @@ function editSideOrder($name, $costSmall, $costLarge, $key){
     }
     $conn = null;
 }
-function editSpPizza($name, $costSmall, $costLarge, $key){
+
+function editSpPizza($name, $costSmall, $costLarge, $key)
+{
     $conn = db_conn();
     $selectQuery = "UPDATE `special_pizza` SET `sp_pizza_name`= :title,`sp_pizza_small_price`=:smallcost,`sp_pizza_large_price`=:largecost WHERE `sp_pizza_id` = :key";
     try{
@@ -675,7 +770,9 @@ function editSpPizza($name, $costSmall, $costLarge, $key){
     }
     $conn = null;
 }
-function updatePass($key, $new){
+
+function updatePass($key, $new)
+{
     $conn = db_conn();
     $selectQuery = "UPDATE `admin` SET `password`= :pass WHERE `id` = :key";
     try{
@@ -686,7 +783,9 @@ function updatePass($key, $new){
     }
     $conn = null;
 }
-function deleteCalzoneRow($key){
+
+function deleteCalzoneRow($key)
+{
     $conn = db_conn();
     $selectQuery = "DELETE FROM `calzone` WHERE `id` = ?";
     try{
@@ -697,7 +796,9 @@ function deleteCalzoneRow($key){
     }
     $conn = null;
 }
-function deleteLasagnaRow($key){
+
+function deleteLasagnaRow($key)
+{
     $conn = db_conn();
     $selectQuery = "DELETE FROM `lasagna` WHERE `lasagna_id` = ?";
     try{
@@ -708,7 +809,9 @@ function deleteLasagnaRow($key){
     }
     $conn = null;
 }
-function deleteSpaghettiRow($key){
+
+function deleteSpaghettiRow($key)
+{
     $conn = db_conn();
     $selectQuery = "DELETE FROM `spaghetti` WHERE `spaghetti_id` = ?";
     try{
@@ -719,7 +822,9 @@ function deleteSpaghettiRow($key){
     }
     $conn = null;
 }
-function deleteWrapRow($key){
+
+function deleteWrapRow($key)
+{
     $conn = db_conn();
     $selectQuery = "DELETE FROM `wraps` WHERE `wraps_id` = ?";
     try{
@@ -730,7 +835,9 @@ function deleteWrapRow($key){
     }
     $conn = null;
 }
-function deleteSpDinnerRow($key){
+
+function deleteSpDinnerRow($key)
+{
     $conn = db_conn();
     $selectQuery = "DELETE FROM `special_dinner` WHERE `sp_din_id` = ?";
     try{
@@ -741,7 +848,9 @@ function deleteSpDinnerRow($key){
     }
     $conn = null;
 }
-function deleteGrinderRow($key){
+
+function deleteGrinderRow($key)
+{
     $conn = db_conn();
     $selectQuery = "DELETE FROM `grinder` WHERE `grinder_id` = ?";
     try{
@@ -752,7 +861,9 @@ function deleteGrinderRow($key){
     }
     $conn = null;
 }
-function deletePizzaRow($key){
+
+function deletePizzaRow($key)
+{
     $conn = db_conn();
     $selectQuery = "DELETE FROM `pizza` WHERE `pizza_id` = ?";
     try{
@@ -763,7 +874,9 @@ function deletePizzaRow($key){
     }
     $conn = null;
 }
-function deleteSaladRow($key){
+
+function deleteSaladRow($key)
+{
     $conn = db_conn();
     $selectQuery = "DELETE FROM `salad` WHERE `salad_id` = ?";
     try{
@@ -774,7 +887,9 @@ function deleteSaladRow($key){
     }
     $conn = null;
 }
-function deleteSideOrderRow($key){
+
+function deleteSideOrderRow($key)
+{
     $conn = db_conn();
     $selectQuery = "DELETE FROM `side_orders` WHERE `so_id` = ?";
     try{
@@ -785,7 +900,9 @@ function deleteSideOrderRow($key){
     }
     $conn = null;
 }
-function deleteSpPizzaRow($key){
+
+function deleteSpPizzaRow($key)
+{
     $conn = db_conn();
     $selectQuery = "DELETE FROM `special_pizza` WHERE `sp_pizza_id` = ?";
     try{
