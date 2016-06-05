@@ -18,10 +18,13 @@ function get_cart_total()
 
 if (isset($_POST['posttype'])) {
     if ($_POST['posttype'] == 'item') {
-        $data['id'] = $_POST['id'];
-        $data['name'] = $_POST['name'];
-        $data['type'] = $_POST['type'];
-        $data['price'] = $_POST['price'];
+        /**
+         * @var int $data['id']     POST variable ID
+         */
+        $data['id']         = $_POST['id'];
+        $data['name']       = $_POST['name'];
+        $data['type']       = $_POST['type'];
+        $data['price']      = $_POST['price'];
         $_SESSION['cart'][] = $data;
         echo true;
     }
