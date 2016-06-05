@@ -4,6 +4,13 @@
  * @copyright 2015-2016 Noob Lonely
  */
 
+/**
+ * DB Connection
+ *
+ * Establish a connection with the mysql Database
+ *
+ * @return array     Returns the Connection String
+ */
 function db_conn()
 {
     $SERVER = 'localhost';

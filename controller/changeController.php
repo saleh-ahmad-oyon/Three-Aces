@@ -8,6 +8,10 @@ require_once '../model/db.php';
 $resp = array();
 
 if (isset($_POST['calzoneName'])) {
+    /** 
+     * @var string $name     Calzone Name 
+     * @var double $cost     Calzone Cost
+     */
     $name = $_POST['calzoneName'];
     $cost = $_POST['calzoneCost'];
 
