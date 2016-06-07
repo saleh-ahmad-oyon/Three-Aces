@@ -57,9 +57,9 @@ $row = getCalzones();
                                 </thead>
                                 <tbody>
                                 <?php foreach($row as $r): ?>
-                                    <tr data-id ="<?= $r['id'] ?>" data-type="Calzone">
-                                        <td><?= $r['name']; ?></td>
-                                        <td> $ <?= $r['price']; ?></td>
+                                    <tr data-id ="<?= htmlentities(stripcslashes($r['id']), ENT_QUOTES, 'UTF-8'); ?>" data-type="Calzone">
+                                        <td><?= htmlentities(stripcslashes($r['name']), ENT_QUOTES, 'UTF-8'); ?></td>
+                                        <td> $ <?= htmlentities(stripcslashes($r['price']), ENT_QUOTES, 'UTF-8'); ?></td>
                                         <td>
                                             <button type="button" class="button hollow primary expanded item">
                                                 <i class="fi-shopping-cart"></i>
@@ -73,7 +73,6 @@ $row = getCalzones();
                             </table>
                         </div>
                     </div>
-
                 </section>
             </main>
         </div>

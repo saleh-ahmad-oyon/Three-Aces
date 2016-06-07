@@ -16,11 +16,9 @@
             background-size: cover;
             height: 100%;
         }
-
     </style>
 </head>
 <body>
 <div class="error-image"></div>
 </body>
 </html>
-<!-- IE needs 512+ bytes: http://blogs.msdn.com/b/ieinternals/archive/2010/08/19/http-error-pages-in-internet-explorer.aspx -->
