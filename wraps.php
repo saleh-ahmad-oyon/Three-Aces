@@ -57,9 +57,9 @@ $row = getwraps();
                                 </thead>
                                 <tbody>
                                 <?php foreach($row as $r): ?>
-                                    <tr data-id ="<?= $r['wraps_id'] ?>" data-type="Wraps">
-                                        <td><?= $r['wraps_name']; ?></td>
-                                        <td> $ <?= $r['wraps_price']; ?></td>
+                                    <tr data-id ="<?= htmlentities(stripcslashes($r['wraps_id']), ENT_QUOTES, 'UTF-8'); ?>" data-type="Wraps">
+                                        <td><?= htmlentities(stripcslashes($r['wraps_name']), ENT_QUOTES, 'UTF-8'); ?></td>
+                                        <td> $ <?= htmlentities(stripcslashes($r['wraps_price']), ENT_QUOTES, 'UTF-8'); ?></td>
                                         <td>
                                             <button type="button" class="button hollow primary expanded item">
                                                 <i class="fi-shopping-cart"></i>

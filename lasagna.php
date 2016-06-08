@@ -59,9 +59,9 @@ $row = getLasagna();
 
                                 <!--Lasagna List-->
                                 <?php foreach($row as $r): ?>
-                                    <tr data-id ="<?= $r['lasagna_id'] ?>" data-type="Lasagna">
-                                        <td><?= $r['lasagna_name']; ?></td>
-                                        <td> $ <?= $r['lasagna_price']; ?></td>
+                                    <tr data-id ="<?= htmlentities(stripcslashes($r['lasagna_id']), ENT_QUOTES, 'UTF-8'); ?>" data-type="Lasagna">
+                                        <td><?= htmlentities(stripcslashes($r['lasagna_name']), ENT_QUOTES, 'UTF-8'); ?></td>
+                                        <td> $ <?= htmlentities(stripcslashes($r['lasagna_price']), ENT_QUOTES, 'UTF-8'); ?></td>
                                         <td>
                                             <button type="button" class="button hollow primary expanded item">
                                                 <i class="fi-shopping-cart"></i>

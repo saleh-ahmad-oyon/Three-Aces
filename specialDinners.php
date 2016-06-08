@@ -57,9 +57,9 @@ $row = getSpecialDinner();
                                 </thead>
                                 <tbody>
                                 <?php foreach($row as $r): ?>
-                                    <tr data-id ="<?= $r['sp_din_id'] ?>" data-type="Special Dinner">
-                                        <td><?= $r['sp_din_name']; ?></td>
-                                        <td> $ <?= $r['sp_din_price']; ?></td>
+                                    <tr data-id ="<?= htmlentities(stripcslashes($r['sp_din_id']), ENT_QUOTES, 'UTF-8'); ?>" data-type="Special Dinner">
+                                        <td><?= htmlentities(stripcslashes($r['sp_din_name']), ENT_QUOTES, 'UTF-8'); ?></td>
+                                        <td> $ <?= htmlentities(stripcslashes($r['sp_din_price']), ENT_QUOTES, 'UTF-8'); ?></td>
                                         <td>
                                             <button type="button" class="button hollow primary expanded item">
                                                 <i class="fi-shopping-cart"></i>

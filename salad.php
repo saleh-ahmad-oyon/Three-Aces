@@ -58,16 +58,16 @@ $row = getSalad();
                             </thead>
                             <tbody>
                             <?php foreach($row as $r): ?>
-                                <tr data-id ="<?= $r['salad_id'] ?>" data-type="Salad">
-                                    <td><?= $r['salad_name']; ?></td>
-                                    <td> $ <?= $r['salad_small_price']; ?></td>
+                                <tr data-id ="<?= htmlentities(stripcslashes($r['salad_id']), ENT_QUOTES, 'UTF-8'); ?>" data-type="Salad">
+                                    <td><?= htmlentities(stripcslashes($r['salad_name']), ENT_QUOTES, 'UTF-8'); ?></td>
+                                    <td> $ <?= htmlentities(stripcslashes($r['salad_small_price']), ENT_QUOTES, 'UTF-8'); ?></td>
                                     <td>
                                         <button type="button" class="button hollow primary expanded item-small">
                                             <i class="fi-shopping-cart"></i>
                                             <strong>Add to cart</strong>
                                         </button>
                                     </td>
-                                    <td> $ <?= $r['salad_large_price']; ?></td>
+                                    <td> $ <?= htmlentities(stripcslashes($r['salad_large_price']), ENT_QUOTES, 'UTF-8'); ?></td>
                                     <td>
                                         <button type="button" class="button hollow primary expanded item-large">
                                             <i class="fi-shopping-cart"></i>

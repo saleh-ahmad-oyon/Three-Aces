@@ -58,12 +58,12 @@ $row = getSideOrders();
                             </thead>
                             <tbody>
                             <?php foreach($row as $r): ?>
-                                <tr data-id ="<?= $r['so_id'] ?>" data-type="Side Orders">
-                                    <td><?= $r['so_name']; ?></td>
+                                <tr data-id ="<?= htmlentities(stripcslashes($r['so_id']), ENT_QUOTES, 'UTF-8'); ?>" data-type="Side Orders">
+                                    <td><?= htmlentities(stripcslashes($r['so_name']), ENT_QUOTES, 'UTF-8'); ?></td>
                                     <td>
                                         <?php
                                         if(isset($r['so_small_price'])){
-                                            echo " $ ". $r['so_small_price'];
+                                            echo " $ ". htmlentities(stripcslashes($r['so_small_price']), ENT_QUOTES, 'UTF-8');
                                         }
                                         ?>
                                     </td>
@@ -75,7 +75,7 @@ $row = getSideOrders();
                                             </button>
                                         <?php endif; ?>
                                     </td>
-                                    <td> $ <?= $r['so_large_price']; ?></td>
+                                    <td> $ <?= htmlentities(stripcslashes($r['so_large_price']), ENT_QUOTES, 'UTF-8'); ?></td>
                                     <td>
                                         <button type="button" class="button hollow primary expanded item-large">
                                             <i class="fi-shopping-cart"></i>

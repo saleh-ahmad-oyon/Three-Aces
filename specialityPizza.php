@@ -58,16 +58,16 @@ $row =getSpecialPizza();
                             </thead>
                             <tbody>
                             <?php foreach($row as $r): ?>
-                                <tr data-id ="<?= $r['sp_pizza_id'] ?>" data-type="Speciality Pizzas">
-                                    <td><?= $r['sp_pizza_name']; ?></td>
-                                    <td> $ <?= $r['sp_pizza_small_price']; ?></td>
+                                <tr data-id ="<?= htmlentities(stripcslashes($r['sp_pizza_id']), ENT_QUOTES, 'UTF-8'); ?>" data-type="Speciality Pizzas">
+                                    <td><?= htmlentities(stripcslashes($r['sp_pizza_name']), ENT_QUOTES, 'UTF-8'); ?></td>
+                                    <td> $ <?= htmlentities(stripcslashes($r['sp_pizza_small_price']), ENT_QUOTES, 'UTF-8'); ?></td>
                                     <td>
                                         <button type="button" class="button hollow primary expanded item-small">
                                             <i class="fi-shopping-cart"></i>
                                             <strong>Add to cart</strong>
                                         </button>
                                     </td>
-                                    <td> $ <?= $r['sp_pizza_large_price']; ?></td>
+                                    <td> $ <?= htmlentities(stripcslashes($r['sp_pizza_large_price']), ENT_QUOTES, 'UTF-8'); ?></td>
                                     <td>
                                         <button type="button" class="button hollow primary expanded item-large">
                                             <i class="fi-shopping-cart"></i>
