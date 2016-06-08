@@ -58,11 +58,11 @@ $row = getGrinders();
                             </thead>
                             <tbody>
                             <?php foreach($row as $r): ?>
-                                <tr data-id ="<?= $r['grinder_id'] ?>" data-type="Grinder">
-                                    <td><?= $r['grinder_name']; ?></td>
+                                <tr data-id ="<?= htmlentities(stripcslashes($r['grinder_id']), ENT_QUOTES, 'UTF-8'); ?>" data-type="Grinder">
+                                    <td><?= htmlentities(stripcslashes($r['grinder_name']), ENT_QUOTES, 'UTF-8'); ?></td>
                                     <td><?php
                                         if(isset($r['grinder_small_price'])){
-                                            echo ' $ '. $r['grinder_small_price'];
+                                            echo ' $ '. htmlentities(stripcslashes($r['grinder_small_price']), ENT_QUOTES, 'UTF-8');
                                         }
                                         ?></td>
                                     <td>
@@ -73,7 +73,7 @@ $row = getGrinders();
                                             </button>
                                         <?php endif; ?>
                                     </td>
-                                    <td> $ <?= $r['grinder_large_price']; ?></td>
+                                    <td> $ <?= htmlentities(stripcslashes($r['grinder_large_price']), ENT_QUOTES, 'UTF-8'); ?></td>
                                     <td>
                                         <button type="button" class="button hollow primary expanded item-large">
                                             <i class="fi-shopping-cart"></i>
