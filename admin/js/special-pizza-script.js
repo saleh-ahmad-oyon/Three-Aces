@@ -62,7 +62,7 @@ $('#addbtn').click(function(){
     };
 
     if($add.name =='' || $add.costSmall == '' || $add.costLarge == ''){
-        alert('Both fields must be filled');
+        alert('All fields must be filled');
     }else{
         $.ajax({
             type: 'POST',
