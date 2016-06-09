@@ -1,7 +1,7 @@
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="description" content="It is a demo php project that can be used as a online food booking system. People can easily book the food items using this. It was done by a student of AIUB">
-<meta name="keywords" content="Lonely,L0onely,noob lonely,aiub,AIUB,AIUB Course,courses,course management,noob,nooblonely,teacher,student,authority,American International University Bangladesh(AIUB),American International University-Bangladesh,Mid term Project,PHP,PHP Project,Bootstrap,Bootstrap Used Project,Project in AIUB,project done by aiubian" />
+<meta name="keywords" content="Lonely,L0onely,noob lonely,aiub,AIUB,noob,nooblonely,American International University Bangladesh(AIUB),American International University-Bangladesh,PHP,PHP Project,php demo project,demo project,Bootstrap,Bootstrap Used Project,bootstrap with php,php project using php,Project in AIUB,project done by aiubian,foundation,foundation used project,php project using foundation,foundation with php,online food booking system,food booking system,food booking online,noob project,lonely project,noob lonely project" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="language" content="English" />
 <meta name="country" content="Bangladesh" />
