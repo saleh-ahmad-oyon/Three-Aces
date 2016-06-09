@@ -61,7 +61,7 @@ $('#addbtn').click(function(){
         type : $('#type').val()
     };
 
-    if($add.name =='' || $add.pricesmall == '' || $add.pricelarge == ''){
+    if($add.name =='' || $add.pricelarge == ''){
         alert('Both fields must be filled');
     }else{
         $.ajax({
