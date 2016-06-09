@@ -91,24 +91,27 @@ if (isset($_POST['calzoneName'])) {              /** Add or Edit Calzone Value *
 
     /** Call function for deleting the specific row */
     deleteWrapRow($key);
-} elseif (isset($_POST['editSpDinnerKey'])) {
-    $key  = $_POST['editSpDinnerKey'];
-    $row  = findSpDinnerRow($key);
-    $resp = $row;
-    echo json_encode($resp);
-} elseif (isset($_POST['deleteSpDinnerKey'])) {
-    $key = $_POST['deleteSpDinnerKey'];
-    deleteSpDinnerRow($key);
-} elseif (isset($_POST['spDinnerName'])) {
+} elseif (isset($_POST['spDinnerName'])) {         /** Add or Edit Wrap Value */
+    /**
+     * @var string $name     Special Dinner Name
+     * @var float  $cost     Special Dinner Cost
+     */
     $name = $_POST['spDinnerName'];
     $cost = $_POST['spDinnerCost'];
+
+    /** Add or Edit Special Dinner Details */
     if ($_POST['spDinnerAction'] == 'add') {
         insertSpDinner($name, $cost);
     } else {
         $key = $_POST['spDinnerAction'];
         editSpDinner($name, $cost, $key);
     }
-    echo json_encode($resp);
+} elseif (isset($_POST['deleteSpDinnerKey'])) {   /** Delete the specific Special Dinner row using id */
+    /** @var int $key     Special Dinner ID */
+    $key = $_POST['deleteSpDinnerKey'];
+
+    /** Call function for deleting the specific row */
+    deleteSpDinnerRow($key);
 } elseif (isset($_POST['editGrinderKey'])) {
     $key  = $_POST['editGrinderKey'];
     $row  = findGrinderRow($key);
