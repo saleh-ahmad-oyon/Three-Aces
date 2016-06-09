@@ -26,11 +26,11 @@ require_once 'controller/define.php';
                     <li <?= $_SERVER['SCRIPT_NAME'] == '/threeAces/lasagna' ? 'class="active"' : '' ?>><a href="lasagna">Lasagna</a></li>
                     <li <?= $_SERVER['SCRIPT_NAME'] == '/threeAces/pizza' ? 'class="active"' : '' ?>><a href="pizza">Pizza</a></li>
                     <li <?= $_SERVER['SCRIPT_NAME'] == '/threeAces/salad' ? 'class="active"' : '' ?>><a href="salad">Salad</a></li>
-                    <li <?= $_SERVER['SCRIPT_NAME'] == '/threeAces/sideOrders' ? 'class="active"' : '' ?>><a href="sideOrders">Side Orders</a></li>
+                    <li <?= $_SERVER['SCRIPT_NAME'] == '/threeAces/sideorders' ? 'class="active"' : '' ?>><a href="sideorders">Side Orders</a></li>
                     <li <?= $_SERVER['SCRIPT_NAME'] == '/threeAces/spaghetti' ? 'class="active"' : '' ?>><a href="spaghetti">Spaghetti</a></li>
                     <li <?= $_SERVER['SCRIPT_NAME'] == '/threeAces/wraps' ? 'class="active"' : '' ?>><a href="wraps">Wraps</a></li>
-                    <li <?= $_SERVER['SCRIPT_NAME'] == '/threeAces/specialDinners' ? 'class="active"' : '' ?>><a href="specialDinners">Special Dinner</a></li>
-                    <li <?= $_SERVER['SCRIPT_NAME'] == '/threeAces/specialityPizza' ? 'class="active"' : '' ?>><a href="specialityPizza">Speciality Pizza</a></li>
+                    <li <?= $_SERVER['SCRIPT_NAME'] == '/threeAces/specialdinners' ? 'class="active"' : '' ?>><a href="specialdinners">Special Dinner</a></li>
+                    <li <?= $_SERVER['SCRIPT_NAME'] == '/threeAces/specialitypizza' ? 'class="active"' : '' ?>><a href="specialitypizza">Speciality Pizza</a></li>
                 </ul>
             </div>
             <div class="top-bar-right">
