@@ -59,6 +59,7 @@ $('#addbtn').click(function(){
         type : $('#type').val()
     };
 
+    console.log($add.type);
     if($add.name =='' || $add.cost == ''){
         alert('Both fields must be filled');
     }else{
