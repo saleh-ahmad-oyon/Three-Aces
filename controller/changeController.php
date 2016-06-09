@@ -70,24 +70,27 @@ if (isset($_POST['calzoneName'])) {              /** Add or Edit Calzone Value *
 
     /** Call function for deleting the specific row */
     deleteSpaghettiRow($key);
-} elseif (isset($_POST['editWrapKey'])) {
-    $key  = $_POST['editWrapKey'];
-    $row  = findWrapRow($key);
-    $resp = $row;
-    echo json_encode($resp);
-} elseif (isset($_POST['deleteWrapKey'])) {
-    $key = $_POST['deleteWrapKey'];
-    deleteWrapRow($key);
-} elseif (isset($_POST['wrapName'])) {
+} elseif (isset($_POST['wrapName'])) {             /** Add or Edit Wrap Value */
+    /**
+     * @var string $name     Wrap Name
+     * @var float  $cost     Wrap Cost
+     */
     $name = $_POST['wrapName'];
     $cost = $_POST['wrapCost'];
+
+    /** Add or Edit Spaghetti Details */
     if ($_POST['wrapAction'] == 'add') {
         insertWrap($name, $cost);
     } else {
         $key = $_POST['wrapAction'];
         editWrap($name, $cost, $key);
     }
-    echo json_encode($resp);
+} elseif (isset($_POST['deleteWrapKey'])) {        /** Delete the specific Wrap row using id */
+    /** @var int $key     Wrap ID */
+    $key = $_POST['deleteWrapKey'];
+
+    /** Call function for deleting the specific row */
+    deleteWrapRow($key);
 } elseif (isset($_POST['editSpDinnerKey'])) {
     $key  = $_POST['editSpDinnerKey'];
     $row  = findSpDinnerRow($key);
