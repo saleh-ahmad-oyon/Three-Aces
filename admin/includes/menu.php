@@ -17,11 +17,11 @@
                     <li><a class="submenu" href="<?php echo SERVER ?>/admin/menuitem/lasagna"><span class="hidden-tablet"> Lasagna</span></a></li>
                     <li><a class="submenu" href="<?php echo SERVER ?>/admin/menuitem/pizza"><span class="hidden-tablet"> Pizza</span></a></li>
                     <li><a class="submenu" href="<?php echo SERVER ?>/admin/menuitem/salad"><span class="hidden-tablet"> Salad</span></a></li>
-                    <li><a class="submenu" href="<?php echo SERVER ?>/admin/menuitem/sideOrders"><span class="hidden-tablet"> Side Orders</span></a></li>
+                    <li><a class="submenu" href="<?php echo SERVER ?>/admin/menuitem/sideorders"><span class="hidden-tablet"> Side Orders</span></a></li>
                     <li><a class="submenu" href="<?php echo SERVER ?>/admin/menuitem/spaghetti"><span class="hidden-tablet"> Spaghetti</span></a></li>
                     <li><a class="submenu" href="<?php echo SERVER ?>/admin/menuitem/wraps"><span class="hidden-tablet"> Wraps</span></a></li>
-                    <li><a class="submenu" href="<?php echo SERVER ?>/admin/menuitem/specialDinner"><span class="hidden-tablet"> Special Dinner</span></a></li>
-                    <li><a class="submenu" href="<?php echo SERVER ?>/admin/menuitem/specialPizza"><span class="hidden-tablet"> Speciality Pizza</span></a></li>
+                    <li><a class="submenu" href="<?php echo SERVER ?>/admin/menuitem/specialdinner"><span class="hidden-tablet"> Special Dinner</span></a></li>
+                    <li><a class="submenu" href="<?php echo SERVER ?>/admin/menuitem/specialpizza"><span class="hidden-tablet"> Speciality Pizza</span></a></li>
                 </ul>
             </li>
         </ul>
