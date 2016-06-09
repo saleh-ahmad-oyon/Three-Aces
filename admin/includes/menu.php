@@ -21,7 +21,7 @@
                     <li><a class="submenu" href="<?php echo SERVER ?>/admin/menuitem/spaghetti"><span class="hidden-tablet"> Spaghetti</span></a></li>
                     <li><a class="submenu" href="<?php echo SERVER ?>/admin/menuitem/wraps"><span class="hidden-tablet"> Wraps</span></a></li>
                     <li><a class="submenu" href="<?php echo SERVER ?>/admin/menuitem/specialdinner"><span class="hidden-tablet"> Special Dinner</span></a></li>
-                    <li><a class="submenu" href="<?php echo SERVER ?>/admin/menuitem/specialpizza"><span class="hidden-tablet"> Speciality Pizza</span></a></li>
+                    <li><a class="submenu" href="<?php echo SERVER ?>/admin/menuitem/specialitypizza"><span class="hidden-tablet"> Speciality Pizza</span></a></li>
                 </ul>
             </li>
         </ul>
