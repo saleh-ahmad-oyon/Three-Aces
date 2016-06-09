@@ -69,7 +69,7 @@ $(document).ready(function(){
             var phnNo = $('#phn').val();
             $.post('controller/functions.php',{posttype : 'checkout', contact : phnNo},function(data){
                 if(data){
-                    window.location = 'thankYou';
+                    window.location = 'thankyou';
                 }else
                     alert('No item in cart!');
             })
