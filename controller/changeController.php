@@ -116,7 +116,7 @@ if (isset($_POST['calzoneName'])) {              /** Add or Edit Calzone Value *
     /**
      * @var string $name          Grinder Name
      * @var float  $costSmall     Small Grinder Cost
-     * @var float  $costLarge     Larger Grinder Cost
+     * @var float  $costLarge     Large Grinder Cost
      */
     $name      = $_POST['grinderName'];
     $costSmall = $_POST['grinderCostSmall'];
@@ -139,7 +139,7 @@ if (isset($_POST['calzoneName'])) {              /** Add or Edit Calzone Value *
     /**
      * @var string $name          Pizza Name
      * @var float  $costSmall     Small Pizza Cost
-     * @var float  $costLarge     Larger Pizza Cost
+     * @var float  $costLarge     Large Pizza Cost
      */
     $name      = $_POST['pizzaName'];
     $costSmall = $_POST['pizzaCostSmall'];
@@ -158,25 +158,29 @@ if (isset($_POST['calzoneName'])) {              /** Add or Edit Calzone Value *
 
     /** Call function for deleting the specific row */
     deletePizzaRow($key);
-} elseif (isset($_POST['editSaladKey'])) {
-    $key = $_POST['editSaladKey'];
-    $row = findSaladRow($key);
-    $resp = $row;
-    echo json_encode($resp);
-} elseif (isset($_POST['deleteSaladKey'])) {
-    $key = $_POST['deleteSaladKey'];
-    deleteSaladRow($key);
-} elseif (isset($_POST['saladName'])) {
+} elseif (isset($_POST['saladName'])) {          /** Add or Edit Salad Value */
+    /**
+     * @var string $name          Salad Name
+     * @var float  $costSmall     Small Salad Cost
+     * @var float  $costLarge     Large Salad Cost
+     */
     $name      = $_POST['saladName'];
     $costSmall = $_POST['saladCostSmall'];
     $costLarge = $_POST['saladCostLarge'];
+
+    /** Add or Edit Salad Details */
     if ($_POST['saladAction'] == 'add') {
         insertSalad($name, $costSmall, $costLarge);
     } else {
         $key = $_POST['saladAction'];
         editSalad($name, $costSmall, $costLarge, $key);
     }
-    echo json_encode($resp);
+} elseif (isset($_POST['deleteSaladKey'])) {      /** Delete the specific Salad row using id */
+    /** @var int $key     Salad ID */
+    $key = $_POST['deleteSaladKey'];
+
+    /** Call function for deleting the specific row */
+    deleteSaladRow($key);
 } elseif (isset($_POST['editSideOrderKey'])) {
     $key  = $_POST['editSideOrderKey'];
     $row  = findSideOrderRow($key);
