@@ -1,3 +1,4 @@
+<?php require_once 'controller/define.php';?>
 <!doctype html>
 <html lang="en">
 <head>

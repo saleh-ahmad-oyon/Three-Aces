@@ -1,4 +1,5 @@
 <?php
+require_once 'controller/define.php';
 require_once 'controller/functions.php';
 require_once 'controller/dataCollector.php';
 $row = getGrinders();

@@ -1,4 +1,6 @@
-<?php require_once 'controller/functions.php'; ?>
+<?php
+require_once 'controller/define.php';
+require_once 'controller/functions.php'; ?>
 <!doctype html>
 <html class="no-js" lang="en">
     <head>
