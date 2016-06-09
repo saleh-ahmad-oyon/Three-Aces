@@ -144,6 +144,7 @@ footer{
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+/* Scrollbar design */
 ::-webkit-scrollbar {
     width: 12px;
 }
