@@ -181,25 +181,33 @@ if (isset($_POST['calzoneName'])) {              /** Add or Edit Calzone Value *
 
     /** Call function for deleting the specific row */
     deleteSaladRow($key);
-} elseif (isset($_POST['editSideOrderKey'])) {
-    $key  = $_POST['editSideOrderKey'];
-    $row  = findSideOrderRow($key);
-    $resp = $row;
-    echo json_encode($resp);
-} elseif (isset($_POST['deleteSideOrderKey'])) {
-    $key = $_POST['deleteSideOrderKey'];
-    deleteSideOrderRow($key);
-} elseif (isset($_POST['sideOrderName'])) {
+} elseif (isset($_POST['sideOrderName'])) {       /** Add or Edit Side Order Value */
+    /**
+     * @var string $name          Side Order Name
+     * @var float  $costSmall     Small Side Order Cost
+     * @var float  $costLarge     Large Side Order Cost
+     */
     $name      = $_POST['sideOrderName'];
     $costSmall = $_POST['sideOrderCostSmall'];
     $costLarge = $_POST['sideOrderCostLarge'];
+
+    if (!$costSmall) {
+        $costSmall = null;
+    }
+
+    /** Add or Edit Side Order Details */
     if($_POST['sideOrderAction'] == 'add'){
         insertSideOrder($name, $costSmall, $costLarge);
     }else{
         $key = $_POST['sideOrderAction'];
         editSideOrder($name, $costSmall, $costLarge, $key);
     }
-    echo json_encode($resp);
+} elseif (isset($_POST['deleteSideOrderKey'])) {   /** Delete the specific Side Order row using id */
+    /** @var int $key     Side Order ID */
+    $key = $_POST['deleteSideOrderKey'];
+
+    /** Call function for deleting the specific row */
+    deleteSideOrderRow($key);
 } elseif(isset($_POST['editSpPizzaKey'])) {
     $key  = $_POST['editSpPizzaKey'];
     $row  = findSpPizzaRow($key);

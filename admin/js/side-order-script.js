@@ -46,7 +46,7 @@ $('.dltSideOrders').click(function () {
             },
             success: function(){
                 alert('Data has been deleted !!');
-                window.location.reload();
+                location.reload();
             }
         });
     }else{
@@ -67,7 +67,6 @@ $('#addbtn').click(function(){
     }else{
         $.ajax({
             type: 'POST',
-            dataType: 'json',
             url: $sideorder.submitURL,
             data: {
                 sideOrderName: $add.name,
@@ -82,7 +81,7 @@ $('#addbtn').click(function(){
             success: function(response){
                 alert('Successfully Saved !!');
                 $('#addClose').click();
-                window.location.reload();
+                location.reload();
             }
         });
     }
