@@ -7,7 +7,7 @@
 require_once '../model/db.php';
 $resp = array();
 
-if (isset($_POST['calzoneName'])) {
+if (isset($_POST['calzoneName'])) {              /** Add or Edit Calzone Value */
     /** 
      * @var string $name     Calzone Name 
      * @var double $cost     Calzone Cost
@@ -15,14 +15,14 @@ if (isset($_POST['calzoneName'])) {
     $name = $_POST['calzoneName'];
     $cost = $_POST['calzoneCost'];
 
+    /** Add or Edit Calzone Deatils */
     if ($_POST['calzoneAction'] == 'add') {
         insertCalzone($name, $cost);
     } else {
         $key = $_POST['calzoneAction'];
         editCalzone($name, $cost, $key);
     }
-    echo json_encode($resp);
-} elseif (isset($_POST['editKey'])) {
+} elseif (isset($_POST['editKey'])) {             /** Find the specific Calzone row using id */
     $key  = $_POST['editKey'];
     $row  = findCalzoneRow($key);
     $resp = $row;
