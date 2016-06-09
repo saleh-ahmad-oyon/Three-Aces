@@ -388,8 +388,8 @@ AddDefaultCharset utf-8
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-RewriteRule    orders/today             todayOrders
-RewriteRule    orders/all               allOrders
+RewriteRule    orders/today             todayorders
+RewriteRule    orders/all               allorders
 
 # Option 2: rewrite example.com → www.example.com
 #
