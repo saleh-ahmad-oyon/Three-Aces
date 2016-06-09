@@ -22,13 +22,11 @@ if (isset($_POST['calzoneName'])) {              /** Add or Edit Calzone Value *
         $key = $_POST['calzoneAction'];
         editCalzone($name, $cost, $key);
     }
-} elseif (isset($_POST['editKey'])) {             /** Find the specific Calzone row using id */
-    $key  = $_POST['editKey'];
-    $row  = findCalzoneRow($key);
-    $resp = $row;
-    echo json_encode($resp);
-} elseif (isset($_POST['deleteKey'])) {
+} elseif (isset($_POST['deleteKey'])) {          /** Delete the specific Calzone row using id */
+    /** @var int $key     Calzone ID */
     $key = $_POST['deleteKey'];
+
+    /** Call function for deleting the specific row */
     deleteCalzoneRow($key);
 } elseif (isset($_POST['editLasagnaKey'])) {
     $key  = $_POST['editLasagnaKey'];

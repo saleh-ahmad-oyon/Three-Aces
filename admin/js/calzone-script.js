@@ -63,7 +63,6 @@ $('#addbtn').click(function(){
     }else{
         $.ajax({
             type: 'POST',
-            dataType: 'json',
             url: $calzone.submitURL,
             data: {
                 calzoneName: $add.name,
