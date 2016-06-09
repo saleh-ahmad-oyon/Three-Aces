@@ -1,8 +1,17 @@
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="description" content="It is a demo php project that can be used as a online food booking system. People can easily book the food items using this. It was done by a student of AIUB">
+<meta name="keywords" content="Lonely,L0onely,noob lonely,aiub,AIUB,AIUB Course,courses,course management,noob,nooblonely,teacher,student,authority,American International University Bangladesh(AIUB),American International University-Bangladesh,Mid term Project,PHP,PHP Project,Bootstrap,Bootstrap Used Project,Project in AIUB,project done by aiubian" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" href="img/aces_logo.png">
+<meta name="language" content="English" />
+<meta name="country" content="Bangladesh" />
+<meta name="Title" content="Three Aces Restaurant" />
+<meta name="Owner" content="Noob L0onely" />
+<meta name="Copyright" content="2016 Online Food Booking all rights reserved" />
+<meta name="Author" content="Saleh Ahmad" />
+<meta name="robots" content="index, nofollow">
+<link href="img/aces_logo.png" rel="icon">
+<link href="https://www.linkedin.com/in/saleh-ahmad-917b0532" rel="publisher"/>
 <link rel="stylesheet" href="css/normalize.css">
 <link rel="stylesheet" href="css/foundation.min.css">
 <link rel="stylesheet" href="css/foundation-icons/foundation-icons.css" />
