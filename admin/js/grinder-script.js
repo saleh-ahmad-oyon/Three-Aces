@@ -45,7 +45,7 @@ $('.dltGrinder').click(function () {
             },
             success: function(){
                 alert('Data has been deleted !!');
-                window.location.reload();
+                location.reload();
             }
         });
     }else{
@@ -66,7 +66,6 @@ $('#addbtn').click(function(){
     }else{
         $.ajax({
             type: 'POST',
-            dataType: 'json',
             url: $grinder.submitURL,
             data: {
                 grinderName: $add.name,
@@ -78,10 +77,10 @@ $('#addbtn').click(function(){
             error: function(){
                 alert('An Error Occured !!');
             },
-            success: function(response){
+            success: function(){
                 alert('Successfully Saved !!');
                 $('#addClose').click();
-                window.location.reload();
+                location.reload();
             }
         });
     }

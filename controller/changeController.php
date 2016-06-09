@@ -112,25 +112,29 @@ if (isset($_POST['calzoneName'])) {              /** Add or Edit Calzone Value *
 
     /** Call function for deleting the specific row */
     deleteSpDinnerRow($key);
-} elseif (isset($_POST['editGrinderKey'])) {
-    $key  = $_POST['editGrinderKey'];
-    $row  = findGrinderRow($key);
-    $resp = $row;
-    echo json_encode($resp);
-} elseif (isset($_POST['deleteGrinderKey'])) {
-    $key = $_POST['deleteGrinderKey'];
-    deleteGrinderRow($key);
-} elseif (isset($_POST['grinderName'])) {
-    $name = $_POST['grinderName'];
+} elseif (isset($_POST['grinderName'])) {         /** Add or Edit Grinder Value */
+    /**
+     * @var string $name          Grinder Name
+     * @var float  $costSmall     Small Grinder Cost
+     * @var float  $costLarge     Larger Grinder Cost
+     */
+    $name      = $_POST['grinderName'];
     $costSmall = $_POST['grinderCostSmall'];
     $costLarge = $_POST['grinderCostLarge'];
+
+    /** Add or Edit Special Dinner Details */
     if ($_POST['grinderAction'] == 'add') {
         insertGrinder($name, $costSmall, $costLarge);
     } else {
         $key = $_POST['grinderAction'];
         editGrinder($name, $costSmall, $costLarge, $key);
     }
-    echo json_encode($resp);
+} elseif (isset($_POST['deleteGrinderKey'])) {   /** Delete the specific Grinder row using id */
+    /** @var int $key     Grinder ID */
+    $key = $_POST['deleteGrinderKey'];
+
+    /** Call function for deleting the specific row */
+    deleteGrinderRow($key);
 } elseif (isset($_POST['editPizzaKey'])) {
     $key  = $_POST['editPizzaKey'];
     $row  = findPizzaRow($key);
