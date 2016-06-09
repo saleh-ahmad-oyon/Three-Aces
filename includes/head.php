@@ -10,8 +10,8 @@
 <meta name="Copyright" content="2016 Online Food Booking all rights reserved" />
 <meta name="Author" content="Saleh Ahmad" />
 <meta name="robots" content="index, nofollow">
-<link href="img/aces_logo.png" rel="icon">
-<link href="https://www.linkedin.com/in/saleh-ahmad-917b0532" rel="publisher"/>
+<link rel="icon" href="img/aces_logo.png">
+<link rel="publisher" href="https://www.linkedin.com/in/saleh-ahmad-917b0532"/>
 <link rel="stylesheet" href="css/normalize.css">
 <link rel="stylesheet" href="css/foundation.min.css">
 <link rel="stylesheet" href="css/foundation-icons/foundation-icons.css" />
