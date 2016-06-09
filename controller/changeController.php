@@ -49,24 +49,27 @@ if (isset($_POST['calzoneName'])) {              /** Add or Edit Calzone Value *
 
     /** Call function for deleting the specific row */
     deleteLasagnaRow($key);
-} elseif (isset($_POST['editSpeghettiKey'])) {
-    $key  = $_POST['editSpeghettiKey'];
-    $row  = findSpeghettiRow($key);
-    $resp = $row;
-    echo json_encode($resp);
-} elseif (isset($_POST['deleteSpaghettiKey'])) {
-    $key = $_POST['deleteSpaghettiKey'];
-    deleteSpaghettiRow($key);
-} elseif (isset($_POST['spaghettiName'])) {
+}  elseif (isset($_POST['spaghettiName'])) {       /** Add or Edit Spaghetti Value */
+    /**
+     * @var string $name     Spaghetti Name
+     * @var float  $cost     Spaghetti Cost
+     */
     $name = $_POST['spaghettiName'];
     $cost = $_POST['spaghettiCost'];
+
+    /** Add or Edit Spaghetti Details */
     if ($_POST['spaghettiAction'] == 'add') {
         insertSpaghetti($name, $cost);
     } else {
         $key = $_POST['spaghettiAction'];
         editSpaghetti($name, $cost, $key);
     }
-    echo json_encode($resp);
+} elseif (isset($_POST['deleteSpaghettiKey'])) {   /** Delete the specific Spaghetti row using id */
+    /** @var int $key     Spaghetti ID */
+    $key = $_POST['deleteSpaghettiKey'];
+
+    /** Call function for deleting the specific row */
+    deleteSpaghettiRow($key);
 } elseif (isset($_POST['editWrapKey'])) {
     $key  = $_POST['editWrapKey'];
     $row  = findWrapRow($key);
