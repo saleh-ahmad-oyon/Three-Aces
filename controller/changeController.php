@@ -122,6 +122,10 @@ if (isset($_POST['calzoneName'])) {              /** Add or Edit Calzone Value *
     $costSmall = $_POST['grinderCostSmall'];
     $costLarge = $_POST['grinderCostLarge'];
 
+    if (!$costSmall) {
+        $costSmall = null;
+    }
+    
     /** Add or Edit Special Dinner Details */
     if ($_POST['grinderAction'] == 'add') {
         insertGrinder($name, $costSmall, $costLarge);
@@ -208,24 +212,27 @@ if (isset($_POST['calzoneName'])) {              /** Add or Edit Calzone Value *
 
     /** Call function for deleting the specific row */
     deleteSideOrderRow($key);
-} elseif(isset($_POST['editSpPizzaKey'])) {
-    $key  = $_POST['editSpPizzaKey'];
-    $row  = findSpPizzaRow($key);
-    $resp = $row;
-    echo json_encode($resp);
-} elseif (isset($_POST['deleteSpPizzaKey'])) {
-    $key = $_POST['deleteSpPizzaKey'];
-    deleteSpPizzaRow($key);
-} elseif (isset($_POST['spPizzaName'])) {
+} elseif (isset($_POST['spPizzaName'])) {          /** Add or Edit Specialty Pizza Value */
+    /**
+     * @var string $name          Specialty Pizza Name
+     * @var float  $costSmall     Small Specialty Pizza Cost
+     * @var float  $costLarge     Large Specialty Pizza Cost
+     */
     $name      = $_POST['spPizzaName'];
     $costSmall = $_POST['spPizzaCostSmall'];
     $costLarge = $_POST['spPizzaCostLarge'];
 
+    /** Add or Edit Specialty Pizza Details */
     if ($_POST['spPizzaAction'] == 'add') {
         insertSpPizza($name, $costSmall, $costLarge);
     } else {
         $key = $_POST['spPizzaAction'];
         editSpPizza($name, $costSmall, $costLarge, $key);
     }
-    echo json_encode($resp);
+} elseif (isset($_POST['deleteSpPizzaKey'])) {    /** Delete the specific Specialty Pizza row using id */
+    /** @var int $key     Specialty Pizza ID */
+    $key = $_POST['deleteSpPizzaKey'];
+
+    /** Call function for deleting the specific row */
+    deleteSpPizzaRow($key);
 }
