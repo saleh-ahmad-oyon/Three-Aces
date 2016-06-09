@@ -135,25 +135,29 @@ if (isset($_POST['calzoneName'])) {              /** Add or Edit Calzone Value *
 
     /** Call function for deleting the specific row */
     deleteGrinderRow($key);
-} elseif (isset($_POST['editPizzaKey'])) {
-    $key  = $_POST['editPizzaKey'];
-    $row  = findPizzaRow($key);
-    $resp = $row;
-    echo json_encode($resp);
-} elseif (isset($_POST['deletePizzaKey'])) {
-    $key = $_POST['deletePizzaKey'];
-    deletePizzaRow($key);
-} elseif (isset($_POST['pizzaName'])) {
+} elseif (isset($_POST['pizzaName'])) {          /** Add or Edit Pizza Value */
+    /**
+     * @var string $name          Pizza Name
+     * @var float  $costSmall     Small Pizza Cost
+     * @var float  $costLarge     Larger Pizza Cost
+     */
     $name      = $_POST['pizzaName'];
     $costSmall = $_POST['pizzaCostSmall'];
     $costLarge = $_POST['pizzaCostLarge'];
+
+    /** Add or Edit Pizza Details */
     if ($_POST['pizzaAction'] == 'add') {
         insertPizza($name, $costSmall, $costLarge);
     } else {
         $key = $_POST['pizzaAction'];
         editPizza($name, $costSmall, $costLarge, $key);
     }
-    echo json_encode($resp);
+} elseif (isset($_POST['deletePizzaKey'])) {     /** Delete the specific Pizza row using id */
+    /** @var int $key     Pizza ID */
+    $key = $_POST['deletePizzaKey'];
+
+    /** Call function for deleting the specific row */
+    deletePizzaRow($key);
 } elseif (isset($_POST['editSaladKey'])) {
     $key = $_POST['editSaladKey'];
     $row = findSaladRow($key);
