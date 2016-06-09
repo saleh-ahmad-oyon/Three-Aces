@@ -5,8 +5,8 @@
             <li>
                 <a class="dropmenu" href="#"><i class="icon-shopping-cart"></i><span class="hidden-tablet"> Orders</span></a>
                 <ul>
-                    <li><a class="submenu" href="<?php echo SERVER ?>/admin/todayOrders"><span class="hidden-tablet"> Today's Orders</span></a></li>
-                    <li><a class="submenu" href="<?php echo SERVER ?>/admin/allOrders"><span class="hidden-tablet"> All Orders</span></a></li>
+                    <li><a class="submenu" href="<?php echo SERVER ?>/admin/orders/today "><span class="hidden-tablet"> Today's Orders</span></a></li>
+                    <li><a class="submenu" href="<?php echo SERVER ?>/admin/orders/all"><span class="hidden-tablet"> All Orders</span></a></li>
                 </ul>
             </li>
             <li>
