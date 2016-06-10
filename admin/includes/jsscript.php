@@ -27,6 +27,6 @@
 <script src="<?= SERVER; ?>/admin/js/counter.js"></script>
 <script src="<?= SERVER; ?>/admin/js/retina.js"></script>
 <script src="<?= SERVER; ?>/admin/js/custom.js"></script>
-<?php if($order): ?>
+<?php if(isset($order)): ?>
 <script src="<?= SERVER ?>/admin/js/orders.js"></script>
 <?php endif; ?>
