@@ -149,6 +149,5 @@ if (isset($_SESSION['user'])) {
 
     <?php include_once '../includes/jsscript.php';?>
     <script src="<?= SERVER ?>/admin/js/calzone-script.js"></script>
-    <!-- end: JavaScript-->
 </body>
 </html>
