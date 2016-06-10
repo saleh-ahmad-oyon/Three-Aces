@@ -119,20 +119,20 @@ if (isset($_SESSION['user'])) {
                                     <?php foreach($row as $key => $r): ?>
                                     <tr class="tableRow">
                                         <td></td>
-                                        <td><?= $r['grinder_name']; ?></td>
+                                        <td><?= htmlentities(stripcslashes($r['grinder_name']), ENT_QUOTES, 'UTF-8'); ?></td>
                                          <td><?php
                                                 if(isset($r['grinder_small_price'])){
-                                                    echo '$ '. $r['grinder_small_price'];
+                                                    echo '$ '. htmlentities(stripcslashes($r['grinder_small_price']), ENT_QUOTES, 'UTF-8');
                                                 }
                                             ?>
                                         </td>
-                                        <td>$ <?= $r['grinder_large_price']; ?></td>
+                                        <td>$ <?= htmlentities(stripcslashes($r['grinder_large_price']), ENT_QUOTES, 'UTF-8'); ?></td>
                                         <td>
                                             <div class="text-center">
                                                 <button class="btn btn-info editGrinder" title="Edit"><i class="halflings-icon white edit"></i> Edit</button>
                                                 <button class="btn btn-danger dltGrinder" title="Delete"><i class="halflings-icon white trash"></i> Delete</button>
                                             </div>
-                                            <span hidden><?= $r['grinder_id']; ?></span>
+                                            <span hidden><?= htmlentities(stripcslashes($r['grinder_id']), ENT_QUOTES, 'UTF-8'); ?></span>
                                         </td>
                                     </tr>
                                     <?php endforeach; ?>
