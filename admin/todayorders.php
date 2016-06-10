@@ -170,9 +170,9 @@ if(isset($_SESSION['user'])){
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th class="text-center">Item</th>
-                        <th class="text-center">Size</th>
-                        <th class="text-center">Price</th>
+                        <th style="text-align: center">Item(s)</th>
+                        <th style="text-align: center">Size</th>
+                        <th style="text-align: center">Price</th>
                     </tr>
                 </thead>
                 <tbody id="menuitems"></tbody>

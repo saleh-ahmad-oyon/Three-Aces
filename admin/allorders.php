@@ -172,7 +172,7 @@ if(isset($_SESSION['user'])){
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th style="text-align: center">Item</th>
+                        <th style="text-align: center">Item(s)</th>
                         <th style="text-align: center;">Size</th>
                         <th style="text-align: center;">Price</th>
                     </tr>
