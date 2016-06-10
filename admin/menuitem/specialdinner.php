@@ -118,14 +118,14 @@ if(isset($_SESSION['user'])){
                             <?php foreach($row as $key => $r): ?>
                                 <tr class="tableRow">
                                     <td></td>
-                                    <td><?= $r['sp_din_name']; ?></td>
-                                    <td> $ <?= $r['sp_din_price']; ?></td>
+                                    <td><?= htmlentities(stripcslashes($r['sp_din_name']), ENT_QUOTES, 'UTF-8'); ?></td>
+                                    <td> $ <?= htmlentities(stripcslashes($r['sp_din_price']), ENT_QUOTES, 'UTF-8'); ?></td>
                                     <td>
                                         <div class="text-center">
                                             <button class="btn btn-info editSpdinner" title="Edit"><i class="halflings-icon white edit"></i> Edit</button>
                                             <button class="btn btn-danger dltSpdinner" title="Delete"><i class="halflings-icon white trash"></i> Delete</button>
                                         </div>
-                                        <span hidden><?= $r['sp_din_id']; ?></span>
+                                        <span hidden><?= htmlentities(stripcslashes($r['sp_din_id']), ENT_QUOTES, 'UTF-8'); ?></span>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
