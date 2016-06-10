@@ -118,7 +118,7 @@ if(isset($_SESSION['user'])){
                             </thead>
                             <tbody>
                             <?php foreach($row as $key => $r): ?>
-                                <tr class="tableRow">
+                                <tr class="tableRow" data-id="<?= htmlentities(stripcslashes($r['lasagna_id']), ENT_QUOTES, 'UTF-8'); ?>">
                                     <td></td>
                                     <td><?= htmlentities(stripcslashes($r['lasagna_name']), ENT_QUOTES, 'UTF-8'); ?></td>
                                     <td> $ <?= htmlentities(stripcslashes($r['lasagna_price']), ENT_QUOTES, 'UTF-8'); ?></td>
@@ -127,7 +127,6 @@ if(isset($_SESSION['user'])){
                                             <button class="btn btn-info editLasagna" title="Edit"><i class="halflings-icon white edit"></i> Edit</button>
                                             <button class="btn btn-danger dltLasagna" title="Delete"><i class="halflings-icon white trash"></i> Delete</button>
                                         </div>
-                                        <span hidden><?= htmlentities(stripcslashes($r['lasagna_id']), ENT_QUOTES, 'UTF-8'); ?></span>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
