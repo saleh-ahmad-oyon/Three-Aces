@@ -1,8 +1,9 @@
 function showInfo(x){
     $('#myModal').modal('show');
+    var submitURL = location.protocol + "//" + location.host + '/threeaces/controller/adminController';
     $.ajax({
         type: 'POST',
-        url: "../controller/adminController",
+        url: submitURL,
         dataType: 'json',
         data: {
             orderKey : x

@@ -169,23 +169,20 @@ if(isset($_SESSION['user'])){
             <h4>Order Description</h4>
             <table class="table table-bordered">
                 <thead>
-                <tr>
-                    <th style="text-align: center">Item</th>
-                    <th style="text-align: center;">Size</th>
-                    <th style="text-align: center;">Price</th>
-                </tr>
+                    <tr>
+                        <th class="text-center">Item</th>
+                        <th class="text-center">Size</th>
+                        <th class="text-center">Price</th>
+                    </tr>
                 </thead>
-                <tbody id="menuitems">
-
-                </tbody>
+                <tbody id="menuitems"></tbody>
                 <tfoot>
-                <tr>
-                    <td style="text-align: center"><strong>Total</strong></td>
-                    <td colspan="2">
-                        <div class="pull-right" id="total">
-                        </div>
-                    </td>
-                </tr>
+                    <tr>
+                        <td style="text-align: center"><strong>Total</strong></td>
+                        <td colspan="2">
+                            <div class="pull-right" id="total"></div>
+                        </td>
+                    </tr>
                 </tfoot>
             </table>
         </div>
@@ -204,6 +201,5 @@ if(isset($_SESSION['user'])){
     $order = true;
     include_once 'includes/jsscript.php';
     ?>
-
 </body>
 </html>

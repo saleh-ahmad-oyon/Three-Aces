@@ -205,6 +205,5 @@ if(isset($_SESSION['user'])){
 <?php 
 $order = true;
 include_once 'includes/jsscript.php';?>
-
 </body>
 </html>
