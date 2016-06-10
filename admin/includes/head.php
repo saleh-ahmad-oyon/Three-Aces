@@ -15,3 +15,19 @@ html5 boilerplate with php,html5 boilerplate with foundation,html5 boilerplate w
 <meta name="robots" content="index, nofollow">
 <link rel="icon" href="<?= SERVER ?>/img/aces_logo.png">
 <link rel="publisher" href="https://www.linkedin.com/in/saleh-ahmad-917b0532"/>
+<link id="bootstrap-style" href="<?= SERVER ?>/admin/css/bootstrap.min.css" rel="stylesheet">
+<link href="<?= SERVER ?>/admin/css/bootstrap-responsive.min.css" rel="stylesheet">
+<link id="base-style" href="<?= SERVER ?>/admin/css/style.css" rel="stylesheet">
+<link id="base-style-responsive" href="<?= SERVER ?>/admin/css/style-responsive.css" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,cyrillic-ext,latin-ext' rel='stylesheet' type='text/css'>
+
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<link id="ie-style" href="<?= SERVER ?>/admin/css/ie.css" rel="stylesheet">
+<![endif]-->
+
+<!--[if IE 9]>
+<link id="ie9style" href="<?= SERVER ?>/admin/css/ie9.css" rel="stylesheet">
+<![endif]-->
+
+<link rel="icon" href="<?= SERVER ?>/img/aces_logo.png" />
