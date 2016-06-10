@@ -1,12 +1,16 @@
-function showInfo(x){
+$('.orders').click(function(){
     $('#myModal').modal('show');
-    var submitURL = location.protocol + "//" + location.host + '/threeaces/controller/adminController';
+    
+    var $order = {
+        submitURL : location.protocol + "//" + location.host + '/threeaces/controller/adminController',
+        key : $(this).closest('tr').data('id')
+    };
     $.ajax({
         type: 'POST',
-        url: submitURL,
+        url: $order.submitURL,
         dataType: 'json',
         data: {
-            orderKey : x
+            orderKey : $order.key
         },
         cache : false,
         error: function() {
@@ -31,7 +35,8 @@ function showInfo(x){
             $('#menuitems').html(out);
         }
     });
-}
+});
+
 $('.tableRow').each(function (i) {
     $("td:first", this).html(i + 1);
 });

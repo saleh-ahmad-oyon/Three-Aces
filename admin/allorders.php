@@ -116,7 +116,7 @@ if(isset($_SESSION['user'])){
                                 </thead>
                                 <tbody>
                                 <?php foreach($row as $key => $r): ?>
-                                <tr class="tableRow">
+                                <tr class="tableRow" data-id="<?= $r['o_id']; ?>">
                                     <td></td>
                                     <td>
                                         <?php
@@ -127,7 +127,7 @@ if(isset($_SESSION['user'])){
                                     <td><?= $r['o_contact']; ?></td>
                                     <td> $ <?= $r['o_total']; ?></td>
                                     <td>
-                                        <button class="btn btn-info" onclick="showInfo(<?php echo $r['o_id']; ?>);">
+                                        <button class="btn btn-info orders">
                                             <i class="icon-info-sign"></i> Details
                                         </button>
                                     </td>
