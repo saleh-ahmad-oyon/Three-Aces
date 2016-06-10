@@ -120,15 +120,15 @@ if(isset($_SESSION['user'])){
                             <?php foreach($row as $key => $r): ?>
                                 <tr class="tableRow">
                                     <td></td>
-                                    <td><?= $r['sp_pizza_name']; ?></td>
-                                    <td>$ <?= $r['sp_pizza_small_price']; ?></td>
-                                    <td>$ <?= $r['sp_pizza_large_price']; ?></td>
+                                    <td><?= htmlentities(stripcslashes($r['sp_pizza_name']), ENT_QUOTES, 'UTF-8'); ?></td>
+                                    <td>$ <?= htmlentities(stripcslashes($r['sp_pizza_small_price']), ENT_QUOTES, 'UTF-8'); ?></td>
+                                    <td>$ <?= htmlentities(stripcslashes($r['sp_pizza_large_price']), ENT_QUOTES, 'UTF-8'); ?></td>
                                     <td>
                                         <div class="text-center">
                                             <button class="btn btn-info editSpPizza" title="Edit"><i class="halflings-icon white edit"></i> Edit</button>
                                             <button class="btn btn-danger dltSpPizza" title="Delete"><i class="halflings-icon white trash"></i> Delete</button>
                                         </div>
-                                        <span hidden><?= $r['sp_pizza_id']; ?></span>
+                                        <span hidden><?= htmlentities(stripcslashes($r['sp_pizza_id']), ENT_QUOTES, 'UTF-8'); ?></span>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
