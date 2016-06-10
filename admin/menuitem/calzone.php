@@ -20,7 +20,7 @@ if (isset($_SESSION['user'])) {
 <html lang="en">
 <head>
     <title>Three Aces</title>
-
+    <?php include_once '../includes/head.php';?>
     <link id="bootstrap-style" href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/bootstrap-responsive.min.css" rel="stylesheet">
     <link id="base-style" href="../css/style.css" rel="stylesheet">
