@@ -19,13 +19,7 @@ if (isset($_SESSION['user'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
     <title>Three Aces</title>
-    <meta name="description" content="Three Aces Dashboard">
-    <meta name="author" content="Saleh Ahmad">
-    <meta name="keyword" content="Three Aces, restaurant, food, fast-food">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link id="bootstrap-style" href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/bootstrap-responsive.min.css" rel="stylesheet">
