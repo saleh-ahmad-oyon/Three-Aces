@@ -200,102 +200,10 @@ if(isset($_SESSION['user'])){
         <?php include_once 'includes/footer.php';?>
     </footer>
 
-<!-- start: JavaScript-->
-
-<script src="<?= SERVER; ?>/admin/js/jquery-1.9.1.min.js"></script>
-<script src="<?= SERVER; ?>/admin/js/jquery-migrate-1.0.0.min.js"></script>
-
-<script src="<?= SERVER; ?>/admin/js/jquery-ui-1.10.0.custom.min.js"></script>
-
-<script src="<?= SERVER; ?>/admin/js/jquery.ui.touch-punch.js"></script>
-
-<script src="<?= SERVER; ?>/admin/js/modernizr.js"></script>
-
-<script src="<?= SERVER; ?>/admin/js/bootstrap.min.js"></script>
-
-<script src="<?= SERVER; ?>/admin/js/jquery.cookie.js"></script>
-
-<script src='<?= SERVER; ?>/admin/js/fullcalendar.min.js'></script>
-
-<script src='<?= SERVER; ?>/admin/js/jquery.dataTables.min.js'></script>
-
-<script src="<?= SERVER; ?>/admin/js/excanvas.js"></script>
-<script src="<?= SERVER; ?>/admin/js/jquery.flot.js"></script>
-<script src="<?= SERVER; ?>/admin/js/jquery.flot.pie.js"></script>
-<script src="<?= SERVER; ?>/admin/js/jquery.flot.stack.js"></script>
-<script src="<?= SERVER; ?>/admin/js/jquery.flot.resize.min.js"></script>
-
-<script src="<?= SERVER; ?>/admin/js/jquery.chosen.min.js"></script>
-
-<script src="<?= SERVER; ?>/admin/js/jquery.uniform.min.js"></script>
-
-<script src="<?= SERVER; ?>/admin/js/jquery.cleditor.min.js"></script>
-
-<script src="<?= SERVER; ?>/admin/js/jquery.noty.js"></script>
-
-<script src="<?= SERVER; ?>/admin/js/jquery.elfinder.min.js"></script>
-
-<script src="<?= SERVER; ?>/admin/js/jquery.raty.min.js"></script>
-
-<script src="<?= SERVER; ?>/admin/js/jquery.iphone.toggle.js"></script>
-
-<script src="<?= SERVER; ?>/admin/js/jquery.uploadify-3.1.min.js"></script>
-
-<script src="<?= SERVER; ?>/admin/js/jquery.gritter.min.js"></script>
-
-<script src="<?= SERVER; ?>/admin/js/jquery.imagesloaded.js"></script>
-
-<script src="<?= SERVER; ?>/admin/js/jquery.masonry.min.js"></script>
-
-<script src="<?= SERVER; ?>/admin/js/jquery.knob.modified.js"></script>
-
-<script src="<?= SERVER; ?>/admin/js/jquery.sparkline.min.js"></script>
-
-<script src="<?= SERVER; ?>/admin/js/counter.js"></script>
-
-<script src="<?= SERVER; ?>/admin/js/retina.js"></script>
-
-<script src="<?= SERVER; ?>/admin/js/custom.js"></script>
-<script>
-    function showInfo(x){
-        $('#myModal').modal('show');
-        $.ajax({
-            type: 'POST',
-            url: "../controller/adminController",
-            dataType: 'json',
-            data: {
-                orderKey : x
-            },
-            cache : false,
-            error: function() {
-                alert('Failed ! An error occured !!');
-            },
-            success : function(response) {
-                var dtTime = response.o_datetime.split(" ");
-                $('#order-date').html(dtTime[0]);
-                $('#order-time').html(dtTime[1]);
-                $('#cont').html(response.o_contact);
-                $('#total').html('<b> $ ' + response.o_total + '</b>');
-                var out ='';
-                var items = response.o_description.split(';');
-                for(var i=0; i<items.length; ++i){
-                    var arr = items[i].split('|');
-                    out += '<tr>' +
-                        '<td>' + arr[0] + '</td>' +
-                        '<td>' + arr[1] + '</td>' +
-                        '<td>' + '<div class="pull-right">' + arr[2] + '</div>' + '</td>' +
-                        '</tr>';
-                }
-                $('#menuitems').html(out);
-            }
-        });
-    }
-    $('.tableRow').each(function (i) {
-        $("td:first", this).html(i + 1);
-    });
-
-</script>
-<!-- end: JavaScript-->
+    <?php
+    $order = true;
+    include_once 'includes/jsscript.php';
+    ?>
 
 </body>
 </html>
