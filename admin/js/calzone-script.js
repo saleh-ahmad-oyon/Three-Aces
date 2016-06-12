@@ -78,7 +78,6 @@ $(document).on('click', '.editCalzone', function(){
     $('#type').val($edit.type);
 });
 
-//$('.dltCalzone').click(function(){
 $(document).on('click', '.dltCalzone', function(){
     var $dlt = {
         confirm : confirm("Are you want to delete the selected item ?"),
