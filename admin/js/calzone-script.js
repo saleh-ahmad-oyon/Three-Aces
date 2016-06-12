@@ -87,6 +87,7 @@ $(document).on('click', '.dltCalzone', function(){
     if($dlt.confirm){
         $.ajax({
             type: 'POST',
+            dataType: 'json',
             url: $calzone.submitURL,
             data: {
                 deleteKey : $dlt.key
@@ -94,7 +95,7 @@ $(document).on('click', '.dltCalzone', function(){
             error: function(){
                 alert('An Error Occured');
             },
-            success: function(){
+            success: function(response){
                 alert('Data has been deleted !!');
                 $('.datatable').DataTable().destroy();
                 $('.dataTable-tbody').html('');
