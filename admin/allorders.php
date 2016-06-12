@@ -115,17 +115,20 @@ if(isset($_SESSION['user'])){
             <h3>Settings</h3>
         </div>
         <div class="modal-body">
-            <table class="table">
+            <table class="table table-striped">
                 <tr>
                     <td><b>Date</b></td>
+                    <td>:</td>
                     <td id="order-date"></td>
                 </tr>
                 <tr>
                     <td><b>Time</b></td>
+                    <td>:</td>
                     <td id="order-time"></td>
                 </tr>
                 <tr>
                     <td><b>Contact No.</b></td>
+                    <td>:</td>
                     <td id="cont"></td>
                 </tr>
             </table>
@@ -133,7 +136,7 @@ if(isset($_SESSION['user'])){
             <h4>Order Description</h4>
             <table class="table table-bordered">
                 <thead>
-                    <tr>
+                    <tr class="btn-info">
                         <th style="text-align: center">Item(s)</th>
                         <th style="text-align: center;">Size</th>
                         <th style="text-align: center;">Price</th>
@@ -143,7 +146,7 @@ if(isset($_SESSION['user'])){
 
                 </tbody>
                 <tfoot>
-                    <tr>
+                    <tr class="btn-info">
                         <td style="text-align: center"><strong>Total</strong></td>
                         <td colspan="2">
                             <div class="pull-right" id="total">
@@ -152,9 +155,6 @@ if(isset($_SESSION['user'])){
                     </tr>
                 </tfoot>
             </table>
-        </div>
-        <div class="modal-footer">
-            <a href="#" class="btn btn-primary" data-dismiss="modal">Close</a>
         </div>
     </div>
 
