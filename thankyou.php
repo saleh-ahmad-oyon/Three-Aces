@@ -6,6 +6,12 @@ require_once 'controller/functions.php';?>
     <head>
         <title>Thank You</title>
         <?php require_once 'includes/head.php';?>
+        <link href='https://fonts.googleapis.com/css?family=Dancing+Script' rel='stylesheet' type='text/css'>
+        <style>
+            h1{
+                font-family: 'Dancing Script', cursive;
+            }
+        </style>
     </head>
     <body>
         <!--[if lt IE 8]>
