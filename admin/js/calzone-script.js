@@ -35,7 +35,7 @@ $('#addbtn').click(function(){
             },
             success: function(response){
                 alert('Successfully Saved !!');
-                /*$('#itemName').val('');
+                $('#itemName').val('');
                 $('#itemPrice').val('');
                 $('#type').val('');
 
@@ -45,7 +45,7 @@ $('#addbtn').click(function(){
                     var content = '<tr class="tableRow" data-id="' + response[i].id + '">' +
                         '<td>' + (i+1) + '</td>' +
                         '<td>' + response[i].name + '</td>' +
-                        '<td>' + response[i].price + '</td>' +
+                        '<td> $ ' + response[i].price + '</td>' +
                         '<td>' +
                             '<div class="text-center">' +
                                 '<button class="btn btn-info editCalzone" title="Edit"><i class="halflings-icon white edit"></i> Edit</button>&nbsp;' +
@@ -55,15 +55,14 @@ $('#addbtn').click(function(){
                         '</tr>';
                     $('.dataTable-tbody').append(content);
                 }
-                initDataTable();*/
+                initDataTable();
                 $('#addItem').modal('hide');
-                location.reload();
             }
         });
     }
 });
 
-$('.editCalzone').click(function(){
+$(document).on('click', '.editCalzone', function(){
     $('#addItem').modal('show', {
         backdrop: 'static'
     });
@@ -79,7 +78,8 @@ $('.editCalzone').click(function(){
     $('#type').val($edit.type);
 });
 
-$('.dltCalzone').click(function(){
+//$('.dltCalzone').click(function(){
+$(document).on('click', '.dltCalzone', function(){
     var $dlt = {
         confirm : confirm("Are you want to delete the selected item ?"),
         key : $(this).closest('tr').data('id')
@@ -96,7 +96,23 @@ $('.dltCalzone').click(function(){
             },
             success: function(){
                 alert('Data has been deleted !!');
-                location.reload();
+                $('.datatable').DataTable().destroy();
+                $('.dataTable-tbody').html('');
+                for(i=0; i<response.length; ++i){
+                    var content = '<tr class="tableRow" data-id="' + response[i].id + '">' +
+                        '<td>' + (i+1) + '</td>' +
+                        '<td>' + response[i].name + '</td>' +
+                        '<td> $ ' + response[i].price + '</td>' +
+                        '<td>' +
+                        '<div class="text-center">' +
+                        '<button class="btn btn-info editCalzone" title="Edit"><i class="halflings-icon white edit"></i> Edit</button>&nbsp;' +
+                        '<button class="btn btn-danger dltCalzone" title="Delete"><i class="halflings-icon white trash"></i> Delete</button>' +
+                        '</div>' +
+                        '</td>' +
+                        '</tr>';
+                    $('.dataTable-tbody').append(content);
+                }
+                initDataTable();
             }
         });
     }else{

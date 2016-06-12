@@ -30,6 +30,9 @@ if (isset($_POST['calzoneName'])) {              /** Add or Edit Calzone Value *
 
     /** Call function for deleting the specific row */
     deleteCalzoneRow($key);
+
+    $resp = calzone();
+    echo json_encode($resp);
 } elseif(isset($_POST['lasagnaName'])) {         /** Add or Edit Lasagna Value */
     /** 
      * @var string $name     Lasagna Name 
