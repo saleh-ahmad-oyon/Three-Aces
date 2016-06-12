@@ -36,7 +36,7 @@ $('#addbtn').click(function(){
             success: function(response){
                 alert('Successfully Saved !!');
 
-                $('#itemName').val('');
+                /*$('#itemName').val('');
                 $('#itemPrice').val('');
                 $('#type').val('');
 
@@ -56,11 +56,9 @@ $('#addbtn').click(function(){
                         '</tr>';
                     $('.dataTable-tbody').append(content);
                 }
-                initDataTable();
-                //$('#addClose').click();
+                initDataTable();*/
                 $('#addItem').modal('hide');
-
-                //location.reload();
+                location.reload();
             }
         });
     }
