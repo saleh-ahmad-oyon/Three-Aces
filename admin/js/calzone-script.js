@@ -35,7 +35,6 @@ $('#addbtn').click(function(){
             },
             success: function(response){
                 alert('Successfully Saved !!');
-
                 /*$('#itemName').val('');
                 $('#itemPrice').val('');
                 $('#type').val('');
