@@ -66,18 +66,18 @@ if (isset($_SESSION['user'])) {
                         <table class="table table-striped table-bordered bootstrap-datatable datatable">
                             <button class="btn btn-success" title="Add Items" id="addCalzone"><i class="halflings-icon white plus"></i> Add Item</button><br/><br/>
                             <thead>
-                            <tr>
-                                <th>No.</th>
-                                <th>Name</th>
-                                <th>Price</th>
-                                <th>
-                                    <div class="text-center">
-                                        Action
-                                    </div>
-                                </th>
-                            </tr>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Name</th>
+                                    <th>Price</th>
+                                    <th>
+                                        <div class="text-center">
+                                            Action
+                                        </div>
+                                    </th>
+                                </tr>
                             </thead>
-                            <tbody id="tbody">
+                            <tbody class="dataTable-tbody">
                             <?php foreach($row as $key => $r): ?>
                                 <tr class="tableRow" data-id="<?= htmlentities(stripcslashes($r['id']), ENT_QUOTES, 'UTF-8'); ?>">
                                     <td></td>

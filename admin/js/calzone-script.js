@@ -10,6 +10,62 @@ $('button#addCalzone').click(function(){
     $('#addItem').modal('show');
 });
 
+$('#addbtn').click(function(){
+    var $add = {
+        name : $('#itemName').val(),
+        cost : $('#itemPrice').val(),
+        type : $('#type').val()
+    };
+
+    if($add.name == '' || $add.cost == ''){
+        alert('Both fields must be filled');
+    }else{
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            url: $calzone.submitURL,
+            data: {
+                calzoneName: $add.name,
+                calzoneCost: $add.cost,
+                calzoneAction: $add.type
+            },
+            cache: false,
+            error: function(){
+                alert('An Error Occured !!');
+            },
+            success: function(response){
+                alert('Successfully Saved !!');
+
+                $('#itemName').val('');
+                $('#itemPrice').val('');
+                $('#type').val('');
+
+                $('.datatable').DataTable().destroy();
+                $('.dataTable-tbody').html('');
+                for(i=0; i<response.length; ++i){
+                    var content = '<tr class="tableRow" data-id="' + response[i].id + '">' +
+                        '<td>' + (i+1) + '</td>' +
+                        '<td>' + response[i].name + '</td>' +
+                        '<td>' + response[i].price + '</td>' +
+                        '<td>' +
+                            '<div class="text-center">' +
+                                '<button class="btn btn-info editCalzone" title="Edit"><i class="halflings-icon white edit"></i> Edit</button>&nbsp;' +
+                                '<button class="btn btn-danger dltCalzone" title="Delete"><i class="halflings-icon white trash"></i> Delete</button>' +
+                            '</div>' +
+                        '</td>' +
+                        '</tr>';
+                    $('.dataTable-tbody').append(content);
+                }
+                initDataTable();
+                //$('#addClose').click();
+                $('#addItem').modal('hide');
+
+                //location.reload();
+            }
+        });
+    }
+});
+
 $('.editCalzone').click(function(){
     $('#addItem').modal('show', {
         backdrop: 'static'
@@ -48,36 +104,5 @@ $('.dltCalzone').click(function(){
         });
     }else{
         alert('Your data is safe !');
-    }
-});
-
-$('#addbtn').click(function(){
-    var $add = {
-        name : $('#itemName').val(),
-        cost : $('#itemPrice').val(),
-        type : $('#type').val()
-    };
-
-    if($add.name == '' || $add.cost == ''){
-        alert('Both fields must be filled');
-    }else{
-        $.ajax({
-            type: 'POST',
-            url: $calzone.submitURL,
-            data: {
-                calzoneName: $add.name,
-                calzoneCost: $add.cost,
-                calzoneAction: $add.type
-            },
-            cache: false,
-            error: function(){
-                alert('An Error Occured !!');
-            },
-            success: function(){
-                alert('Successfully Saved !!');
-                $('#addClose').click();
-                location.reload();
-            }
-        });
     }
 });

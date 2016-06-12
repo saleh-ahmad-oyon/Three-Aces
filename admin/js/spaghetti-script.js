@@ -77,7 +77,7 @@ $('#addbtn').click(function(){
             },
             success: function(){
                 alert('Successfully Saved !!');
-                $('#addClose').click();
+                $('#addItem').modal('hide');
                 location.reload();
             }
         });

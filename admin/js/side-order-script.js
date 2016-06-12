@@ -80,7 +80,7 @@ $('#addbtn').click(function(){
             },
             success: function(response){
                 alert('Successfully Saved !!');
-                $('#addClose').click();
+                $('#addItem').modal('hide');
                 location.reload();
             }
         });

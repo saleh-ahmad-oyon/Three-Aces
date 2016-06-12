@@ -22,6 +22,8 @@ if (isset($_POST['calzoneName'])) {              /** Add or Edit Calzone Value *
         $key = $_POST['calzoneAction'];
         editCalzone($name, $cost, $key);
     }
+    $resp = calzone();
+    echo json_encode($resp);
 } elseif (isset($_POST['deleteKey'])) {          /** Delete the specific Calzone row using id */
     /** @var int $key     Calzone ID */
     $key = $_POST['deleteKey'];
