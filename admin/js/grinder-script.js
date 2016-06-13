@@ -111,7 +111,7 @@ $(document).on('click', '.dltGrinder', function(){
                 $('.dataTable-tbody').html('');
                 var $small = '';
                 for(i=0; i<response.length; ++i){
-                    //$small = (response[i].grinder_small_price != null) ? ' $ ' + response[i].grinder_small_price : '';
+                    $small = (response[i].grinder_small_price != null) ? ' $ ' + response[i].grinder_small_price : '';
                     var content = '<tr class="tableRow" data-id="' + response[i].grinder_id + '">' +
                         '<td>' + (i+1) + '</td>' +
                         '<td>' + response[i].grinder_name + '</td>' +

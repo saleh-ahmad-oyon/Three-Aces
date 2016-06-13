@@ -22,7 +22,7 @@ if (isset($_POST['calzoneName'])) {              /** Add or Edit Calzone Value *
         $key = $_POST['calzoneAction'];
         editCalzone($name, $cost, $key);
     }
-    
+
     $resp = calzone();
     echo json_encode($resp);
 } elseif (isset($_POST['deleteKey'])) {          /** Delete the specific Calzone row using id */
@@ -142,9 +142,6 @@ if (isset($_POST['calzoneName'])) {              /** Add or Edit Calzone Value *
     
     /** @var array $resp     All grinders row */
     $resp = grinders();
-
-
-    print_r($resp);
     echo json_encode($resp);
 } elseif (isset($_POST['deleteGrinderKey'])) {   /** Delete the specific Grinder row using id */
     /** @var int $key     Grinder ID */
