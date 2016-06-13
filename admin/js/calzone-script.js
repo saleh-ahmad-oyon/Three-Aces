@@ -35,7 +35,8 @@ $('#addbtn').click(function(){
             },
             cache: false,
             error: function(){
-                alert('An Error Occured !!');
+                $('.addItem').modal('hide');
+                $('.errorItem').modal('show');
             },
             success: function(response){
                 $('.datatable').DataTable().destroy();
@@ -96,7 +97,8 @@ $(document).on('click', '.dltCalzone', function(){
                 deleteKey : $dlt.key
             },
             error: function(){
-                alert('An Error Occured');
+                $('.deleteItem').modal('hide');
+                $('.errorItem').modal('show');
             },
             success: function(response){
                 $('.datatable').DataTable().destroy();

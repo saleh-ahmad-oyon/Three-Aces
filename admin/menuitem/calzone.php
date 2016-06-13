@@ -115,7 +115,7 @@ if (isset($_SESSION['user'])) {
         <div class="control-group">
             <label class="control-label" for="itemName"><b>Name:</b></label>
             <div class="controls">
-                <div class="input-prepend input-append">
+                <div class="input-prepend">
                     <span class="add-on">@</span>
                     <input type="text" id="itemName" value="" required="required" />
                 </div>
@@ -127,7 +127,7 @@ if (isset($_SESSION['user'])) {
         <div class="control-group">
             <label class="control-label" for="itemPrice"><b>Price:</b></label>
             <div class="controls">
-                <div class="input-prepend input-append">
+                <div class="input-prepend">
                     <span class="add-on">$</span>
                     <input type="number" min="0" step="0.01" value="" required="required" id="itemPrice" />
                 </div>
@@ -180,6 +180,18 @@ if (isset($_SESSION['user'])) {
         </div>
         <div class="modal-body text-center">
             <h2>Data has been deleted !!</h2>
+            <button class="btn btn-success" data-dismiss="modal">Ok</button>
+        </div>
+    </div>
+
+    <!-- Error Modal -->
+    <div class="modal hide fade errorItem">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+            <i class="glyphicons-icon remove_2"></i>
+        </div>
+        <div class="modal-body text-center">
+            <h2>An Error Occured !!</h2>
             <button class="btn btn-success" data-dismiss="modal">Ok</button>
         </div>
     </div>

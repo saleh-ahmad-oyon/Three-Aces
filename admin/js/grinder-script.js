@@ -7,50 +7,12 @@ $('.tableRow').each(function (i) {
 });
 
 $('button#addGrinder').click(function () {
-    $('#addItem').modal('show');
-});
-
-$('.editGrinder').click(function () {
-    $('#addItem').modal('show', {
-        backdrop: 'static'
-    });
+    $('#itemName').val('');
+    $('#itemPriceSmall').val('');
+    $('#itemPriceLarge').val('');
+    $('#type').val('add');
     
-    var $edit = {
-        name : $(this).closest('tr').find('td').eq(1).text(),
-        pricesmall : $(this).closest('tr').find('td').eq(2).text().split(' ')[1],
-        pricelarge : $(this).closest('tr').find('td').eq(3).text().split(' ')[1],
-        id : $(this).closest('tr').data('id')
-    };
-
-    $('#itemName').val($edit.name);
-    $('#itemPriceSmall').val($edit.pricesmall);
-    $('#itemPriceLarge').val($edit.pricelarge);
-    $('#type').val($edit.id);
-});
-
-$('.dltGrinder').click(function () {
-    var $dlt = {
-        confirm : confirm("Are you want to delete the selected item ?"),
-        key : $(this).closest('tr').data('id')
-    };
-    if($dlt.confirm){
-        $.ajax({
-            type: 'POST',
-            url: $grinder.submitURL,
-            data: {
-                deleteGrinderKey : $dlt.key
-            },
-            error: function(){
-                alert('An Error Occured');
-            },
-            success: function(){
-                alert('Data has been deleted !!');
-                location.reload();
-            }
-        });
-    }else{
-        alert('Your data is safe !');
-    }
+    $('.addItem').modal('show');
 });
 
 $('#addbtn').click(function(){
@@ -75,13 +37,99 @@ $('#addbtn').click(function(){
             },
             cache: false,
             error: function(){
-                alert('An Error Occured !!');
+                $('.addItem').modal('hide');
+                $('.errorItem').modal('show');
             },
-            success: function(){
-                alert('Successfully Saved !!');
-                $('#addItem').modal('hide');
-                location.reload();
+            success: function(response){
+                $('.datatable').DataTable().destroy();
+                $('.dataTable-tbody').html('');
+                var $small = '';
+                for(i=0; i<response.length; ++i){
+                    //$small = (response[i].grinder_small_price != null) ? ' $ ' + response[i].grinder_small_price : '';
+                    var content = '<tr class="tableRow" data-id="' + response[i].grinder_id + '">' +
+                        '<td>' + (i+1) + '</td>' +
+                        '<td>' + response[i].grinder_name + '</td>' +
+                        '<td>' + $small + '</td>' +
+                        '<td> $ ' + response[i].grinder_large_price + '</td>' +
+                        '<td>' +
+                        '<div class="text-center">' +
+                        '<button class="btn btn-info editGrinder" title="Edit"><i class="halflings-icon white edit"></i> Edit</button>&nbsp;' +
+                        '<button class="btn btn-danger dltGrinder" title="Delete"><i class="halflings-icon white trash"></i> Delete</button>' +
+                        '</div>' +
+                        '</td>' +
+                        '</tr>';
+                    $('.dataTable-tbody').append(content);
+                }
+                initDataTable();
+                $('.addItem').modal('hide');
+                $('.saveItem').modal('show');
             }
         });
     }
+});
+
+$(document).on('click', '.editGrinder', function(){
+    $('.addItem').modal('show', {
+        backdrop: 'static'
+    });
+    
+    var $edit = {
+        name : $(this).closest('tr').find('td').eq(1).text(),
+        pricesmall : $(this).closest('tr').find('td').eq(2).text().split(' ')[1],
+        pricelarge : $(this).closest('tr').find('td').eq(3).text().split(' ')[1],
+        id : $(this).closest('tr').data('id')
+    };
+
+    $('#itemName').val($edit.name);
+    $('#itemPriceSmall').val($edit.pricesmall);
+    $('#itemPriceLarge').val($edit.pricelarge);
+    $('#type').val($edit.id);
+});
+
+$(document).on('click', '.dltGrinder', function(){
+    var $dlt = {
+        key : $(this).closest('tr').data('id')
+    };
+
+    $('.deleteItem').modal('show', {
+        backdrop: 'static'
+    });
+
+    $(document).on('click', '.yes', function(){
+        $.ajax({
+            type: 'POST',
+            url: $grinder.submitURL,
+            data: {
+                deleteGrinderKey : $dlt.key
+            },
+            error: function(){
+                $('.deleteItem').modal('hide');
+                $('.errorItem').modal('show');
+            },
+            success: function(response){
+                $('.datatable').DataTable().destroy();
+                $('.dataTable-tbody').html('');
+                var $small = '';
+                for(i=0; i<response.length; ++i){
+                    //$small = (response[i].grinder_small_price != null) ? ' $ ' + response[i].grinder_small_price : '';
+                    var content = '<tr class="tableRow" data-id="' + response[i].grinder_id + '">' +
+                        '<td>' + (i+1) + '</td>' +
+                        '<td>' + response[i].grinder_name + '</td>' +
+                        '<td>' + $small + '</td>' +
+                        '<td> $ ' + response[i].grinder_large_price + '</td>' +
+                        '<td>' +
+                        '<div class="text-center">' +
+                        '<button class="btn btn-info editGrinder" title="Edit"><i class="halflings-icon white edit"></i> Edit</button>&nbsp;' +
+                        '<button class="btn btn-danger dltGrinder" title="Delete"><i class="halflings-icon white trash"></i> Delete</button>' +
+                        '</div>' +
+                        '</td>' +
+                        '</tr>';
+                    $('.dataTable-tbody').append(content);
+                }
+                initDataTable();
+                $('.deleteItem').modal('hide');
+                $('.dltSuccess').modal('show');
+            }
+        });
+    });
 });
