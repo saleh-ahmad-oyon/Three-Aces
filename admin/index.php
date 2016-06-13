@@ -48,14 +48,13 @@ if (isset($_SESSION['user'])) {
 				</li>
 				<li><a href="#">Dashboard</a></li>
 			</ul>
-
                 <div class="row-fluid orders">
                     <a class="quick-button metro green span2" href="<?= SERVER ?>/admin/todayOrders">
                         <i class="icon-shopping-cart"></i>
                         <p>Today's Orders</p>
                         <span class="badge" id="today"></span>
                     </a>
-                    <a class="quick-button metro blue span2" href="<?= SERVER ?>/admin/allOrders">
+                    <a class="quick-button metro pink span2" href="<?= SERVER ?>/admin/allOrders">
                         <i class="icon-shopping-cart"></i>
                         <p>All Orders</p>
                         <span class="badge" id="all"></span>

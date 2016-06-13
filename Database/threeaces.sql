@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 12, 2016 at 08:22 AM
+-- Generation Time: Jun 13, 2016 at 08:21 AM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -55,24 +55,25 @@ CREATE TABLE IF NOT EXISTS `calzone` (
 `id` bigint(22) NOT NULL COMMENT 'Calzone ID',
   `name` text NOT NULL COMMENT 'Calzone Name',
   `price` decimal(10,2) NOT NULL COMMENT 'Calzone Price'
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=69 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=72 ;
 
 --
 -- Dumping data for table `calzone`
 --
 
 INSERT INTO `calzone` (`id`, `name`, `price`) VALUES
-(1, 'Vegeterian', '7.37'),
-(3, 'Sausage', '7.35'),
-(4, 'Ham and Cheese', '7.35'),
-(5, 'Chicken Cutlet', '7.35'),
-(6, 'Grilled Chicken', '7.35'),
-(7, 'Meatball', '7.35'),
-(8, 'Grecian', '7.35'),
-(9, 'Eggplant', '7.35'),
-(10, 'Steak', '7.35'),
-(11, 'Italian', '7.35'),
-(12, 'Grecian', '7.35');
+(1, 'Vegeterian', '7.35'),
+(71, 'Veal', '7.35'),
+(2, 'Sausage', '7.35'),
+(3, 'Ham and Cheese', '7.35'),
+(4, 'Chicken Cutlet', '7.35'),
+(5, 'Grilled Chicken', '7.35'),
+(6, 'Meatball', '7.35'),
+(7, 'Grecian', '7.35'),
+(8, 'Eggplant', '7.35'),
+(9, 'Steak', '7.35'),
+(10, 'Italian', '7.35'),
+(11, 'Grecian', '7.35');
 
 -- --------------------------------------------------------
 
@@ -727,7 +728,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'admin id',AUTO_INCREMENT=3;
 -- AUTO_INCREMENT for table `calzone`
 --
 ALTER TABLE `calzone`
-MODIFY `id` bigint(22) NOT NULL AUTO_INCREMENT COMMENT 'Calzone ID',AUTO_INCREMENT=69;
+MODIFY `id` bigint(22) NOT NULL AUTO_INCREMENT COMMENT 'Calzone ID',AUTO_INCREMENT=72;
 --
 -- AUTO_INCREMENT for table `country`
 --

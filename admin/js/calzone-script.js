@@ -7,7 +7,10 @@ $('.tableRow').each(function (i) {
 });
 
 $('button#addCalzone').click(function(){
-    $('#addItem').modal('show');
+    $('#itemName').val('');
+    $('#itemPrice').val('');
+    $('#type').val('');
+    $('.addItem').modal('show');
 });
 
 $('#addbtn').click(function(){
@@ -34,7 +37,6 @@ $('#addbtn').click(function(){
                 alert('An Error Occured !!');
             },
             success: function(response){
-                alert('Successfully Saved !!');
                 $('#itemName').val('');
                 $('#itemPrice').val('');
                 $('#type').val('');
@@ -56,14 +58,15 @@ $('#addbtn').click(function(){
                     $('.dataTable-tbody').append(content);
                 }
                 initDataTable();
-                $('#addItem').modal('hide');
+                $('.addItem').modal('hide');
+                $('.saveItem').modal('show');
             }
         });
     }
 });
 
 $(document).on('click', '.editCalzone', function(){
-    $('#addItem').modal('show', {
+    $('.addItem').modal('show', {
         backdrop: 'static'
     });
 
@@ -80,10 +83,14 @@ $(document).on('click', '.editCalzone', function(){
 
 $(document).on('click', '.dltCalzone', function(){
     var $dlt = {
-        confirm : confirm("Are you want to delete the selected item ?"),
         key : $(this).closest('tr').data('id')
     };
-    if($dlt.confirm){
+    
+    $('.deleteItem').modal('show', {
+        backdrop: 'static'
+    });
+
+    $(document).on('click', '.yes', function(){
         $.ajax({
             type: 'POST',
             dataType: 'json',
@@ -95,7 +102,6 @@ $(document).on('click', '.dltCalzone', function(){
                 alert('An Error Occured');
             },
             success: function(response){
-                alert('Data has been deleted !!');
                 $('.datatable').DataTable().destroy();
                 $('.dataTable-tbody').html('');
                 for(i=0; i<response.length; ++i){
@@ -113,9 +119,13 @@ $(document).on('click', '.dltCalzone', function(){
                     $('.dataTable-tbody').append(content);
                 }
                 initDataTable();
+                $('.deleteItem').modal('hide');
+                $('.dltSuccess').modal('show');
             }
         });
-    }else{
-        alert('Your data is safe !');
-    }
+    });
+
+    $(document).on('click', '.no', function(){
+        $('.deleteItem').modal('hide');
+    });
 });
