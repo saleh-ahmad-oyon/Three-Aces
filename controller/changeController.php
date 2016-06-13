@@ -91,12 +91,18 @@ if (isset($_POST['calzoneName'])) {              /** Add or Edit Calzone Value *
         $key = $_POST['wrapAction'];
         editWrap($name, $cost, $key);
     }
+    
+    $resp = wraps();
+    echo json_encode($resp);
 } elseif (isset($_POST['deleteWrapKey'])) {        /** Delete the specific Wrap row using id */
     /** @var int $key     Wrap ID */
     $key = $_POST['deleteWrapKey'];
 
     /** Call function for deleting the specific row */
     deleteWrapRow($key);
+
+    $resp = wraps();
+    echo json_encode($resp);
 } elseif (isset($_POST['spDinnerName'])) {         /** Add or Edit Wrap Value */
     /**
      * @var string $name     Special Dinner Name

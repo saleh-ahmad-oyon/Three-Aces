@@ -28,6 +28,7 @@ $('#addbtn').click(function(){
     }else{
         $.ajax({
             type: 'POST',
+            dataType: 'json',
             url: $grinder.submitURL,
             data: {
                 grinderName: $add.name,
@@ -98,6 +99,7 @@ $(document).on('click', '.dltGrinder', function(){
     $(document).on('click', '.yes', function(){
         $.ajax({
             type: 'POST',
+            dataType: 'json',
             url: $grinder.submitURL,
             data: {
                 deleteGrinderKey : $dlt.key
