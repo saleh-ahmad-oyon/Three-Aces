@@ -3,7 +3,7 @@ var $calzone = {
 };
 
 $('.tableRow').each(function (i) {
-    $("td:first", this).html(i + 1);
+    $("td:first", this).html(i+1);
 });
 
 $('button#addCalzone').click(function(){
