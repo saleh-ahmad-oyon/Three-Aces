@@ -9,7 +9,8 @@ $('.tableRow').each(function (i) {
 $('button#addCalzone').click(function(){
     $('#itemName').val('');
     $('#itemPrice').val('');
-    $('#type').val('');
+    $('#type').val('add');
+
     $('.addItem').modal('show');
 });
 
@@ -37,10 +38,6 @@ $('#addbtn').click(function(){
                 alert('An Error Occured !!');
             },
             success: function(response){
-                $('#itemName').val('');
-                $('#itemPrice').val('');
-                $('#type').val('');
-
                 $('.datatable').DataTable().destroy();
                 $('.dataTable-tbody').html('');
                 for(i=0; i<response.length; ++i){
@@ -123,9 +120,5 @@ $(document).on('click', '.dltCalzone', function(){
                 $('.dltSuccess').modal('show');
             }
         });
-    });
-
-    $(document).on('click', '.no', function(){
-        $('.deleteItem').modal('hide');
     });
 });

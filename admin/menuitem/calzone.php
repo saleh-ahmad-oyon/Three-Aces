@@ -123,7 +123,7 @@ if (isset($_SESSION['user'])) {
             </div>
         </div>
 
-        <input type="hidden" id="type" value="add"/>
+        <input type="hidden" id="type" value="add" />
 
         <div class="control-group">
             <label class="control-label" for="itemPrice"><b>Price:</b></label>
@@ -155,7 +155,7 @@ if (isset($_SESSION['user'])) {
             <p>No Data will be available</p>
             <br />
             <button class="btn btn-danger yes">Yes</button>
-            <button class="btn btn-primary no">No</button>
+            <button class="btn btn-primary no" data-dismiss="modal">No</button>
             <br/>
         </div>
     </div>
