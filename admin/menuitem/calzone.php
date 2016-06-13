@@ -122,7 +122,7 @@ if (isset($_SESSION['user'])) {
             </div>
         </div>
 
-        <input type="hidden" id="type" value="add" />
+        <input type="hidden" id="type" value="" />
 
         <div class="control-group">
             <label class="control-label" for="itemPrice"><b>Price:</b></label>
