@@ -110,7 +110,6 @@ if (isset($_SESSION['user'])) {
         <h1>Calzone</h1>
     </div>
     <div class="modal-body">
-
         <form class="form-horizontal">
         <fieldset>
         <div class="control-group">
