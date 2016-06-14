@@ -7,10 +7,8 @@
  */
 session_start();
 require_once '../controller/define.php';
-$islogin = false;
 
 if (isset($_SESSION['user'])) {
-    $islogin = true;
     require_once '../controller/adminController.php';
     $key = $_SESSION['id'];
     $row = admininfo($key);
@@ -26,7 +24,6 @@ if (isset($_SESSION['user'])) {
 
 <body>
 
-<?php if($islogin): ?>
     <header>
         <title>Profile</title>
         <?php include_once 'includes/header.php';?>
@@ -156,51 +153,6 @@ if (isset($_SESSION['user'])) {
     <footer>
         <?php include_once 'includes/footer.php'; ?>
     </footer>
-<?php else: ?>
-    <style type="text/css">
-        body { background: url(img/bg-login.jpg) !important; }
-    </style>
-    <div class="container-fluid-full">
-        <div class="row-fluid">
-
-            <div class="row-fluid">
-                <div class="login-box">
-                    <h2>Login to Admin Panel</h2>
-                    <form class="form-horizontal" action="<?= SERVER ?>/controller/admin-login-success" method="post">
-                        <fieldset>
-                            <div class="input-prepend" title="Username">
-                                <span class="add-on"><i class="halflings-icon user"></i></span>
-                                <input class="input-large span10" required="required" name="username" id="username" type="text" placeholder="Username"/>
-                            </div>
-                            <div class="clearfix"></div>
-
-                            <div class="input-prepend" title="Password">
-                                <span class="add-on"><i class="halflings-icon lock"></i></span>
-                                <input class="input-large span10" required="required" name="password" id="password" type="password" placeholder="Password"/>
-                            </div>
-                            <div class="clearfix"></div>
-
-                            <div class="button-login">
-                                <button type="submit" name="loginSubmit" class="btn btn-primary">Login</button>
-                            </div>
-                            <div class="clearfix"></div>
-                        </fieldset>
-                    </form>
-                    <label style="color:#881f0e;text-align: center">
-                        <?php if(isset($_GET['err']) && $_GET['err'] ==1){
-                            echo "Both fields are required !!";
-                        }elseif(isset($_GET['err']) && $_GET['err'] ==2){
-                            echo "Username and Password didn't match !!";
-                        } ?>
-                    </label>
-                </div><!--/span-->
-            </div><!--/row-->
-
-
-        </div><!--/.fluid-container-->
-
-    </div><!--/fluid-row-->
-<?php endif; ?>
 
 <!-- start: JavaScript-->
 <?php include_once 'includes/jsscript.php';?>
