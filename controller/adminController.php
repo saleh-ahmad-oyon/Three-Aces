@@ -137,16 +137,3 @@ function admininfo($id)
     $row = getAdminInfo($id);
     return $row;
 }
-
-/**
- * All Countries
- *
- * Fetch all Countries' Name of the world from Model
- *
- * @return array     Returns all Countries' Name
- */
-function getCountries()
-{
-    $row = getCountryName();
-    return $row;
-}

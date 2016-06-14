@@ -58,9 +58,9 @@ if (isset($_SESSION['user'])) {
                 <h1 class="text-center">Personal Information</h1>
                 <hr/>
                 <div class="row">
-                    <button class="btn btn-info" onclick="editProfile(<?php echo $row['id']; ?>);"><i class="icon-pencil"></i> Edit Profile</button>
+                    <button class="btn btn-info editProfile"><i class="icon-pencil"></i> Edit Profile</button>
                     <br/><br/>
-                    <table class="table table-striped">
+                    <table class="table table-striped profile" data-id="<?= $row['id']; ?>">
                         <tr>
                             <td>Name</td>
                             <td>:</td>
@@ -122,31 +122,27 @@ if (isset($_SESSION['user'])) {
         </div>
         <div class="modal-body">
             <h3>Country: </h3>
-            <select data-placeholder="Choose a Country" tabindex="3" id="selectError" data-rel="chosen">
+            <select data-placeholder="Choose a Country" tabindex="3" data-rel="chosen" id="selectCountry">
                 <option value=""></option>
-                <?php $country = getCountries();
-                    foreach($country as $key => $c):?>
-                        <option value="<?= $c['c_name']; ?>"
-                            <?php
-                            if($c['c_name'] == $row['country']){
-                                echo 'selected';
-                            }
-                            ?>>
-                            <?= $c['c_name']; ?>
+                <?php /*$country = getCountries();
+                    foreach($country as $key => $c):*/?><!--
+                        <option value="<?/*= $c['c_name']; */?>">
+                            <?/*= $c['c_name']; */?>
                         </option>
-                <?php endforeach; ?>
+                --><?php /*endforeach; */?>
+                <option></option>
             </select>
             <h3>Name: </h3>
-            <input type="text" value="<?= $row['name']; ?>" required id="name">
+            <input type="text" value="" required id="name">
             <h3>Username: </h3>
-            <input type="text" value="<?= $row['username']; ?>" required id="username">
+            <input type="text" value="" required id="username">
             <h3>Email: </h3>
-            <input type="email" value="<?= $row['email']; ?>" required id="email" pattern="[([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)]i">
-            <input type="hidden" id="key" value="<?= $row['id']; ?>" />
+            <input type="email" value="" required id="email" pattern="[([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)]i">
+            <input type="hidden" id="key" value="" />
         </div>
         <div class="modal-footer">
-            <button class="btn btn-primary" id="editClose" data-dismiss="modal">Close</button>
             <button class="btn btn-success" id="editPfInfo">Update</button>
+            <button class="btn btn-primary" id="editClose" data-dismiss="modal">Close</button>
         </div>
     </div>
     <div class="clearfix"></div>
@@ -157,16 +153,15 @@ if (isset($_SESSION['user'])) {
 
 <!-- start: JavaScript-->
 <?php include_once 'includes/jsscript.php';?>
+    <script src="<?= SERVER ?>/admin/js/profile.js"></script>
 <script>
-    function editProfile(x){
-        $('#editInfo').modal('show');
-    }
     $('#editPfInfo').click(function(){
         var name = $('#name').val();
         var username = $('#username').val();
         var email = $('#email').val();
-        var country = $('select#selectError').val();
+        var country = $('select#selectCountry').val();
         var key = $('#key').val();
+
         if(name =='' || username == '' || email == '' || key == ''){
             alert('You have to fill all the fields');
         }else{
