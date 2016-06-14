@@ -115,30 +115,7 @@ if (isset($_SESSION['user'])) {
         </div>
     </div>
 
-    <div class="modal hide fade" id="editInfo">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">×</button>
-            <h3>Edit Profile Information</h3>
-        </div>
-        <div class="modal-body">
-            <h3>Country: </h3>
-            <select data-placeholder="Choose a Country" tabindex="3" data-rel="chosen" id="selectCountry">
-                <option value=""></option>
-                <option></option>
-            </select>
-            <h3>Name: </h3>
-            <input type="text" value="" required id="name">
-            <h3>Username: </h3>
-            <input type="text" value="" required id="username">
-            <h3>Email: </h3>
-            <input type="email" value="" required id="email" pattern="[([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)]i">
-            <input type="hidden" id="key" value="" />
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-success" id="editPfInfo">Update</button>
-            <button class="btn btn-primary" id="editClose" data-dismiss="modal">Close</button>
-        </div>
-    </div>
+    <?php $profile = true; include_once 'includes/modals.php';?>
     <div class="clearfix"></div>
 
     <footer>

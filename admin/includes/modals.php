@@ -51,6 +51,53 @@
     </div>
 <!-- /Order Details -->
 <?php endif; ?>
+
+<?php if (isset($profile)): ?>
+    <div class="modal hide fade" id="editInfo">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+            <h1><i class="glyphicons-icon pencil"></i> Profile Information</h1>
+        </div>
+        <div class="modal-body">
+            <form class="form-horizontal">
+                <fieldset>
+                    <div class="control-group">
+                        <label class="control-label" for="selectCountry"><b>Country :</b></label>
+                        <div class="controls">
+                            <select data-placeholder="Choose a Country" tabindex="3" data-rel="chosen" id="selectCountry">
+                                <option value=""></option>
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="name"><b>Name :</b></label>
+                        <div class="controls">
+                            <input type="text" value="" required id="name">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="username"><b>Username :</b></label>
+                        <div class="controls">
+                            <input type="text" value="" required id="username">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="email"><b>Username :</b></label>
+                        <div class="controls">
+                            <input type="email" value="" required id="email" pattern="[([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)]i">
+                        </div>
+                    </div>
+                    <input type="hidden" id="key" value="" />
+                </fieldset>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-success" id="editPfInfo">Update</button>
+            <button class="btn btn-primary" id="editClose" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+<?php endif; ?>
 <!-- Add Item Modal -->
     <?php  if (isset($normal)): ?>
     <div class="modal hide fade addItem">
