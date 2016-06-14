@@ -59,42 +59,20 @@ if (isset($_POST['day']) && $_POST['day'] == 'today') {
     $email    = $_POST['editEmail'];
     $country  = $_POST['editCountry'];
 
-    $row = getUserNameEmail($key);
-
-    if ($row['username'] != $username){
-        /** Check the username is unique or not */
-        if (!checkUser($username)) {
-            echo 'Username Must be Unique';
-            return;
-        }
-
-        if ($row['email'] == $email) {
-            updateProfile($name, $username, $email, $country, $key);
-            echo 't';
-            return;
-        }
-
-        /** Check the email is already stored in the database or not */
-        if (!checkEmail($email)) {
-            echo 'Email Must be Unique';
-            return;
-        }
-
-        updateProfile($name, $username, $email, $country, $key);
-        echo 't';
-
-
-    } elseif ($row['email'] != $email) {
-        if (checkEmail($email)) {
-            updateProfile($name, $username, $email, $country, $key);
-            echo 't';
-        } else {
-            echo 'Email Must be Unique';
-        }
-    } else {
-        updateProfile($name, $username, $email, $country, $key);
-        echo 't';
+    /** Check the username is unique or not */
+    if (!checkUser($username, $key)) {
+        echo 'Username Must be Unique';
+        return;
     }
+
+    /** Check the email is already stored in the database or not */
+    if (!checkEmail($email, $key)) {
+        echo 'Email Must be Unique';
+        return;
+    }
+
+    updateProfile($name, $username, $email, $country, $key);
+    echo 't';
 }
 
 /**

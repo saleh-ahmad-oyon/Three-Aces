@@ -332,27 +332,27 @@ function checkOldPass($old)
     return ($row['num'] == 1) ? true : false ;
 }
 
-function checkUser($username)
+function checkUser($username, $key)
 {
     $conn        = db_conn();
-    $selectQuery = 'SELECT COUNT(1) as `num` FROM `admin` WHERE `username` = ?';
+    $selectQuery = 'SELECT COUNT(1) as `num` FROM `admin` WHERE `username` = ? AND `id` <> ?';
     try{
         $stmt = $conn->prepare($selectQuery);
-        $stmt->execute(array($username));
+        $stmt->execute(array($username, $key));
     }catch(PDOException $e){
         handle_sql_errors($selectQuery, $e->getMessage());
     }
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
-    return ($row['num'] == 1 ) ? false : true ;
+    return ($row['num'] == 0 ) ? true : false ;
 }
 
-function checkEmail($email)
+function checkEmail($email, $key)
 {
     $conn        = db_conn();
-    $selectQuery = 'SELECT COUNT(1) as `num` FROM `admin` WHERE `email` = ?';
+    $selectQuery = 'SELECT COUNT(1) as `num` FROM `admin` WHERE `email` = ? and `id` <> ?';
     try{
         $stmt = $conn->prepare($selectQuery);
-        $stmt->execute(array($email));
+        $stmt->execute(array($email, $key));
     }catch(PDOException $e){
         handle_sql_errors($selectQuery, $e->getMessage());
     }
