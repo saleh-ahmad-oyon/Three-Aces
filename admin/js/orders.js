@@ -1,6 +1,4 @@
 $('.orders').click(function(){
-    $('#myModal').modal('show');
-    
     var $order = {
         submitURL : location.protocol + "//" + location.host + '/threeaces/controller/adminController',
         key : $(this).closest('tr').data('id')
@@ -14,10 +12,10 @@ $('.orders').click(function(){
         },
         cache : false,
         error: function() {
-            $('#myModal').modal('hide');
             $('.errorItem').modal('show');
         },
         success : function(response) {
+            $('#myModal').modal('show');
             var dtTime = response.o_datetime.split(" ");
             $('#order-date').html(dtTime[0]);
             $('#order-time').html(dtTime[1]);
