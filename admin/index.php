@@ -140,7 +140,7 @@ if (isset($_SESSION['user'])) {
         }
         loadlink(); // This will run on page load
         setInterval(function(){
-            loadlink() // this will run after every 5 seconds
+            loadlink(); // this will run after every 1 seconds
             dataload();
         }, 1000);
 </script>
