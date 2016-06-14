@@ -149,7 +149,8 @@ if (isset($_SESSION['user'])) {
                 },
                 cache : false,
                 error: function(){
-                    alert('Failed! An error occured !!');
+                    $('#editInfo').modal('hide');
+                    $('.errorItem').modal('show');
                 },
                 success: function(data){
                     if(data == 't'){
