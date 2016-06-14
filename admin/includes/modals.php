@@ -35,8 +35,8 @@
 
     </div>
     <div class="modal-footer">
-        <button class="btn btn-primary" id="addClose" data-dismiss="modal">Close</button>
         <button class="btn btn-success" id="addbtn">Save</button>
+        <button class="btn btn-primary" id="addClose" data-dismiss="modal">Close</button>
     </div>
 </div>
     <?php elseif (isset($largeSmall)): ?>
@@ -88,7 +88,7 @@
         </div>
     </div>
     <?php endif; ?>
-
+<?php if (isset($normal) || isset($largeSmall)): ?>
 <!-- Delete Item Modal -->
 <div class="modal hide fade deleteItem">
     <div class="modal-header">
@@ -142,3 +142,4 @@
     </div>
 </div>
 <!-- /Modals -->
+<?php endif; ?>
