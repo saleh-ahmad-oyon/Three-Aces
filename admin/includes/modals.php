@@ -181,7 +181,7 @@
         <button class="btn btn-success" data-dismiss="modal">Ok</button>
     </div>
 </div>
-
+<?php endif; ?>
 <!-- Error Modal -->
 <div class="modal hide fade errorItem">
     <div class="modal-header">
@@ -193,5 +193,4 @@
         <button class="btn btn-success" data-dismiss="modal">Ok</button>
     </div>
 </div>
-<?php endif; ?>
 <!-- /Modals -->

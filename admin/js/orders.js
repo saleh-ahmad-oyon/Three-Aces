@@ -14,7 +14,8 @@ $('.orders').click(function(){
         },
         cache : false,
         error: function() {
-            alert('Failed ! An error occured !!');
+            $('#myModal').modal('hide');
+            $('.errorItem').modal('show');
         },
         success : function(response) {
             var dtTime = response.o_datetime.split(" ");
