@@ -170,7 +170,7 @@ if (isset($_SESSION['user'])) {
                         <fieldset>
                             <div class="input-prepend" title="Username">
                                 <span class="add-on"><i class="halflings-icon user"></i></span>
-                                <input class="input-large span10"required="required" name="username" id="username" type="text" placeholder="Username"/>
+                                <input class="input-large span10" required="required" name="username" id="username" type="text" placeholder="Username"/>
                             </div>
                             <div class="clearfix"></div>
 
