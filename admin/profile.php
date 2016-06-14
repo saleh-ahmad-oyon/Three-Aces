@@ -131,8 +131,8 @@ if (isset($_SESSION['user'])) {
                             if($c['c_name'] == $row['country']){
                                 echo 'selected';
                             }
-                            ?>
-                        ><?= $c['c_name']; ?></option>
+                            ?>>
+                            <?= $c['c_name']; ?></option>
                 <?php endforeach; ?>
             </select>
             <h3>Name: </h3>
