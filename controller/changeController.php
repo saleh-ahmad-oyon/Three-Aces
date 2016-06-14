@@ -182,12 +182,20 @@ if (isset($_POST['calzoneName'])) {              /** Add or Edit Calzone Value *
         $key = $_POST['pizzaAction'];
         editPizza($name, $costSmall, $costLarge, $key);
     }
+
+    /** @var array $resp     All Pizzas row */
+    $resp = pizza();
+    echo json_encode($resp);
 } elseif (isset($_POST['deletePizzaKey'])) {     /** Delete the specific Pizza row using id */
     /** @var int $key     Pizza ID */
     $key = $_POST['deletePizzaKey'];
 
     /** Call function for deleting the specific row */
     deletePizzaRow($key);
+
+    /** @var array $resp     All Pizzas row */
+    $resp = pizza();
+    echo json_encode($resp);
 } elseif (isset($_POST['saladName'])) {          /** Add or Edit Salad Value */
     /**
      * @var string $name          Salad Name
