@@ -104,17 +104,6 @@ if (isset($_SESSION['user'])) {
         </div><!--/#content.span10-->
     </div><!--/fluid-row-->
 
-    <div class="modal hide fade" id="addItem">
-        <div class="modal-body">
-            <h3>Enter Old Password: </h3>
-            <input type="password" id="oldpass">
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-primary" id="Close" data-dismiss="modal">Close</button>
-            <button class="btn btn-success" id="update">Update</button>
-        </div>
-    </div>
-
     <?php $profile = true; include_once 'includes/modals.php';?>
     <div class="clearfix"></div>
 

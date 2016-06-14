@@ -53,6 +53,29 @@
 <?php endif; ?>
 
 <?php if (isset($profile)): ?>
+    <div class="modal hide fade" id="addItem">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+            <h1><i class="glyphicons-icon lock"></i></h1>
+        </div>
+        <div class="modal-body">
+            <form class="form-horizontal">
+                <fieldset>
+                    <div class="control-group">
+                        <label class="control-label" for="oldpass"><b>Enter Old Password :</b></label>
+                        <div class="controls">
+                            <input type="password" id="oldpass">
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" id="Close" data-dismiss="modal">Close</button>
+            <button class="btn btn-success" id="update">Update</button>
+        </div>
+    </div>
+    
     <div class="modal hide fade" id="editInfo">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">×</button>
