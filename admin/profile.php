@@ -132,7 +132,8 @@ if (isset($_SESSION['user'])) {
                                 echo 'selected';
                             }
                             ?>>
-                            <?= $c['c_name']; ?></option>
+                            <?= $c['c_name']; ?>
+                        </option>
                 <?php endforeach; ?>
             </select>
             <h3>Name: </h3>
