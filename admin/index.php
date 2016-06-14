@@ -85,7 +85,6 @@ if (isset($_SESSION['user'])) {
                     <h2>Login to Admin Panel</h2>
                     <form class="form-horizontal" action="<?php echo SERVER ?>/controller/admin-login-success" method="post">
                         <fieldset>
-
                             <div class="input-prepend" title="Username">
                                 <span class="add-on"><i class="halflings-icon user"></i></span>
                                 <input class="input-large span10"required="required" name="username" id="username" type="text" placeholder="Username"/>
