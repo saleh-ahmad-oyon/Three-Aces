@@ -27,4 +27,3 @@ html5 boilerplate with php,html5 boilerplate with foundation,html5 boilerplate w
 <!--[if IE 9]>
 <link id="ie9style" href="<?= SERVER ?>/admin/css/ie9.css" rel="stylesheet">
 <![endif]-->
-<link rel="icon" href="<?= SERVER ?>/img/aces_logo.png" />
