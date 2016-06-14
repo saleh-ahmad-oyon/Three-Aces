@@ -1,6 +1,6 @@
 $(document).ready(function(){
     var $profile = {
-        submitURL : location.protocol + "//" + location.host + '/threeaces/controller/CountryController'
+        submitURL : $url.root() + '/controller/CountryController'
     };
     $.ajax({
         type: 'POST',

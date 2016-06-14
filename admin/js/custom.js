@@ -1,3 +1,10 @@
+var $url = {
+    root: function(){
+        return location.protocol + "//" + location.host + '/threeaces';
+    }
+};
+
+console.log($url.root());
 /* -------------------- Check Browser --------------------- */
 
 function browser() {

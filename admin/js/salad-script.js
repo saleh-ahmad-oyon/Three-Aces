@@ -1,5 +1,5 @@
 var $salad = {
-    submitURL : location.protocol + "//" + location.host + '/threeaces/controller/changeController'
+    submitURL : $url.root() + '/controller/changeController'
 };
 
 $('.tableRow').each(function (i) {

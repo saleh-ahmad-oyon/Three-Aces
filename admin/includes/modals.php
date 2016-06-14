@@ -205,8 +205,8 @@
 
         </div>
         <div class="modal-footer">
-            <button class="btn btn-primary" id="addClose" data-dismiss="modal">Close</button>
             <button class="btn btn-success" id="addbtn">Save</button>
+            <button class="btn btn-primary" id="addClose" data-dismiss="modal">Close</button>
         </div>
     </div>
     <?php endif; ?>

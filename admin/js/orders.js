@@ -1,6 +1,6 @@
 $('.orders').click(function(){
     var $order = {
-        submitURL : location.protocol + "//" + location.host + '/threeaces/controller/adminController',
+        submitURL : $url.root() + '/controller/adminController',
         key : $(this).closest('tr').data('id')
     };
     $.ajax({
