@@ -45,6 +45,7 @@ if (isset($_SESSION['user'])) {
 
             <!-- start: Content -->
             <div id="content" class="span10">
+                
                 <ul class="breadcrumb">
                     <li>
                         <i class="icon-home"></i>
@@ -59,26 +60,27 @@ if (isset($_SESSION['user'])) {
                     <button class="btn btn-info editProfile"><i class="icon-pencil"></i> Edit Profile</button>
                     <br/><br/>
                     <table class="table table-striped profile" data-id="<?= $row['id']; ?>">
-                        <tr>
-                            <td>Name</td>
-                            <td>:</td>
-                            <td id="nm"><?= $row['name']; ?></td>
-                        </tr>
-                        <tr>
-                            <td>Username</td>
-                            <td>:</td>
-                            <td id="us"><?= $row['username']; ?></td>
-                        </tr>
-                        <tr>
-                            <td>Email</td>
-                            <td>:</td>
-                            <td id="em"><?= $row['email']; ?></td>
-                        </tr>
-                        <tr>
-                            <td>Country</td>
-                            <td>:</td>
-                            <td id="cn"><?= $row['country']; ?></td>
-                        </tr>
+                        <tbody>
+                            <tr>
+                                <td>Name</td>
+                                <td>:</td>
+                                <td id="nm"><?= $row['name']; ?></td>
+                            </tr>
+                            <tr>
+                                <td>Username</td>
+                                <td>:</td>
+                                <td id="us"><?= $row['username']; ?></td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td>:</td>
+                                <td id="em"><?= $row['email']; ?></td>
+                            </tr>
+                            <tr>
+                                <td>Country</td>
+                                <td>:</td>
+                                <td id="cn"><?= $row['country']; ?></td>
+                            </tr>
                         <form id="passReset">
                             <tr>
                                 <td>New Password</td>
@@ -90,6 +92,7 @@ if (isset($_SESSION['user'])) {
                                 <td>:</td>
                                 <td><input type="password" required class="form-control" id="confirmNewPass" pattern="(?=^.{4,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Please enter the same Password as above' : '');"/></td>
                             </tr>
+                        </tbody>
                     </table>
                     <div class="pull-right">
                         <button class="btn btn-success" type="submit"><i class="icon-upload-alt"></i> Update Password</button>
@@ -165,7 +168,7 @@ if (isset($_SESSION['user'])) {
             }else{
                 $.ajax({
                     type: 'POST',
-                    dataType: 'html',
+                    dataType: 'json',
                     url: '<?php echo SERVER ?>/controller/adminController',
                     data: {
                         oldpa : oldpas,
@@ -175,10 +178,11 @@ if (isset($_SESSION['user'])) {
                     },
                     cache: false,
                     error: function(){
-                        alert('An error occured !!');
+                        $('#addItem').modal('hide');
+                        $('.errorItem').modal('show');
                     },
                     success: function(data){
-                        alert(data);
+                        alert(data.msg);
                         $('#newPass').val('');
                         $('#confirmNewPass').val('');
                         $('#Close').click();
