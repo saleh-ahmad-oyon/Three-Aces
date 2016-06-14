@@ -51,7 +51,7 @@ $('#addbtn').click(function(){
                         '<td>' + (i+1) + '</td>' +
                         '<td>' + response[i].grinder_name + '</td>' +
                         '<td>' + $small + '</td>' +
-                        '<td> $ ' + response[i].grinder_large_price + '</td>' +
+                        '<td>$ ' + response[i].grinder_large_price + '</td>' +
                         '<td>' +
                         '<div class="text-center">' +
                         '<button class="btn btn-info editGrinder" title="Edit"><i class="halflings-icon white edit"></i> Edit</button>&nbsp;' +
@@ -118,7 +118,7 @@ $(document).on('click', '.dltGrinder', function(){
                         '<td>' + (i+1) + '</td>' +
                         '<td>' + response[i].grinder_name + '</td>' +
                         '<td>' + $small + '</td>' +
-                        '<td> $ ' + response[i].grinder_large_price + '</td>' +
+                        '<td>$ ' + response[i].grinder_large_price + '</td>' +
                         '<td>' +
                         '<div class="text-center">' +
                         '<button class="btn btn-info editGrinder" title="Edit"><i class="halflings-icon white edit"></i> Edit</button>&nbsp;' +
