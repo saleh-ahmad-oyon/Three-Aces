@@ -124,12 +124,6 @@ if (isset($_SESSION['user'])) {
             <h3>Country: </h3>
             <select data-placeholder="Choose a Country" tabindex="3" data-rel="chosen" id="selectCountry">
                 <option value=""></option>
-                <?php /*$country = getCountries();
-                    foreach($country as $key => $c):*/?><!--
-                        <option value="<?/*= $c['c_name']; */?>">
-                            <?/*= $c['c_name']; */?>
-                        </option>
-                --><?php /*endforeach; */?>
                 <option></option>
             </select>
             <h3>Name: </h3>
