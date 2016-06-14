@@ -79,6 +79,9 @@ if (isset($_SESSION['user'])) {
 
             <div class="row-fluid">
                 <div class="login-box">
+                    <div class="icons">
+                        <a href="<?= SERVER ?>"><i class="halflings-icon home"></i></a>
+                    </div>
                     <h2>Login to Admin Panel</h2>
                     <form class="form-horizontal" action="<?php echo SERVER ?>/controller/admin-login-success" method="post">
                         <fieldset>
