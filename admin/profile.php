@@ -61,51 +61,46 @@ if (isset($_SESSION['user'])) {
                 <h1 class="text-center">Personal Information</h1>
                 <hr/>
                 <div class="row">
-                    <div class="col-sm-12">
-                        <button class="btn btn-info" onclick="editProfile(<?php echo $row['id']; ?>);"><i class="icon-pencil"></i> Edit Profile</button>
-                        <br/><br/>
-                        <div class="col-sm-4"></div>
-                        <div class="col-sm-4">
-                            <table class="table">
-                                <tr>
-                                    <td>Name</td>
-                                    <td>:</td>
-                                    <td id="nm"><?= $row['name']; ?></td>
-                                </tr>
-                                <tr>
-                                    <td>Username</td>
-                                    <td>:</td>
-                                    <td id="us"><?= $row['username']; ?></td>
-                                </tr>
-                                <tr>
-                                    <td>Email</td>
-                                    <td>:</td>
-                                    <td id="em"><?= $row['email']; ?></td>
-                                </tr>
-                                <tr>
-                                    <td>Country</td>
-                                    <td>:</td>
-                                    <td id="cn"><?= $row['country']; ?></td>
-                                </tr>
-                                <form id="passReset">
-                                <tr>
-                                    <td>New Password</td>
-                                    <td>:</td>
-                                    <td><input type="password" required class="form-control" id="newPass" pattern="(?=^.{4,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'The password must contain one or more uppercase characters, one or more lowercase characters, one or more numeric values, one or more special characters, and length must be greater than or equal to 4' : ''); if(this.checkValidity()) form.cpass.pattern = this.value;" /></td>
-                                </tr>
-                                <tr>
-                                    <td>Confirm Password</td>
-                                    <td>:</td>
-                                    <td><input type="password" required class="form-control" id="confirmNewPass" pattern="(?=^.{4,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Please enter the same Password as above' : '');"/></td>
-                                </tr>
-                            </table>
-                            <div class="pull-right">
-                                <button class="btn btn-success" type="submit"><i class="icon-upload-alt"></i> Update Password</button>
-                            </div>
-                            </form>
-                        </div>
-                        <div class="col-sm-4"></div>
+                    <button class="btn btn-info" onclick="editProfile(<?php echo $row['id']; ?>);"><i class="icon-pencil"></i> Edit Profile</button>
+                    <br/><br/>
+                    <table class="table table-striped">
+                        <tr>
+                            <td>Name</td>
+                            <td>:</td>
+                            <td id="nm"><?= $row['name']; ?></td>
+                        </tr>
+                        <tr>
+                            <td>Username</td>
+                            <td>:</td>
+                            <td id="us"><?= $row['username']; ?></td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>:</td>
+                            <td id="em"><?= $row['email']; ?></td>
+                        </tr>
+                        <tr>
+                            <td>Country</td>
+                            <td>:</td>
+                            <td id="cn"><?= $row['country']; ?></td>
+                        </tr>
+                        <form id="passReset">
+                            <tr>
+                                <td>New Password</td>
+                                <td>:</td>
+                                <td><input type="password" required class="form-control" id="newPass" pattern="(?=^.{4,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'The password must contain one or more uppercase characters, one or more lowercase characters, one or more numeric values, one or more special characters, and length must be greater than or equal to 4' : ''); if(this.checkValidity()) form.cpass.pattern = this.value;" /></td>
+                            </tr>
+                            <tr>
+                                <td>Confirm Password</td>
+                                <td>:</td>
+                                <td><input type="password" required class="form-control" id="confirmNewPass" pattern="(?=^.{4,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Please enter the same Password as above' : '');"/></td>
+                            </tr>
+                    </table>
+                    <div class="pull-right">
+                        <button class="btn btn-success" type="submit"><i class="icon-upload-alt"></i> Update Password</button>
                     </div>
+                        </form>
+
                 </div>
             </div><!--/.fluid-container-->
             <!-- end: Content -->
