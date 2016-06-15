@@ -248,12 +248,20 @@ if (isset($_POST['calzoneName'])) {              /** Add or Edit Calzone Value *
         $key = $_POST['sideOrderAction'];
         editSideOrder($name, $costSmall, $costLarge, $key);
     }
+
+    /** @var array $resp     All Side Orders row */
+    $resp = sideOrders();
+    echo json_encode($resp);
 } elseif (isset($_POST['deleteSideOrderKey'])) {   /** Delete the specific Side Order row using id */
     /** @var int $key     Side Order ID */
     $key = $_POST['deleteSideOrderKey'];
 
     /** Call function for deleting the specific row */
     deleteSideOrderRow($key);
+
+    /** @var array $resp     All Side Orders row */
+    $resp = sideOrders();
+    echo json_encode($resp);
 } elseif (isset($_POST['spPizzaName'])) {          /** Add or Edit Specialty Pizza Value */
     /**
      * @var string $name          Specialty Pizza Name
