@@ -76,12 +76,18 @@ if (isset($_POST['calzoneName'])) {              /** Add or Edit Calzone Value *
         $key = $_POST['spaghettiAction'];
         editSpaghetti($name, $cost, $key);
     }
+
+    $resp = spaghetti();
+    echo json_encode($resp);
 } elseif (isset($_POST['deleteSpaghettiKey'])) {   /** Delete the specific Spaghetti row using id */
     /** @var int $key     Spaghetti ID */
     $key = $_POST['deleteSpaghettiKey'];
 
     /** Call function for deleting the specific row */
     deleteSpaghettiRow($key);
+
+    $resp = spaghetti();
+    echo json_encode($resp);
 } elseif (isset($_POST['wrapName'])) {             /** Add or Edit Wrap Value */
     /**
      * @var string $name     Wrap Name

@@ -7,11 +7,64 @@ $('.tableRow').each(function (i) {
 });
 
 $('button#addSpaghetti').click(function () {
-    $('#addItem').modal('show');
+    $('#itemName').val('');
+    $('#itemPrice').val('');
+    $('#type').val('add');
+
+    $('.addItem').modal('show');
 });
 
-$('.editSpaghetti').click(function () {
-    $('#addItem').modal('show', {
+$('#addbtn').click(function(){
+    var $add = {
+        name : $('#itemName').val(),
+        cost : $('#itemPrice').val(),
+        type : $('#type').val()
+    };
+
+    if($add.name =='' || $add.cost == ''){
+        alert('Both fields must be filled');
+    }else{
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            url: $spaghetti.submitURL,
+            data: {
+                spaghettiName: $add.name,
+                spaghettiCost: $add.cost,
+                spaghettiAction: $add.type
+            },
+            cache: false,
+            error: function(){
+                $('.addItem').modal('hide');
+                $('.errorItem').modal('show');
+            },
+            success: function(response){
+                $('.datatable').DataTable().destroy();
+                $('.dataTable-tbody').html('');
+                for(i=0; i<response.length; ++i){
+                    var content = '<tr class="tableRow" data-id="' + response[i].spaghetti_id + '">' +
+                        '<td>' + (i+1) + '</td>' +
+                        '<td>' + response[i].spaghetti_name + '</td>' +
+                        '<td> $ ' + response[i].spaghetti_price + '</td>' +
+                        '<td>' +
+                        '<div class="text-center">' +
+                        '<button class="btn btn-info editSpaghetti" title="Edit"><i class="halflings-icon white edit"></i> Edit</button>&nbsp;' +
+                        '<button class="btn btn-danger dltSpaghetti" title="Delete"><i class="halflings-icon white trash"></i> Delete</button>' +
+                        '</div>' +
+                        '</td>' +
+                        '</tr>';
+                    $('.dataTable-tbody').append(content);
+                }
+                initDataTable();
+                $('.addItem').modal('hide');
+                $('.saveItem').modal('show');
+            }
+        });
+    }
+});
+
+$(document).on('click', '.editSpaghetti', function(){
+    $('.addItem').modal('show', {
         backdrop: 'static'
     });
 
@@ -26,60 +79,48 @@ $('.editSpaghetti').click(function () {
     $('#type').val($edit.type);
 });
 
-$('.dltSpaghetti').click(function () {
+$(document).on('click', '.dltSpaghetti', function(){
     var $dlt = {
-        confirm : confirm("Are you want to delete the selected item ?"),
         key : $(this).closest('tr').data('id')
     };
-    console.log($dlt.confirm + ' ' + $dlt.key);
-    if($dlt.confirm){
+
+    $('.deleteItem').modal('show', {
+        backdrop: 'static'
+    });
+
+    $(document).on('click', '.yes', function(){
         $.ajax({
             type: 'POST',
+            dataType: 'json',
             url: $spaghetti.submitURL,
             data: {
                 deleteSpaghettiKey : $dlt.key
             },
             error: function(){
-                alert('An Error Occured');
+                $('.deleteItem').modal('hide');
+                $('.errorItem').modal('show');
             },
-            success: function(){
-                alert('Data has been deleted !!');
-                location.reload();
+            success: function(response){
+                $('.datatable').DataTable().destroy();
+                $('.dataTable-tbody').html('');
+                for(i=0; i<response.length; ++i){
+                    var content = '<tr class="tableRow" data-id="' + response[i].spaghetti_id + '">' +
+                        '<td>' + (i+1) + '</td>' +
+                        '<td>' + response[i].spaghetti_name + '</td>' +
+                        '<td> $ ' + response[i].spaghetti_price + '</td>' +
+                        '<td>' +
+                        '<div class="text-center">' +
+                        '<button class="btn btn-info editSpaghetti" title="Edit"><i class="halflings-icon white edit"></i> Edit</button>&nbsp;' +
+                        '<button class="btn btn-danger dltSpaghetti" title="Delete"><i class="halflings-icon white trash"></i> Delete</button>' +
+                        '</div>' +
+                        '</td>' +
+                        '</tr>';
+                    $('.dataTable-tbody').append(content);
+                }
+                initDataTable();
+                $('.deleteItem').modal('hide');
+                $('.dltSuccess').modal('show');
             }
         });
-    }else{
-        alert('Your data is safe !');
-    }
-});
-
-$('#addbtn').click(function(){
-    var $add = {
-        name : $('#itemName').val(),
-        cost : $('#itemPrice').val(),
-        type : $('#type').val()
-    };
-
-    console.log($add.type);
-    if($add.name =='' || $add.cost == ''){
-        alert('Both fields must be filled');
-    }else{
-        $.ajax({
-            type: 'POST',
-            url: $spaghetti.submitURL,
-            data: {
-                spaghettiName: $add.name,
-                spaghettiCost: $add.cost,
-                spaghettiAction: $add.type
-            },
-            cache: false,
-            error: function(){
-                alert('An Error Occured !!');
-            },
-            success: function(){
-                alert('Successfully Saved !!');
-                $('#addItem').modal('hide');
-                location.reload();
-            }
-        });
-    }
+    });
 });
