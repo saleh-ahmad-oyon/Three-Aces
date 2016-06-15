@@ -213,7 +213,8 @@ if (isset($_POST['calzoneName'])) {              /** Add or Edit Calzone Value *
         $key = $_POST['saladAction'];
         editSalad($name, $costSmall, $costLarge, $key);
     }
-    
+
+    /** @var array $resp     All Salads row */
     $resp = salad();
     echo json_encode($resp);
 } elseif (isset($_POST['deleteSaladKey'])) {      /** Delete the specific Salad row using id */
@@ -222,6 +223,10 @@ if (isset($_POST['calzoneName'])) {              /** Add or Edit Calzone Value *
 
     /** Call function for deleting the specific row */
     deleteSaladRow($key);
+
+    /** @var array $resp     All Salads row */
+    $resp = salad();
+    echo json_encode($resp);
 } elseif (isset($_POST['sideOrderName'])) {       /** Add or Edit Side Order Value */
     /**
      * @var string $name          Side Order Name

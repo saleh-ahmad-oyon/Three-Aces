@@ -87,7 +87,7 @@ $(document).on('click', '.editSalad', function(){
     $('#type').val($edit.id);
 });
 
-$(document).on('click', '.dltGrinder', function(){
+$(document).on('click', '.dltSalad', function(){
     var $dlt = {
         key : $(this).closest('tr').data('id')
     };
@@ -108,7 +108,7 @@ $(document).on('click', '.dltGrinder', function(){
                 $('.deleteItem').modal('hide');
                 $('.errorItem').modal('show');
             },
-            success: function(){
+            success: function(response){
                 $('.datatable').DataTable().destroy();
                 $('.dataTable-tbody').html('');
                 var $small = '';
