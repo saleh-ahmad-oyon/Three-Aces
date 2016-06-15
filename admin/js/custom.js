@@ -4,7 +4,6 @@ var $url = {
     }
 };
 
-console.log($url.root());
 /* -------------------- Check Browser --------------------- */
 
 function browser() {
