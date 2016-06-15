@@ -77,7 +77,7 @@ if(isset($_SESSION['user'])){
                                 </th>
                             </tr>
                             </thead>
-                            <tbody>
+                            <tbody class="dataTable-tbody">
                             <?php foreach($row as $key => $r): ?>
                                 <tr class="tableRow" data-id="<?= htmlentities(stripcslashes($r['sp_din_id']), ENT_QUOTES, 'UTF-8'); ?>">
                                     <td></td>
@@ -105,23 +105,7 @@ if(isset($_SESSION['user'])){
     </div><!--/#content.span10-->
 </div><!--/fluid-row-->
 
-<div class="modal hide fade" id="addItem">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">×</button>
-        <h1>Special Dinner</h1>
-    </div>
-    <div class="modal-body">
-        <h3>Name</h3>
-        <input type="text" id="itemName" value="" required="required" />
-        <input type="hidden" id="type" value="add"/>
-        <h3>Price</h3>
-        <input type="number" min="0" step="0.01" value="" required="required" id="itemPrice" />
-    </div>
-    <div class="modal-footer">
-        <button class="btn btn-primary" id="addClose" data-dismiss="modal">Close</button>
-        <button class="btn btn-success" id="addbtn">Save</button>
-    </div>
-</div>
+    <?php $normal = true; include_once '../includes/modals.php';?>
 
 <div class="clearfix"></div>
 

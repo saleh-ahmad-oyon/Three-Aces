@@ -130,12 +130,18 @@ if (isset($_POST['calzoneName'])) {              /** Add or Edit Calzone Value *
         $key = $_POST['spDinnerAction'];
         editSpDinner($name, $cost, $key);
     }
+    
+    $resp = specialDinner();
+    echo json_encode($resp);
 } elseif (isset($_POST['deleteSpDinnerKey'])) {   /** Delete the specific Special Dinner row using id */
     /** @var int $key     Special Dinner ID */
     $key = $_POST['deleteSpDinnerKey'];
 
     /** Call function for deleting the specific row */
     deleteSpDinnerRow($key);
+
+    $resp = specialDinner();
+    echo json_encode($resp);
 } elseif (isset($_POST['grinderName'])) {         /** Add or Edit Grinder Value */
     /**
      * @var string $name          Grinder Name
