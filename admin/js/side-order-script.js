@@ -1,5 +1,27 @@
 var $sideorder= {
-    submitURL : $url.root() + '/controller/changeController'
+    submitURL : $url.root() + '/controller/changeController',
+    updatedtable : function (response) {
+        $('.datatable').DataTable().destroy();
+        $('.dataTable-tbody').html('');
+        var $small = '';
+        for(i=0; i<response.length; ++i){
+            $small = (response[i].so_small_price != null) ? '$ ' + response[i].so_small_price : '';
+            var content = '<tr class="tableRow" data-id="' + response[i].so_id + '">' +
+                '<td>' + (i+1) + '</td>' +
+                '<td>' + response[i].so_name + '</td>' +
+                '<td>' + $small + '</td>' +
+                '<td>$ ' + response[i].so_large_price + '</td>' +
+                '<td>' +
+                '<div class="text-center">' +
+                '<button class="btn btn-info editSideOrders" title="Edit"><i class="halflings-icon white edit"></i> Edit</button>&nbsp;' +
+                '<button class="btn btn-danger dltSideOrders" title="Delete"><i class="halflings-icon white trash"></i> Delete</button>' +
+                '</div>' +
+                '</td>' +
+                '</tr>';
+            $('.dataTable-tbody').append(content);
+        }
+        initDataTable();
+    }
 };
 
 $('.tableRow').each(function (i) {
@@ -42,26 +64,7 @@ $('#addbtn').click(function(){
                 $('.errorItem').modal('show');
             },
             success: function(response){
-                $('.datatable').DataTable().destroy();
-                $('.dataTable-tbody').html('');
-                var $small = '';
-                for(i=0; i<response.length; ++i){
-                    $small = (response[i].so_small_price != null) ? '$ ' + response[i].so_small_price : '';
-                    var content = '<tr class="tableRow" data-id="' + response[i].so_id + '">' +
-                        '<td>' + (i+1) + '</td>' +
-                        '<td>' + response[i].so_name + '</td>' +
-                        '<td>' + $small + '</td>' +
-                        '<td>$ ' + response[i].so_large_price + '</td>' +
-                        '<td>' +
-                        '<div class="text-center">' +
-                        '<button class="btn btn-info editSideOrders" title="Edit"><i class="halflings-icon white edit"></i> Edit</button>&nbsp;' +
-                        '<button class="btn btn-danger dltSideOrders" title="Delete"><i class="halflings-icon white trash"></i> Delete</button>' +
-                        '</div>' +
-                        '</td>' +
-                        '</tr>';
-                    $('.dataTable-tbody').append(content);
-                }
-                initDataTable();
+                $sideorder.updatedtable(response);
                 $('.addItem').modal('hide');
                 $('.saveItem').modal('show');
             }
@@ -109,26 +112,7 @@ $(document).on('click', '.dltSideOrders', function(){
                 $('.errorItem').modal('show');
             },
             success: function(response){
-                $('.datatable').DataTable().destroy();
-                $('.dataTable-tbody').html('');
-                var $small = '';
-                for(i=0; i<response.length; ++i){
-                    $small = (response[i].so_small_price != null) ? '$ ' + response[i].so_small_price : '';
-                    var content = '<tr class="tableRow" data-id="' + response[i].so_id + '">' +
-                        '<td>' + (i+1) + '</td>' +
-                        '<td>' + response[i].so_name + '</td>' +
-                        '<td>' + $small + '</td>' +
-                        '<td>$ ' + response[i].so_large_price + '</td>' +
-                        '<td>' +
-                        '<div class="text-center">' +
-                        '<button class="btn btn-info editSideOrders" title="Edit"><i class="halflings-icon white edit"></i> Edit</button>&nbsp;' +
-                        '<button class="btn btn-danger dltSideOrders" title="Delete"><i class="halflings-icon white trash"></i> Delete</button>' +
-                        '</div>' +
-                        '</td>' +
-                        '</tr>';
-                    $('.dataTable-tbody').append(content);
-                }
-                initDataTable();
+                $sideorder.updatedtable(response);
                 $('.deleteItem').modal('hide');
                 $('.dltSuccess').modal('show');
             }
