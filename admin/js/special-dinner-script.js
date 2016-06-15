@@ -1,5 +1,24 @@
 var $spdinner = {
-    submitURL : $url.root()+ '/controller/changeController'
+    submitURL : $url.root()+ '/controller/changeController',
+    updatedTable : function (response) {
+        $('.datatable').DataTable().destroy();
+        $('.dataTable-tbody').html('');
+        for(i=0; i<response.length; ++i){
+            var content = '<tr class="tableRow" data-id="' + response[i].sp_din_id + '">' +
+                '<td>' + (i+1) + '</td>' +
+                '<td>' + response[i].sp_din_name + '</td>' +
+                '<td> $ ' + response[i].sp_din_price + '</td>' +
+                '<td>' +
+                '<div class="text-center">' +
+                '<button class="btn btn-info editSpdinner" title="Edit"><i class="halflings-icon white edit"></i> Edit</button>&nbsp;' +
+                '<button class="btn btn-danger dltSpdinner" title="Delete"><i class="halflings-icon white trash"></i> Delete</button>' +
+                '</div>' +
+                '</td>' +
+                '</tr>';
+            $('.dataTable-tbody').append(content);
+        }
+        initDataTable();
+    }
 };
 
 $('.tableRow').each(function (i) {
@@ -39,23 +58,7 @@ $('#addbtn').click(function(){
                 $('.errorItem').modal('show');
             },
             success: function(response){
-                $('.datatable').DataTable().destroy();
-                $('.dataTable-tbody').html('');
-                for(i=0; i<response.length; ++i){
-                    var content = '<tr class="tableRow" data-id="' + response[i].sp_din_id + '">' +
-                        '<td>' + (i+1) + '</td>' +
-                        '<td>' + response[i].sp_din_name + '</td>' +
-                        '<td> $ ' + response[i].sp_din_price + '</td>' +
-                        '<td>' +
-                        '<div class="text-center">' +
-                        '<button class="btn btn-info editSpdinner" title="Edit"><i class="halflings-icon white edit"></i> Edit</button>&nbsp;' +
-                        '<button class="btn btn-danger dltSpdinner" title="Delete"><i class="halflings-icon white trash"></i> Delete</button>' +
-                        '</div>' +
-                        '</td>' +
-                        '</tr>';
-                    $('.dataTable-tbody').append(content);
-                }
-                initDataTable();
+                $spdinner.updatedTable(response);
                 $('.addItem').modal('hide');
                 $('.saveItem').modal('show');
             }
@@ -101,23 +104,7 @@ $(document).on('click', '.dltSpdinner', function(){
                 $('.errorItem').modal('show');
             },
             success: function(response){
-                $('.datatable').DataTable().destroy();
-                $('.dataTable-tbody').html('');
-                for(i=0; i<response.length; ++i){
-                    var content = '<tr class="tableRow" data-id="' + response[i].sp_din_id + '">' +
-                        '<td>' + (i+1) + '</td>' +
-                        '<td>' + response[i].sp_din_name + '</td>' +
-                        '<td> $ ' + response[i].sp_din_price + '</td>' +
-                        '<td>' +
-                        '<div class="text-center">' +
-                        '<button class="btn btn-info editSpdinner" title="Edit"><i class="halflings-icon white edit"></i> Edit</button>&nbsp;' +
-                        '<button class="btn btn-danger dltSpdinner" title="Delete"><i class="halflings-icon white trash"></i> Delete</button>' +
-                        '</div>' +
-                        '</td>' +
-                        '</tr>';
-                    $('.dataTable-tbody').append(content);
-                }
-                initDataTable();
+                $spdinner.updatedTable(response);
                 $('.deleteItem').modal('hide');
                 $('.dltSuccess').modal('show');
             }
