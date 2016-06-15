@@ -76,43 +76,6 @@ if (isset($_POST['day']) && $_POST['day'] == 'today') {
 
     updateProfile($name, $username, $email, $country, $key);
     echo 't';
-    
-
-    $row = getUserNameEmail($key);
-
-    if ($row['username'] != $username){
-
-        if (!checkUser($username)) {
-            echo 'Username Must be Unique';
-            return;
-        }
-
-        if ($row['email'] == $email) {
-            updateProfile($name, $username, $email, $country, $key);
-            echo 't';
-            return;
-        }
-
-        if (!checkEmail($email)) {
-            echo 'Email Must be Unique';
-            return;
-        }
-
-        updateProfile($name, $username, $email, $country, $key);
-        echo 't';
-
-
-    } elseif ($row['email'] != $email) {
-        if (checkEmail($email)) {
-            updateProfile($name, $username, $email, $country, $key);
-            echo 't';
-        } else {
-            echo 'Email Must be Unique';
-        }
-    } else {
-        updateProfile($name, $username, $email, $country, $key);
-        echo 't';
-    }
 }
 
 /**

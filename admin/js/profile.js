@@ -39,25 +39,27 @@ $('.editProfile').click(function(){
 });
 
 $('#editPfInfo').click(function(){
-    var name = $('#name').val();
-    var username = $('#username').val();
-    var email = $('#email').val();
-    var country = $('select#selectCountry').val();
-    var key = $('#key').val();
+    var $edit = {
+        name : $('#name').val(),
+        username : $('#username').val(),
+        email : $('#email').val(),
+        country : $('select#selectCountry').val(),
+        key : $('#key').val()
+    };
 
-    if(name =='' || username == '' || email == '' || key == ''){
+    if($edit.name =='' || $edit.username == '' || $edit.email == '' || $edit.key == ''){
         alert('You have to fill all the fields');
     }else{
         $.ajax({
             type: 'POST',
             dataType: 'html',
-            url: '<?php echo SERVER ?>/controller/adminController',
+            url: $url.root() +'/controller/adminController',
             data: {
-                editKey: key,
-                editName: name,
-                editUsername: username,
-                editEmail: email,
-                editCountry: country
+                editKey: $edit.key,
+                editName: $edit.name,
+                editUsername: $edit.username,
+                editEmail: $edit.email,
+                editCountry: $edit.country
             },
             cache : false,
             error: function(){
@@ -108,11 +110,10 @@ $('form#passReset').submit(function(e) {
                     $('.errorItem').modal('show');
                 },
                 success: function(data){
-                    alert(data.msg);
                     $('#newPass').val('');
                     $('#confirmNewPass').val('');
                     $('#addItem').modal('hide');
-
+                    alert(data.msg);
                 }
             });
         }
