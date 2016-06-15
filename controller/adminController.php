@@ -31,19 +31,22 @@ if (isset($_POST['day']) && $_POST['day'] == 'today') {
 
     /** Check the New Password with the Confirm New Password */
     if ($new != $confirm) {
-        echo "New password and Confirm Password didn't match !!";
+        $resp['msg'] = "New password and Confirm Password didn't match !!";
+        echo json_encode($resp);
         return;
     }
 
     /** Check Old Password */
     if (!checkOldPass($old)) {
-        echo "Old Password didn't match";
+        $resp['msg'] = "Old Password didn't match";
+        echo json_encode($resp);
         return;
     }
 
     /** Update Password */
     updatePass($key, $new);
-    echo 'Password Successfully Updated';
+    $resp['msg'] = 'Password Successfully Updated';
+    echo json_encode($resp);
 } elseif (isset($_POST['editKey'])) {
 
     /**

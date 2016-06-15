@@ -74,6 +74,48 @@ $('#editPfInfo').click(function(){
             }
         });
     }
+});
 
+$('form#passReset').submit(function(e) {
+    e.preventDefault();
+    $('#oldpass').val('');
+    $('#addItem').modal('show');
+
+    $('#update').click(function(){
+        var $pass = {
+            oldpass : $('#oldpass').val(),
+            newpass : $('#newPass').val(),
+            confirmpass : $('#confirmNewPass').val(),
+            key : $('table.profile').data('id')
+        };
+
+        if($pass.oldpass == '' || $pass.newpass == '' || $pass.confirmpass == ''){
+            alert('You must field all the password field');
+        }else{
+            $.ajax({
+                type: 'POST',
+                dataType: 'json',
+                url: $url.root() +'/controller/adminController',
+                data: {
+                    oldpa : $pass.oldpass,
+                    newpa : $pass.newpass,
+                    confirmpa : $pass.confirmpass,
+                    key: $pass.key
+                },
+                cache: false,
+                error: function(){
+                    $('#addItem').modal('hide');
+                    $('.errorItem').modal('show');
+                },
+                success: function(data){
+                    alert(data.msg);
+                    $('#newPass').val('');
+                    $('#confirmNewPass').val('');
+                    $('#addItem').modal('hide');
+
+                }
+            });
+        }
+    });
 });
 

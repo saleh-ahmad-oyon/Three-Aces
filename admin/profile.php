@@ -105,7 +105,7 @@ if (isset($_SESSION['user'])) {
         </div><!--/#content.span10-->
     </div><!--/fluid-row-->
 
-    <?php $profile = true; include_once 'includes/modals.php';?>
+    <?php $profile = true; $passUpdate = true; include_once 'includes/modals.php';?>
     <div class="clearfix"></div>
 
     <footer>
@@ -115,51 +115,7 @@ if (isset($_SESSION['user'])) {
 <!-- start: JavaScript-->
 <?php include_once 'includes/jsscript.php';?>
     <script src="<?= SERVER ?>/admin/js/profile.js"></script>
-<script>
-    $('form#passReset').submit(function(e) {
-        e.preventDefault();
-        $('#oldpass').val('');
-        $('#addItem').modal('show');
 
-        $('#update').click(function(){
-
-            var $pass = {
-                oldpass : $('#oldpass').val(),
-                newpass : $('#newPass').val(),
-                confirmnewpass : $('#confirmNewPass').val(),
-                key : $('table.profile').data('id')
-            };
-
-            if(oldpas == '' || newpas == '' || confirmnewpass == ''){
-                alert('You must field all the password field');
-            }else{
-                $.ajax({
-                    type: 'POST',
-                    dataType: 'json',
-                    url: '<?php echo SERVER ?>/controller/adminController',
-                    data: {
-                        oldpa : $pass.oldpass,
-                        newpa : $pass.newpass,
-                        confirmpa : $pass.confirmnewpass,
-                        key: $pass.key
-                    },
-                    cache: false,
-                    error: function(){
-                        $('#addItem').modal('hide');
-                        $('.errorItem').modal('show');
-                    },
-                    success: function(data){
-                        alert(data.msg);
-                        $('#newPass').val('');
-                        $('#confirmNewPass').val('');
-                        $('#Close').click();
-
-                    }
-                });
-            }
-        });
-    });
-</script>
 <!-- end: JavaScript-->
 
 </body>

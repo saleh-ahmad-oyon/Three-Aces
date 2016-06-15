@@ -71,8 +71,8 @@
             </form>
         </div>
         <div class="modal-footer">
-            <button class="btn btn-primary" id="Close" data-dismiss="modal">Close</button>
             <button class="btn btn-success" id="update">Update</button>
+            <button class="btn btn-primary" id="Close" data-dismiss="modal">Close</button>
         </div>
     </div>
     
