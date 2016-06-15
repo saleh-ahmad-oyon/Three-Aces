@@ -67,8 +67,13 @@ $('#editPfInfo').click(function(){
                 $('.errorItem').modal('show');
             },
             success: function(data){
+                $('table.profile tr:nth-child(1)').find('td').eq(2).text(data.name);
+                $('table.profile tr:nth-child(2)').find('td').eq(2).text(data.username);
+                $('table.profile tr:nth-child(3)').find('td').eq(2).text(data.email);
+                $('table.profile tr:nth-child(4)').find('td').eq(2).text(data.country);
+                
                 alert(data.msg);
-                window.location.reload();
+                $('#editInfo').modal('hide');
             }
         });
     }
