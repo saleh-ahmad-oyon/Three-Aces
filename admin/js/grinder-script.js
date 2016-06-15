@@ -1,5 +1,27 @@
 var $grinder = {
-    submitURL : $url.root() + '/controller/changeController'
+    submitURL : $url.root() + '/controller/changeController',
+    updatedtable : function(response){
+        $('.datatable').DataTable().destroy();
+        $('.dataTable-tbody').html('');
+        var $small = '';
+        for(i=0; i<response.length; ++i){
+            $small = (response[i].grinder_small_price != null) ? '$ ' + response[i].grinder_small_price : '';
+            var content = '<tr class="tableRow" data-id="' + response[i].grinder_id + '">' +
+                '<td>' + (i+1) + '</td>' +
+                '<td>' + response[i].grinder_name + '</td>' +
+                '<td>' + $small + '</td>' +
+                '<td>$ ' + response[i].grinder_large_price + '</td>' +
+                '<td>' +
+                '<div class="text-center">' +
+                '<button class="btn btn-info editGrinder" title="Edit"><i class="halflings-icon white edit"></i> Edit</button>&nbsp;' +
+                '<button class="btn btn-danger dltGrinder" title="Delete"><i class="halflings-icon white trash"></i> Delete</button>' +
+                '</div>' +
+                '</td>' +
+                '</tr>';
+            $('.dataTable-tbody').append(content);
+        }
+        initDataTable();
+    }
 };
 
 $('.tableRow').each(function (i) {
@@ -42,26 +64,7 @@ $('#addbtn').click(function(){
                 $('.errorItem').modal('show');
             },
             success: function(response){
-                $('.datatable').DataTable().destroy();
-                $('.dataTable-tbody').html('');
-                var $small = '';
-                for(i=0; i<response.length; ++i){
-                    $small = (response[i].grinder_small_price != null) ? '$ ' + response[i].grinder_small_price : '';
-                    var content = '<tr class="tableRow" data-id="' + response[i].grinder_id + '">' +
-                        '<td>' + (i+1) + '</td>' +
-                        '<td>' + response[i].grinder_name + '</td>' +
-                        '<td>' + $small + '</td>' +
-                        '<td>$ ' + response[i].grinder_large_price + '</td>' +
-                        '<td>' +
-                        '<div class="text-center">' +
-                        '<button class="btn btn-info editGrinder" title="Edit"><i class="halflings-icon white edit"></i> Edit</button>&nbsp;' +
-                        '<button class="btn btn-danger dltGrinder" title="Delete"><i class="halflings-icon white trash"></i> Delete</button>' +
-                        '</div>' +
-                        '</td>' +
-                        '</tr>';
-                    $('.dataTable-tbody').append(content);
-                }
-                initDataTable();
+                $grinder.updatedtable(response);
                 $('.addItem').modal('hide');
                 $('.saveItem').modal('show');
             }
@@ -109,26 +112,7 @@ $(document).on('click', '.dltGrinder', function(){
                 $('.errorItem').modal('show');
             },
             success: function(response){
-                $('.datatable').DataTable().destroy();
-                $('.dataTable-tbody').html('');
-                var $small = '';
-                for(i=0; i<response.length; ++i){
-                    $small = (response[i].grinder_small_price != null) ? '$ ' + response[i].grinder_small_price : '';
-                    var content = '<tr class="tableRow" data-id="' + response[i].grinder_id + '">' +
-                        '<td>' + (i+1) + '</td>' +
-                        '<td>' + response[i].grinder_name + '</td>' +
-                        '<td>' + $small + '</td>' +
-                        '<td>$ ' + response[i].grinder_large_price + '</td>' +
-                        '<td>' +
-                        '<div class="text-center">' +
-                        '<button class="btn btn-info editGrinder" title="Edit"><i class="halflings-icon white edit"></i> Edit</button>&nbsp;' +
-                        '<button class="btn btn-danger dltGrinder" title="Delete"><i class="halflings-icon white trash"></i> Delete</button>' +
-                        '</div>' +
-                        '</td>' +
-                        '</tr>';
-                    $('.dataTable-tbody').append(content);
-                }
-                initDataTable();
+                $grinder.updatedtable(response);
                 $('.deleteItem').modal('hide');
                 $('.dltSuccess').modal('show');
             }
