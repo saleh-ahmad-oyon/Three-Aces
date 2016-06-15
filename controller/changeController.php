@@ -213,6 +213,9 @@ if (isset($_POST['calzoneName'])) {              /** Add or Edit Calzone Value *
         $key = $_POST['saladAction'];
         editSalad($name, $costSmall, $costLarge, $key);
     }
+    
+    $resp = salad();
+    echo json_encode($resp);
 } elseif (isset($_POST['deleteSaladKey'])) {      /** Delete the specific Salad row using id */
     /** @var int $key     Salad ID */
     $key = $_POST['deleteSaladKey'];
