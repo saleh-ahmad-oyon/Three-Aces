@@ -116,53 +116,20 @@ if (isset($_SESSION['user'])) {
 <?php include_once 'includes/jsscript.php';?>
     <script src="<?= SERVER ?>/admin/js/profile.js"></script>
 <script>
-    $('#editPfInfo').click(function(){
-        var name = $('#name').val();
-        var username = $('#username').val();
-        var email = $('#email').val();
-        var country = $('select#selectCountry').val();
-        var key = $('#key').val();
-
-        if(name =='' || username == '' || email == '' || key == ''){
-            alert('You have to fill all the fields');
-        }else{
-            $.ajax({
-                type: 'POST',
-                dataType: 'html',
-                url: '<?php echo SERVER ?>/controller/adminController',
-                data: {
-                    editKey: key,
-                    editName: name,
-                    editUsername: username,
-                    editEmail: email,
-                    editCountry: country
-                },
-                cache : false,
-                error: function(){
-                    $('#editInfo').modal('hide');
-                    $('.errorItem').modal('show');
-                },
-                success: function(data){
-                    if(data == 't'){
-                        alert('Successfully Updated !!');
-                        window.location.reload();
-                    }else{
-                        alert(data);
-                    }
-                }
-            });
-        }
-
-    });
     $('form#passReset').submit(function(e) {
         e.preventDefault();
         $('#oldpass').val('');
         $('#addItem').modal('show');
 
         $('#update').click(function(){
-            var oldpas = $('#oldpass').val();
-            var newpas = $('#newPass').val();
-            var confirmnewpass = $('#confirmNewPass').val();
+
+            var $pass = {
+                oldpass : $('#oldpass').val(),
+                newpass : $('#newPass').val(),
+                confirmnewpass : $('#confirmNewPass').val(),
+                key : $('table.profile').data('id')
+            };
+
             if(oldpas == '' || newpas == '' || confirmnewpass == ''){
                 alert('You must field all the password field');
             }else{
@@ -171,10 +138,10 @@ if (isset($_SESSION['user'])) {
                     dataType: 'json',
                     url: '<?php echo SERVER ?>/controller/adminController',
                     data: {
-                        oldpa : oldpas,
-                        newpa : newpas,
-                        confirmpa : confirmnewpass,
-                        key: <?php echo $row['id']; ?>
+                        oldpa : $pass.oldpass,
+                        newpa : $pass.newpass,
+                        confirmpa : $pass.confirmnewpass,
+                        key: $pass.key
                     },
                     cache: false,
                     error: function(){

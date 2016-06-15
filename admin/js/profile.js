@@ -37,3 +37,43 @@ $('.editProfile').click(function(){
 
     $('#editInfo').modal('show');
 });
+
+$('#editPfInfo').click(function(){
+    var name = $('#name').val();
+    var username = $('#username').val();
+    var email = $('#email').val();
+    var country = $('select#selectCountry').val();
+    var key = $('#key').val();
+
+    if(name =='' || username == '' || email == '' || key == ''){
+        alert('You have to fill all the fields');
+    }else{
+        $.ajax({
+            type: 'POST',
+            dataType: 'html',
+            url: '<?php echo SERVER ?>/controller/adminController',
+            data: {
+                editKey: key,
+                editName: name,
+                editUsername: username,
+                editEmail: email,
+                editCountry: country
+            },
+            cache : false,
+            error: function(){
+                $('#editInfo').modal('hide');
+                $('.errorItem').modal('show');
+            },
+            success: function(data){
+                if(data == 't'){
+                    alert('Successfully Updated !!');
+                    window.location.reload();
+                }else{
+                    alert(data);
+                }
+            }
+        });
+    }
+
+});
+
