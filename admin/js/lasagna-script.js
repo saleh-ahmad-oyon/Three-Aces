@@ -1,5 +1,24 @@
 var $lasagna = {
-    submitURL : $url.root() + '/controller/changeController'
+    submitURL : $url.root() + '/controller/changeController',
+    updatedTable : function(response) {
+        $('.datatable').DataTable().destroy();
+        $('.dataTable-tbody').html('');
+        for(i=0; i<response.length; ++i){
+            var content = '<tr class="tableRow" data-id="' + response[i].lasagna_id + '">' +
+                '<td>' + (i+1) + '</td>' +
+                '<td>' + response[i].lasagna_name + '</td>' +
+                '<td> $ ' + response[i].lasagna_price + '</td>' +
+                '<td>' +
+                '<div class="text-center">' +
+                '<button class="btn btn-info editLasagna" title="Edit"><i class="halflings-icon white edit"></i> Edit</button>&nbsp;' +
+                '<button class="btn btn-danger dltLasagna" title="Delete"><i class="halflings-icon white trash"></i> Delete</button>' +
+                '</div>' +
+                '</td>' +
+                '</tr>';
+            $('.dataTable-tbody').append(content);
+        }
+        initDataTable();
+    }
 };
 
 $('.tableRow').each(function (i) {
@@ -38,23 +57,7 @@ $('#addbtn').click(function(){
                 $('.errorItem').modal('show');
             },
             success: function(response){
-                $('.datatable').DataTable().destroy();
-                $('.dataTable-tbody').html('');
-                for(i=0; i<response.length; ++i){
-                    var content = '<tr class="tableRow" data-id="' + response[i].lasagna_id + '">' +
-                        '<td>' + (i+1) + '</td>' +
-                        '<td>' + response[i].lasagna_name + '</td>' +
-                        '<td> $ ' + response[i].lasagna_price + '</td>' +
-                        '<td>' +
-                        '<div class="text-center">' +
-                        '<button class="btn btn-info editLasagna" title="Edit"><i class="halflings-icon white edit"></i> Edit</button>&nbsp;' +
-                        '<button class="btn btn-danger dltLasagna" title="Delete"><i class="halflings-icon white trash"></i> Delete</button>' +
-                        '</div>' +
-                        '</td>' +
-                        '</tr>';
-                    $('.dataTable-tbody').append(content);
-                }
-                initDataTable();
+                $lasagna.updatedTable(response);
                 $('.addItem').modal('hide');
                 $('.saveItem').modal('show');
             }
@@ -99,23 +102,7 @@ $(document).on('click', '.dltLasagna', function(){
                 $('.errorItem').modal('show');
             },
             success: function(response){
-                $('.datatable').DataTable().destroy();
-                $('.dataTable-tbody').html('');
-                for(i=0; i<response.length; ++i){
-                    var content = '<tr class="tableRow" data-id="' + response[i].lasagna_id + '">' +
-                        '<td>' + (i+1) + '</td>' +
-                        '<td>' + response[i].lasagna_name + '</td>' +
-                        '<td> $ ' + response[i].lasagna_price + '</td>' +
-                        '<td>' +
-                        '<div class="text-center">' +
-                        '<button class="btn btn-info editLasagna" title="Edit"><i class="halflings-icon white edit"></i> Edit</button>&nbsp;' +
-                        '<button class="btn btn-danger dltLasagna" title="Delete"><i class="halflings-icon white trash"></i> Delete</button>' +
-                        '</div>' +
-                        '</td>' +
-                        '</tr>';
-                    $('.dataTable-tbody').append(content);
-                }
-                initDataTable();
+                $lasagna.updatedTable(response);
                 $('.deleteItem').modal('hide');
                 $('.dltSuccess').modal('show');
             }
