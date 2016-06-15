@@ -52,7 +52,7 @@ $('#editPfInfo').click(function(){
     }else{
         $.ajax({
             type: 'POST',
-            dataType: 'html',
+            dataType: 'json',
             url: $url.root() +'/controller/adminController',
             data: {
                 editKey: $edit.key,
@@ -67,11 +67,11 @@ $('#editPfInfo').click(function(){
                 $('.errorItem').modal('show');
             },
             success: function(data){
-                if(data == 't'){
+                if(data.msg == 't'){
                     alert('Successfully Updated !!');
                     window.location.reload();
                 }else{
-                    alert(data);
+                    alert(data.msg);
                 }
             }
         });

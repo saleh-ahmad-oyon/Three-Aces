@@ -64,18 +64,21 @@ if (isset($_POST['day']) && $_POST['day'] == 'today') {
 
     /** Check the username is unique or not */
     if (!checkUser($username, $key)) {
-        echo 'Username Must be Unique';
+        $resp['msg'] = 'Username Must be Unique';
+        echo json_encode($resp);
         return;
     }
 
     /** Check the email is already stored in the database or not */
     if (!checkEmail($email, $key)) {
-        echo 'Email Must be Unique';
+        $resp['msg'] = 'Email Must be Unique';
+        echo json_encode($resp);
         return;
     }
 
     updateProfile($name, $username, $email, $country, $key);
-    echo 't';
+    $resp['msg'] = 't';
+    echo json_encode($resp);
 }
 
 /**
