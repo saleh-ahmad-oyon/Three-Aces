@@ -77,7 +77,8 @@ if (isset($_POST['day']) && $_POST['day'] == 'today') {
     }
 
     updateProfile($name, $username, $email, $country, $key);
-    $resp['msg'] = 't';
+    $resp = getAdminInfo($key);
+    $resp['msg'] = 'Successfully Updated !!';
     echo json_encode($resp);
 }
 

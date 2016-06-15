@@ -67,12 +67,8 @@ $('#editPfInfo').click(function(){
                 $('.errorItem').modal('show');
             },
             success: function(data){
-                if(data.msg == 't'){
-                    alert('Successfully Updated !!');
-                    window.location.reload();
-                }else{
-                    alert(data.msg);
-                }
+                alert(data.msg);
+                window.location.reload();
             }
         });
     }
