@@ -404,13 +404,13 @@ function getUserId($user)
     return $name;
 }
 
-function addOrder($orders, $total, $PhoneNumber)
+function addOrder($orders, $total, $PhoneNumber, $ip, $browser)
 {
     $conn        = db_conn();
-    $selectQuery = "INSERT INTO `orders`(`o_description`, `o_total`, `o_contact`) VALUES (:orders, :total, :contact)";
+    $selectQuery = "INSERT INTO `orders`(`o_description`, `o_total`, `o_contact`, `o_ip`, `o_device`) VALUES (:orders, :total, :contact, :ip, :browser)";
     try{
         $stmt = $conn->prepare($selectQuery);
-        $stmt->execute(array(':orders' => $orders, ':total' => $total, ':contact' => $PhoneNumber));
+        $stmt->execute(array(':orders' => $orders, ':total' => $total, ':contact' => $PhoneNumber, ':ip' => $ip, ':browser' => $browser));
     }catch(PDOException $e){
         handle_sql_errors($selectQuery, $e->getMessage());
     }
