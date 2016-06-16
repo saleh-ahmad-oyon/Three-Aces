@@ -46,8 +46,16 @@ if (!checkPass($user, $pass)) {
  * @var string $_SESSION['id']       Contains ID of the admin
  */
 $_SESSION['user'] = $user;
-$_SESSION['name'] = getUserName($user);
 $_SESSION['id']   = getUserId($user);
+
+if(isset($_POST['remember'])){
+    $cookie_name = "id";
+    $cookie_value = $_SESSION['id'];
+    $cookie_name2 = "name";
+    $cookie_value2 = getUserName($user);
+    setcookie($cookie_name, $cookie_value, time() + (3600 * 24 * 30), "/");
+    setcookie($cookie_name2, $cookie_value2, time() + (3600 * 24 * 30), "/");
+}
 
 /** Redirect to the Admin Home Page */
 header('Location: '.SERVER.'/admin');

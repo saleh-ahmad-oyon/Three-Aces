@@ -8,9 +8,9 @@
 session_start();
 require_once '../controller/define.php';
 
-if (isset($_SESSION['user'])) {
+if (isset($_COOKIE['id']) || isset($_SESSION['user'])) {
     require_once '../controller/adminController.php';
-    $key = $_SESSION['id'];
+    $key = $_COOKIE['id'];
     $row = admininfo($key);
 } else {
     header('Location: '.SERVER.'/404');

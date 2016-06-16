@@ -2,7 +2,7 @@
 session_start();
 require_once '../controller/define.php';
 $islogin = false;
-if (isset($_SESSION['user'])) {
+if (isset($_COOKIE['id']) || isset($_SESSION['user'])) {
 	$islogin = true;
     require_once '../controller/adminController.php';
 }
@@ -96,7 +96,10 @@ if (isset($_SESSION['user'])) {
                                 <input class="input-large span10" required="required" name="password" id="password" type="password" placeholder="Password"/>
                             </div>
                             <div class="clearfix"></div>
-
+                            <label class="remember" for="remember">
+                                <div class="checker" id="uniform-remember">
+                                    <span><input type="checkbox" id="remember" checked="checked" name="remember"></span>
+                                </div>Remember me</label>
                             <div class="button-login">
                                 <button type="submit" name="loginSubmit" class="btn btn-primary">Login</button>
                             </div>

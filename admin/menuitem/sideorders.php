@@ -8,7 +8,7 @@
 session_start();
 require_once '../../controller/define.php';
 $islogin = false;
-if(isset($_SESSION['user'])){
+if(isset($_COOKIE['id']) || isset($_SESSION['user'])){
     $islogin = true;
     require_once '../../controller/itemController.php';
     $row = getSideOrders();
