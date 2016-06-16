@@ -29,6 +29,11 @@ $row = getLasagna();
                 <br/>
                 <section>
                     <div class="small-12 columns">
+                        <?php if(!count($row)): ?>
+                            <div class="row">
+                                <h3>No Data Found.</h3>
+                            </div>
+                        <?php else: ?>
                         <div class="small-8 small-centered columns">
                             <div class="panel callout primary" data-closable>
                                 <strong>Home made Lasagna Ravioli or Manicotti</strong>
@@ -63,6 +68,7 @@ $row = getLasagna();
                                 <tfoot></tfoot>
                             </table>
                         </div>
+                        <?php endif; ?>
                     </div>
 
                 </section>

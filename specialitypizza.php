@@ -29,6 +29,11 @@ $row =getSpecialPizza();
                 <br/>
                 <section>
                     <div class="row">
+                        <?php if(!count($row)): ?>
+                            <div class="row">
+                                <h3>No Data Found.</h3>
+                            </div>
+                        <?php else: ?>
                         <div class="panel callout primary" data-closable>
                             <strong>Speciality Pizzas</strong>
                             <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
@@ -68,6 +73,7 @@ $row =getSpecialPizza();
                             </tbody>
                             <tfoot></tfoot>
                         </table>
+                        <?php endif; ?>
                     </div>
 
                 </section>

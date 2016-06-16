@@ -29,6 +29,9 @@ $row = getGrinders();
                 <br/>
                 <section>
                     <div class="row">
+                        <?php if(!count($row)): ?>
+                            <h3>No Data Found.</h3>
+                        <?php else: ?>
                         <div class="panel callout primary" data-closable>
                             <strong>Grinders</strong>
                             <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
@@ -74,6 +77,7 @@ $row = getGrinders();
                             </tbody>
                             <tfoot></tfoot>
                         </table>
+                        <?php endif; ?>
                     </div>
 
                 </section>
