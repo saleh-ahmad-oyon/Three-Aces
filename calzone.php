@@ -29,6 +29,11 @@ $row = getCalzones();
                 <br/>
                 <section>
                     <div class="small-12 columns">
+                        <?php if(!count($row)): ?>
+                            <div class="row">
+                                <h3>No Data Found.</h3>
+                            </div>
+                        <?php else: ?>
                         <div class="small-8 small-centered columns">
                             <div class="panel callout primary" data-closable>
                                 <strong>Homemade Calzones</strong>
@@ -60,6 +65,7 @@ $row = getCalzones();
                                 </tbody>
                                 <tfoot></tfoot>
                             </table>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </section>

@@ -166,6 +166,11 @@ body {
     scrollbar-track-color: #EFF0F5;
 }
 
+.menu>li>a:hover{
+    color: #fefefe;
+    background: #2199e8;
+}
+
 
 
 

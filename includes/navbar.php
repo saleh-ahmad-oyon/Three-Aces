@@ -20,17 +20,17 @@ require_once 'controller/define.php';
         <div class="small">
             <div class="top-bar-left">
                 <ul class="dropdown menu" data-dropdown-menu>
-                    <li <?= $_SERVER['SCRIPT_NAME'] == '/threeAces/' ? 'class="active"' : '' ?>><a href="<?php echo SERVER ?>">Home</a></li>
-                    <li <?= $_SERVER['SCRIPT_NAME'] == '/threeAces/calzone' ? 'class="active"' : '' ?>><a href="calzone">Calzone</a></li>
-                    <li <?= $_SERVER['SCRIPT_NAME'] == '/threeAces/grinder' ? 'class="active"' : '' ?>><a href="grinder">Grinder</a></li>
-                    <li <?= $_SERVER['SCRIPT_NAME'] == '/threeAces/lasagna' ? 'class="active"' : '' ?>><a href="lasagna">Lasagna</a></li>
-                    <li <?= $_SERVER['SCRIPT_NAME'] == '/threeAces/pizza' ? 'class="active"' : '' ?>><a href="pizza">Pizza</a></li>
-                    <li <?= $_SERVER['SCRIPT_NAME'] == '/threeAces/salad' ? 'class="active"' : '' ?>><a href="salad">Salad</a></li>
-                    <li <?= $_SERVER['SCRIPT_NAME'] == '/threeAces/sideorders' ? 'class="active"' : '' ?>><a href="sideorders">Side Orders</a></li>
-                    <li <?= $_SERVER['SCRIPT_NAME'] == '/threeAces/spaghetti' ? 'class="active"' : '' ?>><a href="spaghetti">Spaghetti</a></li>
-                    <li <?= $_SERVER['SCRIPT_NAME'] == '/threeAces/wraps' ? 'class="active"' : '' ?>><a href="wraps">Wraps</a></li>
-                    <li <?= $_SERVER['SCRIPT_NAME'] == '/threeAces/specialdinners' ? 'class="active"' : '' ?>><a href="specialdinners">Special Dinner</a></li>
-                    <li <?= $_SERVER['SCRIPT_NAME'] == '/threeAces/specialitypizza' ? 'class="active"' : '' ?>><a href="specialitypizza">Speciality Pizza</a></li>
+                    <li <?= $_SERVER['REQUEST_URI'] == '/threeaces/' ? 'class="active"' : '' ?>><a href="<?php echo SERVER ?>">Home</a></li>
+                    <li <?= $_SERVER['REQUEST_URI'] == '/threeaces/calzone' ? 'class="active"' : '' ?>><a href="calzone">Calzone</a></li>
+                    <li <?= $_SERVER['REQUEST_URI'] == '/threeaces/grinder' ? 'class="active"' : '' ?>><a href="grinder">Grinder</a></li>
+                    <li <?= $_SERVER['REQUEST_URI'] == '/threeaces/lasagna' ? 'class="active"' : '' ?>><a href="lasagna">Lasagna</a></li>
+                    <li <?= $_SERVER['REQUEST_URI'] == '/threeaces/pizza' ? 'class="active"' : '' ?>><a href="pizza">Pizza</a></li>
+                    <li <?= $_SERVER['REQUEST_URI'] == '/threeaces/salad' ? 'class="active"' : '' ?>><a href="salad">Salad</a></li>
+                    <li <?= $_SERVER['REQUEST_URI'] == '/threeaces/sideorders' ? 'class="active"' : '' ?>><a href="sideorders">Side Orders</a></li>
+                    <li <?= $_SERVER['REQUEST_URI'] == '/threeaces/spaghetti' ? 'class="active"' : '' ?>><a href="spaghetti">Spaghetti</a></li>
+                    <li <?= $_SERVER['REQUEST_URI'] == '/threeaces/wraps' ? 'class="active"' : '' ?>><a href="wraps">Wraps</a></li>
+                    <li <?= $_SERVER['REQUEST_URI'] == '/threeaces/specialdinners' ? 'class="active"' : '' ?>><a href="specialdinners">Special Dinner</a></li>
+                    <li <?= $_SERVER['REQUEST_URI'] == '/threeaces/specialitypizza' ? 'class="active"' : '' ?>><a href="specialitypizza">Speciality Pizza</a></li>
                 </ul>
             </div>
             <div class="top-bar-right">
