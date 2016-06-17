@@ -37,7 +37,7 @@ $(document).ready(function(){
         $('#editInfo').modal('show');
     });
 
-    $('#editPfInfo').click(function(){
+    $(document).on('click', '#editPfInfo', function(){
         var $edit = {
             name : $('#name').val(),
             username : $('#username').val(),
@@ -83,7 +83,7 @@ $(document).ready(function(){
         $('#oldpass').val('');
         $('#addItem').modal('show');
 
-        $('#update').click(function(){
+        $(document).on('click', '#update', function(){
             var $pass = {
                 oldpass : $('#oldpass').val(),
                 newpass : $('#newPass').val(),
