@@ -306,16 +306,29 @@ function specialPizza()
 
 function checkPass($user, $pass)
 {
-    $conn        = db_conn();
-    $selectQuery = 'SELECT COUNT(1) as `num` FROM `admin` WHERE `username` = :user AND `password` = :pass';
+    $conn = db_conn();
+    $selectQuery = "SELECT COUNT(1) as `num` FROM `admin` WHERE `username` = :user";
     try{
         $stmt = $conn->prepare($selectQuery);
-        $stmt->execute(array(':user' => $user, ':pass' => $pass));
+        $stmt->execute(array(':user' => $user));
     }catch(PDOException $e){
         handle_sql_errors($selectQuery, $e->getMessage());
     }
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
-    return ($row['num'] == 1) ? true : false ;
+
+    if($row['num'] != 1) {
+        return false;
+    }
+
+    $selectQuery2 = "SELECT `password` FROM `admin` WHERE `username` = :user";
+    try{
+        $stmt2 = $conn->prepare($selectQuery2);
+        $stmt2->execute(array(':user' => $user));
+    }catch(PDOException $e){
+        handle_sql_errors($selectQuery, $e->getMessage());
+    }
+    $row2 = $stmt2->fetch(PDO::FETCH_ASSOC);
+    return (password_verify(base64_encode(hash('sha256', $pass, true)), $row2['password'])) ? true : false;
 }
 
 function checkOldPass($old)
