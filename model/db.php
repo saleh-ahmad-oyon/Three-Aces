@@ -445,7 +445,13 @@ function addOrder($orders, $total, $PhoneNumber, $ip, $browser)
     $selectQuery = "INSERT INTO `orders`(`o_description`, `o_total`, `o_contact`, `o_ip`, `o_device`) VALUES (:orders, :total, :contact, :ip, :browser)";
     try{
         $stmt = $conn->prepare($selectQuery);
-        $stmt->execute(array(':orders' => $orders, ':total' => $total, ':contact' => $PhoneNumber, ':ip' => $ip, ':browser' => $browser));
+        $stmt->execute(array(
+            ':orders' => $orders,
+            ':total' => $total,
+            ':contact' => $PhoneNumber,
+            ':ip' => $ip,
+            ':browser' => $browser
+        ));
     }catch(PDOException $e){
         handle_sql_errors($selectQuery, $e->getMessage());
     }
@@ -539,7 +545,10 @@ function insertCalzone($name, $cost)
     $selectQuery = "INSERT INTO `calzone`(`name`, `price`) VALUES (:title, :cost)";
     try{
         $stmt = $conn->prepare($selectQuery);
-        $stmt->execute(array(':title' => $name, ':cost' => $cost));
+        $stmt->execute(array(
+            ':title' => $name,
+            ':cost' => $cost
+        ));
     }catch(PDOException $e){
         handle_sql_errors($selectQuery, $e->getMessage());
     }
@@ -552,7 +561,10 @@ function insertLasagna($name, $cost)
     $selectQuery = "INSERT INTO `lasagna`(`lasagna_name`, `lasagna_price`) VALUES (:title, :cost)";
     try{
         $stmt = $conn->prepare($selectQuery);
-        $stmt->execute(array(':title' => $name, ':cost' => $cost));
+        $stmt->execute(array(
+            ':title' => $name,
+            ':cost' => $cost
+        ));
     }catch(PDOException $e){
         handle_sql_errors($selectQuery, $e->getMessage());
     }
@@ -565,7 +577,10 @@ function insertSpaghetti($name, $cost)
     $selectQuery = "INSERT INTO `spaghetti`(`spaghetti_name`, `spaghetti_price`) VALUES (:title, :cost)";
     try{
         $stmt = $conn->prepare($selectQuery);
-        $stmt->execute(array(':title' => $name, ':cost' => $cost));
+        $stmt->execute(array(
+            ':title' => $name,
+            ':cost' => $cost
+        ));
     }catch(PDOException $e){
         handle_sql_errors($selectQuery, $e->getMessage());
     }
@@ -578,7 +593,10 @@ function insertWrap($name, $cost)
     $selectQuery = "INSERT INTO `wraps`(`wraps_name`, `wraps_price`) VALUES (:title, :cost)";
     try{
         $stmt = $conn->prepare($selectQuery);
-        $stmt->execute(array(':title' => $name, ':cost' => $cost));
+        $stmt->execute(array(
+            ':title' => $name,
+            ':cost' => $cost
+        ));
     }catch(PDOException $e){
         handle_sql_errors($selectQuery, $e->getMessage());
     }
@@ -591,7 +609,10 @@ function insertSpDinner($name, $cost)
     $selectQuery = "INSERT INTO `special_dinner`(`sp_din_name`, `sp_din_price`) VALUES (:title, :cost)";
     try{
         $stmt = $conn->prepare($selectQuery);
-        $stmt->execute(array(':title' => $name, ':cost' => $cost));
+        $stmt->execute(array(
+            ':title' => $name,
+            ':cost' => $cost
+        ));
     }catch(PDOException $e){
         handle_sql_errors($selectQuery, $e->getMessage());
     }
@@ -604,7 +625,11 @@ function insertGrinder($name, $costSmall, $costLarge)
     $selectQuery = "INSERT INTO `grinder`(`grinder_name`, `grinder_small_price`, `grinder_large_price`) VALUES (:title,:smallcost,:largecost)";
     try{
         $stmt = $conn->prepare($selectQuery);
-        $stmt->execute(array(':title' => $name, ':smallcost' => $costSmall, ':largecost' => $costLarge));
+        $stmt->execute(array(
+            ':title' => $name,
+            ':smallcost' => $costSmall,
+            ':largecost' => $costLarge
+        ));
     }catch(PDOException $e){
         handle_sql_errors($selectQuery, $e->getMessage());
     }
@@ -617,7 +642,11 @@ function insertPizza($name, $costSmall, $costLarge)
     $selectQuery = "INSERT INTO `pizza`(`pizza_name`, `pizza_small_price`, `pizza_large_price`) VALUES (:title,:smallcost,:largecost)";
     try{
         $stmt = $conn->prepare($selectQuery);
-        $stmt->execute(array(':title' => $name, ':smallcost' => $costSmall, ':largecost' => $costLarge));
+        $stmt->execute(array(
+            ':title' => $name,
+            ':smallcost' => $costSmall,
+            ':largecost' => $costLarge
+        ));
     }catch(PDOException $e){
         handle_sql_errors($selectQuery, $e->getMessage());
     }
@@ -630,7 +659,11 @@ function insertSalad($name, $costSmall, $costLarge)
     $selectQuery = "INSERT INTO `salad`(`salad_name`, `salad_small_price`, `salad_large_price`) VALUES (:title,:smallcost,:largecost)";
     try{
         $stmt = $conn->prepare($selectQuery);
-        $stmt->execute(array(':title' => $name, ':smallcost' => $costSmall, ':largecost' => $costLarge));
+        $stmt->execute(array(
+            ':title' => $name,
+            ':smallcost' => $costSmall,
+            ':largecost' => $costLarge
+        ));
     }catch(PDOException $e){
         handle_sql_errors($selectQuery, $e->getMessage());
     }
@@ -643,7 +676,11 @@ function insertSideOrder($name, $costSmall, $costLarge)
     $selectQuery = "INSERT INTO `side_orders`(`so_name`, `so_small_price`, `so_large_price`) VALUES (:title,:smallcost,:largecost)";
     try{
         $stmt = $conn->prepare($selectQuery);
-        $stmt->execute(array(':title' => $name, ':smallcost' => $costSmall, ':largecost' => $costLarge));
+        $stmt->execute(array(
+            ':title' => $name,
+            ':smallcost' => $costSmall,
+            ':largecost' => $costLarge
+        ));
     }catch(PDOException $e){
         handle_sql_errors($selectQuery, $e->getMessage());
     }
@@ -656,7 +693,11 @@ function insertSpPizza($name, $costSmall, $costLarge)
     $selectQuery = "INSERT INTO `special_pizza`(`sp_pizza_name`, `sp_pizza_small_price`, `sp_pizza_large_price`) VALUES (:title,:smallcost,:largecost)";
     try{
         $stmt = $conn->prepare($selectQuery);
-        $stmt->execute(array(':title' => $name, ':smallcost' => $costSmall, ':largecost' => $costLarge));
+        $stmt->execute(array(
+            ':title' => $name,
+            ':smallcost' => $costSmall,
+            ':largecost' => $costLarge
+        ));
     }catch(PDOException $e){
         handle_sql_errors($selectQuery, $e->getMessage());
     }
@@ -669,7 +710,11 @@ function editCalzone($name, $cost, $key)
     $selectQuery = "UPDATE `calzone` SET `name`=:title,`price`=:cost WHERE `id` = :key";
     try{
         $stmt = $conn->prepare($selectQuery);
-        $stmt->execute(array(':title' => $name, ':cost' => $cost, ':key' => $key));
+        $stmt->execute(array(
+            ':title' => $name,
+            ':cost' => $cost,
+            ':key' => $key
+        ));
     }catch(PDOException $e){
         handle_sql_errors($selectQuery, $e->getMessage());
     }
@@ -682,7 +727,13 @@ function updateProfile($name, $username, $email, $country, $key)
     $selectQuery = "UPDATE `admin` SET `username`=:user, `name`=:name,`email`=:email,`country`=:country WHERE `id` = :id";
     try{
         $stmt = $conn->prepare($selectQuery);
-        $stmt->execute(array(':user' => $username, ':name' => $name, ':email' => $email, 'country' => $country, ':id' => $key));
+        $stmt->execute(array(
+            ':user' => $username,
+            ':name' => $name,
+            ':email' => $email,
+            'country' => $country,
+            ':id' => $key
+        ));
     }catch(PDOException $e){
         handle_sql_errors($selectQuery, $e->getMessage());
     }
@@ -695,7 +746,11 @@ function editLasagna($name, $cost, $key)
     $selectQuery = "UPDATE `lasagna` SET `lasagna_name`=:title,`lasagna_price`=:cost WHERE `lasagna_id` = :key";
     try{
         $stmt = $conn->prepare($selectQuery);
-        $stmt->execute(array(':title' => $name, ':cost' => $cost, ':key' => $key));
+        $stmt->execute(array(
+            ':title' => $name,
+            ':cost' => $cost,
+            ':key' => $key
+        ));
     }catch(PDOException $e){
         handle_sql_errors($selectQuery, $e->getMessage());
     }
@@ -708,7 +763,11 @@ function editSpaghetti($name, $cost, $key)
     $selectQuery = "UPDATE `spaghetti` SET `spaghetti_name`=:title,`spaghetti_price`=:cost WHERE `spaghetti_id` = :key";
     try{
         $stmt = $conn->prepare($selectQuery);
-        $stmt->execute(array(':title' => $name, ':cost' => $cost, ':key' => $key));
+        $stmt->execute(array(
+            ':title' => $name,
+            ':cost' => $cost,
+            ':key' => $key
+        ));
     }catch(PDOException $e){
         handle_sql_errors($selectQuery, $e->getMessage());
     }
@@ -721,7 +780,11 @@ function editWrap($name, $cost, $key)
     $selectQuery = "UPDATE `wraps` SET `wraps_name`=:title,`wraps_price`=:cost WHERE `wraps_id` = :key";
     try{
         $stmt = $conn->prepare($selectQuery);
-        $stmt->execute(array(':title' => $name, ':cost' => $cost, ':key' => $key));
+        $stmt->execute(array(
+            ':title' => $name,
+            ':cost' => $cost,
+            ':key' => $key
+        ));
     }catch(PDOException $e){
         handle_sql_errors($selectQuery, $e->getMessage());
     }
@@ -734,7 +797,11 @@ function editSpDinner($name, $cost, $key)
     $selectQuery = "UPDATE `special_dinner` SET `sp_din_name`=:title,`sp_din_price`=:cost WHERE `sp_din_id` = :key";
     try{
         $stmt = $conn->prepare($selectQuery);
-        $stmt->execute(array(':title' => $name, ':cost' => $cost, ':key' => $key));
+        $stmt->execute(array(
+            ':title' => $name,
+            ':cost' => $cost,
+            ':key' => $key
+        ));
     }catch(PDOException $e){
         handle_sql_errors($selectQuery, $e->getMessage());
     }
@@ -747,7 +814,12 @@ function editGrinder($name, $costSmall, $costLarge, $key)
     $selectQuery = "UPDATE `grinder` SET `grinder_name`= :title,`grinder_small_price`=:smallcost,`grinder_large_price`=:largecost WHERE `grinder_id` = :key";
     try{
         $stmt = $conn->prepare($selectQuery);
-        $stmt->execute(array(':title' => $name, ':smallcost' => $costSmall, ':largecost' => $costLarge, ':key' => $key));
+        $stmt->execute(array(
+            ':title' => $name,
+            ':smallcost' => $costSmall,
+            ':largecost' => $costLarge,
+            ':key' => $key
+        ));
     }catch(PDOException $e){
         handle_sql_errors($selectQuery, $e->getMessage());
     }
@@ -760,7 +832,12 @@ function editPizza($name, $costSmall, $costLarge, $key)
     $selectQuery = "UPDATE `pizza` SET `pizza_name`= :title,`pizza_small_price`=:smallcost,`pizza_large_price`=:largecost WHERE `pizza_id` = :key";
     try{
         $stmt = $conn->prepare($selectQuery);
-        $stmt->execute(array(':title' => $name, ':smallcost' => $costSmall, ':largecost' => $costLarge, ':key' => $key));
+        $stmt->execute(array(
+            ':title' => $name,
+            ':smallcost' => $costSmall,
+            ':largecost' => $costLarge,
+            ':key' => $key
+        ));
     }catch(PDOException $e){
         handle_sql_errors($selectQuery, $e->getMessage());
     }
@@ -773,7 +850,12 @@ function editSalad($name, $costSmall, $costLarge, $key)
     $selectQuery = "UPDATE `salad` SET `salad_name`= :title,`salad_small_price`=:smallcost,`salad_large_price`=:largecost WHERE `salad_id` = :key";
     try{
         $stmt = $conn->prepare($selectQuery);
-        $stmt->execute(array(':title' => $name, ':smallcost' => $costSmall, ':largecost' => $costLarge, ':key' => $key));
+        $stmt->execute(array(
+            ':title' => $name,
+            ':smallcost' => $costSmall,
+            ':largecost' => $costLarge,
+            ':key' => $key
+        ));
     }catch(PDOException $e){
         handle_sql_errors($selectQuery, $e->getMessage());
     }
@@ -786,7 +868,12 @@ function editSideOrder($name, $costSmall, $costLarge, $key)
     $selectQuery = "UPDATE `side_orders` SET `so_name`= :title,`so_small_price`=:smallcost,`so_large_price`=:largecost WHERE `so_id` = :key";
     try{
         $stmt = $conn->prepare($selectQuery);
-        $stmt->execute(array(':title' => $name, ':smallcost' => $costSmall, ':largecost' => $costLarge, ':key' => $key));
+        $stmt->execute(array(
+            ':title' => $name,
+            ':smallcost' => $costSmall,
+            ':largecost' => $costLarge,
+            ':key' => $key
+        ));
     }catch(PDOException $e){
         handle_sql_errors($selectQuery, $e->getMessage());
     }
@@ -799,7 +886,12 @@ function editSpPizza($name, $costSmall, $costLarge, $key)
     $selectQuery = "UPDATE `special_pizza` SET `sp_pizza_name`= :title,`sp_pizza_small_price`=:smallcost,`sp_pizza_large_price`=:largecost WHERE `sp_pizza_id` = :key";
     try{
         $stmt = $conn->prepare($selectQuery);
-        $stmt->execute(array(':title' => $name, ':smallcost' => $costSmall, ':largecost' => $costLarge, ':key' => $key));
+        $stmt->execute(array(
+            ':title' => $name,
+            ':smallcost' => $costSmall,
+            ':largecost' => $costLarge,
+            ':key' => $key
+        ));
     }catch(PDOException $e){
         handle_sql_errors($selectQuery, $e->getMessage());
     }
@@ -812,7 +904,10 @@ function updatePass($key, $new)
     $selectQuery = "UPDATE `admin` SET `password`= :pass WHERE `id` = :key";
     try{
         $stmt = $conn->prepare($selectQuery);
-        $stmt->execute(array(':pass' => $new, ':key' => $key));
+        $stmt->execute(array(
+            ':pass' => $new,
+            ':key' => $key
+        ));
     }catch(PDOException $e){
         handle_sql_errors($selectQuery, $e->getMessage());
     }
