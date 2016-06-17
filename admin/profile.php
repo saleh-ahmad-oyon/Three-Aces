@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Oyon
- * Date: 2/24/2016
- * Time: 12:08 AM
- */
 session_start();
 require_once '../controller/define.php';
 
@@ -112,12 +106,7 @@ if (isset($_COOKIE['id']) || isset($_SESSION['user'])) {
         <?php include_once 'includes/footer.php'; ?>
     </footer>
 
-<!-- start: JavaScript-->
-<?php include_once 'includes/jsscript.php';?>
-    <script src="<?= SERVER ?>/admin/js/profile.js"></script>
-
-<!-- end: JavaScript-->
-
+    <?php include_once 'includes/jsscript.php';?>
 </body>
 </html>
 

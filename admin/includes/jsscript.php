@@ -30,3 +30,6 @@
 <?php if(isset($order)): ?>
 <script src="<?= SERVER ?>/admin/js/orders.js"></script>
 <?php endif; ?>
+<?php if(isset($profile)): ?>
+<script src="<?= SERVER ?>/admin/js/profile.js"></script>
+<?php endif; ?>
