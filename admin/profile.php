@@ -90,7 +90,7 @@ if (isset($_COOKIE['id']) || isset($_SESSION['user'])) {
                             <tr>
                                 <td>Confirm Password</td>
                                 <td>:</td>
-                                <td><input type="password" required class="form-control" id="confirmNewPass" pattern="(?=^.{4,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Please enter the same Password as above' : '');"/></td>
+                                <td><input type="password" required class="form-control" name="cpass" id="confirmNewPass" pattern="(?=^.{4,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Please enter the same Password as above' : '');"/></td>
                             </tr>
                         </tbody>
                     </table>

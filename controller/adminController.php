@@ -37,13 +37,14 @@ if (isset($_POST['day']) && $_POST['day'] == 'today') {
     }
 
     /** Check Old Password */
-    if (!checkOldPass($old)) {
+    if (!checkOldPass($key, $old)) {
         $resp['msg'] = "Old Password didn't match";
         echo json_encode($resp);
         return;
     }
 
     /** Update Password */
+    $new = password_hash(base64_encode(hash('sha256', $new, true)), PASSWORD_DEFAULT);
     updatePass($key, $new);
     $resp['msg'] = 'Password Successfully Updated';
     echo json_encode($resp);

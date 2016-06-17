@@ -310,7 +310,9 @@ function checkPass($user, $pass)
     $selectQuery = "SELECT COUNT(1) as `num` FROM `admin` WHERE `username` = :user";
     try{
         $stmt = $conn->prepare($selectQuery);
-        $stmt->execute(array(':user' => $user));
+        $stmt->execute(array(
+            ':user' => $user
+        ));
     }catch(PDOException $e){
         handle_sql_errors($selectQuery, $e->getMessage());
     }
@@ -323,26 +325,46 @@ function checkPass($user, $pass)
     $selectQuery2 = "SELECT `password` FROM `admin` WHERE `username` = :user";
     try{
         $stmt2 = $conn->prepare($selectQuery2);
-        $stmt2->execute(array(':user' => $user));
+        $stmt2->execute(array(
+            ':user' => $user
+        ));
     }catch(PDOException $e){
-        handle_sql_errors($selectQuery, $e->getMessage());
+        handle_sql_errors($selectQuery2, $e->getMessage());
     }
     $row2 = $stmt2->fetch(PDO::FETCH_ASSOC);
     return (password_verify(base64_encode(hash('sha256', $pass, true)), $row2['password'])) ? true : false;
 }
 
-function checkOldPass($old)
+function checkOldPass($key,$old)
 {
     $conn        = db_conn();
-    $selectQuery = 'SELECT COUNT(1) AS `num` FROM `admin` WHERE `password` = ?';
+    $selectQuery = 'SELECT COUNT(1) AS `num` FROM `admin` WHERE `id` = :key';
     try{
         $stmt = $conn->prepare($selectQuery);
-        $stmt->execute(array($old));
+        $stmt->execute(array(
+            ':key' =>  $key
+        ));
     }catch(PDOException $e){
         handle_sql_errors($selectQuery, $e->getMessage());
     }
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
-    return ($row['num'] == 1) ? true : false ;
+
+    if($row['num'] != 1) {
+        echo 'dsdf';
+        return false;
+    }
+
+    $selectQuery2 = "SELECT `password` FROM `admin` WHERE `id` = :key";
+    try{
+        $stmt2 = $conn->prepare($selectQuery2);
+        $stmt2->execute(array(
+            ':key' =>  $key
+        ));
+    }catch(PDOException $e){
+        handle_sql_errors($selectQuery2, $e->getMessage());
+    }
+    $row2 = $stmt2->fetch(PDO::FETCH_ASSOC);
+    return password_verify(base64_encode(hash('sha256', $old, true)), $row2['password']) ? true : false;
 }
 
 function checkUser($username, $key)
