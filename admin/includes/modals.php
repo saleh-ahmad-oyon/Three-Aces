@@ -59,7 +59,7 @@
             <h1><i class="glyphicons-icon lock"></i></h1>
         </div>
         <div class="modal-body">
-            <form class="form-horizontal">
+            <div class="form-horizontal">
                 <fieldset>
                     <div class="control-group">
                         <label class="control-label" for="oldpass"><b>Enter Old Password :</b></label>
@@ -68,7 +68,7 @@
                         </div>
                     </div>
                 </fieldset>
-            </form>
+            </div>
         </div>
         <div class="modal-footer">
             <button class="btn btn-success" id="update">Update</button>
