@@ -20,12 +20,12 @@ require_once '../controller/define.php';
                     <div class="icons">
                         <a href="<?= SERVER ?>"><i class="halflings-icon home"></i></a>
                     </div>
-                    <h2>Insert token which has send to your email</h2>
+                    <h2>Insert Token which has send to your email</h2>
                     <form class="form-horizontal" action="<?php echo SERVER ?>/controller/admin-login-success" method="post">
                         <fieldset>
                             <div class="input-prepend" title="Password Token">
-                                <span class="add-on"><i class="halflings-icon ke"></i></span>
-                                <input required="required" name="token" id="token" type="text"/>
+                                <span class="add-on"><i class="halflings-icon tag"></i></span>
+                                <input required="required" autofocus name="token" id="token" type="text"/>
                             </div>
                             <div class="clearfix"></div>
                             <div class="button-login">
