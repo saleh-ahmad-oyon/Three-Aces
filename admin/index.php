@@ -106,6 +106,11 @@ if (isset($_COOKIE['id']) || isset($_SESSION['user'])) {
                             <div class="clearfix"></div>
                         </fieldset>
                     </form>
+                    <hr>
+                    <h3>Forgot Password?</h3>
+                    <p>
+                        No problem, <a href="#">click here</a> to get a new password.
+                    </p>
                     <label style="color:#881f0e;text-align: center">
                         <?php if(isset($_GET['err']) && $_GET['err'] ==1){
                             echo "Both fields are required !!";
