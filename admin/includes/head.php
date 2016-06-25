@@ -8,7 +8,7 @@ html5 boilerplate with php,html5 boilerplate with foundation,html5 boilerplate w
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="language" content="English" />
 <meta name="country" content="Bangladesh" />
-<meta name="Title" content="Three Aces Restaurant" />
+<meta name="Title" content="Online Fast Food" />
 <meta name="Owner" content="Noob L0onely" />
 <meta name="Copyright" content="2016 Online Food Booking all rights reserved" />
 <meta name="Author" content="Saleh Ahmad" />
