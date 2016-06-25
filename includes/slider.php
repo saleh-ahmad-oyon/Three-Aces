@@ -5,7 +5,7 @@
     data-timer-delay="3500">
     <ul class="orbit-container">
         <li class="orbit-slide is-active">
-            <img src="<?= SERVER ?>/img/Calzone.jpg" alt="Calzone" width="100%">
+            <img src="<?= SERVER ?>/img/calzone.jpg" alt="Calzone" width="100%">
             <figcaption class="orbit-caption">Calzone</figcaption>
         </li>
         <li class="orbit-slide">
@@ -17,7 +17,7 @@
             <figcaption class="orbit-caption">Lasagna</figcaption>
         </li>
         <li class="orbit-slide">
-            <img src="<?= SERVER ?>/img/pizza.jpg" alt="Pizza" width="100%">
+            <img src="<?= SERVER ?>/img/Pizza.jpg" alt="Pizza" width="100%">
             <figcaption class="orbit-caption">Pizza</figcaption>
         </li>
         <li class="orbit-slide">
