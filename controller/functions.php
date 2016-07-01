@@ -26,25 +26,6 @@ function get_cart_total()
     return $total;
 }
 
-/**
- * @param $user_agent     $_SERVER['HTTP_USER_AGENT']
- * 
- * Calculate Browser Name using Browser Information
- * 
- * @return string     Return Browser Name
- */
-function get_browser_name($user_agent)
-{
-    if (strpos($user_agent, 'Opera') || strpos($user_agent, 'OPR/')) return 'Opera';
-    elseif (strpos($user_agent, 'Edge')) return 'Edge';
-    elseif (strpos($user_agent, 'Chrome')) return 'Chrome';
-    elseif (strpos($user_agent, 'Safari')) return 'Safari';
-    elseif (strpos($user_agent, 'Firefox')) return 'Firefox';
-    elseif (strpos($user_agent, 'MSIE') || strpos($user_agent, 'Trident/7')) return 'Internet Explorer';
-
-    return 'Other';
-}
-
 if (isset($_POST['posttype'])) {
     if ($_POST['posttype'] == 'item') {
         /**
@@ -114,8 +95,8 @@ if (isset($_POST['posttype'])) {
             $total     = get_cart_total();
             $allOrders = implode(';', $orders);
             require_once '../model/db.php';
-            $ip = $_SERVER['REMOTE_ADDR'];
-            $browser = get_browser_name($_SERVER['HTTP_USER_AGENT']).': '.$_SERVER['HTTP_USER_AGENT'];
+            $ip = UserInfo::getClientIp();
+            $browser =  UserInfo::getBrowserName($_SERVER['HTTP_USER_AGENT']).': '.$_SERVER['HTTP_USER_AGENT'];
             addOrder($allOrders, $total, $PhoneNumber, $ip, $browser);
             unset($_SESSION['cart']);
             echo true;
