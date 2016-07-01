@@ -39,7 +39,7 @@ class UserInfo
      *
      * Calculate Browser Name using Browser Information
      *
-     * @param $user_agent     $_SERVER['HTTP_USER_AGENT']
+     * @param $user_agent     the value of $_SERVER['HTTP_USER_AGENT']
      *
      * @return string     Return Browser Name
      */

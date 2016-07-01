@@ -8,7 +8,7 @@
 session_start();
 
 /** Set Error Reporing 0 */
-error_reporting(0);
+error_reporting(E_ALL);
 
 /**
  * Total Amount
@@ -95,6 +95,7 @@ if (isset($_POST['posttype'])) {
             $total     = get_cart_total();
             $allOrders = implode(';', $orders);
             require_once '../model/db.php';
+            require_once '../class/UserInfo.php';
             $ip = UserInfo::getClientIp();
             $browser =  UserInfo::getBrowserName($_SERVER['HTTP_USER_AGENT']).': '.$_SERVER['HTTP_USER_AGENT'];
             addOrder($allOrders, $total, $PhoneNumber, $ip, $browser);

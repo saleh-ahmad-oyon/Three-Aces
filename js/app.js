@@ -63,7 +63,7 @@ $(document).ready(function(){
     });
     $("#checkout").click(function(){
         if($('#phn').val()==''){
-            alert('No item in cart!');
+            alert('Please Enter Your Contact Number.');
             window.location = 'checkout';
         }else{
             var phnNo = $('#phn').val();

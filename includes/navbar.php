@@ -38,7 +38,9 @@ require_once 'controller/define.php';
                     <div>
                         <a href="checkout" class="button primary hollow">
                             <i class="fi-shopping-cart"></i>
-                            <strong><?php echo count($_SESSION['cart']); ?></strong>
+                            <strong>
+                                <?php echo !isset($_SESSION['cart']) ? 0 : count($_SESSION['cart']); ?>
+                            </strong>
                         </a>
                     </div>
                 </ul>
