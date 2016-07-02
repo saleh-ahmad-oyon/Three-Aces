@@ -439,18 +439,32 @@ function getUserId($user)
     return $name;
 }
 
-function addOrder($orders, $total, $PhoneNumber, $ip, $browser)
+function addOrder($orders, $total, $PhoneNumber, $ip, $browser,
+                  $asNumber, $city, $country, $latitude, $longitude,
+                  $region, $regionName, $timeZone, $zip)
 {
     $conn        = db_conn();
-    $selectQuery = "INSERT INTO `orders`(`o_description`, `o_total`, `o_contact`, `o_ip`, `o_device`) VALUES (:orders, :total, :contact, :ip, :browser)";
+    $selectQuery = "INSERT INTO `orders`(`o_description`, `o_total`, `o_contact`, `o_ip`, `o_device`, `asnumber`, 
+`city`, `country`, `latitude`, `longitude`, `region`, `regionName`, `timezone`, `zip`) 
+VALUES (:orders, :total, :contact, :ip, :browser, :asnumber, :city, :country, 
+:latitude, :longitude, :region, :regionname, :timezone, :zip)";
     try{
         $stmt = $conn->prepare($selectQuery);
         $stmt->execute(array(
-            ':orders' => $orders,
-            ':total' => $total,
-            ':contact' => $PhoneNumber,
-            ':ip' => $ip,
-            ':browser' => $browser
+            ':orders'     => $orders,
+            ':total'      => $total,
+            ':contact'    => $PhoneNumber,
+            ':ip'         => $ip,
+            ':browser'    => $browser,
+            ':asnumber'   => $asNumber,
+            ':city'       => $city,
+            ':country'    => $country,
+            ':latitude'   => $latitude,
+            ':longitude'  => $longitude,
+            ':region'     => $region,
+            ':regionname' => $regionName,
+            ':timezone'   => $timeZone,
+            ':zip'        => $zip
         ));
     }catch(PDOException $e){
         handle_sql_errors($selectQuery, $e->getMessage());

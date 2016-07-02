@@ -96,9 +96,26 @@ if (isset($_POST['posttype'])) {
             $allOrders = implode(';', $orders);
             require_once '../model/db.php';
             require_once '../class/UserInfo.php';
-            $ip = UserInfo::getClientIp();
-            $browser =  UserInfo::getBrowserName($_SERVER['HTTP_USER_AGENT']).': '.$_SERVER['HTTP_USER_AGENT'];
-            addOrder($allOrders, $total, $PhoneNumber, $ip, $browser);
+
+            $ip      = UserInfo::getClientIp();
+            $browser = UserInfo::getBrowserName($_SERVER['HTTP_USER_AGENT']).': '.$_SERVER['HTTP_USER_AGENT'];
+            $info    = UserInfo::getNetworkInformation($ip);
+
+            addOrder(
+                $allOrders,
+                $total,
+                $PhoneNumber,
+                $ip,
+                $browser,
+                $info['asNumber'],
+                $info['city'],
+                $info['country'],
+                $info['latitude'],
+                $info['longitude'],
+                $info['region'],
+                $info['regionName'],
+                $info['timeZone'],
+                $info['zip']);
             unset($_SESSION['cart']);
             echo true;
         } else
