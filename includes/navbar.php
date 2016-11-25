@@ -39,7 +39,7 @@ require_once 'controller/define.php';
                         <a href="checkout" class="button primary hollow">
                             <i class="fi-shopping-cart"></i>
                             <strong>
-                                <?php echo !isset($_SESSION['cart']) ? 0 : count($_SESSION['cart']); ?>
+                                <?= !isset($_SESSION['cart']) ? 0 : count($_SESSION['cart']); ?>
                             </strong>
                         </a>
                     </div>

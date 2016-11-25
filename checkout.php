@@ -26,7 +26,10 @@ require_once 'controller/functions.php'; ?>
                 <br/>
                 <section>
                     <div class="small-12 columns">
-                        <div class="small-8 small-centered columns">
+                        <?php if(!isset($_SESSION['cart'])): ?>
+                            <h3>No items found!</h3>
+                        <?php else: ?>
+                            <div class="small-8 small-centered columns">
                             <table class="stack" style="width: 100%">
                                 <thead>
                                 <tr>
@@ -68,6 +71,7 @@ require_once 'controller/functions.php'; ?>
                                 </button>
                             </p>
                         </div>
+                        <?php endif; ?>
                     </div>
 
                 </section>
