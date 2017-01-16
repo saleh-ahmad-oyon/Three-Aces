@@ -88,12 +88,29 @@ if (isset($_POST['posttype'])) {
     } elseif ($_POST['posttype'] == 'checkout') {
         if (count($_SESSION['cart']) > 0) {
             $PhoneNumber = $_POST['contact'];
-            $orders =array();
+
+            /**
+             * @var array $orders              Order Array
+             * @var associative array $inner   Array inside $orders array
+             */
+            $orders = [];
+            $inner  = [];
+
+            /** Insert individual orders into an array */
             foreach ($_SESSION['cart'] as $key => $cart) {
-                $orders[] = $cart['type']." - ". $cart['name']. '|'.$cart['size'].'|'.$cart['price'];
+                $inner = [
+                    'name'  => $cart['name'],
+                    'type'  => $cart['type'],
+                    'size'  => $cart['size'],
+                    'price' => $cart['price']
+                ];
+                $orders[] = $inner;
             }
+
             $total     = get_cart_total();
-            $allOrders = implode(';', $orders);
+            $allOrders = json_encode($orders);
+
+            /** Required Files */
             require_once '../model/db.php';
             require_once '../class/UserInfo.php';
 

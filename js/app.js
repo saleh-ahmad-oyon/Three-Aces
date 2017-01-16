@@ -13,9 +13,11 @@ $(document).ready(function(){
             posttype : 'item'
         };
         $.post('controller/functions.php',postdata,function(data){
-            if(data){
+            if (data) {
                 window.location.reload();
-            } else alert('There was an error');
+            } else {
+                alert('There was an error');
+            }
         })
     });
     $("button.item-small").click(function(){
@@ -29,9 +31,11 @@ $(document).ready(function(){
             posttype : 'item-small'
         };
         $.post('controller/functions.php',postdata,function(data){
-            if(data){
+            if (data) {
                 window.location.reload();
-            } else alert('There was an error');
+            } else {
+                alert('There was an error');
+            }
         })
     });
     $("button.item-large").click(function(){
@@ -44,9 +48,11 @@ $(document).ready(function(){
             posttype : 'item-large'
         };
         $.post('controller/functions.php',postdata,function(data){
-            if(data){
+            if (data) {
                 window.location.reload();
-            } else alert('There was an error');
+            } else {
+                alert('There was an error');
+            }
         })
     });
     $("button.item-remove").click(function(){
@@ -56,9 +62,11 @@ $(document).ready(function(){
             posttype : 'item-delete'
         };
         $.post('controller/functions.php',postdata,function(data){
-            if(data){
+            if (data) {
                 window.location.reload();
-            } else alert('There was an error');
+            } else {
+                alert('There was an error');
+            }
         })
     });
     $("#checkout").click(function(){
@@ -68,12 +76,12 @@ $(document).ready(function(){
         }else{
             var phnNo = $('#phn').val();
             $.post('controller/functions.php',{posttype : 'checkout', contact : phnNo},function(data){
-                if(data){
+                if (data) {
                     window.location = 'thankyou';
-                }else
+                } else {
                     alert('No item in cart!');
+                }
             })
         }
     });
-
 })
