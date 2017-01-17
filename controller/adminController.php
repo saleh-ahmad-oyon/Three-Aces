@@ -16,6 +16,8 @@ if (isset($_POST['day']) && $_POST['day'] == 'today') {
 } elseif (isset($_POST['orderKey'])) {
     $key = $_POST['orderKey'];
     $row = allInfo($key);
+    $row['o_description'] = json_decode($row['o_description']);
+
     echo json_encode($row);
 } elseif (isset($_POST['oldpa'])) {
     /**

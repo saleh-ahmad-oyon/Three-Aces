@@ -16,19 +16,21 @@ $('.orders').click(function(){
         },
         success : function(response) {
             $('#myModal').modal('show');
-            var dtTime = response.o_datetime.split(" ");
-            $('#order-date').html(dtTime[0]);
-            $('#order-time').html(dtTime[1]);
+            var dtTime = dateFormat(response.o_datetime, "dd mmm, yyyy;h:MM:ss TT");
+            var dateAndTime = dtTime.split(";");
+            $('#order-date').html(dateAndTime[0]);
+            $('#order-time').html(dateAndTime[1]);
             $('#cont').html(response.o_contact);
             $('#total').html('<b> $ ' + response.o_total + '</b>');
-            var out ='';
-            var items = response.o_description.split(';');
-            for(var i=0; i<items.length; ++i){
-                var arr = items[i].split('|');
+            var out = '';
+
+            for(var i=0; i<response.o_description.length; ++i){
+                var arr = response.o_description[i];
+                var size = arr.size ? arr.size : '';
                 out += '<tr>' +
-                    '<td>' + arr[0] + '</td>' +
-                    '<td>' + arr[1] + '</td>' +
-                    '<td>' + '<div class="pull-right">' + arr[2] + '</div>' + '</td>' +
+                    '<td>' + arr.type + ' - ' + arr.name + '</td>' +
+                    '<td>' + size.capitalizeFirstLetter() + '</td>' +
+                    '<td>' + '<div class="pull-right">' + arr.price + '</div>' + '</td>' +
                     '</tr>';
             }
             $('#menuitems').html(out);

@@ -28,6 +28,7 @@
 <script src="<?= SERVER; ?>/admin/js/retina.js"></script>
 <script src="<?= SERVER; ?>/admin/js/custom.js"></script>
 <?php if(isset($order)): ?>
+<script src="<?= SERVER ?>/admin/js/custom-datetime-format.js"></script>
 <script src="<?= SERVER ?>/admin/js/orders.js"></script>
 <?php endif; ?>
 <?php if(isset($profile)): ?>

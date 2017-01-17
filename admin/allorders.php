@@ -83,7 +83,7 @@ if(isset($_COOKIE['id']) || isset($_SESSION['user'])){
                                     <td>
                                         <?php
                                         $date = $r['o_datetime'];
-                                        echo date('h:i:s A, d/m/Y', strtotime($date));
+                                        echo date('h:i:s A, d M, Y', strtotime($date));
                                         ?>
                                     </td>
                                     <td><?= $r['o_contact']; ?></td>
