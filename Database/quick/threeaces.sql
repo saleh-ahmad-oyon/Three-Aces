@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 02, 2016 at 12:55 PM
--- Server version: 10.1.13-MariaDB
--- PHP Version: 5.6.20
+-- Generation Time: Feb 02, 2017 at 05:10 PM
+-- Server version: 10.1.19-MariaDB
+-- PHP Version: 5.6.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -416,6 +416,7 @@ INSERT INTO `lasagna` (`lasagna_id`, `lasagna_name`, `lasagna_price`) VALUES
 
 CREATE TABLE `orders` (
   `o_id` bigint(20) NOT NULL COMMENT 'Order ID',
+  `o_invoice` varchar(100) NOT NULL,
   `o_description` text NOT NULL COMMENT 'Order Description',
   `o_datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Order Date-Time',
   `o_total` decimal(10,2) NOT NULL COMMENT 'Order Total Cost',
@@ -437,15 +438,10 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`o_id`, `o_description`, `o_datetime`, `o_total`, `o_contact`, `o_ip`, `o_device`, `asnumber`, `city`, `country`, `latitude`, `longitude`, `region`, `regionName`, `timezone`, `zip`) VALUES
-(27, 'Calzone - Vegeterian|| $ 7.35;Grinder - Meatball|small| $ 4.75;Grinder - Ham|large| $ 5.75;Pizza - Onions|small| $ 6.85;Spaghetti - With Meat Ball|| $ 6.45;Special Dinner - Chicken Kabab Plate|| $ 7.85;Speciality Pizzas - Bbq Grilled Chicken|large| $ 15.80', '2016-06-16 09:38:34', '54.80', '+880-1626785569', '::1', 'Chrome: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.84 Safari/537.36', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(28, 'Lasagna - With Sauce|| $ 6.25;Lasagna - With Veal|| $ 7.25', '2016-06-16 09:40:08', '13.50', '+880-01520103065', '::1', 'Chrome: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.84 Safari/537.36', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(29, 'Salad - Greek|small| $ 4.50;Side Orders - Slice Cheese Pizza|large| $ 1.65;Wraps - Greek Supreme|| $ 4.95', '2016-06-16 09:40:32', '11.10', '+880-1626785569', '::1', 'Chrome: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.84 Safari/537.36', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(30, 'Pizza - Hamburg|large| $ 10.85;Side Orders - Slice Cheese Pizza|large| $ 1.65;Speciality Pizzas - Bbq Grilled Chicken|large| $ 15.80', '2016-06-16 09:44:02', '28.30', '+880-1683344384', '::1', 'Chrome: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.84 Safari/537.36', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(31, 'Side Orders - Onion Rings|small|\n                                         $ 2.60                                    ;Special Dinner - Chicken Wing Dinner|| $ 7.25', '2016-07-01 11:14:42', '9.85', '+880-1626785569', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(32, 'Spaghetti - With Sauce|| $ 5.40;Special Dinner - Gyro Plate|| $ 7.25', '2016-07-01 11:21:57', '12.65', '+880-1626785569', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(33, 'Lasagna - With Sauce|| $ 6.25;Grinder - Meatless|small| $ 4.50;Spaghetti - With Chicken Cutlet|| $ 6.45;Wraps - Greek Supreme|| $ 4.95', '2016-07-01 11:54:41', '22.15', '+880-1626785569', '::1', 'Chrome: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(34, 'Pizza - Anchovies|large| $ 10.85;Spaghetti - With Meat Ball|| $ 6.45;Special Dinner - Fish and Chips Dinner|| $ 7.35', '2016-07-02 10:51:55', '24.65', '+880-1626785569', '::1', 'Chrome: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36', '', '', '', '', '', '', '', '', 0);
+INSERT INTO `orders` (`o_id`, `o_invoice`, `o_description`, `o_datetime`, `o_total`, `o_contact`, `o_ip`, `o_device`, `asnumber`, `city`, `country`, `latitude`, `longitude`, `region`, `regionName`, `timezone`, `zip`) VALUES
+(36, '', '[{"name":"Meatless","type":"Grinder","size":"small","price":" $ 4.50"},{"name":"Cheeseburger","type":"Grinder","size":"large","price":" $ 5.75"},{"name":"Greek","type":"Salad","size":"small","price":" $ 4.50"},{"name":"With Meat Ball","type":"Spaghetti","size":null,"price":" $ 6.45"}]', '2017-01-16 18:09:49', '21.20', '756453231231', '::1', 'Chrome: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36', '', '', '', '', '', '', '', '', 0),
+(37, '5892091659445', '[{"name":"Garden","type":"Salad","size":"small","price":" $ 3.50"},{"name":"Gyro Plate","type":"Special Dinner","size":null,"price":" $ 7.25"}]', '2017-02-01 16:14:27', '10.75', '978654231864', '::1', 'Chrome: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36', '', '', '', '', '', '', '', '', 0),
+(38, '58935812d38b9', '[{"name":"Turkey Club Wrap","type":"Wraps","size":null,"price":" $ 4.95"},{"name":"Garden","type":"Salad","size":"small","price":" $ 3.50"}]', '2017-02-02 16:02:32', '8.45', '87545643', '::1', 'Chrome: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36', '', '', '', '', '', '', '', '', 0);
 
 -- --------------------------------------------------------
 
@@ -763,7 +759,7 @@ ALTER TABLE `lasagna`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `o_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'Order ID', AUTO_INCREMENT=35;
+  MODIFY `o_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'Order ID', AUTO_INCREMENT=39;
 --
 -- AUTO_INCREMENT for table `pizza`
 --

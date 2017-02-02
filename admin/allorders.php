@@ -70,6 +70,7 @@ if(isset($_COOKIE['id']) || isset($_SESSION['user'])){
                                 <thead>
                                 <tr>
                                     <th>No.</th>
+                                  <th>Invoice No.</th>
                                     <th>Time and Date</th>
                                     <th>Contact</th>
                                     <th>Total Amount</th>
@@ -80,6 +81,7 @@ if(isset($_COOKIE['id']) || isset($_SESSION['user'])){
                                 <?php foreach($row as $key => $r): ?>
                                 <tr class="tableRow" data-id="<?= $r['o_id']; ?>">
                                     <td></td>
+                                  <td><?= $r['o_invoice']; ?></td>
                                     <td>
                                         <?php
                                         $date = $r['o_datetime'];

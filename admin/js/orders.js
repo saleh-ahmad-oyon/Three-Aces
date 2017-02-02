@@ -20,6 +20,7 @@ $('.orders').click(function(){
             var dateAndTime = dtTime.split(";");
             $('#order-date').html(dateAndTime[0]);
             $('#order-time').html(dateAndTime[1]);
+            $('#order-inv').html(response.o_invoice);
             $('#cont').html(response.o_contact);
             $('#total').html('<b> $ ' + response.o_total + '</b>');
             var out = '';

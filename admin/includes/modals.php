@@ -19,6 +19,11 @@
                     <td id="order-time"></td>
                 </tr>
                 <tr>
+                    <td><b>Invoice No.</b></td>
+                    <td>:</td>
+                    <td id="order-inv"></td>
+                </tr>
+                <tr>
                     <td><b>Contact No.</b></td>
                     <td>:</td>
                     <td id="cont"></td>

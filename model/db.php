@@ -439,18 +439,19 @@ function getUserId($user)
     return $name;
 }
 
-function addOrder($orders, $total, $PhoneNumber, $ip, $browser,
+function addOrder($invoice, $orders, $total, $PhoneNumber, $ip, $browser,
                   $asNumber, $city, $country, $latitude, $longitude,
                   $region, $regionName, $timeZone, $zip)
 {
     $conn        = db_conn();
-    $selectQuery = "INSERT INTO `orders`(`o_description`, `o_total`, `o_contact`, `o_ip`, `o_device`, `asnumber`, 
+    $selectQuery = "INSERT INTO `orders`(`o_invoice`, `o_description`, `o_total`, `o_contact`, `o_ip`, `o_device`, `asnumber`, 
 `city`, `country`, `latitude`, `longitude`, `region`, `regionName`, `timezone`, `zip`) 
-VALUES (:orders, :total, :contact, :ip, :browser, :asnumber, :city, :country, 
+VALUES (:invoice, :orders, :total, :contact, :ip, :browser, :asnumber, :city, :country, 
 :latitude, :longitude, :region, :regionname, :timezone, :zip)";
     try{
         $stmt = $conn->prepare($selectQuery);
-        $stmt->execute(array(
+        $stmt->execute([
+            ':invoice'    => $invoice,
             ':orders'     => $orders,
             ':total'      => $total,
             ':contact'    => $PhoneNumber,
@@ -465,7 +466,7 @@ VALUES (:orders, :total, :contact, :ip, :browser, :asnumber, :city, :country,
             ':regionname' => $regionName,
             ':timezone'   => $timeZone,
             ':zip'        => $zip
-        ));
+        ]);
     }catch(PDOException $e){
         handle_sql_errors($selectQuery, $e->getMessage());
     }
@@ -503,7 +504,7 @@ function todayOrders()
 function allOrdersInfo()
 {
     $conn = db_conn();
-    $selectQuery = 'SELECT `o_id`, `o_datetime`, `o_total`, `o_contact` FROM `orders` ORDER BY `o_datetime` DESC ';
+    $selectQuery = 'SELECT `o_id`, `o_invoice`, `o_datetime`, `o_total`, `o_contact` FROM `orders` ORDER BY `o_datetime` DESC ';
     try{
         $stmt = $conn->query($selectQuery);
     }catch(PDOException $e){
@@ -529,7 +530,7 @@ function getCountryName()
 function todayOrdersInfo()
 {
     $conn = db_conn();
-    $selectQuery = 'SELECT `o_id`, `o_datetime`, `o_total`, `o_contact` FROM `orders` WHERE DATE(`o_datetime`) = DATE(NOW()) ORDER BY `o_datetime` DESC ';
+    $selectQuery = 'SELECT `o_id`, `o_invoice`, `o_datetime`, `o_total`, `o_contact` FROM `orders` WHERE DATE(`o_datetime`) = DATE(NOW()) ORDER BY `o_datetime` DESC ';
     try{
         $stmt = $conn->query($selectQuery);
     }catch(PDOException $e){
@@ -542,7 +543,7 @@ function todayOrdersInfo()
 function allInfo($key)
 {
     $conn = db_conn();
-    $selectQuery = 'SELECT `o_description`, `o_datetime`, `o_total`, `o_contact` FROM `orders` WHERE `o_id` = ?';
+    $selectQuery = 'SELECT `o_invoice`, `o_description`, `o_datetime`, `o_total`, `o_contact` FROM `orders` WHERE `o_id` = ?';
     try{
         $stmt = $conn->prepare($selectQuery);
         $stmt->execute(array($key));

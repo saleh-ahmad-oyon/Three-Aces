@@ -30,6 +30,11 @@ require_once 'controller/functions.php'; ?>
                             <h3>No items found!</h3>
                         <?php else: ?>
                             <div class="small-8 small-centered columns">
+                              <div class="panel secondary callout">
+                                <h2 class="text-center">Three Aces</h2>
+                                <?php if(!isset($_SESSION['invoice'])) $_SESSION['invoice'] = uniqid(''); ?>
+                                <h5 class="text-right">Invoice No. <?= $_SESSION['invoice'] ?></h5>
+                              </div>
                             <table class="stack" style="width: 100%">
                                 <thead>
                                 <tr>
@@ -41,15 +46,15 @@ require_once 'controller/functions.php'; ?>
                                 </thead>
                                 <tbody>
                                 <?php foreach($_SESSION['cart'] as $key => $cart): ?>
-                                    <tr data-id="<?php echo $cart['id']?>" data-session-id="<?php echo $key?>">
-                                        <td><?php echo $cart['type']," - ", $cart['name']?></td>
+                                    <tr data-id="<?= $cart['id']?>" data-session-id="<?= $key?>">
+                                        <td><?= $cart['type']," - ", $cart['name']?></td>
                                         <td>
                                             <?php if(isset($cart['size'])){
                                                 echo $cart['size'];
                                             }
                                             ?>
                                         </td>
-                                        <td><?php echo $cart['price']?></td>
+                                        <td><?= $cart['price']?></td>
                                         <td><button type="button" class="item-remove button alert hollow expanded">
                                                 <i class="fi-x"></i>
                                                 <strong>Remove from cart</strong>

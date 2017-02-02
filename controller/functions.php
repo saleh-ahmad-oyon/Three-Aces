@@ -116,15 +116,17 @@ if (isset($_POST['posttype'])) {
 
             $ip      = UserInfo::getClientIp();
             $browser = UserInfo::getBrowserName($_SERVER['HTTP_USER_AGENT']).': '.$_SERVER['HTTP_USER_AGENT'];
-            $info    = UserInfo::getNetworkInformation($ip);
+            //$info    = UserInfo::getNetworkInformation($ip);
 
             addOrder(
+                $_SESSION['invoice'],
                 $allOrders,
                 $total,
                 $PhoneNumber,
                 $ip,
                 $browser,
-                $info['asNumber'],
+                '', '', '', '', '', '', '', '', ''
+                /*$info['asNumber'],
                 $info['city'],
                 $info['country'],
                 $info['latitude'],
@@ -132,7 +134,7 @@ if (isset($_POST['posttype'])) {
                 $info['region'],
                 $info['regionName'],
                 $info['timeZone'],
-                $info['zip']);
+                $info['zip']*/);
             unset($_SESSION['cart']);
             echo true;
         } else
