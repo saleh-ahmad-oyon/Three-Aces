@@ -23,19 +23,21 @@ require_once '../controller/mailtoken.php';
                 </div>
                 <!--<h2>Insert Token which has send to your email</h2>-->
                 <h2>Insert your email address:</h2>
-                <form class="form-horizontal">
+                <form class="form-horizontal" id="mailsend">
                     <fieldset>
-                        <!--<div class="input-prepend" title="Password Token">
-                            <span class="add-on"><i class="halflings-icon tag"></i></span>
-                            <input required="required" autofocus name="token" id="token" type="text"/>
-                        </div>-->
                         <div class="input-prepend" title="Your Email">
                             <span class="add-on"><i class="halflings-icon envelope"></i></span>
-                            <input required="required" autofocus name="mail" id="mail" type="text"/>
+                            <input required="required" autofocus name="mail" id="mail" type="email"/>
                         </div>
                         <div class="clearfix"></div>
+
+                      <div id="alert-div">
+                        <h2 style="color:#881f0e;"></h2>
+                      </div>
+
+                      <h2>**A code will be sent to your email.</h2>
                         <div class="button-login">
-                            <button type="submit" name="tokenSubmit" class="btn btn-primary">Submit</button>
+                            <button type="submit" name="tokenSubmit" class="btn btn-primary">Send Code</button>
                         </div>
                         <div class="clearfix"></div>
                     </fieldset>
@@ -59,7 +61,8 @@ require_once '../controller/mailtoken.php';
 </div><!--/fluid-row-->
 
 <!-- start: JavaScript-->
-<?php include_once 'includes/jsscript.php';?>
+<?php include_once 'includes/jsscript.php'; ?>
+<script src="<?= SERVER ?>/admin/js/checkmail.js"></script>
 
 </body>
 </html>

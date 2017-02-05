@@ -335,6 +335,23 @@ function checkPass($user, $pass)
     return (password_verify(base64_encode(hash('sha256', $pass, true)), $row2['password'])) ? true : false;
 }
 
+function checkValidEmail($mail)
+{
+    $conn = db_conn();
+    $selectQuery = "SELECT COUNT(1) as `num` FROM `admin` WHERE `email` = :mail";
+    try {
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute(array(
+            ':mail' => $mail
+        ));
+    } catch(PDOException $e) {
+        handle_sql_errors($selectQuery, $e->getMessage());
+    }
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    return $row['num'] ? true : false;
+}
+
 function checkOldPass($key,$old)
 {
     $conn        = db_conn();

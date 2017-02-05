@@ -84,6 +84,15 @@ if (isset($_POST['day']) && $_POST['day'] == 'today') {
     $resp = getAdminInfo($key);
     $resp['msg'] = 'Successfully Updated !!';
     echo json_encode($resp);
+} elseif (isset($_POST['adminMail'])) {
+    $mail = $_POST['adminMail'];
+
+    if (!checkValidEmail($mail)) {
+         echo false;
+         return;
+    }
+
+    echo true;
 }
 
 /**
