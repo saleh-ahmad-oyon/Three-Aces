@@ -25,7 +25,7 @@ require_once '../controller/mailtoken.php';
                 <h2>Insert your email address:</h2>
                 <form class="form-horizontal" id="mailsend">
                     <fieldset>
-                        <div class="input-prepend" title="Your Email">
+                        <div class="input-prepend" title="Your Email" id="inp-rst">
                             <span class="add-on"><i class="halflings-icon envelope"></i></span>
                             <input required="required" autofocus name="mail" id="mail" type="email"/>
                         </div>
